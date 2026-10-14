@@ -1,0 +1,18 @@
+import {chromium} from '@playwright/test';
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--use-angle=metal']});
+const page=await browser.newPage({viewport:{width:1440,height:900}});
+const errors=[];
+page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await page.goto('http://127.0.0.1:5173');
+await page.waitForFunction(()=>window.game?.world,{timeout:60000});
+await page.waitForTimeout(1200);
+console.log('initial',await page.evaluate(()=>window.game.snapshot()),'errors',errors);
+await page.screenshot({path:'.artifacts/menu.png'});
+await page.locator('#start').click();await page.waitForTimeout(300);
+await page.keyboard.press('KeyF');await page.keyboard.down('Space');await page.waitForTimeout(1500);await page.keyboard.up('Space');
+await page.keyboard.down('KeyW');await page.keyboard.down('Shift');await page.waitForTimeout(1200);await page.keyboard.up('KeyW');await page.keyboard.up('Shift');
+console.log('flying',await page.evaluate(()=>window.game.snapshot()));
+await page.screenshot({path:'.artifacts/flying.png'});
+await page.keyboard.press('Escape');await page.waitForTimeout(300);
+console.log('paused',await page.evaluate(()=>window.game.snapshot()),'errors',errors);
+await browser.close();

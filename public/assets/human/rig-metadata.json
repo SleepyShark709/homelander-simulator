@@ -1,0 +1,110 @@
+{
+  "modelSource": "Mesh2Motion native mannequin",
+  "sourceBundle": "addon",
+  "boneCount": 66,
+  "height": 1.8295642137527466,
+  "eyes": {
+    "l": [
+      0.03199998208276971,
+      0.15665808935231995,
+      0.11042753035520278
+    ],
+    "r": [
+      -0.03200001791722946,
+      0.1566580893523204,
+      0.11042751997098352
+    ]
+  },
+  "locomotion": {
+    "walk": {
+      "baseSpeed": 1.5,
+      "source": "Mesh2Motion",
+      "sourceClip": "Walk_Female"
+    },
+    "jog": {
+      "baseSpeed": 4,
+      "source": "Mesh2Motion",
+      "sourceClip": "Jog"
+    },
+    "sprint": {
+      "baseSpeed": 8,
+      "source": "Mesh2Motion",
+      "sourceClip": "Sprint"
+    }
+  },
+  "animationSource": {
+    "author": "Mesh2Motion / contributors",
+    "license": "CC0-1.0",
+    "url": "https://github.com/Mesh2Motion/mesh2motion-app",
+    "sourceCommit": "653a9698f5f315523072f1c3ff3496100401317b",
+    "retargeted": true,
+    "keyframesAuthoredHere": false,
+    "originalChannelsPreserved": false,
+    "retargetedClips": [
+      "jog",
+      "sprint"
+    ],
+    "adaptation": {
+      "tool": "Mesh2Motion Human Retargeter",
+      "license": "MIT",
+      "commit": "653a9698f5f315523072f1c3ff3496100401317b",
+      "inputs": {
+        "base": {
+          "path": ".asset-source/mesh2motion/human-base-animations.glb",
+          "sha256": "406eb0a8dc4ab366e623b79b6e3005a4951392e1bda78ae39c1099d31147733c"
+        },
+        "addon": {
+          "path": ".asset-source/mesh2motion/human-addon-animations.glb",
+          "sha256": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95"
+        }
+      },
+      "library": {
+        "src/lib/ModalDialog.ts": "32ef00a02d4d97521e4e7c8ac804d3f2c80248e8e50831da1111fd01c747111b",
+        "src/retarget/RetargetUtils.ts": "631b450436654e0dc078ee77bf26c99a44d21ce58efe4d9e198304200ac1855a",
+        "src/retarget/human-retargeting/ChainTwistAdditive.ts": "8fdf123225df3f1306996aede09d53efc917be35f5da35dbf9e95e1a29cec3ed",
+        "src/retarget/human-retargeting/HumanChainConfig.ts": "7b37d48a62387bded01d2f1903a903070a2070266ffada07af5dd0960dcb8168",
+        "src/retarget/human-retargeting/Joint.ts": "bcfa99b89e744d3d14e18b14d2d0e8049178d399801ba8a7aa34ab909bdb1d56",
+        "src/retarget/human-retargeting/Pose.ts": "b565f67c4cf5d446a5178fd0c446edbeb9d7ca08093106ed19a9e30bc2c26724",
+        "src/retarget/human-retargeting/Quat.ts": "e332efb5be14132d004fe35afe0e9382db85ece2a35eb62cef228a84857573ad",
+        "src/retarget/human-retargeting/Retargeter.ts": "499ca0bf9b3778e03e8a77a460412ab05541728b906e13e85af346086541fda4",
+        "src/retarget/human-retargeting/Rig.ts": "4e89184576feea3c0311a152c1304385d0f19355fa8e7f3cff4af787104227f2",
+        "src/retarget/human-retargeting/RigItem.ts": "2f95e374d5dc3b8beb58f535cf7470be52ccee7ebc22095f03cbdb89336bf82c",
+        "src/retarget/human-retargeting/Transform.ts": "0ab6deb032e93952815a0a745ca3192eef5b57e52c9dd551a2f30ea27a074554",
+        "src/retarget/human-retargeting/Vec3.ts": "c0ca494b0f1bc41fc770b17a83d67054472e26bea4bc0a8b3d01adcfe2153b8a"
+      },
+      "adapterSha256": "7026157a1277d47c743e1301c5a50319f42b369b370caf59a6284c34eac8feba",
+      "sampleRate": 120,
+      "targetBundle": "addon",
+      "keyframesAuthoredHere": false,
+      "checks": [
+        {
+          "name": "jog",
+          "sourceName": "Jog",
+          "bones": 66,
+          "mapped": 65,
+          "tracks": 198,
+          "frames": 141,
+          "maxDeformationRotationError": 0.0799381821923,
+          "worst": {
+            "time": 0.5333333333333333,
+            "bone": "calf_r"
+          }
+        },
+        {
+          "name": "sprint",
+          "sourceName": "Sprint",
+          "bones": 66,
+          "mapped": 65,
+          "tracks": 198,
+          "frames": 101,
+          "maxDeformationRotationError": 0.07903385043032998,
+          "worst": {
+            "time": 0.7,
+            "bone": "clavicle_r"
+          }
+        }
+      ],
+      "outputSha256": "d40592f50701b0ced89c9dfad6afb0b4a339d807777237fe9918a6e6e1fc4796"
+    }
+  }
+}

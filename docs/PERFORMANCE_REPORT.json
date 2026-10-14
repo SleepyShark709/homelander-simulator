@@ -1,0 +1,987 @@
+{
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "renderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M2 Pro, Unspecified Version)",
+    "drawingBuffer": [
+      1440,
+      900
+    ],
+    "devicePixelRatio": 1,
+    "hardwareConcurrency": 12
+  },
+  "durationSeconds": 630,
+  "method": "30s warmup + 120s normal + 120s combat + 360s continued operation; Chrome headless on local Metal GPU; scripted input/scenario driver, not manual play",
+  "segments": [
+    {
+      "name": "normal",
+      "frame": {
+        "frames": 7210,
+        "medianMs": 16.69999999999709,
+        "p95Ms": 16.70000000001164,
+        "maxMs": 16.800000000017462
+      },
+      "cpuUpdate": {
+        "frames": 7210,
+        "medianMs": 0.5999999940395355,
+        "p95Ms": 1.2999999970197678,
+        "maxMs": 5.4000000059604645
+      },
+      "renderSubmission": {
+        "frames": 7210,
+        "medianMs": 1,
+        "p95Ms": 2.6000000089406967,
+        "maxMs": 4.200000002980232
+      },
+      "snapshot": {
+        "time": 150.3333333333451,
+        "generation": 1,
+        "running": true,
+        "position": [
+          66.05372997328595,
+          24.96190259583395,
+          -90.07598002301802
+        ],
+        "mode": "fly",
+        "heat": 0,
+        "level": 0,
+        "civilians": 20,
+        "enemies": 0,
+        "kills": 0,
+        "destroyed": 0,
+        "bodies": 29,
+        "colliders": 87,
+        "effects": 0,
+        "geometries": 211,
+        "textures": 10,
+        "drawCalls": 334,
+        "triangles": 50860
+      },
+      "heap": 49191959
+    },
+    {
+      "name": "stress",
+      "frame": {
+        "frames": 7202,
+        "medianMs": 16.699999999982538,
+        "p95Ms": 16.79999999998836,
+        "maxMs": 33.30000000001746
+      },
+      "cpuUpdate": {
+        "frames": 7202,
+        "medianMs": 1.2999999970197678,
+        "p95Ms": 1.9000000059604645,
+        "maxMs": 4.9000000059604645
+      },
+      "renderSubmission": {
+        "frames": 7202,
+        "medianMs": 1.5,
+        "p95Ms": 2.2000000029802322,
+        "maxMs": 22.299999997019768
+      },
+      "snapshot": {
+        "time": 270.3833333334161,
+        "generation": 1,
+        "running": true,
+        "position": [
+          -0.000004264031312928296,
+          21.466596955836213,
+          24.999985683259823
+        ],
+        "mode": "fly",
+        "heat": 100,
+        "level": 3,
+        "civilians": 20,
+        "enemies": 12,
+        "kills": 3,
+        "destroyed": 22,
+        "bodies": 49,
+        "colliders": 87,
+        "effects": 26,
+        "geometries": 275,
+        "textures": 12,
+        "drawCalls": 568,
+        "triangles": 82968
+      },
+      "heap": 54763798
+    },
+    {
+      "name": "long-final",
+      "frame": {
+        "frames": 3545,
+        "medianMs": 16.699999999953434,
+        "p95Ms": 16.70000000006985,
+        "maxMs": 16.800000000046566
+      },
+      "cpuUpdate": {
+        "frames": 3545,
+        "medianMs": 0.5999999940395355,
+        "p95Ms": 1.2999999970197678,
+        "maxMs": 3.4000000059604645
+      },
+      "renderSubmission": {
+        "frames": 3545,
+        "medianMs": 1,
+        "p95Ms": 2.6000000089406967,
+        "maxMs": 3.800000011920929
+      },
+      "snapshot": {
+        "time": 60.083333333331204,
+        "generation": 4,
+        "running": true,
+        "position": [
+          62.24029262422846,
+          24.988549118846375,
+          -89.10578598548454
+        ],
+        "mode": "fly",
+        "heat": 0,
+        "level": 0,
+        "civilians": 20,
+        "enemies": 0,
+        "kills": 0,
+        "destroyed": 0,
+        "bodies": 29,
+        "colliders": 87,
+        "effects": 0,
+        "geometries": 212,
+        "textures": 12,
+        "drawCalls": 366,
+        "triangles": 70420
+      },
+      "heap": 43924324
+    }
+  ],
+  "resets": [
+    {
+      "before": {
+        "name": "before-reset",
+        "frame": {
+          "frames": 3609,
+          "medianMs": 16.70000000001164,
+          "p95Ms": 16.70000000001164,
+          "maxMs": 16.800000000046566
+        },
+        "cpuUpdate": {
+          "frames": 3609,
+          "medianMs": 1.300000011920929,
+          "p95Ms": 2.5,
+          "maxMs": 6.4000000059604645
+        },
+        "renderSubmission": {
+          "frames": 3609,
+          "medianMs": 1,
+          "p95Ms": 2,
+          "maxMs": 5.299999997019768
+        },
+        "snapshot": {
+          "time": 330.68333333336125,
+          "generation": 1,
+          "running": true,
+          "position": [
+            -93.01095182732388,
+            24.99893501297689,
+            -6.713056999589753
+          ],
+          "mode": "fly",
+          "heat": 9.583333333333968,
+          "level": 1,
+          "civilians": 20,
+          "enemies": 4,
+          "kills": 3,
+          "destroyed": 22,
+          "bodies": 33,
+          "colliders": 71,
+          "effects": 0,
+          "geometries": 233,
+          "textures": 12,
+          "drawCalls": 394,
+          "triangles": 70244
+        },
+        "heap": 55900453
+      },
+      "after": {
+        "name": "after-reset",
+        "frame": {
+          "frames": 3670,
+          "medianMs": 16.70000000001164,
+          "p95Ms": 16.70000000001164,
+          "maxMs": 33.29999999998836
+        },
+        "cpuUpdate": {
+          "frames": 3670,
+          "medianMs": 1.2999999970197678,
+          "p95Ms": 2.5,
+          "maxMs": 6.4000000059604645
+        },
+        "renderSubmission": {
+          "frames": 3670,
+          "medianMs": 1,
+          "p95Ms": 2,
+          "maxMs": 21.30000001192093
+        },
+        "snapshot": {
+          "time": 1.0000000000000013,
+          "generation": 2,
+          "running": true,
+          "position": [
+            -0.0000021626699622245837,
+            1.0000999306650191,
+            24.999989429653148
+          ],
+          "mode": "ground",
+          "heat": 0,
+          "level": 0,
+          "civilians": 20,
+          "enemies": 0,
+          "kills": 0,
+          "destroyed": 0,
+          "bodies": 29,
+          "colliders": 87,
+          "effects": 0,
+          "geometries": 200,
+          "textures": 12,
+          "drawCalls": 507,
+          "triangles": 82464
+        },
+        "heap": 57180901
+      }
+    },
+    {
+      "before": {
+        "name": "before-reset",
+        "frame": {
+          "frames": 7132,
+          "medianMs": 16.70000000001164,
+          "p95Ms": 16.79999999998836,
+          "maxMs": 16.800000000046566
+        },
+        "cpuUpdate": {
+          "frames": 7132,
+          "medianMs": 0.5999999940395355,
+          "p95Ms": 1,
+          "maxMs": 3.7000000029802322
+        },
+        "renderSubmission": {
+          "frames": 7132,
+          "medianMs": 0.9000000059604645,
+          "p95Ms": 2.0999999940395355,
+          "maxMs": 4.0999999940395355
+        },
+        "snapshot": {
+          "time": 119.86666666666115,
+          "generation": 2,
+          "running": true,
+          "position": [
+            -83.85101005938486,
+            24.981618499504847,
+            51.47890584253764
+          ],
+          "mode": "fly",
+          "heat": 0,
+          "level": 0,
+          "civilians": 20,
+          "enemies": 0,
+          "kills": 0,
+          "destroyed": 0,
+          "bodies": 29,
+          "colliders": 87,
+          "effects": 0,
+          "geometries": 216,
+          "textures": 12,
+          "drawCalls": 365,
+          "triangles": 61880
+        },
+        "heap": 45571857
+      },
+      "after": {
+        "name": "after-reset",
+        "frame": {
+          "frames": 7193,
+          "medianMs": 16.70000000001164,
+          "p95Ms": 16.79999999998836,
+          "maxMs": 16.800000000046566
+        },
+        "cpuUpdate": {
+          "frames": 7193,
+          "medianMs": 0.5999999940395355,
+          "p95Ms": 1,
+          "maxMs": 3.7000000029802322
+        },
+        "renderSubmission": {
+          "frames": 7193,
+          "medianMs": 0.9000000059604645,
+          "p95Ms": 2.0999999940395355,
+          "maxMs": 26.200000002980232
+        },
+        "snapshot": {
+          "time": 1.016666666666668,
+          "generation": 3,
+          "running": true,
+          "position": [
+            -0.0000021626699622245837,
+            1.0000999736659286,
+            24.999989429653148
+          ],
+          "mode": "ground",
+          "heat": 0,
+          "level": 0,
+          "civilians": 20,
+          "enemies": 0,
+          "kills": 0,
+          "destroyed": 0,
+          "bodies": 29,
+          "colliders": 87,
+          "effects": 0,
+          "geometries": 200,
+          "textures": 12,
+          "drawCalls": 506,
+          "triangles": 82452
+        },
+        "heap": 69008757
+      }
+    },
+    {
+      "before": {
+        "name": "before-reset",
+        "frame": {
+          "frames": 7139,
+          "medianMs": 16.699999999953434,
+          "p95Ms": 16.70000000006985,
+          "maxMs": 16.800000000046566
+        },
+        "cpuUpdate": {
+          "frames": 7139,
+          "medianMs": 0.5999999940395355,
+          "p95Ms": 1.2000000029802322,
+          "maxMs": 5.299999997019768
+        },
+        "renderSubmission": {
+          "frames": 7139,
+          "medianMs": 0.9000000059604645,
+          "p95Ms": 2.4000000059604645,
+          "maxMs": 22.700000002980232
+        },
+        "snapshot": {
+          "time": 119.9833333333278,
+          "generation": 3,
+          "running": true,
+          "position": [
+            -70.49479946626161,
+            24.98540428190793,
+            86.60930725872458
+          ],
+          "mode": "fly",
+          "heat": 0,
+          "level": 0,
+          "civilians": 20,
+          "enemies": 0,
+          "kills": 0,
+          "destroyed": 0,
+          "bodies": 29,
+          "colliders": 87,
+          "effects": 0,
+          "geometries": 219,
+          "textures": 12,
+          "drawCalls": 346,
+          "triangles": 58960
+        },
+        "heap": 58124744
+      },
+      "after": {
+        "name": "after-reset",
+        "frame": {
+          "frames": 7200,
+          "medianMs": 16.699999999953434,
+          "p95Ms": 16.70000000006985,
+          "maxMs": 16.800000000046566
+        },
+        "cpuUpdate": {
+          "frames": 7200,
+          "medianMs": 0.5999999940395355,
+          "p95Ms": 1.2000000029802322,
+          "maxMs": 5.299999997019768
+        },
+        "renderSubmission": {
+          "frames": 7200,
+          "medianMs": 0.9000000059604645,
+          "p95Ms": 2.4000000059604645,
+          "maxMs": 22.700000002980232
+        },
+        "snapshot": {
+          "time": 1.0000000000000013,
+          "generation": 4,
+          "running": true,
+          "position": [
+            -0.0000021626699622245837,
+            1.0000999306650191,
+            24.999989429653148
+          ],
+          "mode": "ground",
+          "heat": 0,
+          "level": 0,
+          "civilians": 20,
+          "enemies": 0,
+          "kills": 0,
+          "destroyed": 0,
+          "bodies": 29,
+          "colliders": 87,
+          "effects": 0,
+          "geometries": 200,
+          "textures": 12,
+          "drawCalls": 506,
+          "triangles": 82452
+        },
+        "heap": 57793196
+      }
+    }
+  ],
+  "samples": [
+    {
+      "mode": "fly",
+      "second": 0,
+      "time": 0,
+      "generation": 1,
+      "running": true,
+      "position": [
+        0,
+        25,
+        25
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 200,
+      "textures": 10,
+      "drawCalls": 506,
+      "triangles": 82452,
+      "heap": 40647577
+    },
+    {
+      "mode": "fly",
+      "second": 0,
+      "time": 30.1833333333329,
+      "generation": 1,
+      "running": true,
+      "position": [
+        0,
+        25,
+        25
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 206,
+      "textures": 10,
+      "drawCalls": 385,
+      "triangles": 70064,
+      "heap": 48383138
+    },
+    {
+      "mode": "fly",
+      "second": 30,
+      "time": 60.26666666666453,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -18.403842142171925,
+        25,
+        84.64006791086285
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 206,
+      "textures": 10,
+      "drawCalls": 386,
+      "triangles": 70768,
+      "heap": 47309563
+    },
+    {
+      "mode": "fly",
+      "second": 60,
+      "time": 90.38333333332949,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -84.59798769407644,
+        24.988246992209753,
+        -17.168409329187853
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 211,
+      "textures": 10,
+      "drawCalls": 397,
+      "triangles": 62304,
+      "heap": 42405555
+    },
+    {
+      "mode": "fly",
+      "second": 90,
+      "time": 120.34999999999445,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -24.173808241226652,
+        24.988246992209753,
+        -85.34205545396617
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 211,
+      "textures": 10,
+      "drawCalls": 354,
+      "triangles": 65744,
+      "heap": 45094887
+    },
+    {
+      "mode": "fly",
+      "second": 0,
+      "time": 150.3333333333451,
+      "generation": 1,
+      "running": true,
+      "position": [
+        0,
+        14,
+        25
+      ],
+      "heat": 100,
+      "level": 3,
+      "civilians": 20,
+      "enemies": 12,
+      "kills": 0,
+      "destroyed": 1,
+      "bodies": 57,
+      "colliders": 114,
+      "effects": 20,
+      "geometries": 211,
+      "textures": 10,
+      "drawCalls": 334,
+      "triangles": 50860,
+      "heap": 51090947
+    },
+    {
+      "mode": "fly",
+      "second": 30,
+      "time": 180.55000000003582,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -0.000007040180954653863,
+        21.466596955836213,
+        24.999984296223218
+      ],
+      "heat": 100,
+      "level": 3,
+      "civilians": 20,
+      "enemies": 12,
+      "kills": 0,
+      "destroyed": 7,
+      "bodies": 57,
+      "colliders": 108,
+      "effects": 57,
+      "geometries": 290,
+      "textures": 12,
+      "drawCalls": 505,
+      "triangles": 71312,
+      "heap": 67268974
+    },
+    {
+      "mode": "fly",
+      "second": 60,
+      "time": 210.53333333339302,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -0.0000042702584517329,
+        21.466596955836213,
+        24.99998568118447
+      ],
+      "heat": 100,
+      "level": 3,
+      "civilians": 20,
+      "enemies": 12,
+      "kills": 2,
+      "destroyed": 13,
+      "bodies": 65,
+      "colliders": 110,
+      "effects": 66,
+      "geometries": 293,
+      "textures": 12,
+      "drawCalls": 493,
+      "triangles": 66084,
+      "heap": 59989182
+    },
+    {
+      "mode": "fly",
+      "second": 90,
+      "time": 240.41666666675013,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -0.000004266107025863164,
+        20.133263641023223,
+        24.999985682568038
+      ],
+      "heat": 100,
+      "level": 3,
+      "civilians": 20,
+      "enemies": 12,
+      "kills": 2,
+      "destroyed": 19,
+      "bodies": 65,
+      "colliders": 104,
+      "effects": 47,
+      "geometries": 292,
+      "textures": 12,
+      "drawCalls": 507,
+      "triangles": 69452,
+      "heap": 72093314
+    },
+    {
+      "mode": "fly",
+      "second": 0,
+      "time": 270.53333333341595,
+      "generation": 1,
+      "running": true,
+      "position": [
+        0,
+        25,
+        25
+      ],
+      "heat": 100,
+      "level": 3,
+      "civilians": 20,
+      "enemies": 12,
+      "kills": 3,
+      "destroyed": 22,
+      "bodies": 49,
+      "colliders": 87,
+      "effects": 34,
+      "geometries": 283,
+      "textures": 12,
+      "drawCalls": 575,
+      "triangles": 83092,
+      "heap": 57988907
+    },
+    {
+      "mode": "fly",
+      "second": 30,
+      "time": 300.6666666667219,
+      "generation": 1,
+      "running": true,
+      "position": [
+        66.63610926576075,
+        25,
+        94.03572229435667
+      ],
+      "heat": 54.50000000000013,
+      "level": 2,
+      "civilians": 20,
+      "enemies": 6,
+      "kills": 3,
+      "destroyed": 22,
+      "bodies": 35,
+      "colliders": 73,
+      "effects": 0,
+      "geometries": 233,
+      "textures": 12,
+      "drawCalls": 360,
+      "triangles": 60296,
+      "heap": 50389802
+    },
+    {
+      "mode": "fly",
+      "second": 60,
+      "time": 330.6666666666946,
+      "generation": 1,
+      "running": true,
+      "position": [
+        -93.02975988299295,
+        24.99893501297689,
+        -6.976617860938859
+      ],
+      "heat": 9.583333333333968,
+      "level": 1,
+      "civilians": 20,
+      "enemies": 4,
+      "kills": 3,
+      "destroyed": 22,
+      "bodies": 33,
+      "colliders": 71,
+      "effects": 0,
+      "geometries": 233,
+      "textures": 12,
+      "drawCalls": 371,
+      "triangles": 61916,
+      "heap": 54782561
+    },
+    {
+      "mode": "fly",
+      "second": 90,
+      "time": 29.91666666666625,
+      "generation": 2,
+      "running": true,
+      "position": [
+        -84.9587298783008,
+        24.99990004301071,
+        -92.8619736181281
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 206,
+      "textures": 12,
+      "drawCalls": 335,
+      "triangles": 54600,
+      "heap": 46221865
+    },
+    {
+      "mode": "fly",
+      "second": 120,
+      "time": 59.883333333331215,
+      "generation": 2,
+      "running": true,
+      "position": [
+        84.30373915293603,
+        24.990957669372015,
+        -9.338454635377275
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 216,
+      "textures": 12,
+      "drawCalls": 383,
+      "triangles": 62776,
+      "heap": 67292057
+    },
+    {
+      "mode": "fly",
+      "second": 150,
+      "time": 89.86666666666285,
+      "generation": 2,
+      "running": true,
+      "position": [
+        87.57794479597942,
+        24.986843640746578,
+        88.07350913951086
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 216,
+      "textures": 12,
+      "drawCalls": 334,
+      "triangles": 58316,
+      "heap": 54047589
+    },
+    {
+      "mode": "fly",
+      "second": 180,
+      "time": 119.84999999999448,
+      "generation": 2,
+      "running": true,
+      "position": [
+        -83.95915655550198,
+        24.981618499504847,
+        51.23782016419864
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 216,
+      "textures": 12,
+      "drawCalls": 347,
+      "triangles": 56620,
+      "heap": 71666305
+    },
+    {
+      "mode": "fly",
+      "second": 210,
+      "time": 30.016666666666243,
+      "generation": 3,
+      "running": true,
+      "position": [
+        -90.29100009036483,
+        24.99283403592846,
+        -79.95766270285822
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 210,
+      "textures": 12,
+      "drawCalls": 338,
+      "triangles": 59644,
+      "heap": 56837920
+    },
+    {
+      "mode": "fly",
+      "second": 240,
+      "time": 59.999999999997875,
+      "generation": 3,
+      "running": true,
+      "position": [
+        78.0988101551302,
+        24.988397424577553,
+        -76.6610353595097
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 217,
+      "textures": 12,
+      "drawCalls": 337,
+      "triangles": 56404,
+      "heap": 58082720
+    },
+    {
+      "mode": "fly",
+      "second": 270,
+      "time": 90.01666666666284,
+      "generation": 3,
+      "running": true,
+      "position": [
+        91.35737492174303,
+        24.987826164588842,
+        69.9248215182015
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 217,
+      "textures": 12,
+      "drawCalls": 341,
+      "triangles": 58400,
+      "heap": 50309064
+    },
+    {
+      "mode": "fly",
+      "second": 300,
+      "time": 119.9833333333278,
+      "generation": 3,
+      "running": true,
+      "position": [
+        -70.49479946626161,
+        24.98540428190793,
+        86.60930725872458
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 219,
+      "textures": 12,
+      "drawCalls": 346,
+      "triangles": 58960,
+      "heap": 56364972
+    },
+    {
+      "mode": "fly",
+      "second": 330,
+      "time": 30.116666666666237,
+      "generation": 4,
+      "running": true,
+      "position": [
+        -84.44627452624991,
+        24.989579884732912,
+        -46.791372749175935
+      ],
+      "heat": 0,
+      "level": 0,
+      "civilians": 20,
+      "enemies": 0,
+      "kills": 0,
+      "destroyed": 0,
+      "bodies": 29,
+      "colliders": 87,
+      "effects": 0,
+      "geometries": 210,
+      "textures": 12,
+      "drawCalls": 348,
+      "triangles": 61044,
+      "heap": 41770816
+    }
+  ],
+  "errors": []
+}

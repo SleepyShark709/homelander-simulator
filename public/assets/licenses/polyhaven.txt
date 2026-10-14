@@ -1,0 +1,16 @@
+Poly Haven assets are provided under CC0 1.0 Universal.
+https://polyhaven.com/license
+https://creativecommons.org/publicdomain/zero/1.0/
+Legal text: makehuman-cc0.txt (same CC0 1.0 legal instrument).
+Verified 2026-10-12.
+
+worn_asphalt: Amal Kumar
+concrete_pavement: Charlotte Baglioni
+brick_wall_003: Dimitrios Savva (Photography), Rob Tuytel (Processing)
+urban_street_03: Andreas Mischok
+street_lamp_01: Josh Dean
+
+Original sources and downloaded file hashes are recorded in manifest.json
+and quality-sources.json. Credit is retained even though CC0 does not
+require attribution. The authorship of the original assets is not claimed
+by this project.

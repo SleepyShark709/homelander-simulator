@@ -1,0 +1,17 @@
+CMU Graphics Lab Motion Capture Database
+https://mocap.cs.cmu.edu/
+https://mocap.cs.cmu.edu/faqs.php
+Verified 2026-10-12.
+
+Motion data may be copied, modified and redistributed without permission.
+It may be included in commercial products. The motion data itself must not
+be resold directly, including converted forms. These are CMU data terms,
+not a CC0 dedication. The original ASF/AMC source is kept as development
+input; this game embeds retargeted walking/running clips in its characters.
+
+Acknowledgment:
+The data used in this project was obtained from mocap.cs.cmu.edu.
+The database was created with funding from NSF EIA-0196217.
+
+Clips: subject 07 trial 04, subject 09 trial 01, subject 35 trial 24.
+Other character action clips and the retargeting program are project work.

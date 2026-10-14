@@ -1,0 +1,758 @@
+{
+  "date": "2026-10-10",
+  "totalChecks": 32,
+  "reports": {
+    "integration": {
+      "results": [
+        {
+          "name": "keyboard flight ascent",
+          "pass": true,
+          "data": {
+            "time": 0.8833333333333344,
+            "generation": 1,
+            "running": true,
+            "position": [
+              0,
+              8.270908598974348,
+              25
+            ],
+            "mode": "fly",
+            "heat": 0,
+            "level": 0,
+            "civilians": 20,
+            "enemies": 0,
+            "kills": 0,
+            "destroyed": 0,
+            "bodies": 29,
+            "colliders": 87,
+            "effects": 0,
+            "geometries": 363,
+            "textures": 41,
+            "drawCalls": 672,
+            "triangles": 1722318
+          }
+        },
+        {
+          "name": "Esc freezes simulation",
+          "pass": true,
+          "data": {
+            "time": 0.9000000000000011,
+            "generation": 1,
+            "running": false,
+            "position": [
+              0,
+              8.414252822473646,
+              25
+            ],
+            "mode": "fly",
+            "heat": 0,
+            "level": 0,
+            "civilians": 20,
+            "enemies": 0,
+            "kills": 0,
+            "destroyed": 0,
+            "bodies": 29,
+            "colliders": 87,
+            "effects": 0,
+            "geometries": 363,
+            "textures": 41,
+            "drawCalls": 545,
+            "triangles": 1687528
+          }
+        },
+        {
+          "name": "laser kills aligned NPC",
+          "pass": true,
+          "data": {
+            "hp": 0,
+            "time": 0.733333333333334,
+            "heat": 11,
+            "beam": true
+          }
+        },
+        {
+          "name": "right click punch kills",
+          "pass": true,
+          "data": 0
+        },
+        {
+          "name": "air slam lands and kills nearby NPC",
+          "pass": true,
+          "data": {
+            "time": 1.0333333333333345,
+            "generation": 4,
+            "running": true,
+            "position": [
+              7.583953935519361e-06,
+              1.0000999753392534,
+              7.583953935519361e-06
+            ],
+            "mode": "ground",
+            "heat": 11,
+            "level": 1,
+            "civilians": 20,
+            "enemies": 0,
+            "kills": 1,
+            "destroyed": 0,
+            "bodies": 38,
+            "colliders": 96,
+            "effects": 12,
+            "geometries": 306,
+            "textures": 39,
+            "drawCalls": 502,
+            "triangles": 1696832
+          }
+        },
+        {
+          "name": "panel opens collision; vehicle receives physics impulse",
+          "pass": true,
+          "data": {
+            "panelDead": true,
+            "panelCollider": false,
+            "carDead": true,
+            "carSpeed": {
+              "x": -0.7576163411140442,
+              "y": 7.7055253982543945,
+              "z": 6.569705486297607
+            },
+            "heat": 28
+          }
+        },
+        {
+          "name": "three-tier director fills capped enemy roster",
+          "pass": true,
+          "data": {
+            "time": 30.933333333332858,
+            "generation": 5,
+            "running": true,
+            "position": [
+              0,
+              11.979999650269747,
+              25
+            ],
+            "mode": "fly",
+            "heat": 100,
+            "level": 3,
+            "civilians": 20,
+            "enemies": 12,
+            "kills": 0,
+            "destroyed": 0,
+            "bodies": 41,
+            "colliders": 99,
+            "effects": 33,
+            "geometries": 412,
+            "textures": 61,
+            "drawCalls": 679,
+            "triangles": 2596552
+          }
+        },
+        {
+          "name": "pursuit decays without player attack",
+          "pass": true,
+          "data": {
+            "time": 67.06666666666415,
+            "generation": 5,
+            "running": true,
+            "position": [
+              0,
+              11.979999650269747,
+              25
+            ],
+            "mode": "fly",
+            "heat": 0,
+            "level": 0,
+            "civilians": 20,
+            "enemies": 0,
+            "kills": 0,
+            "destroyed": 0,
+            "bodies": 29,
+            "colliders": 87,
+            "effects": 0,
+            "geometries": 379,
+            "textures": 49,
+            "drawCalls": 498,
+            "triangles": 1677568
+          }
+        },
+        {
+          "name": "three resets restore baseline entities",
+          "pass": true,
+          "data": [
+            {
+              "time": 0,
+              "generation": 6,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 317,
+              "textures": 49,
+              "drawCalls": 602,
+              "triangles": 1705238
+            },
+            {
+              "time": 0,
+              "generation": 7,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 313,
+              "textures": 49,
+              "drawCalls": 612,
+              "triangles": 1704594
+            },
+            {
+              "time": 0,
+              "generation": 8,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 316,
+              "textures": 49,
+              "drawCalls": 609,
+              "triangles": 1701692
+            }
+          ]
+        },
+        {
+          "name": "no browser runtime errors",
+          "pass": true,
+          "data": []
+        }
+      ],
+      "errors": []
+    },
+    "extended": {
+      "results": [
+        {
+          "name": "real keyboard sprint hits NPC",
+          "pass": true,
+          "data": {
+            "hp": 0,
+            "snapshot": {
+              "time": 1.2000000000000006,
+              "generation": 1,
+              "running": true,
+              "position": [
+                0.9046528748689937,
+                0.9823652890158701,
+                -9.698707174626179
+              ],
+              "mode": "ground",
+              "heat": 11,
+              "level": 1,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 1,
+              "destroyed": 0,
+              "bodies": 30,
+              "colliders": 88,
+              "effects": 4,
+              "geometries": 331,
+              "textures": 42,
+              "drawCalls": 594,
+              "triangles": 1780038
+            }
+          }
+        },
+        {
+          "name": "natural fall lands on roof",
+          "pass": true,
+          "data": {
+            "position": [
+              -37.00000178661189,
+              21.999723501197877,
+              -38.000018464175085
+            ],
+            "mode": "ground"
+          }
+        },
+        {
+          "name": "boundary blocks outward but permits returning",
+          "pass": true,
+          "data": {
+            "roof": {
+              "position": [
+                -37.00000178661189,
+                21.999723501197877,
+                -38.000018464175085
+              ],
+              "mode": "ground"
+            },
+            "edge": 96.80463683605194,
+            "returned": 47.66071479767561,
+            "count": 19,
+            "afterVisible": 19,
+            "afterHidden": 20
+          }
+        },
+        {
+          "name": "spawn delays while every candidate is visible",
+          "pass": true,
+          "data": {
+            "roof": {
+              "position": [
+                -37.00000178661189,
+                21.999723501197877,
+                -38.000018464175085
+              ],
+              "mode": "ground"
+            },
+            "edge": 96.80463683605194,
+            "returned": 47.66071479767561,
+            "count": 19,
+            "afterVisible": 19,
+            "afterHidden": 20
+          }
+        },
+        {
+          "name": "laser does not damage through solid wall",
+          "pass": true,
+          "data": {
+            "hp": 50,
+            "heat": 0
+          }
+        },
+        {
+          "name": "missing asset exposes actionable retry",
+          "pass": true,
+          "data": "Error: \u6a21\u578b\u52a0\u8f7d\u5931\u8d25\uff1ahuman/hero.glb"
+        },
+        {
+          "name": "no runtime errors",
+          "pass": true,
+          "data": []
+        }
+      ],
+      "errors": []
+    },
+    "final-smoke": {
+      "results": [
+        {
+          "name": "Ctrl descends during flight",
+          "pass": true,
+          "data": {
+            "high": 13.422535823844374,
+            "low": 7.9934341313317425
+          }
+        },
+        {
+          "name": "blur clears held attack and freezes clock",
+          "pass": true,
+          "data": {
+            "snapshot": {
+              "time": 2.4333333333333296,
+              "generation": 1,
+              "running": false,
+              "position": [
+                0,
+                7.136390285752714,
+                25
+              ],
+              "mode": "fly",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 8,
+              "geometries": 366,
+              "textures": 41,
+              "drawCalls": 563,
+              "triangles": 1695440
+            },
+            "laser": false,
+            "beams": false
+          }
+        },
+        {
+          "name": "third-person camera stops before rear wall",
+          "pass": true,
+          "data": [
+            0.41740691998289575,
+            2.4794377686798827,
+            27.535184721277354
+          ]
+        },
+        {
+          "name": "boost breaks panel and stops at intact rear wall",
+          "pass": true,
+          "data": {
+            "panelDead": true,
+            "position": [
+              -41.494995757071564,
+              2.9959805423296095,
+              43.74996543780799
+            ],
+            "panelZ": 31.7
+          }
+        },
+        {
+          "name": "soldier fires upward at invincible player",
+          "pass": true,
+          "data": {
+            "shotAt": 2.8999999999999946,
+            "player": {
+              "time": 2.9999999999999942,
+              "generation": 4,
+              "running": false,
+              "position": [
+                0,
+                15,
+                0
+              ],
+              "mode": "fly",
+              "heat": 100,
+              "level": 3,
+              "civilians": 20,
+              "enemies": 1,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 30,
+              "colliders": 88,
+              "effects": 2,
+              "geometries": 24,
+              "textures": 13,
+              "drawCalls": 504,
+              "triangles": 1664668
+            }
+          }
+        },
+        {
+          "name": "production build starts with bundled local assets",
+          "pass": true,
+          "data": []
+        },
+        {
+          "name": "no runtime errors",
+          "pass": true,
+          "data": []
+        }
+      ],
+      "errors": []
+    },
+    "visual-regression": {
+      "results": [
+        {
+          "name": "independent complete human skeletons",
+          "pass": true,
+          "data": {
+            "independent": true,
+            "skins": 5,
+            "bones": 53,
+            "textureCount": 41
+          }
+        },
+        {
+          "name": "flight uses forward pitch and speed trails",
+          "pass": true,
+          "data": {
+            "snapshot": {
+              "time": 1.5333333333333328,
+              "generation": 1,
+              "running": true,
+              "position": [
+                0,
+                7.2993412490803165,
+                -3.457011289894581
+              ],
+              "mode": "fly",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 365,
+              "textures": 41,
+              "drawCalls": 616,
+              "triangles": 1717124
+            },
+            "tilt": 1.3194861953332373,
+            "cape": true,
+            "wind": true
+          }
+        },
+        {
+          "name": "pause freezes simulation",
+          "pass": true,
+          "data": {
+            "time": 1.6833333333333322,
+            "generation": 1,
+            "running": false,
+            "position": [
+              0,
+              7.299829255217264,
+              -6.081514798104763
+            ],
+            "mode": "fly",
+            "heat": 0,
+            "level": 0,
+            "civilians": 20,
+            "enemies": 0,
+            "kills": 0,
+            "destroyed": 0,
+            "bodies": 29,
+            "colliders": 87,
+            "effects": 0,
+            "geometries": 365,
+            "textures": 41,
+            "drawCalls": 600,
+            "triangles": 1708124
+          }
+        },
+        {
+          "name": "real eye anchors still kill using mouse laser",
+          "pass": true,
+          "data": {
+            "hp": 0,
+            "kills": 1,
+            "eyes": [
+              [
+                -0.05019961289553533,
+                1.8201934204274677,
+                4.8347238796949945
+              ],
+              [
+                0.014058201885281615,
+                1.8201934204274677,
+                4.827858234387641
+              ]
+            ],
+            "visible": true
+          }
+        },
+        {
+          "name": "punch slam panels and vehicles remain functional",
+          "pass": true,
+          "data": {
+            "punch": true,
+            "slam": true,
+            "panel": true,
+            "car": true,
+            "carVelocity": {
+              "x": -0.6637095808982849,
+              "y": 7.974308013916016,
+              "z": 6.064122676849365
+            }
+          }
+        },
+        {
+          "name": "wanted spawns 12 humans then fully withdraws",
+          "pass": true,
+          "data": {
+            "peak": {
+              "time": 30.99999999999952,
+              "generation": 4,
+              "running": false,
+              "position": [
+                -2.1626699622245837e-06,
+                1.0000999749173933,
+                24.999989429653148
+              ],
+              "mode": "ground",
+              "heat": 100,
+              "level": 3,
+              "civilians": 20,
+              "enemies": 12,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 41,
+              "colliders": 99,
+              "effects": 11,
+              "geometries": 24,
+              "textures": 13,
+              "drawCalls": 651,
+              "triangles": 1858132
+            },
+            "end": {
+              "time": 102.66666666666212,
+              "generation": 4,
+              "running": false,
+              "position": [
+                -2.1626699622245837e-06,
+                0.9999999315988679,
+                24.999989429653148
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 24,
+              "textures": 13,
+              "drawCalls": 651,
+              "triangles": 1858132
+            }
+          }
+        },
+        {
+          "name": "four resets return bodies and GPU allocations to a stable baseline",
+          "pass": true,
+          "data": [
+            {
+              "time": 0,
+              "generation": 5,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 240,
+              "textures": 36,
+              "drawCalls": 551,
+              "triangles": 1682148
+            },
+            {
+              "time": 0,
+              "generation": 6,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 240,
+              "textures": 36,
+              "drawCalls": 551,
+              "triangles": 1682148
+            },
+            {
+              "time": 0,
+              "generation": 7,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 240,
+              "textures": 36,
+              "drawCalls": 551,
+              "triangles": 1682148
+            },
+            {
+              "time": 0,
+              "generation": 8,
+              "running": false,
+              "position": [
+                0,
+                1.16,
+                25
+              ],
+              "mode": "ground",
+              "heat": 0,
+              "level": 0,
+              "civilians": 20,
+              "enemies": 0,
+              "kills": 0,
+              "destroyed": 0,
+              "bodies": 29,
+              "colliders": 87,
+              "effects": 0,
+              "geometries": 240,
+              "textures": 36,
+              "drawCalls": 551,
+              "triangles": 1682148
+            }
+          ]
+        },
+        {
+          "name": "no runtime exceptions",
+          "pass": true,
+          "data": []
+        }
+      ],
+      "errors": []
+    }
+  },
+  "additionalProductionStudio": {
+    "roles": 4,
+    "poses": [
+      "boost",
+      "ground"
+    ],
+    "developmentGlobalsAbsent": true,
+    "errors": []
+  }
+}

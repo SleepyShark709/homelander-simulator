@@ -1,0 +1,122 @@
+[
+  {
+    "file": "public/assets/pbr/worn_asphalt/worn_asphalt_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_asphalt/worn_asphalt_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/worn_asphalt",
+    "license": "CC0",
+    "bytes": 3573942,
+    "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de"
+  },
+  {
+    "file": "public/assets/pbr/worn_asphalt/worn_asphalt_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/worn_asphalt/worn_asphalt_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/worn_asphalt",
+    "license": "CC0",
+    "bytes": 1503498,
+    "sha256": "5f835d192dac296674229a763553f356f5e206bb7f6d812bca5b0f38fc5302a4"
+  },
+  {
+    "file": "public/assets/pbr/worn_asphalt/worn_asphalt_rough_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/worn_asphalt/worn_asphalt_rough_1k.jpg",
+    "source": "https://polyhaven.com/a/worn_asphalt",
+    "license": "CC0",
+    "bytes": 480395,
+    "sha256": "ad63ece01a94cb43f57a9d628fa9d28a560bffc8878749998ad3601831ab843f"
+  },
+  {
+    "file": "public/assets/pbr/concrete_pavement/concrete_pavement_diff_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_pavement/concrete_pavement_diff_2k.jpg",
+    "source": "https://polyhaven.com/a/concrete_pavement",
+    "license": "CC0",
+    "bytes": 3817566,
+    "sha256": "e5a1cecfe7765cc0b24a6ab0abf492bd21c9e7af64e97fc46ef6021d0645fbd3"
+  },
+  {
+    "file": "public/assets/pbr/concrete_pavement/concrete_pavement_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_pavement/concrete_pavement_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/concrete_pavement",
+    "license": "CC0",
+    "bytes": 1184345,
+    "sha256": "a5009e409ff0f7b2d19e1316fe5e2b2b4f28e4a6b79990a664be69d4e8a0e690"
+  },
+  {
+    "file": "public/assets/pbr/concrete_pavement/concrete_pavement_rough_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_pavement/concrete_pavement_rough_1k.jpg",
+    "source": "https://polyhaven.com/a/concrete_pavement",
+    "license": "CC0",
+    "bytes": 475799,
+    "sha256": "99f81099af07b009134b6a81bf0f95ab16da09c57156cc2ed534975664a68533"
+  },
+  {
+    "file": "public/assets/pbr/brick_wall_003/brick_wall_003_diffuse_2k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/brick_wall_003/brick_wall_003_diffuse_2k.jpg",
+    "source": "https://polyhaven.com/a/brick_wall_003",
+    "license": "CC0",
+    "bytes": 2524760,
+    "sha256": "e9e5695b41dea599460197ff41f908c746bfadf7548d38f8e1f4fd18cee859fc"
+  },
+  {
+    "file": "public/assets/pbr/brick_wall_003/brick_wall_003_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brick_wall_003/brick_wall_003_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/brick_wall_003",
+    "license": "CC0",
+    "bytes": 1242175,
+    "sha256": "9bca29b5277b4d5be16ed2198ab705f2d754dfba509e9aec567ab4d2ed8a0981"
+  },
+  {
+    "file": "public/assets/pbr/brick_wall_003/brick_wall_003_rough_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brick_wall_003/brick_wall_003_rough_1k.jpg",
+    "source": "https://polyhaven.com/a/brick_wall_003",
+    "license": "CC0",
+    "bytes": 345775,
+    "sha256": "7fc63700443845bd6065bc47aa79e6782ba555870c23c0e6426638ac15133752"
+  },
+  {
+    "file": "public/assets/pbr/urban_street_03_1k.hdr",
+    "url": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/urban_street_03_1k.hdr",
+    "source": "https://polyhaven.com/a/urban_street_03",
+    "license": "CC0",
+    "bytes": 1633950,
+    "sha256": "145c1e911e763c43a28ba5800888606b79acd1830f43fe9793f24da3478b5d8b"
+  },
+  {
+    "file": "public/assets/street-lamp/street_lamp_01_1k.gltf",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/street_lamp_01/street_lamp_01_1k.gltf",
+    "source": "https://polyhaven.com/a/street_lamp_01",
+    "license": "CC0",
+    "bytes": 6419,
+    "sha256": "5d0358ede168b5e04547780b99d8e6d651cbe644e468e67cb505019047cbd5c8"
+  },
+  {
+    "file": "public/assets/street-lamp/street_lamp_01.bin",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/street_lamp_01/street_lamp_01.bin",
+    "source": "https://polyhaven.com/a/street_lamp_01",
+    "license": "CC0",
+    "bytes": 748908,
+    "sha256": "c283db9b6d95835d9e8fc1692829acadcb21a0623b2daaa7231cec1440488401"
+  },
+  {
+    "file": "public/assets/street-lamp/textures/street_lamp_01_nor_gl_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/street_lamp_01/street_lamp_01_nor_gl_1k.jpg",
+    "source": "https://polyhaven.com/a/street_lamp_01",
+    "license": "CC0",
+    "bytes": 438623,
+    "sha256": "172af0fd7ed4999e9f520b9f56e1f357a6dba87adbd7b8aa87e0a0b95840c63d"
+  },
+  {
+    "file": "public/assets/street-lamp/textures/street_lamp_01_diff_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/street_lamp_01/street_lamp_01_diff_1k.jpg",
+    "source": "https://polyhaven.com/a/street_lamp_01",
+    "license": "CC0",
+    "bytes": 307889,
+    "sha256": "3e9d3471b33eb1f8075ed741c2b1932103598626d057ca12ef38005ea5fcb165"
+  },
+  {
+    "file": "public/assets/street-lamp/textures/street_lamp_01_arm_1k.jpg",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/street_lamp_01/street_lamp_01_arm_1k.jpg",
+    "source": "https://polyhaven.com/a/street_lamp_01",
+    "license": "CC0",
+    "bytes": 664324,
+    "sha256": "4b5487a6c7ee300c3cf5449629e01c35409e5c7ac1695edb9fe69d4821853c7c"
+  }
+]

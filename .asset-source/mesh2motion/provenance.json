@@ -1,0 +1,43 @@
+{
+  "commit": "653a9698f5f315523072f1c3ff3496100401317b",
+  "artLicense": "CC0-1.0",
+  "codeLicense": "MIT",
+  "sources": [
+    {
+      "file": ".asset-source/mesh2motion/rig-human.glb",
+      "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/static/rigs/rig-human.glb",
+      "bytes": 21184,
+      "sha256": "3f7ad51c9471458a920dbe373755c3a7223e3672bb572406fa7d2e65deb8f593"
+    },
+    {
+      "file": ".asset-source/mesh2motion/human-base-animations.glb",
+      "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/static/animations/human-base-animations.glb",
+      "bytes": 5656648,
+      "sha256": "406eb0a8dc4ab366e623b79b6e3005a4951392e1bda78ae39c1099d31147733c"
+    },
+    {
+      "file": ".asset-source/mesh2motion/human-addon-animations.glb",
+      "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/static/animations/human-addon-animations.glb",
+      "bytes": 5292804,
+      "sha256": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95"
+    },
+    {
+      "file": ".asset-source/mesh2motion/model-human.glb",
+      "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/static/models/model-human.glb",
+      "bytes": 364868,
+      "sha256": "8766a46e82c63c947f7eff70c9d72d6ef0661e2280928048559f8975dcd1086d"
+    },
+    {
+      "file": ".asset-source/mesh2motion/LICENSE-CC0.MD",
+      "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/LICENSE-CC0.MD",
+      "bytes": 294,
+      "sha256": "52fec1c484df708c16b4c27b2bf0d7f0d3994105c57adc4b9e6f95bcfd9de65f"
+    },
+    {
+      "file": ".asset-source/mesh2motion/LICENSE-MIT.MD",
+      "url": "https://raw.githubusercontent.com/Mesh2Motion/mesh2motion-app/653a9698f5f315523072f1c3ff3496100401317b/LICENSE-MIT.MD",
+      "bytes": 1120,
+      "sha256": "a40dbdb297466562778a58864f075415c1414778a19176bd85091d0434094b1d"
+    }
+  ]
+}

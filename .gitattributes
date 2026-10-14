@@ -1,0 +1,5 @@
+* text=auto eol=lf
+# Preserve bytes used by source, tool and asset SHA checks on every platform.
+public/assets/** -text
+.asset-source/** -text
+scripts/vendor/mesh2motion/** -text

@@ -6,6 +6,8 @@
 
 开始工作先完整阅读本文件、[MVP 需求](docs/MVP.md)、[实施计划](docs/IMPLEMENTATION_PLAN.md) 和 [进度](docs/PROGRESS.md)。整体质量目标见 [QUALITY_UPGRADE.md](docs/QUALITY_UPGRADE.md)，素材来源见 [ASSETS.md](docs/ASSETS.md)。历史完成标记不替代当前需求和当前实测。
 
+北京西二旗—元中心—清河场景的后续制作与换电脑接手见 [TODO.md](TODO.md)，其中索引已保存的场景参考板、Tripo 单体图片、资产分工和阶段任务。新场景尚未完成建模或游戏接入。
+
 实现第三人称 Web 街区沙盒：自由飞行、镭射、重拳、砸地、超级速度、无敌、三级追捕、车辆物理、局部破坏和少量血液。用户确认后续通过 Web 打开，不做桌面 PC 游戏。当前保持 TypeScript、Vite、Three.js、Rapier；场景使用真实 3D 模型，DOM 只负责界面。
 
 用户已放弃祖国人外观。当前采用中性 mannequin，服装附件、金发和披风已移除，能力和玩法保留。不得静默删减已确认范围，也不擅自增加账号、付费服务、声音、引擎迁移或线上部署。

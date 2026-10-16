@@ -1,0 +1,38 @@
+Use case: precise-object-edit.
+Asset type: an annotated asset-production review copy of an existing environment reference board.
+Input image 1 is the EDIT TARGET: the user's existing Beijing Xierqi / Yuan Center / Qinghe environment concept sheet, 1536 x 1024.
+Primary request: Preserve the existing environment artwork and all seven panels, and add a small number of precise production annotations identifying candidate objects to generate as rough exterior meshes in Tripo, with Blender finishing afterward. This is an annotation overlay, not a redesign.
+
+Invariants: Keep the original board dimensions and panel geometry, skyline, buildings, roads, river, bridge, people, vehicles, shopfronts, original title, captions, lighting, colors, and photographic textures unchanged. Do not invent, remove, move, upscale or redraw any scene asset. Only add thin outline boxes, ID badges and short leader lines within the scene; rework the existing narrow right sidebar into a readable production legend. The original image must remain recognizable as the exact same board.
+
+Annotations: ONLY three candidate categories. They are marked once at their clearest source instance, not on every repeated instance. Use ID prefixes T so they cannot be confused with the original 01–07 view numbers.
+T01 recommended: a passenger sedan exterior body, in panel 04 城市路口, middle-right of the board. Original-image pixel guide: select the gray/white passenger sedan on the roadway just left/in front of the blue bus, around x=940–996, y=632–666. Thin SOLID CORAL-RED box tightly encloses only that one car, badge "T01" placed nearby with a clear short leader terminating on its body. Exclude surrounding people, neighboring cars and road surface as much as practical.
+T02 optional: blue-white bus exterior reference in the SAME panel 04, original x=1018–1120, y=582–632. Thin DASHED AMBER box encloses the bus, badge "T02" above with a leader to the front body of the bus. Do not tag the traffic light, sign or building.
+T03 optional: one blue/dark two-wheeler at the convenience storefront in panel 07 街巷细节, original x=1012–1066, y=892–945. Thin DASHED AMBER box around the two-wheeler body, badge "T03" nearby with a leader to it. Avoid the yellow shared bicycle at x=897–955, y=875–944, which is NOT a Tripo recommendation; avoid tagging the human figure, utility cabinet or storefront.
+
+No other objects should be marked as Tripo assets. In particular, do not mark whole buildings, trees, river, bridge, silver cylindrical tanks, utility cabinet, traffic signs, planters, the yellow bicycle, air conditioners or paving.
+
+Right sidebar: replace its existing location/material/color content with a neatly typeset warm ivory legend, same visual elegance and narrow-column width, generously spaced small Chinese text, CORAL-RED for the recommended item and AMBER for optional items. All important text must be accurate. Use these exact short text strings:
+"资产分工确认"
+"Tripo 候选标注"
+"实线：建议首批"
+"虚线：可选，需评估"
+"T01 轿车外观"
+"建议 1 款"
+"T02 公交外观"
+"可选 1 款"
+"T03 两轮车外观"
+"可选 1 款"
+"Tripo 出外观基模"
+"Blender 完成整理"
+Then a thin horizontal rule and a lower sidebar section:
+"Blender 直接搭建"
+"建筑 / 道路 / 桥梁"
+"门窗 / 护栏 / 路牌"
+"奶罐 / 花池 / 电箱"
+"树干 / 枝条 / 叶片卡"
+Then near the footer:
+"先补单体参考图"
+"此图只确认资产范围"
+
+Maintain the original title in the top left and original seven view captions. Annotated object geometry must remain visible beneath outlines: no solid coloring or opaque masks covering assets. Outlines visually light, around 2–3 pixels at the original image size, with small but clear badges. Avoid clutter, crossed leaders, giant arrows, long prose, extra render panels, new assets, generated isolated-object thumbnails, or changed environment. Deliver ONE crisp landscape annotated board.

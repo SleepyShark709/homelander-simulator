@@ -97,6 +97,7 @@ python3 scripts/asset-manifest.py
 
 ## 文档与许可
 
+- [北京场景制作 TODO / 换电脑接手入口](TODO.md)：参考图、Tripo 单体输入、Blender 制作顺序、接入与验证清单。
 - [协作规则](AGENT.md)：当前约束、模块入口、验证与提交约定。
 - [需求](docs/MVP.md)、[实施计划](docs/IMPLEMENTATION_PLAN.md)、[进度](docs/PROGRESS.md)。
 - [素材与许可](docs/ASSETS.md)、[第三方许可文件](public/assets/licenses/)、[素材清单](public/assets/manifest.json)。

@@ -5,7 +5,7 @@ import { Assets, PersonVisual } from './Assets';
 
 export async function characterPreview() {
     const app = document.querySelector<HTMLDivElement>('#app')!;
-    app.innerHTML = `<div id="viewport"></div><div class="studio-bar"><a href="/">← 返回街区</a><strong>角色展示 <small>HOMELANDER</small></strong><span>拖动旋转 · 滚轮缩放</span></div><div class="studio-controls"><button data-pose="ground">待机</button><button data-pose="walk">步行</button><button data-pose="jog">奔跑</button><button data-pose="sprint">冲刺</button><button data-pose="takeoff">起飞</button><button data-pose="fly">悬停</button><button data-pose="boost">高速飞行</button><button data-pose="land">落地</button><button data-pose="punch">重拳</button><button data-pose="slam">砸地</button><select aria-label="角色" id="studio-role"><option value="hero">主角</option><option value="civilian">平民</option><option value="police">警察</option><option value="soldier">士兵</option></select></div><p id="studio-loading">正在加载角色</p>`;
+    app.innerHTML = `<div id="viewport"></div><div class="studio-bar"><a href="/">← 返回街区</a><strong>角色展示 <small>HOMELANDER</small></strong><span>拖动旋转 · 滚轮缩放</span></div><div class="studio-controls"><button data-pose="ground">待机</button><button data-pose="walk">步行</button><button data-pose="jog">奔跑</button><button data-pose="sprint">冲刺</button><button data-pose="jump">跳跃</button><button data-pose="takeoff">起飞</button><button data-pose="fly">悬停</button><button data-pose="boost">高速飞行</button><button data-pose="land">落地</button><button data-pose="punch">重拳</button><button data-pose="slam">砸地</button><select aria-label="角色" id="studio-role"><option value="hero">主角</option><option value="civilian">平民</option><option value="police">警察</option><option value="soldier">士兵</option></select></div><p id="studio-loading">正在加载角色</p>`;
     const renderer = new T.WebGLRenderer({ antialias: true });
     renderer.setSize(innerWidth, innerHeight);
     renderer.setPixelRatio(Math.min(1.5, devicePixelRatio));
@@ -78,7 +78,7 @@ export async function characterPreview() {
     scene.add(person.group);
     let pose = 'ground';
     const supportedPoses = () => {
-        const names: Record<string,string> = {ground:'idle',walk:'walk',jog:'jog',sprint:'sprint',takeoff:'takeoff',fly:'hover',boost:'fly',land:'land',punch:'punch',slam:'slam'};
+        const names: Record<string,string> = {ground:'idle',walk:'walk',jog:'jog',sprint:'sprint',jump:'jump',takeoff:'takeoff',fly:'hover',boost:'fly',land:'land',punch:'punch',slam:'slam'};
         for (const button of document.querySelectorAll<HTMLButtonElement>('[data-pose]'))
             button.hidden = !person.actions.has(names[button.dataset.pose!]);
     };

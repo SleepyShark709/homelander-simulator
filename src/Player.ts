@@ -5,7 +5,7 @@ import { Input } from './Input';
 import { CONFIG } from './config';
 import { limitAxis } from './rules';
 import { v } from './World';
-export type PlayerMode = 'ground' | 'takeoff' | 'fly' | 'fall' | 'slam';
+export type PlayerMode = 'ground' | 'jump' | 'takeoff' | 'fly' | 'fall' | 'slam';
 export class Player {
     body: R.RigidBody;
     collider: R.Collider;
@@ -26,9 +26,9 @@ export class Player {
     private takeoffTime = 0;
     private punchHitTime = 0;
     private punchHitPending = false;
-    private slamElapsed = 0;
-    private slamImpactDelay = 0;
-    private slamImpactPending = false;
+    private punchQueuedTime = 0;
+    private jumpElapsed = 0;
+    private simulationTime = 0;
     onContact = (c: R.Collider, speed: number, direction: T.Vector3) => false;
     onSlam = (p: T.Vector3) => {};
     onPunch = () => {};
@@ -69,18 +69,12 @@ export class Player {
     get feet() {
         return this.position.clone().add(v(0, -1.0, 0));
     }
+    clearBufferedAttack() { this.punchQueuedTime = 0; }
     step(dt: number) {
+        this.simulationTime += dt;
         this.previous.copy(this.position);
         this.previousVelocity.copy(this.velocity);
-        if (this.mode === 'slam') this.slamElapsed += dt;
-        if (this.slamImpactPending) {
-            this.slamImpactDelay -= dt;
-            if (this.slamImpactDelay <= 0) {
-                this.slamImpactPending = false;
-                this.shake = 0.35;
-                this.onSlam(this.feet);
-            }
-        }
+        if (this.mode === 'jump') this.jumpElapsed += dt;
         if (this.punchHitPending) {
             this.punchHitTime -= dt;
             if (this.punchHitTime <= 0) {
@@ -89,6 +83,7 @@ export class Player {
             }
         }
         this.punchTime = Math.max(0, this.punchTime - dt);
+        this.punchQueuedTime = Math.max(0, this.punchQueuedTime - dt);
         this.recovery = Math.max(0, this.recovery - dt);
         this.shake = Math.max(0, this.shake - dt);
         if(this.mode==='takeoff') {
@@ -124,15 +119,23 @@ export class Player {
             this.mode = 'slam';
             this.punchTime = 0;
             this.punchHitPending = false;
-            this.slamElapsed = 0;
+            this.punchQueuedTime = 0;
+        }
+        if (this.input.take('Space') && this.mode === 'ground' && !this.recovery
+            && this.controller.computedGrounded()) {
+            this.mode = 'jump';
+            this.jumpElapsed = 0;
+            this.velocity.y = CONFIG.jumpSpeed;
         }
         if (this.input.punch) {
             this.input.punch = false;
-            if (!this.punchTime && this.mode !== 'slam' && !this.recovery) {
-                this.punchTime = this.visual.actionDuration('punch');
-                this.punchHitTime = this.punchTime * CONFIG.punchHitFraction;
-                this.punchHitPending = true;
-            }
+            this.punchQueuedTime = CONFIG.punchInputBuffer;
+        }
+        if (this.punchQueuedTime > 0 && !this.punchTime && this.mode !== 'slam' && !this.recovery) {
+            this.punchQueuedTime = 0;
+            this.punchTime = this.visual.actionDuration('punch');
+            this.punchHitTime = this.punchTime * CONFIG.punchHitFraction;
+            this.punchHitPending = true;
         }
         const f = this.horizontal(),
             right = v(-f.z, 0, f.x),
@@ -178,17 +181,21 @@ export class Player {
             wish.set(0, -CONFIG.slamSpeed, 0);
             this.velocity.copy(wish);
         } else {
-            const smoothing = 1 - Math.exp(-dt * 9);
-            this.velocity.x = T.MathUtils.lerp(
+            const smoothing = 1 - Math.exp(-dt * (this.mode === 'jump' ? 3 : 9));
+            // Releasing movement in the air preserves the launch momentum;
+            // directional input can still steer without an abrupt reversal.
+            if (this.mode !== 'jump' || wish.x !== 0 || wish.z !== 0) {
+                this.velocity.x = T.MathUtils.lerp(
                 this.velocity.x,
                 wish.x,
                 smoothing,
-            );
-            this.velocity.z = T.MathUtils.lerp(
+                );
+                this.velocity.z = T.MathUtils.lerp(
                 this.velocity.z,
                 wish.z,
                 smoothing,
-            );
+                );
+            }
             if (flying)
                 this.velocity.y = T.MathUtils.lerp(
                     this.velocity.y,
@@ -199,7 +206,7 @@ export class Player {
                 // The controller already supplies ground contact and snapping. Repeated
                 // downward casts at its offset boundary can consume horizontal movement.
                 this.velocity.y = 0;
-            } else this.velocity.y = Math.max(-45, this.velocity.y - 24 * dt);
+            } else this.velocity.y = Math.max(-45, this.velocity.y - CONFIG.gravity * dt);
             if (this.recovery) this.velocity.set(0, -1, 0);
         }
         this.velocity.x = limitAxis(
@@ -267,19 +274,20 @@ export class Player {
         this.position.y = T.MathUtils.clamp(this.position.y, 0.98, 80);
         if (grounded && this.velocity.y <= 0) {
             if (this.mode === 'slam') {
-                const duration = this.visual.actionDuration('slam');
-                const contactTime = duration * CONFIG.slamHitFraction;
-                this.slamImpactDelay = Math.max(0, contactTime - this.slamElapsed);
-                this.slamImpactPending = true;
-                this.recovery = duration - Math.min(this.slamElapsed,contactTime);
-                if (!this.slamImpactDelay) {
-                    this.slamImpactPending = false;
-                    this.shake = 0.35;
-                    this.onSlam(this.feet);
-                }
+                this.shake = 0.35;
+                this.onSlam(this.feet);
             }
             if (this.mode !== 'takeoff' && (this.mode !== 'fly' || wish.y < 0)) {
-                if (this.mode !== 'ground' && this.mode !== 'slam') this.recovery = this.visual.actionDuration('land');
+                const runningJump = this.mode === 'jump' && Math.hypot(this.velocity.x, this.velocity.z) > 1;
+                if (this.mode !== 'ground' && !runningJump) this.recovery = this.visual.landingDuration();
+                if (this.flightHull) {
+                    // Keep the same supporting bottom when changing from the
+                    // flight sphere to the foot-centred ground sphere.
+                    this.position.y -= CONFIG.playerFlightRadius - 1;
+                    this.collider.setShape(new R.Ball(CONFIG.playerGroundRadius));
+                    this.collider.setTranslationWrtParent({x:0,y:CONFIG.playerGroundRadius - 1,z:0});
+                    this.flightHull = false;
+                }
                 this.mode = 'ground';
             }
             this.velocity.y = 0;
@@ -295,6 +303,7 @@ export class Player {
             this.velocity.x = 0;
         if (Math.abs(movement.z) < Math.abs(desired.z) * 0.3)
             this.velocity.z = 0;
+        if (desired.y > 0 && movement.y < desired.y * .3) this.velocity.y = 0;
     }
     sync(alpha = 1) {
         this.renderVelocity.copy(this.previousVelocity).lerp(this.velocity,alpha);
@@ -307,14 +316,14 @@ export class Player {
     }
     animate(dt: number, time: number) {
         const horizontalSpeed = Math.hypot(this.renderVelocity.x, this.renderVelocity.z);
-        const moving = (this.mode === 'ground' || this.mode === 'takeoff') && horizontalSpeed > Math.sqrt(0.5) && !this.input.laser && !this.punchTime;
+        const moving = (this.mode === 'ground' || this.mode === 'takeoff' || this.mode === 'jump') && horizontalSpeed > Math.sqrt(0.5) && !this.input.laser && !this.punchTime;
         const desiredYaw = moving ? Math.atan2(this.renderVelocity.x,this.renderVelocity.z) : this.input.yaw+Math.PI;
         const headingDelta=T.MathUtils.euclideanModulo(desiredYaw-this.movementYaw+Math.PI,Math.PI*2)-Math.PI;
-        this.movementYaw += headingDelta*(1-Math.exp(-dt*16));
+        const turn = headingDelta*(1-Math.exp(-dt*16));
+        this.movementYaw += this.punchTime || this.input.laser
+            ? T.MathUtils.clamp(turn, -CONFIG.animation.attackTurnSpeed * dt, CONFIG.animation.attackTurnSpeed * dt) : turn;
         this.visual.group.rotation.y=this.movementYaw;
-        const mode = this.punchTime
-            ? 'punch'
-            : this.mode === 'takeoff' ? 'takeoff'
+        const mode = this.mode === 'jump' ? 'jump' : this.mode === 'takeoff' ? 'takeoff'
             : this.mode === 'fly'
               ? this.velocity.length() > 18
                   && this.flightHull ? 'boost'
@@ -346,6 +355,10 @@ export class Player {
             mode === 'ground' ? horizontalSpeed : this.renderVelocity.length(),
             this.input.laser,
             bank,
+            this.punchTime,
+            this.punchTime > 0 ? Math.max(0, this.visual.actionDuration('punch') - this.punchTime
+                - Math.max(0, this.simulationTime - time)) : undefined,
+            this.mode === 'jump' ? Math.max(0, this.jumpElapsed - Math.max(0, this.simulationTime - time)) : undefined,
         );
     }
 }

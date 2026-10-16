@@ -32,7 +32,7 @@ const selections = [
         ['idle','Idle_Subtle'], ['walk','Walk_Female'], ['jog','Jog','base'], ['sprint','Sprint','base'],
         ['punch','Fighting Right Jab'], ['shoot','Fighting Idle'], ['fall','Glide'],
         ['hover','Levitate Idle'], ['fly','Flying Forward Super'], ['takeoff','Levitate Entrance'],
-        ['land','Land_Three_Point'], ['slam','Attack_Ground_Pound'],
+        ['land','Land_Three_Point'], ['slam','Attack_Ground_Pound'], ['jump','Jump_2'],
     ]],
     ['base', 'native-npc', [
         ['idle','Idle_A'], ['walk','Walk'], ['jog','Jog'], ['sprint','Sprint'],

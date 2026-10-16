@@ -1,6 +1,7 @@
 import * as T from 'three';
 import { Physics, R, vec } from './Physics';
 import { v } from './World';
+import { CONFIG } from './config';
 interface Effect {
     mesh: T.Mesh | T.Sprite;
     life: number;
@@ -56,28 +57,30 @@ export class Effects {
             const beam = new T.Mesh(
                 new T.CylinderGeometry(0.026, 0.026, 1, 16),
                 new T.MeshBasicMaterial({
-                    color: new T.Color(22,0.28,0.12),
+                    color: 0xff3826,
+                    toneMapped: false,
                     transparent: true,
                     opacity: 0.95,
+                    depthWrite: false,
                 }),
             );
             beam.visible = false;
             this.beams.push(beam);
             group.add(beam);
             const halo = new T.Mesh(
-                new T.CylinderGeometry(0.085, 0.085, 1, 6),
+                new T.CylinderGeometry(0.055, 0.055, 1, 8),
                 new T.MeshBasicMaterial({
                     color: 0xff1926,
                     transparent: true,
-                    opacity: 0.16,
-                    blending: T.AdditiveBlending,
+                    opacity: 0.055,
+                    toneMapped: false,
                     depthWrite: false,
                 }),
             );
             halo.visible = false;
             this.halos.push(halo);
             group.add(halo);
-            const light=new T.PointLight(0xff4c29,0,7,2);
+            const light=new T.PointLight(0xff4c29,0,CONFIG.presentation.laserLightRange,2);
             this.laserLights.push(light);group.add(light);
         }
     }
@@ -94,7 +97,7 @@ export class Effects {
         halo.quaternion.copy(m.quaternion);
         halo.scale.copy(m.scale);
         this.laserLights[index].position.copy(b);
-        this.laserLights[index].intensity=22;
+        this.laserLights[index].intensity=CONFIG.presentation.laserLight;
     }
     hideBeams() {
         for (const b of [...this.beams, ...this.halos]) b.visible = false;
@@ -150,7 +153,7 @@ export class Effects {
             });
         }
     }
-    fragments(p: T.Vector3, color: number, size = 1) {
+    fragments(p: T.Vector3, color: number, size = 1, glass = false) {
         for (let i = 0; i < 8; i++) {
             if (this.list.filter((e) => e.body).length >= 60) {
                 const old = this.list.find((e) => e.body);
@@ -158,8 +161,10 @@ export class Effects {
             }
             const s = 0.12 + Math.random() * 0.18,
                 mesh = new T.Mesh(
-                    new T.BoxGeometry(s * 2, s * 2, s * 2),
-                    new T.MeshStandardMaterial({ color, roughness: 1 }),
+                    glass ? new T.CylinderGeometry(s*1.6,s*1.6,.018,3) : new T.BoxGeometry(s * 2, s * 2, s * 2),
+                    glass ? new T.MeshPhysicalMaterial({color:0xc2dcd6,roughness:.14,metalness:.1,
+                        transparent:true,opacity:.55,depthWrite:false,clearcoat:1,side:T.DoubleSide})
+                        : new T.MeshStandardMaterial({ color, roughness: 1 }),
                 );
             const q = p
                 .clone()
@@ -176,7 +181,7 @@ export class Effects {
                     .setLinearDamping(0.4),
             );
             const collider = this.physics.world.createCollider(
-                R.ColliderDesc.cuboid(s, s, s)
+                R.ColliderDesc.cuboid(glass ? s*1.6 : s, glass ? .012 : s, glass ? s*1.6 : s)
                     .setMass(0.3)
                     .setCollisionGroups(0x00020001),
                 body,
@@ -190,14 +195,20 @@ export class Effects {
                 ),
                 true,
             );
+            if (glass) {
+                const rotation = new T.Quaternion().setFromEuler(new T.Euler(Math.random()*Math.PI,Math.random()*Math.PI,Math.random()*Math.PI));
+                body.setRotation(rotation,true); body.setAngvel(v(Math.random()*7,Math.random()*7,Math.random()*7),true);
+                mesh.userData.fragmentType = 'glass';
+            }
             mesh.position.copy(q);
-            mesh.castShadow = true;
+            mesh.castShadow = !glass;
             this.add({
                 mesh,
                 body,
                 colliderHandle: collider.handle,
                 life: 6,
                 duration: 6,
+                opacity: glass ? .55 : 1,
             });
         }
     }

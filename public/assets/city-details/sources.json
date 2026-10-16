@@ -1,0 +1,228 @@
+[
+  {
+    "asset": "outdoor_table_chair_set_01",
+    "source": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+    "license": "CC0-1.0",
+    "licenseSource": "https://polyhaven.com/license",
+    "files": [
+      {
+        "file": "city-details/outdoor_table_chair_set_01/outdoor_table_chair_set_01_2k.gltf",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_2k.gltf",
+        "bytes": 6826,
+        "sha256": "2e2376efc210d849a22bd352b40442d38985c74953fc8020bb01ca94c66c68ca"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_nor_gl_2k.jpg",
+        "bytes": 227267,
+        "sha256": "02723a5d2275e357d07e41a71a87dc46b89e11fec9711b84a7c1d082ada8144a"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_arm_2k.jpg",
+        "bytes": 695054,
+        "sha256": "64b584f6cf5993b9b78c7ec51ad471ad010a90455ee4bb45a3c9be1263db4d97"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_diff_2k.jpg",
+        "bytes": 520192,
+        "sha256": "8259d7200a753037516e153d0989bd5812d50874be7631c34794abdeb2796384"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_diff_2k.jpg",
+        "bytes": 506077,
+        "sha256": "5f6ce1dcd8dbfc0293ae62f01f0cef0a8a07862bd6d744eefa459206e9206eb1"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_arm_2k.jpg",
+        "bytes": 583486,
+        "sha256": "646ed8503d7e1d1806506a38c3b2d31b616e0720538e7df054c3d982b9bfa5ae"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_nor_gl_2k.jpg",
+        "bytes": 205693,
+        "sha256": "8ab2e82a262da2912cb64b3439377f943dd29f344b8d4b8b25eb389efdceabc8"
+      },
+      {
+        "file": "city-details/outdoor_table_chair_set_01/outdoor_table_chair_set_01.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/outdoor_table_chair_set_01/outdoor_table_chair_set_01.bin",
+        "bytes": 456856,
+        "sha256": "d62458c79c6c902d1195bff875e42bf7579c6b309c6b96f9cd7543af43170220"
+      }
+    ]
+  },
+  {
+    "asset": "potted_plant_02",
+    "source": "https://polyhaven.com/a/potted_plant_02",
+    "license": "CC0-1.0",
+    "licenseSource": "https://polyhaven.com/license",
+    "files": [
+      {
+        "file": "city-details/potted_plant_02/potted_plant_02_2k.gltf",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/potted_plant_02/potted_plant_02_2k.gltf",
+        "bytes": 6653,
+        "sha256": "80ab49cb61737244f50b805ddde3dd64e461b2a244817f8882e95a97c916d158"
+      },
+      {
+        "file": "city-details/potted_plant_02/textures/potted_plant_02_leaves_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_diff_2k.jpg",
+        "bytes": 584084,
+        "sha256": "f70de9a4b735b740e79d4e7720a47eae5e2bb4a289880cdae5905d156223bd7d"
+      },
+      {
+        "file": "city-details/potted_plant_02/textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_nor_gl_2k.jpg",
+        "bytes": 481780,
+        "sha256": "2ae648b12ea457fb720f9adc6f8dc9feb8d5409e43f3b9f2ce7f089b3eef12f6"
+      },
+      {
+        "file": "city-details/potted_plant_02/textures/potted_plant_02_pot_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_diff_2k.jpg",
+        "bytes": 596006,
+        "sha256": "21672040b5de49e7dae07452431b4fe5cf401494f5ab5157b5f54a146cc68383"
+      },
+      {
+        "file": "city-details/potted_plant_02/potted_plant_02.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/potted_plant_02/potted_plant_02.bin",
+        "bytes": 1852244,
+        "sha256": "9c9812482c78a59789ed32fa842b4cbd9365e09c900c31ebb998e5efe627fe97"
+      },
+      {
+        "file": "city-details/potted_plant_02/textures/potted_plant_02_leaves_rough_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_rough_2k.jpg",
+        "bytes": 435284,
+        "sha256": "399e61a82069b3e344cece76c128f84a664dd44719331450877b671906e01e27"
+      },
+      {
+        "file": "city-details/potted_plant_02/textures/potted_plant_02_pot_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_nor_gl_2k.jpg",
+        "bytes": 494387,
+        "sha256": "8e8c2e96de90e793712a9db8a6cea7a38f7fd5ec489b8134b586a42ebbbfcb11"
+      },
+      {
+        "file": "city-details/potted_plant_02/textures/potted_plant_02_pot_rough_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_rough_2k.jpg",
+        "bytes": 426559,
+        "sha256": "c1f341bfa5e610dab2fd31aad4068fa20cf957b098912da5949bca996d7649bf"
+      }
+    ]
+  },
+  {
+    "asset": "drawer_cabinet",
+    "source": "https://polyhaven.com/a/drawer_cabinet",
+    "license": "CC0-1.0",
+    "licenseSource": "https://polyhaven.com/license",
+    "files": [
+      {
+        "file": "city-details/drawer_cabinet/drawer_cabinet_2k.gltf",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/drawer_cabinet/drawer_cabinet_2k.gltf",
+        "bytes": 8031,
+        "sha256": "5daedfc7f16b6bef0da212b4904aca449f07a8dbad2ddca18bbfb979caeda31f"
+      },
+      {
+        "file": "city-details/drawer_cabinet/textures/drawer_cabinet_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/drawer_cabinet/drawer_cabinet_arm_2k.jpg",
+        "bytes": 382840,
+        "sha256": "b0d86115d9b8d9c85fc9c787c56dc32e573b64a8ae1d3d5a82268f540c820f0b"
+      },
+      {
+        "file": "city-details/drawer_cabinet/textures/drawer_cabinet_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/drawer_cabinet/drawer_cabinet_nor_gl_2k.jpg",
+        "bytes": 337575,
+        "sha256": "5424a0f1e41f3f1ade8c9bd7d04c6baf74e09ee36bf51d4694aee46a7238602d"
+      },
+      {
+        "file": "city-details/drawer_cabinet/textures/drawer_cabinet_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/drawer_cabinet/drawer_cabinet_diff_2k.jpg",
+        "bytes": 541585,
+        "sha256": "e877963d22e48a46d58c15af60c7c48690d33881b19fb892f21aea3098119f6b"
+      },
+      {
+        "file": "city-details/drawer_cabinet/drawer_cabinet.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/drawer_cabinet/drawer_cabinet.bin",
+        "bytes": 798852,
+        "sha256": "3460b9fe00ffbe779b7f7f2de3b159c214cfec275c06194add0eebd951ee14e9"
+      }
+    ]
+  },
+  {
+    "asset": "rollershutter_door",
+    "source": "https://polyhaven.com/a/rollershutter_door",
+    "license": "CC0-1.0",
+    "licenseSource": "https://polyhaven.com/license",
+    "files": [
+      {
+        "file": "city-details/rollershutter_door/rollershutter_door_2k.gltf",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/rollershutter_door/rollershutter_door_2k.gltf",
+        "bytes": 5378,
+        "sha256": "2e577ec6e0cd3535a49039f3ce5dd50e5358fe7475d77b64104a1addb886a673"
+      },
+      {
+        "file": "city-details/rollershutter_door/rollershutter_door.bin",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/rollershutter_door/rollershutter_door.bin",
+        "bytes": 46192,
+        "sha256": "155cd44e199d4edd19769503c7ed22b0b4007869166d0193a7e2d5e3134dc38d"
+      },
+      {
+        "file": "city-details/rollershutter_door/textures/rollershutter_door_graffiti_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_graffiti_diff_2k.jpg",
+        "bytes": 2536479,
+        "sha256": "1639d5c3a620d8557195168900c4e5bdbcea80a047e2f637b4ca072c139b59d3"
+      },
+      {
+        "file": "city-details/rollershutter_door/textures/rollershutter_door_diff_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_diff_2k.jpg",
+        "bytes": 2321049,
+        "sha256": "1e7c6f6caf3d3cdcdcb3c7ae589ee536cf015c2fc6acfa34a2a08d3f9902dda4"
+      },
+      {
+        "file": "city-details/rollershutter_door/textures/rollershutter_door_nor_gl_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_nor_gl_2k.jpg",
+        "bytes": 1471465,
+        "sha256": "77ad1ba5b657f0d76422dd820eb32301059f00c27087d172d451338d3b6791bc"
+      },
+      {
+        "file": "city-details/rollershutter_door/textures/rollershutter_door_arm_2k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_arm_2k.jpg",
+        "bytes": 2284955,
+        "sha256": "10bdbc409d48981b3acb6616303c0479d10243cedb1890ef8dbe8e1d36afde18"
+      }
+    ]
+  },
+  {
+    "asset": "bark_brown_02",
+    "source": "https://polyhaven.com/a/bark_brown_02",
+    "license": "CC0-1.0",
+    "licenseSource": "https://polyhaven.com/license",
+    "files": [
+      {
+        "file": "pbr/bark_brown_02/bark_brown_02_diff_1k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_diff_1k.jpg",
+        "bytes": 659592,
+        "sha256": "920fa0bed0c9d78c1d530e99795113afd532d7db746de440f4a85d7c83ed0f1a"
+      },
+      {
+        "file": "pbr/bark_brown_02/bark_brown_02_nor_gl_1k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_nor_gl_1k.jpg",
+        "bytes": 1015623,
+        "sha256": "0d5e691e8ad8bcd093a3587887fda2a6b4a948b5708a4f256f7919584c6eb857"
+      },
+      {
+        "file": "pbr/bark_brown_02/bark_brown_02_rough_1k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_rough_1k.jpg",
+        "bytes": 337946,
+        "sha256": "68125592de36e15bae7aa6db85c4d135aeb7e5653199ba226483a70f6d69837d"
+      },
+      {
+        "file": "pbr/bark_brown_02/bark_brown_02_ao_1k.jpg",
+        "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_ao_1k.jpg",
+        "bytes": 514586,
+        "sha256": "f3572613f143ca84885f4b4e03332d9a8723420c740a12750ab538fad7f39552"
+      }
+    ]
+  }
+]

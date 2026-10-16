@@ -190,17 +190,22 @@ export class StreetWorld {
             );
             sign.position.set(x, 3.8, z + d / 2 + 0.08);
             this.group.add(sign);
+            if (i % 2 === 0) {
+                const shutter = this.assets.prop('shutter', 2.85, i / 2);
+                shutter.position.set(x + w * .32, .35, z + d / 2 + .13);
+                this.group.add(shutter);
+            }
         });
         // An open plaza and framed, genuinely openable storefront rooms.
         for (const sign of [-1, 1]) {
             const x = sign * 39,
                 z = -sign * 38;
-            this.box(v(40, 0.15, 42), v(x, 0.07, z), 0xa5ab9c, true).material=this.art.paving;
+            this.box(v(40, 0.15, 42), v(x, 0.07, z), 0xa5ab9c, true).material=this.art.plaza;
             this.box(v(20, 0.35, 13), v(x, 0.3, z), 0xbdbeaf, true).material=this.art.paving;
-            this.box(v(20, 0.3, 13), v(x, 5.3, z), 0xe2d9c3, true);
-            this.box(v(20, 5, 0.4), v(x, 2.8, z - sign * 6.3), 0x9f998b, true);
+            this.box(v(20, 0.3, 13), v(x, 5.3, z), 0xe2d9c3, true).material=this.art.surfaces.roof;
+            this.box(v(20, 5, 0.4), v(x, 2.8, z - sign * 6.3), 0x9f998b, true).material=this.art.surfaces.concrete;
             for (const dx of [-9.8, 9.8])
-                this.box(v(0.4, 5, 13), v(x + dx, 2.8, z), 0xafa493, true);
+                this.box(v(0.4, 5, 13), v(x + dx, 2.8, z), 0xafa493, true).material=this.art.surfaces.concrete;
             for (let j = 0; j < 4; j++) {
                 const px = x - 7.5 + j * 5,
                     pz = z + sign * 6.3;
@@ -208,6 +213,20 @@ export class StreetWorld {
                 const size = v(4.6, 4.4, 0.22),
                     p = v(px, 2.85, pz);
                 const panel = this.box(size, p, j % 2 ? 0x6e979d : 0x8ca7a0);
+                panel.material = new T.MeshPhysicalMaterial({ color: 0xb9d1cf, roughness: .2, metalness: .06,
+                    transparent: true, opacity: .27, depthWrite: false, envMapIntensity: .7, clearcoat: .25 });
+                panel.material.forceSinglePass = true;
+                panel.castShadow = false;
+                panel.userData.fragmentType = 'glass';
+                // Frames belong to the breakable pane and vanish with it, so
+                // destroying a shopfront still opens the exact same passage.
+                const frameMaterial = () => new T.MeshStandardMaterial({ color: 0x263d40, roughness: .5, metalness: .55 });
+                const transom = new T.Mesh(new T.BoxGeometry(4.55,.075,.28),frameMaterial());
+                transom.castShadow = true;
+                transom.position.y = .1; panel.add(transom);
+                const mullion = new T.Mesh(new T.BoxGeometry(.065,4.35,.28),frameMaterial());
+                mullion.castShadow = true;
+                mullion.position.x = j % 2 ? -.6 : .6; panel.add(mullion);
                 const c = this.physics.staticBox(p, size);
                 this.add('panel', panel, c, 130);
             }
@@ -234,6 +253,7 @@ export class StreetWorld {
             }
             const shop=this.art.sign(sign>0 ? 'METRO MARKET' : 'RIVERSIDE / CAFE',8);
             shop.position.set(x,4.9,z+sign*6.56);if(sign<0) shop.rotation.y=Math.PI;this.group.add(shop);
+            this.shopDetails(x,z,sign);
         }
         for (let i = 0; i < 12; i++) {
             const horizontal = i < 6,
@@ -337,7 +357,7 @@ export class StreetWorld {
         this.group.updateMatrixWorld(true);
         const instances=new Map<string,T.InstancedMesh[]>();
         this.group.traverse(o=>{
-            if(!(o instanceof T.InstancedMesh) || dynamic.has(o) || Array.isArray(o.material)) return;
+            if(!(o instanceof T.InstancedMesh) || dynamic.has(o) || o.userData.keepSharedGeometry || Array.isArray(o.material)) return;
             const key=`${o.material.uuid}/${o.geometry.type}/${o.castShadow}/${o.receiveShadow}`;
             const batch=instances.get(key) ?? [];batch.push(o);instances.set(key,batch);
         });
@@ -357,7 +377,7 @@ export class StreetWorld {
         }
         const batches=new Map<string,{material:T.Material;parts:T.BufferGeometry[]; meshes:T.Mesh[]}>();
         this.group.traverse(o=>{
-            if (!(o instanceof T.Mesh) || o instanceof T.InstancedMesh || dynamic.has(o) || Array.isArray(o.material)) return;
+            if (!(o instanceof T.Mesh) || o instanceof T.InstancedMesh || dynamic.has(o) || o.userData.keepSharedGeometry || Array.isArray(o.material)) return;
             const key=`${o.material.uuid}/${o.castShadow}/${o.receiveShadow}`;
             const batch=batches.get(key) ?? {material:o.material,parts:[] as T.BufferGeometry[],meshes:[] as T.Mesh[]};
             batch.parts.push(o.geometry.clone().applyMatrix4(o.matrixWorld));batch.meshes.push(o);batches.set(key,batch);
@@ -370,6 +390,56 @@ export class StreetWorld {
             const geometries=new Set<T.BufferGeometry>();
             meshes.forEach(m=>{geometries.add(m.geometry);m.removeFromParent();});
             geometries.forEach(g=>g.dispose());
+        }
+    }
+    private shopDetails(x: number, z: number, sign: number) {
+        const add = (key: string, height: number, position: T.Vector3, rotation = 0, hp = 70) => {
+            const object = this.assets.prop(key,height);
+            object.position.copy(position); object.rotation.y = rotation;
+            this.group.add(object);
+            const bounds = new T.Box3().setFromObject(object), center = bounds.getCenter(v()), size = bounds.getSize(v());
+            if (key === 'pottedPlant') { size.set(.52,.5,.52); center.copy(position).y += .25; }
+            this.add('prop',object,this.physics.staticBox(center,size),hp);
+            return object;
+        };
+        // Authored cafe/shop interiors are visible through real breakable glazing.
+        for (const offset of [-6.8, 6.8]) {
+            add('shopCabinet',1.95,v(x+offset,.475,z-sign*4.9),sign>0 ? 0 : Math.PI,90);
+            add('pottedPlant',1.35,v(x+offset,.15,z+sign*8.6),offset>0 ? .5 : -.6,45);
+        }
+        add('cafeSet',.95,v(x,.475,z+sign*1.3),sign>0 ? .35 : -.35);
+        for (const offset of [-5.2,5.2])
+            add('cafeSet',.95,v(x+offset,.15,z+sign*11),offset<0 ? .2 : -.35);
+        // A service counter gives the room a purpose while keeping the front
+        // aisle open. It shares the same damage/removal rules as other props.
+        const counter = new T.Group(); counter.name = 'shop-service-counter';
+        counter.position.set(x,.475,z-sign*3.7);
+        const counterParts = [new T.BoxGeometry(6.5,.95,.85).translate(0,.475,0)];
+        for (let i = 0; i < 27; i++)
+            counterParts.push(new T.BoxGeometry(.035,.81,.035).translate(-3.13+i*.24,.48,sign*.44));
+        const counterBody = new T.Mesh(mergeGeometries(counterParts)!,
+            new T.MeshStandardMaterial({color:0x294b49,roughness:.75}));
+        counterParts.forEach(geometry => geometry.dispose());
+        counterBody.castShadow = counterBody.receiveShadow = true; counter.add(counterBody);
+        const top = new T.Mesh(metreBox(6.7,.09,1.02),this.art.surfaces.stone.clone());
+        top.position.y = .995; top.castShadow = top.receiveShadow = true; counter.add(top);
+        this.group.add(counter);
+        this.add('prop',counter,this.physics.staticBox(counter.position.clone().add(v(0,.52,0)),v(6.7,1.04,1.02)),110);
+        const menu = this.art.sign(sign>0 ? 'METRO / FRESH DAILY' : 'COFFEE / BAKERY',5.5);
+        menu.position.set(x,3,z-sign*6.07); if(sign<0) menu.rotation.y = Math.PI;
+        this.group.add(menu);
+        const canopy = this.art.awning(19.6,sign>0 ? 0 : 2);
+        canopy.position.set(x,4.5,z+sign*6.55); if(sign<0) canopy.rotation.y = Math.PI;
+        this.group.add(canopy);
+        this.physics.staticBox(v(x,4.35,z+sign*7.15),v(19.6,.5,1.25));
+        for (const offset of [-6,0,6]) {
+            const light = new T.Mesh(new T.PlaneGeometry(2.8,.65),
+                new T.MeshBasicMaterial({color:0xd9cdb0,toneMapped:false}));
+            light.rotation.x = Math.PI/2; light.position.set(x+offset,5.12,z);
+            this.group.add(light);
+            const illumination = new T.PointLight(0xffe2bd,45,11,2);
+            illumination.position.set(x+offset,4.95,z);
+            this.group.add(illumination);
         }
     }
     spawn(kind: 'civilian' | 'police' | 'soldier', p: T.Vector3, time: number) {

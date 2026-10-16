@@ -11,11 +11,11 @@ export class UI {
       <div class="wanted"><span id="threat-label">街区平静</span><div id="stars">◇ ◇ ◇</div><div class="heat-track"><i id="heat-fill"></i></div></div>
       <div id="crosshair"><i></i><b></b></div><div id="notice"></div>
       <div class="telemetry"><span id="mode">地面</span><strong id="speed">0 <small>KM/H</small></strong><span id="altitude">海拔 0 M</span><em>∞ 无敌</em></div>
-      <div class="powers"><span><kbd>F</kbd> 飞行</span><span><kbd>SHIFT</kbd> 超级速度</span><span><kbd>左键</kbd> 镭射</span><span><kbd>右键</kbd> 重拳</span><span><kbd>Q</kbd> 砸地</span><span class="muted"><kbd>ESC</kbd> 暂停</span></div>
+      <div class="powers"><span><kbd>空格</kbd> 跳跃 / 上升</span><span><kbd>F</kbd> 飞行</span><span><kbd>SHIFT</kbd> 超级速度</span><span><kbd>左键</kbd> 镭射</span><span><kbd>右键</kbd> 重拳</span><span><kbd>Q</kbd> 砸地</span><span class="muted"><kbd>ESC</kbd> 暂停</span></div>
       <div id="stats"></div><svg id="map" viewBox="-110 -110 220 220"><rect x="-100" y="-100" width="200" height="200"/><path d="M-100 0H100M0-100V100"/><g id="map-dots"></g><path id="map-player" d="M0 -5L-3 4L0 2L3 4Z"/></svg></div>
       <main id="menu"><div class="eyebrow"><span></span> A SMALL CITY. UNLIMITED POWER.</div><h1>力量之上<br/><em>没有规则。</em></h1><p class="intro">飞越街区，释放镭射，让城市回应你的每一次选择。<br/>一个街区，四种能力，完全自由。</p>
       <div class="menu-actions"><button id="start" disabled>正在准备街区 <span>0%</span></button><button id="reset" class="secondary hidden">重置街区 ↺</button></div><p id="loading">初始化引擎</p>
-      <div class="instructions"><div><kbd>W A S D</kbd><span>移动</span></div><div><kbd>鼠标</kbd><span>视角 / 瞄准</span></div><div><kbd>空格 / CTRL</kbd><span>飞行升降</span></div><div><kbd>ESC</kbd><span>暂停 / 释放鼠标</span></div></div>
+      <div class="instructions"><div><kbd>W A S D</kbd><span>移动</span></div><div><kbd>鼠标</kbd><span>视角 / 瞄准</span></div><div><kbd>空格 / CTRL</kbd><span>地面跳跃 / 飞行升降</span></div><div><kbd>ESC</kbd><span>暂停 / 释放鼠标</span></div></div>
       <footer><span>本地体验 · 第三人称 3D</span><span>NO LIMITS. NO HEROES.</span></footer></main>`;
         this.el<HTMLButtonElement>('start').onclick = () => this.onStart();
         this.el<HTMLButtonElement>('reset').onclick = () => this.onReset();

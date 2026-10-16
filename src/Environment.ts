@@ -5,48 +5,22 @@ import { CitySurfaces, metreBox } from './CitySurfaces';
 import { StreetProps } from './StreetProps';
 import { windowMaterial } from './WindowMaterial';
 
-/** Procedural surface maps keep the city local and make metre-scale details readable. */
-function surface(kind: 'asphalt' | 'concrete' | 'paving', repeat: number) {
-    const side = 128,
-        data = new Uint8Array(side * side * 4);
-    let seed = 763;
-    for (let y = 0; y < side; y++)
-        for (let x = 0; x < side; x++) {
-            seed = (seed * 1664525 + 1013904223) >>> 0;
-            const seam = kind === 'paving' && (x % 64 < 2 || y % 64 < 2),
-                base =
-                    kind === 'asphalt' ? 110 : kind === 'concrete' ? 209 : 215;
-            const value = seam ? 135 : base + (seed % 28) - 14,
-                i = (y * side + x) * 4;
-            data[i] = data[i + 1] = data[i + 2] = value;
-            data[i + 3] = 255;
-        }
-    const texture = new T.DataTexture(data, side, side);
-    texture.colorSpace = T.SRGBColorSpace;
-    texture.wrapS = texture.wrapT = T.RepeatWrapping;
-    texture.repeat.set(repeat, repeat);
-    texture.magFilter = T.LinearFilter;
-    texture.minFilter = T.LinearMipmapLinearFilter;
-    texture.generateMipmaps = true;
-    texture.needsUpdate = true;
-    return texture;
-}
 export class CityArt {
     asphalt: T.MeshStandardMaterial;
     paving: T.MeshStandardMaterial;
+    plaza: T.MeshStandardMaterial;
     surfaces: CitySurfaces;
-    street = new StreetProps();
-    concreteMap = surface('concrete', 7);
+    street: StreetProps;
     private owned = new Set<T.Material>();
     private textures = new Set<T.Texture>();
     private facades = new Map<number,{concrete:T.MeshStandardMaterial;trim:T.MeshStandardMaterial;glass:T.MeshPhysicalMaterial}>();
+    private awnings = new Map<number,T.MeshStandardMaterial>();
     constructor(assets: Assets) {
         this.surfaces = new CitySurfaces(assets);
+        this.street = new StreetProps(assets.textures.get('foliage/color'), assets.textures);
         this.asphalt = this.surfaces.asphalt;
         this.paving = this.surfaces.paving;
-        this.owned.add(this.asphalt);
-        this.owned.add(this.paving);
-        this.textures.add(this.concreteMap);
+        this.plaza = this.surfaces.stone;
     }
     architecture(
         width: number,
@@ -62,19 +36,20 @@ export class CityArt {
         const style = variant % 4;
         let facade=this.facades.get(style);
         if(!facade) {
-        const concrete = new T.MeshStandardMaterial({
-            color: [0xb19780, 0xaab4bb, 0xd0c9b6, 0x9ca5ad][style],
-            map: style === 0 ? this.surfaces.brick.map : this.paving.map,
-            normalMap: style === 0 ? this.surfaces.brick.normalMap : this.paving.normalMap,
-            normalScale: new T.Vector2(0.45, 0.45),
-            roughnessMap: style === 0 ? this.surfaces.brick.roughnessMap : this.paving.roughnessMap,
-            roughness: 0.87,
-            metalness: 0.02,
-        });
+        const surface = style === 0 ? this.surfaces.brick : style === 2 ? this.surfaces.cladding : this.surfaces.concrete;
+        const concrete = surface.clone();
+        concrete.color.set([0xc3ad98, 0xc2ccd0, 0xe4d7bc, 0xa3b1b8][style]);
+        concrete.name = `facade-${style}`;
         const trim = new T.MeshStandardMaterial({
-            color: 0x343f4a,
-            roughness: 0.6,
-            metalness: 0.28,
+            color: 0x56616a,
+            map: this.surfaces.concrete.map,
+            normalMap: this.surfaces.concrete.normalMap,
+            normalScale: new T.Vector2(.3, .3),
+            roughnessMap: this.surfaces.concrete.roughnessMap,
+            aoMap: this.surfaces.concrete.aoMap,
+            aoMapIntensity: .6,
+            roughness: 0.9,
+            metalness: 0.08,
         });
         const glass = windowMaterial(style===1 ? 0x506877 : 0x364b58);
         [concrete, trim, glass].forEach((m) => this.owned.add(m));
@@ -104,12 +79,17 @@ export class CityArt {
         for (let floor = 0; floor < floors; floor++) {
             const y = storey * floor + storey * 0.55;
             for (let face = 0; face < 4; face++) {
+                const storefront = floor === 0 && !background;
                 const extent = face < 2 ? width : depth,
-                    cols = Math.floor((extent - 0.8) / 2.7),
+                    cols = Math.floor((extent - 0.8) / (storefront ? 3.8 : 2.7)),
                     spacing = (extent - 0.8) / cols;
                 for (let col = 0; col < cols; col++) {
                     const offset = -extent / 2 + 0.4 + spacing * (col + 0.5),
                         sign = face % 2 ? -1 : 1;
+                    // Leave the existing entrance and its collision footprint clear.
+                    if (storefront && face === 0 && Math.abs(offset) < 2.2) continue;
+                    const paneWidth = spacing * (storefront ? .82 : style === 1 ? .94 : .63);
+                    const paneHeight = storey * (storefront ? .74 : style === 1 ? .84 : .63);
                     const position =
                         face < 2
                             ? new T.Vector3(
@@ -130,15 +110,25 @@ export class CityArt {
                         new T.Matrix4().compose(
                             position,
                             rotation,
-                            new T.Vector3(spacing * (style === 1 ? 0.94 : 0.63), storey * (style === 1 ? 0.84 : 0.63), 0.035),
+                            new T.Vector3(paneWidth, paneHeight, 0.035),
                         ),
                     );
                     const tone =
                         0.64 +
-                        ((floor * 17 + col * 7 + variant * 11) % 9) * 0.042;
+                        ((floor * 17 + col * 7 + variant * 11 + face * 3) % 9) * 0.042;
                     paneColors.push(new T.Color(tone, tone, tone));
+                    if (storefront && style % 2 === 0 && (face === 0 || face === 2)) {
+                        const canopy = this.awning(paneWidth + .2, style);
+                        canopy.position.copy(position); canopy.position.y = storey - .03;
+                        canopy.rotation.y = face === 2 ? Math.PI / 2 : 0;
+                        group.add(canopy);
+                        solids.push({
+                            position: canopy.position.clone().add(new T.Vector3(face === 2 ? .6 : 0, -.15, face === 0 ? .6 : 0)),
+                            size: new T.Vector3(face === 2 ? 1.25 : paneWidth + .2, .5, face === 0 ? 1.25 : paneWidth + .2),
+                        });
+                    }
                     if (!background && style !== 1) {
-                        const pw = spacing * 0.67, ph = storey * 0.67;
+                        const pw = paneWidth + .10, ph = paneHeight + .10;
                         const frame = face < 2;
                         box(details, frame ? pw : 0.12, 0.10, frame ? 0.12 : pw,
                             position.x, y-ph/2, position.z);
@@ -189,6 +179,15 @@ export class CityArt {
             );
         }
         if (!background) {
+            // Drainpipes and brackets give close façades a readable silhouette
+            // and cast real shadows while remaining inside the existing hull.
+            for (const side of [-1, 1]) {
+                const pipe = new T.CylinderGeometry(.055, .055, height, 8);
+                pipe.translate(side * (width / 2 - .18), height / 2, depth / 2 + .075);
+                details.push(pipe);
+                for (let y = 1; y < height; y += 3.2)
+                    box(details, .18, .08, .14, side * (width / 2 - .18), y, depth / 2 + .06);
+            }
             // Ground-floor shops, deep lintels, stone piers and vertical façade rhythm.
             for (const side of [-1,1]) {
                 for (let x=-width/2+0.55; x<width/2; x+=style===2 ? 3.7 : 5.4)
@@ -206,7 +205,7 @@ export class CityArt {
                 solids.push({position:new T.Vector3(x,y,z),size:new T.Vector3(2.1,1.3,1.5)});
                 for(let slat=0;slat<7;slat++) box(walls,1.75,0.045,0.05,x,y-0.43+slat*.14,z+0.77);
             }
-            const rooftop = new T.Mesh(metreBox(width-.5,.035,depth-.5),this.paving);
+            const rooftop = new T.Mesh(metreBox(width-.5,.035,depth-.5),this.surfaces.roof);
             rooftop.position.y=height+.018; rooftop.receiveShadow=true; group.add(rooftop);
             const lift=new T.Mesh(metreBox(3.7,2.4,4.0),concrete);
             lift.position.set(width*.28,height+1.2,-depth*.28);lift.castShadow=true;group.add(lift);
@@ -232,7 +231,9 @@ export class CityArt {
         create(walls, concrete);
         create(details, trim);
         const panes = new T.InstancedMesh(
-            new T.BoxGeometry(1, 1, 1),
+            // Interior mapping supplies depth; hidden box faces did five times
+            // the useful work across tens of thousands of skyline windows.
+            new T.PlaneGeometry(1, 1),
             glass,
             paneTransforms.length,
         );
@@ -249,13 +250,13 @@ export class CityArt {
             );
             entrance.position.set(0, 1.35, depth / 2 + 0.035);
             group.add(entrance);
-            const canopy = new T.Mesh(new T.BoxGeometry(4.4, 0.15, 1.6), trim);
+            const canopy = new T.Mesh(metreBox(4.4, 0.15, 1.6), trim);
             canopy.position.set(0, 2.8, depth / 2 + 0.6);
             canopy.castShadow = true;
             group.add(canopy);
             solids.push({position:canopy.position.clone(),size:new T.Vector3(4.4,.15,1.6)});
             for(const x of [-1.75,1.75]) {
-                const frame = new T.Mesh(new T.BoxGeometry(.12,2.72,.14),trim);
+                const frame = new T.Mesh(metreBox(.12,2.72,.14),trim);
                 frame.position.set(x,1.36,depth/2+.07);group.add(frame);
             }
             const entrySign=this.sign(style===0 ? 'MARKET & CO.' : style===2 ? 'CITY HALL' : 'LOBBY',3.6);
@@ -295,6 +296,34 @@ export class CityArt {
             new T.PlaneGeometry(width, (width * 96) / 512),
             material,
         );
+    }
+    awning(width: number, style = 0) {
+        let material = this.awnings.get(style);
+        if (!material) {
+            const canvas = document.createElement('canvas'); canvas.width = 256; canvas.height = 64;
+            const c = canvas.getContext('2d')!;
+            c.fillStyle = '#d9d2bf'; c.fillRect(0,0,256,64);
+            c.fillStyle = style === 0 ? '#294d4c' : '#69433a';
+            for (let x = 0; x < 256; x += 64) c.fillRect(x,0,32,64);
+            const texture = new T.CanvasTexture(canvas); texture.colorSpace = T.SRGBColorSpace;
+            texture.wrapS = T.RepeatWrapping;
+            this.textures.add(texture);
+            material = new T.MeshStandardMaterial({ map: texture, roughness: .96, envMapIntensity: .2 });
+            this.awnings.set(style,material); this.owned.add(material);
+        }
+        const group = new T.Group(); group.name = 'striped-shop-awning';
+        const cloth = new T.BoxGeometry(width,.07,1.2);
+        const uv = cloth.attributes.uv;
+        for (let i = 0; i < uv.count; i++) uv.setX(i,uv.getX(i)*width/3);
+        const canopy = new T.Mesh(cloth,material);
+        canopy.rotation.x = .18; canopy.position.set(0,-.11,.58); canopy.castShadow = true;
+        group.add(canopy);
+        const valanceGeometry = new T.BoxGeometry(width,.2,.055);
+        const valanceUv = valanceGeometry.attributes.uv;
+        for (let i = 0; i < valanceUv.count; i++) valanceUv.setX(i,valanceUv.getX(i)*width/3);
+        const valance = new T.Mesh(valanceGeometry,material);
+        valance.position.set(0,-.32,1.16); valance.castShadow = true; group.add(valance);
+        return group;
     }
     dispose() {
         this.surfaces.dispose();

@@ -1,13 +1,15 @@
 import {chromium} from '@playwright/test';
 import fs from 'node:fs';
 const artifactPrefix=process.argv[2]??'performance';
+const gameUrl=process.env.GAME_URL??'http://127.0.0.1:5173';
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--use-angle=metal','--enable-precise-memory-info']});
 const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
-await page.goto('http://127.0.0.1:5173');await page.waitForFunction(()=>window.game?.world,{timeout:60000});
+await page.goto(gameUrl);await page.waitForFunction(()=>window.game?.world,{timeout:60000});
 await page.locator('#start').click();await page.waitForFunction(()=>window.game.input.active);
 const environment=await page.evaluate(()=>{const g=window.game,gl=g.renderer.getContext(),ext=gl.getExtension('WEBGL_debug_renderer_info');return {userAgent:navigator.userAgent,renderer:ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):gl.getParameter(gl.RENDERER),drawingBuffer:[gl.drawingBufferWidth,gl.drawingBufferHeight],devicePixelRatio,hardwareConcurrency:navigator.hardwareConcurrency};});
 const samples=[],segments=[],resets=[];
+const resetBaseline=await page.evaluate(()=>window.game.snapshot());
 const summary=async(name)=>page.evaluate(name=>{
  const g=window.game,stats=a=>{const s=[...a].sort((a,b)=>a-b);return {frames:s.length,medianMs:s[Math.floor(s.length*.5)],p95Ms:s[Math.floor(s.length*.95)],maxMs:s.at(-1)};};
  return {name,frame:stats(g.frameTimes),cpuUpdate:stats(g.updateTimes),renderSubmission:stats(g.submissionTimes),snapshot:g.snapshot(),heap:performance.memory?.usedJSHeapSize};
@@ -59,7 +61,8 @@ try{
  await prepare('stress');await run('stress',120);segments.push(await summary('stress'));await page.screenshot({path:`.artifacts/${artifactPrefix}-stress.png`});
  await prepare('long');await run('long',360);segments.push(await summary('long-final'));
 }catch(e){errors.push(String(e));process.exitCode=1;}
-if(resets.some(r=>r.after.snapshot.bodies!==29||r.after.snapshot.colliders!==87||r.after.snapshot.civilians!==20||r.after.snapshot.enemies!==0||r.after.snapshot.effects!==0))errors.push('Reset entity baseline did not recover');
+if(resets.some(r=>r.after.snapshot.bodies!==resetBaseline.bodies||r.after.snapshot.colliders!==resetBaseline.colliders||r.after.snapshot.civilians!==resetBaseline.civilians||r.after.snapshot.enemies!==0||r.after.snapshot.effects!==0))errors.push('Reset entity baseline did not recover');
+if(new Set(resets.map(r=>r.after.snapshot.geometries)).size>1||new Set(resets.map(r=>r.after.snapshot.textures)).size>1)errors.push('Reset GPU allocations did not stabilize');
 if(errors.length)process.exitCode=1;
-const report={date:new Date().toISOString(),environment,durationSeconds:630,method:'30s warmup + 120s normal + 120s combat + 360s continued operation; Chrome headless on local Metal GPU; scripted input/scenario driver, not manual play',segments,resets,samples,errors};
+const report={date:new Date().toISOString(),gameUrl,resetBaseline,environment,durationSeconds:630,method:'30s warmup + 120s normal + 120s combat + 360s continued operation; Chrome headless on local Metal GPU; scripted input/scenario driver, not manual play',segments,resets,samples,errors};
 fs.writeFileSync(`.artifacts/${artifactPrefix}.json`,JSON.stringify(report,null,2));console.log('FINAL',JSON.stringify({segments,resets:resets.map(r=>r.after.snapshot),errors}));await browser.close();

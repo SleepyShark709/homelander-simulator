@@ -77,6 +77,7 @@ export class Combat {
                     point,
                     e.kind === 'car' ? 0x59676b : 0xada58d,
                     2,
+                    e.mesh.userData.fragmentType === 'glass',
                 );
                 if (e.kind === 'car') {
                     e.mesh.traverse((o) => {

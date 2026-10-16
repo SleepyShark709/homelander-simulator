@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-14",
+  "generated": "2026-10-16",
   "assets": [
     {
       "path": "cars/Textures/colormap.png",
@@ -1056,6 +1056,348 @@
       ]
     },
     {
+      "path": "city-details/drawer_cabinet/drawer_cabinet.bin",
+      "sha256": "3460b9fe00ffbe779b7f7f2de3b159c214cfec275c06194add0eebd951ee14e9",
+      "bytes": 798852,
+      "retainedReference": false,
+      "author": "Ulan Cabanilla",
+      "url": "https://polyhaven.com/a/drawer_cabinet",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/drawer_cabinet/drawer_cabinet.bin",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/drawer_cabinet/drawer_cabinet_2k.gltf",
+      "sha256": "5daedfc7f16b6bef0da212b4904aca449f07a8dbad2ddca18bbfb979caeda31f",
+      "bytes": 8031,
+      "retainedReference": false,
+      "author": "Ulan Cabanilla",
+      "url": "https://polyhaven.com/a/drawer_cabinet",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/drawer_cabinet/drawer_cabinet_2k.gltf",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt",
+      "animations": [],
+      "dependencies": [
+        "textures/drawer_cabinet_nor_gl_2k.jpg",
+        "textures/drawer_cabinet_diff_2k.jpg",
+        "textures/drawer_cabinet_arm_2k.jpg",
+        "drawer_cabinet.bin"
+      ]
+    },
+    {
+      "path": "city-details/drawer_cabinet/textures/drawer_cabinet_arm_2k.jpg",
+      "sha256": "b0d86115d9b8d9c85fc9c787c56dc32e573b64a8ae1d3d5a82268f540c820f0b",
+      "bytes": 382840,
+      "retainedReference": false,
+      "author": "Ulan Cabanilla",
+      "url": "https://polyhaven.com/a/drawer_cabinet",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/drawer_cabinet/drawer_cabinet_arm_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/drawer_cabinet/textures/drawer_cabinet_diff_2k.jpg",
+      "sha256": "e877963d22e48a46d58c15af60c7c48690d33881b19fb892f21aea3098119f6b",
+      "bytes": 541585,
+      "retainedReference": false,
+      "author": "Ulan Cabanilla",
+      "url": "https://polyhaven.com/a/drawer_cabinet",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/drawer_cabinet/drawer_cabinet_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/drawer_cabinet/textures/drawer_cabinet_nor_gl_2k.jpg",
+      "sha256": "5424a0f1e41f3f1ade8c9bd7d04c6baf74e09ee36bf51d4694aee46a7238602d",
+      "bytes": 337575,
+      "retainedReference": false,
+      "author": "Ulan Cabanilla",
+      "url": "https://polyhaven.com/a/drawer_cabinet",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/drawer_cabinet/drawer_cabinet_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/outdoor_table_chair_set_01.bin",
+      "sha256": "d62458c79c6c902d1195bff875e42bf7579c6b309c6b96f9cd7543af43170220",
+      "bytes": 456856,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/outdoor_table_chair_set_01/outdoor_table_chair_set_01.bin",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/outdoor_table_chair_set_01_2k.gltf",
+      "sha256": "2e2376efc210d849a22bd352b40442d38985c74953fc8020bb01ca94c66c68ca",
+      "bytes": 6826,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_2k.gltf",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt",
+      "animations": [],
+      "dependencies": [
+        "textures/outdoor_table_chair_set_01_chair_nor_gl_2k.jpg",
+        "textures/outdoor_table_chair_set_01_chair_diff_2k.jpg",
+        "textures/outdoor_table_chair_set_01_chair_arm_2k.jpg",
+        "textures/outdoor_table_chair_set_01_table_nor_gl_2k.jpg",
+        "textures/outdoor_table_chair_set_01_table_diff_2k.jpg",
+        "textures/outdoor_table_chair_set_01_table_arm_2k.jpg",
+        "outdoor_table_chair_set_01.bin"
+      ]
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_arm_2k.jpg",
+      "sha256": "646ed8503d7e1d1806506a38c3b2d31b616e0720538e7df054c3d982b9bfa5ae",
+      "bytes": 583486,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_arm_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_diff_2k.jpg",
+      "sha256": "5f6ce1dcd8dbfc0293ae62f01f0cef0a8a07862bd6d744eefa459206e9206eb1",
+      "bytes": 506077,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_chair_nor_gl_2k.jpg",
+      "sha256": "02723a5d2275e357d07e41a71a87dc46b89e11fec9711b84a7c1d082ada8144a",
+      "bytes": 227267,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_chair_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_arm_2k.jpg",
+      "sha256": "64b584f6cf5993b9b78c7ec51ad471ad010a90455ee4bb45a3c9be1263db4d97",
+      "bytes": 695054,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_arm_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_diff_2k.jpg",
+      "sha256": "8259d7200a753037516e153d0989bd5812d50874be7631c34794abdeb2796384",
+      "bytes": 520192,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/outdoor_table_chair_set_01/textures/outdoor_table_chair_set_01_table_nor_gl_2k.jpg",
+      "sha256": "8ab2e82a262da2912cb64b3439377f943dd29f344b8d4b8b25eb389efdceabc8",
+      "bytes": 205693,
+      "retainedReference": false,
+      "author": "James Ray Cock",
+      "url": "https://polyhaven.com/a/outdoor_table_chair_set_01",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/outdoor_table_chair_set_01/outdoor_table_chair_set_01_table_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/potted_plant_02.bin",
+      "sha256": "9c9812482c78a59789ed32fa842b4cbd9365e09c900c31ebb998e5efe627fe97",
+      "bytes": 1852244,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/potted_plant_02/potted_plant_02.bin",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/potted_plant_02_2k.gltf",
+      "sha256": "80ab49cb61737244f50b805ddde3dd64e461b2a244817f8882e95a97c916d158",
+      "bytes": 6653,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/potted_plant_02/potted_plant_02_2k.gltf",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt",
+      "animations": [],
+      "dependencies": [
+        "textures/potted_plant_02_pot_nor_gl_2k.jpg",
+        "textures/potted_plant_02_pot_diff_2k.jpg",
+        "textures/potted_plant_02_pot_rough_2k.jpg",
+        "textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+        "textures/potted_plant_02_leaves_diff_2k.jpg",
+        "textures/potted_plant_02_leaves_rough_2k.jpg",
+        "potted_plant_02.bin"
+      ]
+    },
+    {
+      "path": "city-details/potted_plant_02/textures/potted_plant_02_leaves_diff_2k.jpg",
+      "sha256": "f70de9a4b735b740e79d4e7720a47eae5e2bb4a289880cdae5905d156223bd7d",
+      "bytes": 584084,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/textures/potted_plant_02_leaves_nor_gl_2k.jpg",
+      "sha256": "2ae648b12ea457fb720f9adc6f8dc9feb8d5409e43f3b9f2ce7f089b3eef12f6",
+      "bytes": 481780,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/textures/potted_plant_02_leaves_rough_2k.jpg",
+      "sha256": "399e61a82069b3e344cece76c128f84a664dd44719331450877b671906e01e27",
+      "bytes": 435284,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_leaves_rough_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/textures/potted_plant_02_pot_diff_2k.jpg",
+      "sha256": "21672040b5de49e7dae07452431b4fe5cf401494f5ab5157b5f54a146cc68383",
+      "bytes": 596006,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/textures/potted_plant_02_pot_nor_gl_2k.jpg",
+      "sha256": "8e8c2e96de90e793712a9db8a6cea7a38f7fd5ec489b8134b586a42ebbbfcb11",
+      "bytes": 494387,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/potted_plant_02/textures/potted_plant_02_pot_rough_2k.jpg",
+      "sha256": "c1f341bfa5e610dab2fd31aad4068fa20cf957b098912da5949bca996d7649bf",
+      "bytes": 426559,
+      "retainedReference": false,
+      "author": "Rico Cilliers",
+      "url": "https://polyhaven.com/a/potted_plant_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/potted_plant_02/potted_plant_02_pot_rough_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/rollershutter_door/rollershutter_door.bin",
+      "sha256": "155cd44e199d4edd19769503c7ed22b0b4007869166d0193a7e2d5e3134dc38d",
+      "bytes": 46192,
+      "retainedReference": false,
+      "author": "MP",
+      "url": "https://polyhaven.com/a/rollershutter_door",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/rollershutter_door/rollershutter_door.bin",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/rollershutter_door/rollershutter_door_2k.gltf",
+      "sha256": "2e577ec6e0cd3535a49039f3ce5dd50e5358fe7475d77b64104a1addb886a673",
+      "bytes": 5378,
+      "retainedReference": false,
+      "author": "MP",
+      "url": "https://polyhaven.com/a/rollershutter_door",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/rollershutter_door/rollershutter_door_2k.gltf",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt",
+      "animations": [],
+      "dependencies": [
+        "textures/rollershutter_door_nor_gl_2k.jpg",
+        "textures/rollershutter_door_diff_2k.jpg",
+        "textures/rollershutter_door_arm_2k.jpg",
+        "textures/rollershutter_door_graffiti_diff_2k.jpg",
+        "rollershutter_door.bin"
+      ]
+    },
+    {
+      "path": "city-details/rollershutter_door/textures/rollershutter_door_arm_2k.jpg",
+      "sha256": "10bdbc409d48981b3acb6616303c0479d10243cedb1890ef8dbe8e1d36afde18",
+      "bytes": 2284955,
+      "retainedReference": false,
+      "author": "MP",
+      "url": "https://polyhaven.com/a/rollershutter_door",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_arm_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/rollershutter_door/textures/rollershutter_door_diff_2k.jpg",
+      "sha256": "1e7c6f6caf3d3cdcdcb3c7ae589ee536cf015c2fc6acfa34a2a08d3f9902dda4",
+      "bytes": 2321049,
+      "retainedReference": false,
+      "author": "MP",
+      "url": "https://polyhaven.com/a/rollershutter_door",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/rollershutter_door/textures/rollershutter_door_graffiti_diff_2k.jpg",
+      "sha256": "1639d5c3a620d8557195168900c4e5bdbcea80a047e2f637b4ca072c139b59d3",
+      "bytes": 2536479,
+      "retainedReference": false,
+      "author": "MP",
+      "url": "https://polyhaven.com/a/rollershutter_door",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_graffiti_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "city-details/rollershutter_door/textures/rollershutter_door_nor_gl_2k.jpg",
+      "sha256": "77ad1ba5b657f0d76422dd820eb32301059f00c27087d172d451338d3b6791bc",
+      "bytes": 1471465,
+      "retainedReference": false,
+      "author": "MP",
+      "url": "https://polyhaven.com/a/rollershutter_door",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rollershutter_door/rollershutter_door_nor_gl_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "foliage/broadleaf-branch-v1.png",
+      "sha256": "7e945f6bc4ad1b5fd76e492bd4703de11d1848ba77f5fce2a0f83ed94643c12a",
+      "bytes": 1568425,
+      "retainedReference": false,
+      "author": "Project / OpenAI built-in image_gen",
+      "license": "AI-generated project asset",
+      "licenseFile": "foliage/provenance.json",
+      "provenanceFile": "foliage/provenance.json"
+    },
+    {
       "path": "human/native-npc.glb",
       "sha256": "e94bf7cf41d7b7b6c0d85ff466292f70f4cf4afd01eff5f040d6d25714f133e5",
       "bytes": 916728,
@@ -1167,8 +1509,8 @@
     },
     {
       "path": "human/native-player.glb",
-      "sha256": "e072afc8277684bbd0ab8e7f4d071da1b9ad4440e8fb171e0d7897c3869017d6",
-      "bytes": 2098996,
+      "sha256": "bbbb90147f22e6739badd6e7a9f61ca1cff7e51b93e726b8d25dba800c9337f3",
+      "bytes": 2157680,
       "retainedReference": false,
       "author": "Mesh2Motion / contributors",
       "url": "https://github.com/Mesh2Motion/mesh2motion-app",
@@ -1192,7 +1534,8 @@
         "fly",
         "takeoff",
         "land",
-        "slam"
+        "slam",
+        "jump"
       ],
       "dependencies": [],
       "motionSources": {
@@ -1393,8 +1736,115 @@
           "license": "CC0-1.0",
           "sourceCommit": "653a9698f5f315523072f1c3ff3496100401317b",
           "retargeted": false
+        },
+        "jump": {
+          "source": "Mesh2Motion",
+          "sourceClip": "Jump_2",
+          "bundle": "addon",
+          "license": "CC0-1.0",
+          "sourceCommit": "653a9698f5f315523072f1c3ff3496100401317b",
+          "retargeted": false
         }
       }
+    },
+    {
+      "path": "pbr/asphalt_05/asphalt_05_ao_1k.jpg",
+      "sha256": "bec4c534b15f52e1fac5a3d3512a7c0c4149d660c83185fad39ed6d12cff8b35",
+      "bytes": 901605,
+      "retainedReference": false,
+      "author": "Amal Kumar",
+      "url": "https://polyhaven.com/a/asphalt_05",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_05/asphalt_05_ao_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/asphalt_05/asphalt_05_diff_2k.jpg",
+      "sha256": "8d95df7a908bf94a0280b28b63faecf622ac6223bd842b4705dd0c2b5b9b9efe",
+      "bytes": 3782816,
+      "retainedReference": false,
+      "author": "Amal Kumar",
+      "url": "https://polyhaven.com/a/asphalt_05",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/asphalt_05/asphalt_05_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/asphalt_05/asphalt_05_nor_gl_1k.jpg",
+      "sha256": "88c0b046630b483b722974e7482e41cf70f1f33f50e6fb9d01a4043aff85357d",
+      "bytes": 1359609,
+      "retainedReference": false,
+      "author": "Amal Kumar",
+      "url": "https://polyhaven.com/a/asphalt_05",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_05/asphalt_05_nor_gl_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/asphalt_05/asphalt_05_rough_1k.jpg",
+      "sha256": "ad857a6328056db64bec91bcb8690f5cba17a55dadc93b22fcdedd3775cab14a",
+      "bytes": 712229,
+      "retainedReference": false,
+      "author": "Amal Kumar",
+      "url": "https://polyhaven.com/a/asphalt_05",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/asphalt_05/asphalt_05_rough_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/bark_brown_02/bark_brown_02_ao_1k.jpg",
+      "sha256": "f3572613f143ca84885f4b4e03332d9a8723420c740a12750ab538fad7f39552",
+      "bytes": 514586,
+      "retainedReference": false,
+      "author": "Rob Tuytel",
+      "url": "https://polyhaven.com/a/bark_brown_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_ao_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/bark_brown_02/bark_brown_02_diff_1k.jpg",
+      "sha256": "920fa0bed0c9d78c1d530e99795113afd532d7db746de440f4a85d7c83ed0f1a",
+      "bytes": 659592,
+      "retainedReference": false,
+      "author": "Rob Tuytel",
+      "url": "https://polyhaven.com/a/bark_brown_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_diff_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/bark_brown_02/bark_brown_02_nor_gl_1k.jpg",
+      "sha256": "0d5e691e8ad8bcd093a3587887fda2a6b4a948b5708a4f256f7919584c6eb857",
+      "bytes": 1015623,
+      "retainedReference": false,
+      "author": "Rob Tuytel",
+      "url": "https://polyhaven.com/a/bark_brown_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_nor_gl_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/bark_brown_02/bark_brown_02_rough_1k.jpg",
+      "sha256": "68125592de36e15bae7aa6db85c4d135aeb7e5653199ba226483a70f6d69837d",
+      "bytes": 337946,
+      "retainedReference": false,
+      "author": "Rob Tuytel",
+      "url": "https://polyhaven.com/a/bark_brown_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_rough_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/brick_wall_003/brick_wall_003_ao_1k.jpg",
+      "sha256": "09a36f257b77fef549d3ca6702204d9c705f837aafdd69af964ee59b562aa93f",
+      "bytes": 425057,
+      "retainedReference": false,
+      "author": "Dimitrios Savva (Photography), Rob Tuytel (Processing)",
+      "url": "https://polyhaven.com/a/brick_wall_003",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brick_wall_003/brick_wall_003_ao_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
     },
     {
       "path": "pbr/brick_wall_003/brick_wall_003_diffuse_2k.jpg",
@@ -1426,6 +1876,17 @@
       "author": "Dimitrios Savva (Photography), Rob Tuytel (Processing)",
       "url": "https://polyhaven.com/a/brick_wall_003",
       "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/brick_wall_003/brick_wall_003_rough_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/concrete_pavement/concrete_pavement_ao_1k.jpg",
+      "sha256": "e8f529efda5559c428984880e265ec7e7711aa6de89f27a6b1d5ea2d44e446b8",
+      "bytes": 866967,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/concrete_pavement",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_pavement/concrete_pavement_ao_1k.jpg",
       "license": "CC0-1.0",
       "licenseFile": "licenses/polyhaven.txt"
     },
@@ -1463,6 +1924,138 @@
       "licenseFile": "licenses/polyhaven.txt"
     },
     {
+      "path": "pbr/concrete_wall_006/concrete_wall_006_ao_1k.jpg",
+      "sha256": "269844153ed757236f03629c9568f5ab816c7d6c502bcb7ccf8fe610d1a70e9e",
+      "bytes": 1003879,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni (Photography), Dario Barresi (Processing)",
+      "url": "https://polyhaven.com/a/concrete_wall_006",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_wall_006/concrete_wall_006_ao_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/concrete_wall_006/concrete_wall_006_diff_2k.jpg",
+      "sha256": "daee26f5b5dae37e3fb2947c64f4045fd4e6d3b89884eb0d878ba6414746e8e8",
+      "bytes": 3109558,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni (Photography), Dario Barresi (Processing)",
+      "url": "https://polyhaven.com/a/concrete_wall_006",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_006/concrete_wall_006_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/concrete_wall_006/concrete_wall_006_nor_gl_1k.jpg",
+      "sha256": "4ff16bb96fc2df3ef71d22007151aff1d8bf7cb10a493d3f8e973213a99dd428",
+      "bytes": 1195078,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni (Photography), Dario Barresi (Processing)",
+      "url": "https://polyhaven.com/a/concrete_wall_006",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_wall_006/concrete_wall_006_nor_gl_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/concrete_wall_006/concrete_wall_006_rough_1k.jpg",
+      "sha256": "ceee98c940b8f1e49169af880497aa60eaae5de0ac5b3603aa753b76f687c455",
+      "bytes": 255004,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni (Photography), Dario Barresi (Processing)",
+      "url": "https://polyhaven.com/a/concrete_wall_006",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/concrete_wall_006/concrete_wall_006_rough_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/rectangular_facade_tiles/rectangular_facade_tiles_ao_1k.jpg",
+      "sha256": "866a0377bffabd0651531b750f36ee484743e4227abd99b4801c3c4bb7bf90d1",
+      "bytes": 581632,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/rectangular_facade_tiles",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rectangular_facade_tiles/rectangular_facade_tiles_ao_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/rectangular_facade_tiles/rectangular_facade_tiles_diff_2k.jpg",
+      "sha256": "a8d604be82d451f08094c628e9a49d88aaa9e981bbdd3363d67df48e5643c542",
+      "bytes": 2288265,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/rectangular_facade_tiles",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rectangular_facade_tiles/rectangular_facade_tiles_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/rectangular_facade_tiles/rectangular_facade_tiles_nor_gl_1k.jpg",
+      "sha256": "8a7d8db468fe5bd37a2fc14ff6012855b14bec03dd413e034a376902a723b44c",
+      "bytes": 819898,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/rectangular_facade_tiles",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rectangular_facade_tiles/rectangular_facade_tiles_nor_gl_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/rectangular_facade_tiles/rectangular_facade_tiles_rough_1k.jpg",
+      "sha256": "9ae8bcd63f78799abc5c2f182bb6c6804031bf8d47e0f2a9c9c2c3d2d4cec5cc",
+      "bytes": 248134,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/rectangular_facade_tiles",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rectangular_facade_tiles/rectangular_facade_tiles_rough_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/stone_tiles_02/stone_tiles_02_ao_1k.jpg",
+      "sha256": "5a1ae07300696200ae298197ea3078c18de6c630bbfad36d5c1ccdb1c3edde92",
+      "bytes": 557678,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/stone_tiles_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_tiles_02/stone_tiles_02_ao_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/stone_tiles_02/stone_tiles_02_diff_2k.jpg",
+      "sha256": "02e056f5f5fbcbd90212bd4c7b8c1e979a10685a3291b6b25b19eeeb84f7d410",
+      "bytes": 3487320,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/stone_tiles_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/stone_tiles_02/stone_tiles_02_diff_2k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/stone_tiles_02/stone_tiles_02_nor_gl_1k.jpg",
+      "sha256": "ab19cc9baacb0bc30a219f841254beb6837412ddad9bfc9c052b5aa805d1c3f0",
+      "bytes": 873564,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/stone_tiles_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_tiles_02/stone_tiles_02_nor_gl_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/stone_tiles_02/stone_tiles_02_rough_1k.jpg",
+      "sha256": "889f66231be4f25ecd80b5d87f06f4e8c22c801edb8dcc7e34c13e6b4b74491c",
+      "bytes": 476160,
+      "retainedReference": false,
+      "author": "Charlotte Baglioni",
+      "url": "https://polyhaven.com/a/stone_tiles_02",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/stone_tiles_02/stone_tiles_02_rough_1k.jpg",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
       "path": "pbr/urban_street_03_1k.hdr",
       "sha256": "145c1e911e763c43a28ba5800888606b79acd1830f43fe9793f24da3478b5d8b",
       "bytes": 1633950,
@@ -1470,6 +2063,17 @@
       "author": "Andreas Mischok",
       "url": "https://polyhaven.com/a/urban_street_03",
       "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/urban_street_03_1k.hdr",
+      "license": "CC0-1.0",
+      "licenseFile": "licenses/polyhaven.txt"
+    },
+    {
+      "path": "pbr/worn_asphalt/worn_asphalt_ao_1k.jpg",
+      "sha256": "c07b7d9608e73ed9732abbfe6e5afcd01da5ebeee227093855ebd0299b2abb73",
+      "bytes": 1224954,
+      "retainedReference": false,
+      "author": "Amal Kumar",
+      "url": "https://polyhaven.com/a/worn_asphalt",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/worn_asphalt/worn_asphalt_ao_1k.jpg",
       "license": "CC0-1.0",
       "licenseFile": "licenses/polyhaven.txt"
     },

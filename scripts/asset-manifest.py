@@ -15,6 +15,12 @@ polyhaven = {
     'worn_asphalt': 'Amal Kumar', 'concrete_pavement': 'Charlotte Baglioni',
     'brick_wall_003': 'Dimitrios Savva (Photography), Rob Tuytel (Processing)',
     'urban_street_03': 'Andreas Mischok', 'street_lamp_01': 'Josh Dean',
+    'concrete_wall_006': 'Charlotte Baglioni (Photography), Dario Barresi (Processing)',
+    'stone_tiles_02': 'Charlotte Baglioni', 'rectangular_facade_tiles': 'Charlotte Baglioni',
+    'asphalt_05': 'Amal Kumar',
+    'outdoor_table_chair_set_01': 'James Ray Cock', 'potted_plant_02': 'Rico Cilliers',
+    'drawer_cabinet': 'Ulan Cabanilla', 'rollershutter_door': 'MP',
+    'bark_brown_02': 'Rob Tuytel',
 }
 source_records = {}
 record_path = root / '.asset-source/quality-downloads.json'
@@ -30,6 +36,13 @@ else:
     for record in json.loads((assets / 'quality-sources.json').read_text()):
         source_records[record['file'].removeprefix('public/assets/')] = record
 
+detail_sources = assets / 'city-details/sources.json'
+if detail_sources.exists():
+    for asset in json.loads(detail_sources.read_text()):
+        for record in asset['files']:
+            source_records[record['file']] = {**record, 'file': 'public/assets/' + record['file'],
+                'source': asset['source'], 'license': asset['license']}
+
 entries = []
 for p in sorted(assets.rglob('*')):
     if p.suffix.lower() not in ('.glb', '.gltf', '.bin', '.png', '.jpg', '.hdr'):
@@ -42,6 +55,11 @@ for p in sorted(assets.rglob('*')):
         if rel.parts[0] == 'human' and p.suffix != '.glb':
             entry['license'] = 'CC0-1.0'
             entry.pop('motionLicenseFile')
+    elif rel.parts[0] == 'foliage':
+        provenance = json.loads((assets / 'foliage/provenance.json').read_text())
+        assert entry['sha256'] == provenance['sha256'], p
+        entry.update(author='Project / OpenAI built-in image_gen', license='AI-generated project asset',
+                     licenseFile='foliage/provenance.json', provenanceFile='foliage/provenance.json')
     else:
         record = source_records[str(rel)]
         assert hashlib.sha256(data).hexdigest() == record['sha256'], p

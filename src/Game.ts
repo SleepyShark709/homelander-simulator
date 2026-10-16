@@ -16,6 +16,7 @@ import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { HDRLoader } from 'three/addons/loaders/HDRLoader.js';
 import { CityRenderer } from './CityRenderer';
 import { prewarmRagdolls } from './Ragdoll';
+import { installGameInspection } from './GameInspection';
 
 export class Game {
     renderer = new T.WebGLRenderer({
@@ -47,6 +48,7 @@ export class Game {
     updateTimes: number[] = [];
     submissionTimes: number[] = [];
     debug = false;
+    inspectionFrozen = false;
     presentation?: CityRenderer;
     debugEl = document.createElement('div');
     constructor() {
@@ -54,13 +56,14 @@ export class Game {
         this.renderer.shadowMap.enabled = true;
         this.renderer.shadowMap.type = T.PCFSoftShadowMap;
         this.renderer.toneMapping = T.AgXToneMapping;
-        this.renderer.toneMappingExposure = 0.95;
+        this.renderer.toneMappingExposure = CONFIG.presentation.exposure;
         document
             .getElementById('viewport')!
             .appendChild(this.renderer.domElement);
         this.input = new Input(this.renderer.domElement);
         this.input.onPause = () => {
             this.running = false;
+            this.player?.clearBufferedAttack();
             this.world?.freezeInterpolation();
             this.accumulator = 0;
             this.effects?.hideBeams();
@@ -86,8 +89,8 @@ export class Game {
             this.reset();
         };
         this.scene.background = new T.Color(0x9fbad0);
-        this.scene.fog = new T.FogExp2(0xa8bfd0, 0.0018);
-        this.scene.add(new T.HemisphereLight(0xc8e2ff, 0x62594c, 1.0));
+        this.scene.fog = new T.FogExp2(0xa8bfd0, CONFIG.presentation.fogDensity);
+        this.scene.add(new T.HemisphereLight(0xc8e2ff, 0x62594c, CONFIG.presentation.skyFill));
         const sky = new Sky();
         sky.scale.setScalar(1000);
         sky.material.uniforms.turbidity.value = 3.2;
@@ -100,24 +103,24 @@ export class Game {
         const pmrem = new T.PMREMGenerator(this.renderer);
         const reflected = pmrem.fromScene(environment, 0.04);
         this.scene.environment = reflected.texture;
-        this.scene.environmentIntensity = 0.5;
+        this.scene.environmentIntensity = CONFIG.presentation.environment;
         environment.dispose();
         pmrem.dispose();
         this.environmentTarget = reflected;
-        const sun = new T.DirectionalLight(0xffedda, 2.7);
+        const sun = new T.DirectionalLight(0xffedda, CONFIG.presentation.sunlight);
         sun.position.set(-45, 80, 40);
         sun.castShadow = true;
-        sun.shadow.mapSize.set(2048, 2048);
+        sun.shadow.mapSize.set(CONFIG.presentation.shadowMapSize, CONFIG.presentation.shadowMapSize);
         Object.assign(sun.shadow.camera, {
-            left: -70,
-            right: 70,
-            top: 70,
-            bottom: -70,
+            left: -CONFIG.presentation.shadowExtent,
+            right: CONFIG.presentation.shadowExtent,
+            top: CONFIG.presentation.shadowExtent,
+            bottom: -CONFIG.presentation.shadowExtent,
             near: 1,
             far: 200,
         });
-        sun.shadow.bias = -0.0005;
-        sun.shadow.normalBias = 0.08;
+        sun.shadow.bias = -0.00012;
+        sun.shadow.normalBias = CONFIG.presentation.shadowNormalBias;
         this.scene.add(sun);
         window.addEventListener('resize', () => this.resize(), {
             signal: this.abort.signal,
@@ -135,6 +138,8 @@ export class Game {
             },
             { signal: this.abort.signal },
         );
+        if (import.meta.env.DEV || new URLSearchParams(location.search).get('qa') === '1')
+            installGameInspection(this);
     }
     async init() {
         this.ui.progress('初始化物理引擎', 5);
@@ -148,7 +153,7 @@ export class Game {
         this.environmentTarget?.dispose();
         this.environmentTarget = environment;
         this.scene.environment = environment.texture;
-        this.scene.environmentIntensity = 0.75;
+        this.scene.environmentIntensity = CONFIG.presentation.environment;
         hdr.dispose();
         pmrem.dispose();
         this.reset();
@@ -156,8 +161,6 @@ export class Game {
         this.ui.ready();
         this.previous = performance.now();
         this.renderer.setAnimationLoop((t) => this.frame(t));
-        if (import.meta.env.DEV)
-            (window as unknown as { game: Game }).game = this;
     }
     disposeScene(group: T.Group) {
         const sharedGeometry = new Set<T.BufferGeometry>(),
@@ -187,6 +190,7 @@ export class Game {
         for (const m of materials) if (!sharedMaterial.has(m)) m.dispose();
     }
     reset() {
+        this.inspectionFrozen = false;
         this.running = false;
         this.input.clear();
         this.generation++;
@@ -267,12 +271,19 @@ export class Game {
         this.wanted.update(dt);
     }
     frame(now: number) {
+        if (this.inspectionFrozen) {
+            this.previous = now;
+            this.presentation!.render(0);
+            return;
+        }
         const cpuStart = performance.now();
-        const rawFrameMs = now - this.previous;
+        // Resume/setup can finish after an already queued RAF timestamp. Never
+        // send a negative delta into animation weights or the fixed-step clock.
+        const rawFrameMs = Math.max(0, now - this.previous);
         const elapsed = Math.min(0.1, rawFrameMs / 1000);
-        this.previous = now;
+        this.previous = Math.max(now, this.previous);
         if (this.running) {
-            this.frameTimes.push(rawFrameMs);
+            if (rawFrameMs > 0) this.frameTimes.push(rawFrameMs);
             if (this.frameTimes.length > 36000) this.frameTimes.shift();
             this.accumulator += elapsed;
             let count = 0;
@@ -323,6 +334,7 @@ export class Game {
                   : '';
         const modes = {
             ground: '地面',
+            jump: '跳跃',
             takeoff: '蓄力起飞',
             fly: p.velocity.length() > 18 ? '加速飞行' : '空中悬停',
             fall: '自然下落',

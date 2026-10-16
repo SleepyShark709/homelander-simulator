@@ -120,6 +120,10 @@ export class CitySurfaces {
     asphalt: T.MeshStandardMaterial;
     paving: T.MeshStandardMaterial;
     brick: T.MeshStandardMaterial;
+    concrete: T.MeshStandardMaterial;
+    stone: T.MeshStandardMaterial;
+    roof: T.MeshStandardMaterial;
+    cladding: T.MeshStandardMaterial;
     constructor(assets: Assets) {
         const make = (name: string, color: number, normalStrength: number) => {
             const material = new T.MeshStandardMaterial({
@@ -129,13 +133,20 @@ export class CitySurfaces {
                 normalScale: new T.Vector2(normalStrength, normalStrength),
                 roughnessMap: assets.textures.get(`${name}/roughness`),
                 roughness: 1,
+                aoMap: assets.textures.get(`${name}/ao`),
+                aoMapIntensity: .65,
+                envMapIntensity: .4,
             });
             this.materials.add(material);
             return material;
         };
-        this.asphalt = make('worn_asphalt', 0x747d89, 0.65);
-        this.paving = make('concrete_pavement', 0xffffff, 0.45);
+        this.asphalt = make('worn_asphalt', 0x626a73, 0.95);
+        this.paving = make('concrete_pavement', 0xd0c9bb, 0.75);
         this.brick = make('brick_wall_003', 0xd0b9a7, 0.75);
+        this.concrete = make('concrete_wall_006', 0xe8e4db, .55);
+        this.stone = make('stone_tiles_02', 0xe3dfd3, .7);
+        this.cladding = make('rectangular_facade_tiles', 0xe0ddd6, .6);
+        this.roof = make('asphalt_05', 0x999c9e, .8);
     }
     dispose() {
         this.materials.forEach((m) => m.dispose());

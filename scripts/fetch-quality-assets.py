@@ -4,8 +4,10 @@ import concurrent.futures, subprocess, json, hashlib
 
 ROOT = Path(__file__).resolve().parents[1]
 jobs = []
-for name, stem in [('worn_asphalt', 'diff'), ('concrete_pavement', 'diff'), ('brick_wall_003', 'diffuse')]:
-    for channel, resolution in [(stem, '2k'), ('nor_gl', '1k'), ('rough', '1k')]:
+for name, stem in [('worn_asphalt', 'diff'), ('concrete_pavement', 'diff'), ('brick_wall_003', 'diffuse'),
+                   ('concrete_wall_006', 'diff'), ('stone_tiles_02', 'diff'),
+                   ('rectangular_facade_tiles', 'diff'), ('asphalt_05', 'diff')]:
+    for channel, resolution in [(stem, '2k'), ('nor_gl', '1k'), ('rough', '1k'), ('ao', '1k')]:
         filename = f'{name}_{channel}_{resolution}.jpg'
         jobs.append((f'https://dl.polyhaven.org/file/ph-assets/Textures/jpg/{resolution}/{name}/{filename}',
                      f'public/assets/pbr/{name}/{filename}', 'CC0', f'https://polyhaven.com/a/{name}'))

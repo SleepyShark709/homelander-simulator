@@ -34,9 +34,9 @@ const report = await page.evaluate(()=>{
     p.onSlam=point=>{slams++;onSlam(point);};g.input.pressed.add('KeyQ');
     for(let i=0;i<330;i++){
         frame();if(p.mode==='slam'&&p.visual.actions.get('slam').paused)held=true;
-        if(p.mode==='ground'&&p.visual.current==='slam')groundedClip=true;
+        if(p.mode==='ground'&&p.visual.current==='land')groundedClip=true;
     }
-    checks.push({name:'stock ground pound holds in air and completes after one physical landing',pass:held&&groundedClip&&slams===1&&target.health.dead&&p.mode==='ground'&&p.visual.current==='idle',data:{held,groundedClip,slams,dead:target.health.dead,mode:p.mode,clip:p.visual.current}});
+    checks.push({name:'ground pound holds in air, hits once at contact and uses natural landing recovery',pass:held&&groundedClip&&slams===1&&target.health.dead&&p.mode==='ground'&&p.visual.current==='idle',data:{held,groundedClip,slams,dead:target.health.dead,mode:p.mode,clip:p.visual.current}});
     g.running=false;g.input.clear();
     return {checks};
 });

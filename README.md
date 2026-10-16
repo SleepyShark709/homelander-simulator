@@ -26,6 +26,7 @@ npm run dev
 | 移动 | WASD |
 | 视角、瞄准 | 鼠标 |
 | 起飞／退出飞行 | F |
+| 地面跳跃／行进跳跃 | 空格；配合 WASD / Shift |
 | 飞行上升／下降 | 空格／Ctrl |
 | 快跑／加速飞行 | 按住 Shift |
 | 持续镭射 | 按住左键 |
@@ -38,11 +39,13 @@ npm run dev
 
 ## 当前角色与动画
 
-角色使用 Mesh2Motion 的 CC0 mannequin、66 骨骼和蒙皮。主角保留 addon 原配模型；普通跑使用 **Jog**，Shift 快跑使用独立的 **Sprint**。这两段 base 动作经过未修改的官方 MIT Human Retargeter 离线适配，其余 10 段主角动画与 NPC 原配组合保留。
+角色使用 Mesh2Motion 的 CC0 mannequin、66 骨骼和蒙皮。主角保留 addon 原配模型；普通跑使用 **Jog**，Shift 快跑使用独立的 **Sprint**。这两段 base 动作经过未修改的官方 MIT Human Retargeter 离线适配，其余原配动作与 NPC 组合保留，新增跳跃采用同 addon 包的 Jump_2。
 
 没有手写骨骼角度、人体关键帧或关节姿态修补。浏览器直接播放已生成的 GLB；正常游玩无需 Blender 或适配工具。原始动画、工具快照、适配结果及来源记录也随仓库提供，使资产测试与离线重建可以复现。
 
 2026-10-14 已验证：14 项单元/资产测试、12 段完整骨架与蒙皮对照、10 项动作/过渡检查、11 组共 10,092 帧持续运动检查，以及碰撞、飞行、能力、暂停和生产启动回归。自由路段普通跑稳态约 21.6 km/h；场景碰撞仍会阻挡角色。详细方法、首次实操遇 NPC 阻挡的记录和验收边界见 [Jog / Sprint 适配验证](docs/JOG_SPRINT_ADAPTATION.md)。
+
+2026-10-15 已加入原地/跑动/冲刺跳跃，修复 F 落地后二次升空，Q 改为同一自然落地收势，并接入四套新的 Poly Haven 真实 PBR。操作与本轮结果见 [跳跃、落地与材质验证](docs/JUMP_LANDING_PBR.md)。
 
 ## 测试与构建
 
@@ -62,6 +65,7 @@ node scripts/native-character-check.mjs
 node scripts/character-motion-check.mjs distinct-runs
 node scripts/running-continuity.mjs distinct-runs
 node scripts/character-game-check.mjs
+node scripts/jump-landing-check.mjs final
 node scripts/quality-acceptance.mjs
 # 此项还需要 npm run preview
 node scripts/final-smoke.mjs

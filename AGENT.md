@@ -1,6 +1,6 @@
 # 项目协作与执行规则
 
-更新时间：2026-10-14。仓库：`git@github.com:SleepyShark709/homelander-simulator.git`。
+更新时间：2026-10-15。仓库：`git@github.com:SleepyShark709/homelander-simulator.git`。
 
 ## 阅读入口与项目目标
 
@@ -12,14 +12,18 @@
 
 ## 当前角色基线
 
-- 主角保留 Mesh2Motion addon 原配网格、66 骨骼、蒙皮、绑定矩阵和材质；NPC 使用 base 完整原配组合。
-- 主角普通跑为 base `Jog`，快跑为 base `Sprint`；用户已认可并授权适配。仅这两段通过未修改的 Mesh2Motion MIT Human Retargeter 离线适配到 addon，其他 10 段主角动画与 NPC 原配动画保持不变。
+- 主角保留 Mesh2Motion addon 原配网格、66 骨骼、蒙皮、绑定矩阵和材质；NPC 保留 base 原配模型/骨架/动作，运行材质增加本地衣裤、布料和制服/迷彩纹理。
+- 主角普通跑为 base `Jog`，快跑为 base `Sprint`；用户已认可并授权适配。仅这两段通过未修改的 Mesh2Motion MIT Human Retargeter 离线适配到 addon，其他原配主角动作与 NPC 原配动画保持不变；新增跳跃为同 addon 包的 Jump_2。
 - 两包绑定矩阵不同，骨名相同不代表兼容。禁止原样跨包复制轨道、手写骨骼角度公式、手工人体关键帧或关节修姿态补丁；新动作应来自许可明确的现成资源及成熟适配工具。
 - 浏览器直接播放生成的 GLB，无运行时重定向。完整骨架、肩膀、手指、脚趾和实际蒙皮都必须检查，不能以单一手腕角度宣称人体正常。
 - 不恢复 MakeHuman、`Run_Stealth` 或旧自制动作。历史导入脚本仅保留记录，不作为当前重建入口。
 - 主角跑步播放倍率上限为 1.35，集中在 `CONFIG.playerRunAnimationRateMax`。循环与过渡检查保持 0.12 米/120 Hz 的连续性要求；姿态应对照当前认可的原片段。
 
-当前实现与证据见 [JOG_SPRINT_ADAPTATION.md](docs/JOG_SPRINT_ADAPTATION.md)。旧 MakeHuman 的质量结论已撤回，见 [CHARACTER_RETARGET_HISTORY.md](docs/CHARACTER_RETARGET_HISTORY.md)；不要沿用其通过记录。
+当前实现与证据见 [JOG_SPRINT_ADAPTATION.md](docs/JOG_SPRINT_ADAPTATION.md)。2026-10-15 增加原动作轨道分层、连续背景步态/飞行、同插值时钟采样及末段输入缓存；光照/材质与攻击专项证据见 [SCENE_MOTION_UPGRADE.md](docs/SCENE_MOTION_UPGRADE.md)。旧 MakeHuman 的质量结论已撤回，见 [CHARACTER_RETARGET_HISTORY.md](docs/CHARACTER_RETARGET_HISTORY.md)；不要沿用其通过记录。
+
+新增地面与行进跳跃、F/Q 统一接地和真实扫描 PBR 的当前证据见 [JUMP_LANDING_PBR.md](docs/JUMP_LANDING_PBR.md)。`land` 原片段前段在空中，游戏接地从 `CONFIG.animation.landContactTime` 进入；不得恢复从零开始导致的二次升空。
+
+2026-10-16 近景三维陈设、GPT 透明树叶、扫描树皮、可破坏店面与实际键鼠验收见 [DIRECTOR_OPTIMIZATION.md](docs/DIRECTOR_OPTIMIZATION.md)。用户当前优先关注素材、还原度与游戏质量，未要求追加性能测试。
 
 ## 代码与资源入口
 
@@ -27,7 +31,7 @@
 |---|---|
 | `src/Game.ts`、`Input.ts`、`UI.ts` | 生命周期、固定步/渲染、输入、开始/暂停/重置 |
 | `src/Player.ts`、`Camera.ts`、`Physics.ts` | 移动/飞行、角色碰撞、镜头、Rapier |
-| `src/Assets.ts`、`PersonVisual.ts`、`CharacterPreview.ts` | 资源缓存/克隆、骨骼动画播放与混合、角色展示 |
+| `src/Assets.ts`、`PersonVisual.ts`、`NpcMaterials.ts`、`CharacterPreview.ts` | 资源缓存/克隆、骨骼动画播放与混合、角色展示 |
 | `src/Combat.ts`、`Effects.ts`、`rules.ts` | 攻击、命中、反馈及规则 |
 | `src/World.ts`、`Npcs.ts`、`Ragdoll.ts` | 实体、追捕与 NPC、物理倒地 |
 | `src/Environment.ts`、`CityRenderer.ts`、`CitySurfaces.ts`、`StreetProps.ts` | 城市、材质、道路和陈设 |
@@ -44,6 +48,32 @@ python3 scripts/asset-manifest.py
 ```
 
 适配脚本核对原包、固定 vendor 快照、工具输出和 adapter 摘要；修改输入或适配实现后须重新生成并验证，不能手改缓存冒充工具结果。正常运行与测试无需重新下载或适配素材。
+
+## 资产生产与验证原则
+
+参考 NoMagic 的[《一个人，用了一天：跑通了 Codex + Tripo + Blender 3D 游戏资产自动化生产线》](https://x.com/icebakbum/status/2109558373150765535)，于 2026-10-15 整理为本项目后续开发约定。采用可重复生产和验证的方法，具体工具按实际需要选用。
+
+- **围绕游戏内结果组织流程。** 新增或替换资产按“明确用途与风格 → 获取并核验来源/许可 → 离线加工 → 优化 → 自动检查 → 真实游戏画面验收”执行。模型生成成功、GLB 可加载或预览好看，都不能单独作为接入完成的依据。
+- **先定义资产规范。** 在处理同类资产前明确视觉风格、米制尺寸、坐标朝向、原点、层级和命名；角色另核对骨架、绑定姿态、蒙皮与动作兼容性。装备先统一局部坐标、握持方向和挂点变换，再批量适配；同名骨骼不能作为兼容证明。
+- **将加工沉淀为脚本与配置。** 保留可追溯的原始输入、固定工具版本、处理参数和输出清单，让资产能从保留的输入重新构建。重复出现的处理应纳入构建流程；新增参数放在对应构建配置，运行参数集中在 `src/config.ts`，避免逐个手改产物。
+- **工具按职责接入。** Codex 负责编排；确需生成新模型时再评估 Tripo 等生成工具；Headless Blender 可承担批量网格清理、拆件和挂点处理；需要压缩时再评估 gltfpack/meshopt；最终在 Three.js 中验证。以上是可选方案，不代表已经安装、接入或验证，也不授权新增付费服务。当前人物仍使用上文既有重建入口。
+- **分别衡量下载和运行成本。** 记录文件体积、顶点/三角面、骨骼、纹理尺寸、材质和绘制批次数，并在目标设备检查加载/解码时间、内存与帧时间。压缩后对照几何、材质、蒙皮和动画，避免只为缩小 GLB 损伤画面。预算依据本项目场景与实测制定；文章的 20 MB 预算、23 骨骼和 WebGPU 路线不替代当前基线。
+- **结构检查与画面检查配套。** 自动检查资源完整性、层级、挂点、骨架、蒙皮和动作数据；在实际游戏镜头与操作中检查全身变形、穿模、动作循环/过渡、装备挂载、光照和压缩前后差异。检查项按变更范围选择，原片段或展示页通过后仍需验证游戏内效果。
+- **先判断问题影响，再固化解决办法。** 遇到资产缺陷先确认是否影响已承诺体验，再在既定范围内选择成熟工具、资源替换或加工方案；把可复用的解决办法记录为规则并验证。程序化方法可用于镜头、特效及环境运动，人体动作继续遵守上文原配动作与成熟适配工具要求，禁止用手写关节运动或姿态偏置掩盖骨架问题。
+- **表现优化服务于既定玩法。** 可借鉴统一编排动作、镜头和特效的思路，但实现须沿用游戏时间、暂停/重置和攻击命中规则。文章的漫画分镜玩法仅作参考，不据此删去自由移动、飞行、追捕或场景交互；新增时间轴系统需有具体需求，不预先搭建通用框架。
+
+## 参考图驱动的场景与角色制作
+
+参考 Sac 的[《手把手教你用 Opus 5.5 / Astra + Tripo 制作 3D 游戏》](https://x.com/Saccc_c/status/2110694725640474759)，于 2026-10-15 补充。文章以《小王子》游戏为例，分为需求与工具准备、场景构建、角色构建；以下将制作经验落实到本项目，沿用现有玩法与角色基线。
+
+- **需求先于生成。** 先从已确认需求列出核心场景、角色、交互和验收目标，再组织参考图、资产制作、代码实现与修复。按任务选择工具与模型，不把文章中的模型名称、版本或分工固化为本项目依赖。
+- **用一致的多视角参考明确目标。** 场景先确定主要参考图的风格、配色与构图，再补俯视布局、斜侧高度和局部细节；各视图须描述同一空间。未来确需新增角色时，准备比例、服装和细节一致的 T-pose 四视图；参考图不构成替换当前角色或重新绑骨的授权。
+- **拆出资产清单再制作。** 对照参考图标出独立物件，区分复用现有资源、单独生成/建模与程序化搭建的部分，并记录尺寸、位置、朝向和相互关系。文章按道具细节与人物拓扑需求选择不同生成方案；本项目按用途、可编辑性和运行预算评估，不默认所有场景物件都要重新生成。
+- **先验白模结构，再投入纹理。** 新生成模型先检查轮廓、比例、网格拓扑、关节附近结构和面数；结构有问题先修复或重新生成，再制作贴图和材质。精度以目标镜头与性能预算决定，不直接照搬案例中拉满精度的设置。
+- **多机位对照并有界迭代。** 场景组装后，从正面、侧面、俯视及实际游玩镜头检查布局、尺度、遮挡、光照和细节，保留截图与具体差异。较重的视觉核验可交给独立探子对照参考图，输出可定位的缺陷；主代理负责修复与最终验证，按明确差异收敛，不能用单张漂亮截图代替验收。
+- **角色验收包含动作和接触。** 使用许可明确的现成动作及成熟适配工具，检查真实骨架/绑定兼容性，并用抬手、弯腿、转身等动作验证蒙皮拉扯与穿模。涉及角色与道具接触时，还需检查握持位置、接触稳定性、脱离和悬空；文章的 Auto-Rig Pro / IK 二次修姿态是案例做法，本项目继续遵守禁止手写人体动作与关节姿态补丁的约定。
+
+文章中的 Unity、生成服务、付费插件和具体模型仅记录为选型参考，不代表本项目已接入或获准购买、迁移。作者展示效果、传播数据及未来开源计划不作为本项目质量或工具能力的验证证据。
 
 ## 修改与协作约定
 
@@ -76,7 +106,7 @@ npm run dev
 npm run preview
 ```
 
-角色/移动相关修改按范围执行 `native-character-check.mjs`、`character-motion-check.mjs`、`running-continuity.mjs`、`character-game-check.mjs` 和 `quality-acceptance.mjs`。物理倒地修改执行 `quality-ragdoll.mjs`；生产启动执行 `final-smoke.mjs`，需要开发与生产预览服务同时运行。脚本位于 `scripts/`，结果输出到 `.artifacts/`；正式结论更新到 `docs/`。
+角色/移动相关修改按范围执行 `native-character-check.mjs`、`character-motion-check.mjs`、`running-continuity.mjs`、`character-game-check.mjs` 和 `quality-acceptance.mjs`。跳跃/落地修改另执行 `jump-landing-check.mjs`。攻击分层修改另执行 `scene-motion-check.mjs` 和 `attack-transitions.mjs`。物理倒地修改执行 `quality-ragdoll.mjs`；生产启动执行 `final-smoke.mjs`，需要开发与生产预览服务同时运行。脚本位于 `scripts/`，结果输出到 `.artifacts/`；正式结论更新到 `docs/`。
 
 浏览器/GPU 测试与录制顺序执行，性能测试期间关闭其他测试浏览器。原配动作需验证全身变形、循环、状态混合和实际操作画面；攻击需验证一次命中、完整收势和暂停。当前主要验收环境为 macOS Chrome，Safari 和当前版本完整长时间性能仍需单独验证。
 

@@ -3,3 +3,10 @@
 public/assets/** -text
 .asset-source/** -text
 scripts/vendor/mesh2motion/** -text
+
+# glTF buffers can contain no NUL bytes near the start; always treat media as binary.
+*.bin binary
+*.glb binary
+*.png binary
+*.jpg binary
+*.hdr binary

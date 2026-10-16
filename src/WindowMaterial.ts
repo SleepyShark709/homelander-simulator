@@ -2,8 +2,8 @@ import * as T from 'three';
 
 /** Interior mapping adds view-dependent room depth to repeated façade windows. */
 export function windowMaterial(color:number) {
-    const material=new T.MeshPhysicalMaterial({color,metalness:.38,roughness:.18,clearcoat:.7,clearcoatRoughness:.14,envMapIntensity:1.15});
-    material.customProgramCacheKey=()=> 'city-interior-window-v1';
+    const material=new T.MeshPhysicalMaterial({color,side:T.DoubleSide,metalness:.12,roughness:.36,clearcoat:.22,clearcoatRoughness:.32,envMapIntensity:.55});
+    material.customProgramCacheKey=()=> 'city-interior-window-v2';
     material.onBeforeCompile=shader=>{
         shader.vertexShader=shader.vertexShader.replace('#include <common>',`#include <common>
             varying vec2 vRoomUv;
@@ -45,8 +45,14 @@ export function windowMaterial(color:number) {
                 float screen=step(abs(roomHit.x-0.12),0.10)*step(abs(roomHit.y+0.025),0.09);
                 roomColor=mix(roomColor,vec3(0.045,0.072,0.086),screen);
             }
-            float blind=step(roomTone,0.71)*step(0.72,fract(vRoomUv.y*17.0));
-            roomColor=mix(roomColor,vec3(0.19,0.20,0.19),blind*0.65);
+            // Stable per-room occupancy and blind drops, without extra textures
+            // or animated lights. Adjacent floors no longer repeat one room.
+            float occupied=step(0.91,roomTone);
+            roomColor*=mix(vec3(1.0),vec3(1.22,1.10,0.84),occupied);
+            float drop=0.18+fract(roomTone*29.0)*0.64;
+            float blind=step(roomTone,0.80)*step(1.0-drop,vRoomUv.y);
+            float slat=mix(0.78,1.0,step(0.72,fract(vRoomUv.y*23.0)));
+            roomColor=mix(roomColor,vec3(0.23,0.235,0.22)*slat,blind*0.88);
             diffuseColor.rgb=mix(diffuseColor.rgb,roomColor,vRoomFace*0.64);
         `);
     };

@@ -1,6 +1,7 @@
 import * as T from 'three';
 import type { Assets } from './Assets';
 import { CONFIG } from './config';
+import { dressNpc } from './NpcMaterials';
 
 export class PersonVisual {
     group = new T.Group();
@@ -19,10 +20,19 @@ export class PersonVisual {
     private soles: Array<{mesh:T.SkinnedMesh; vertex:number}> = [];
     private blendFrom = new Map<string, number>();
     private blendTime = 0;
-    private blendDuration = 0.24;
+    private blendDuration: number = CONFIG.animation.locomotionBlend;
+    private baseCurrent = '';
+    private baseWeights = new Map<string, number>();
+    private punchFull?: T.AnimationAction;
+    private punchUpper?: T.AnimationAction;
+    private lowerActions = new Map<string, T.AnimationAction>();
+    private punchActive = false;
+    private previousPunchRemaining = 0;
+    private legSupport = 0;
     actionDuration(name: string) {
         return this.actions.get(name)?.getClip().duration ?? 0;
     }
+    landingDuration() { return this.actionDuration('land') - CONFIG.animation.landContactTime; }
     constructor(
         private assets: Assets,
         public role: 'hero' | 'civilian' | 'police' | 'soldier',
@@ -39,15 +49,27 @@ export class PersonVisual {
         if (!this.head) throw new Error('角色缺少 head 骨骼');
         for (const clip of source.animations)
             this.actions.set(clip.name, this.mixer.clipAction(clip));
-        const shades = [0xb7c0c6, 0xd5cab9, 0xbac5bd, 0xc2b9b5];
+        if (role === 'hero') {
+            // Filter existing authored tracks by hierarchy, without changing a
+            // keyframe. Running attacks keep the original pelvis and leg motion.
+            const lower = new Set(['root', 'pelvis']);
+            for (const side of ['l', 'r']) this.model.getObjectByName(`thigh_${side}`)!
+                .traverse(o => lower.add(o.name));
+            const punch = source.animations.find(clip => clip.name === 'punch')!;
+            this.punchFull = this.mixer.clipAction(punch.clone());
+            this.punchUpper = this.mixer.clipAction(new T.AnimationClip('punch-upper', punch.duration,
+                punch.tracks.filter(track => !lower.has(track.name.split('.')[0]))));
+            for (const clip of source.animations) if (clip.name !== 'punch') {
+                this.lowerActions.set(clip.name, this.mixer.clipAction(new T.AnimationClip(`${clip.name}-lower`, clip.duration,
+                    clip.tracks.filter(track => lower.has(track.name.split('.')[0])))));
+            }
+        }
         this.model.traverse(o => {
             if (!(o instanceof T.Mesh)) return;
             const materials = Array.isArray(o.material) ? o.material : [o.material];
             const adapted = materials.map(original => {
                 const material = (original as T.MeshStandardMaterial).clone();
-                material.color.set(role === 'hero' ? 0xffffff : role === 'police' ? 0x6b96bb
-                    : role === 'soldier' ? 0x8f9e71 : shades[variant % shades.length]);
-                material.roughness = 0.8;
+                if (role !== 'hero') dressNpc(material, assets, role, variant);
                 return material;
             });
             o.material = Array.isArray(o.material) ? adapted : adapted[0];
@@ -75,15 +97,16 @@ export class PersonVisual {
         this.update(0, 0, 'ground', 0);
     }
     play(name: string) {
-        if (name === this.current) return;
+        if (this.current === '') this.baseCurrent = '';
+        if (name === this.baseCurrent) { this.current = name; return; }
         const next = this.actions.get(name) ?? this.actions.get('idle')!;
-        const previous = this.actions.get(this.current);
+        const previous = this.actions.get(this.baseCurrent);
         const moving = ['walk', 'jog', 'sprint'];
-        const phase = previous && moving.includes(this.current) && moving.includes(name)
+        const phase = previous && moving.includes(this.baseCurrent) && moving.includes(name)
             ? previous.time / previous.getClip().duration : 0;
-        const once = ['punch', 'land', 'takeoff', 'slam'].includes(name);
+        const once = ['punch', 'land', 'takeoff', 'slam', 'jump'].includes(name);
         const weights = [...this.actions].map(([key, action]) =>
-            [key, action.isScheduled() && action.enabled ? action.getEffectiveWeight() : 0] as const);
+            [key, action.isScheduled() && action.enabled ? this.baseWeights.get(key) ?? action.getEffectiveWeight() : 0] as const);
         const total = weights.reduce((sum, [, weight]) => sum + weight, 0);
         this.blendFrom = new Map(weights.map(([key, weight]) => [key, total ? weight / total : 0]));
         const continuing = next.isScheduled() && next.enabled && next.getEffectiveWeight() > 0 && !once;
@@ -95,9 +118,10 @@ export class PersonVisual {
         next.clampWhenFinished = once;
         next.enabled = true;
         next.play();
-        this.blendDuration = once ? 0.16 : 0.24;
+        this.blendDuration = ['hover', 'fly', 'fall'].includes(name) || ['hover', 'fly', 'fall'].includes(this.baseCurrent)
+            ? CONFIG.animation.flightBlend : once ? 0.16 : CONFIG.animation.locomotionBlend;
         this.blendTime = total ? 0 : this.blendDuration;
-        this.current = name;
+        this.baseCurrent = this.current = name;
         this.blendActions(0);
     }
     private blendActions(dt: number) {
@@ -105,10 +129,62 @@ export class PersonVisual {
         const t = this.blendTime / this.blendDuration;
         const eased = t * t * (3 - 2 * t);
         for (const [name, action] of this.actions) {
-            const weight = (this.blendFrom.get(name) ?? 0) * (1 - eased) + (name === this.current ? eased : 0);
+            const weight = (this.blendFrom.get(name) ?? 0) * (1 - eased) + (name === this.baseCurrent ? eased : 0);
+            this.baseWeights.set(name, weight);
             action.stopFading().setEffectiveWeight(weight);
-            if (t === 1 && name !== this.current && action.isScheduled()) action.stop();
+            if (t === 1 && name !== this.baseCurrent && action.isScheduled()) action.stop();
         }
+    }
+    private blendPunch(dt: number, remaining: number, grounded: boolean, speed: number, renderedElapsed?: number) {
+        const full = this.punchFull, upper = this.punchUpper;
+        if (!full || !upper) return;
+        if (remaining <= 0) {
+            if (this.punchActive) {
+                full.stop(); upper.stop(); this.lowerActions.forEach(action => action.stop());
+            }
+            this.punchActive = false;
+            this.previousPunchRemaining = 0;
+            return;
+        }
+        const started = !this.punchActive || remaining > this.previousPunchRemaining + .01;
+        if (started) {
+            for (const action of [full, upper]) {
+                action.reset().setLoop(T.LoopOnce, 1).setEffectiveTimeScale(1).play();
+                action.clampWhenFinished = true;
+                action.time = Math.max(0, this.actionDuration('punch') - remaining);
+            }
+            this.legSupport = grounded && speed > 1 ? 1 : 0;
+        }
+        this.punchActive = true;
+        this.previousPunchRemaining = remaining;
+        const duration = this.actionDuration('punch'), elapsed = renderedElapsed ?? full.time + dt;
+        // Sample the same interpolated simulation time as the player's position.
+        // Mixer.update advances once below, so subtract this frame before sampling.
+        if (renderedElapsed !== undefined) for (const action of [full, upper]) {
+            action.time = elapsed - dt; action.paused = false;
+        }
+        const smooth = (value: number) => { const t = T.MathUtils.clamp(value, 0, 1); return t * t * (3 - 2 * t); };
+        const weight = smooth(elapsed / CONFIG.animation.punchBlendIn)
+            * smooth((duration - elapsed) / CONFIG.animation.punchBlendOut);
+        this.legSupport = T.MathUtils.lerp(this.legSupport, grounded && speed > 1 ? 1 : 0, 1 - Math.exp(-dt * 12));
+        full.setEffectiveWeight(weight * (1 - this.legSupport));
+        upper.setEffectiveWeight(weight * this.legSupport);
+        // Each upper binding sums to base*(1-w) + full*w*(1-s) + upper*w*s.
+        // Each lower binding substitutes the continuing lower-body clip for upper.
+        for (const [name, action] of this.actions) {
+            const base = this.baseWeights.get(name) ?? 0;
+            action.setEffectiveWeight(base * (1 - weight));
+            const lower = this.lowerActions.get(name);
+            if (!lower) continue;
+            if (base > 0) {
+                lower.enabled = true; lower.play(); lower.time = action.time;
+                lower.setLoop(action.loop, Infinity); lower.clampWhenFinished = action.clampWhenFinished;
+                lower.paused = action.paused;
+                lower.setEffectiveTimeScale(action.getEffectiveTimeScale());
+                lower.setEffectiveWeight(base * weight * this.legSupport);
+            } else lower.stop();
+        }
+        this.current = 'punch';
     }
     update(
         dt: number,
@@ -117,25 +193,33 @@ export class PersonVisual {
         speed: number,
         attacking = false,
         bank = 0,
+        punchRemaining = 0,
+        punchElapsed?: number,
+        jumpElapsed?: number,
     ) {
-        const air = mode === 'fly' || mode === 'boost' || mode === 'slam' || mode === 'fall' || mode === 'takeoff';
+        const air = mode === 'fly' || mode === 'boost' || mode === 'slam' || mode === 'fall' || mode === 'takeoff' || mode === 'jump';
         const landing =
             !air &&
             (this.previousMode === 'fly' ||
                 this.previousMode === 'boost' ||
-                this.previousMode === 'slam' || this.previousMode === 'fall');
-        if (landing) {
-            this.landingClip = this.previousMode === 'slam' ? 'slam' : 'land';
-            const action = this.actions.get(this.landingClip);
-            this.landingTime = this.actionDuration(this.landingClip) -
-                (this.landingClip === 'slam' ? action?.time ?? 0 : 0);
-            if (action && this.landingClip === 'slam') action.paused = false;
+                this.previousMode === 'slam' || this.previousMode === 'fall' || this.previousMode === 'jump');
+        const runningJumpLanding = landing && this.previousMode === 'jump' && speed > 1;
+        if (runningJumpLanding) this.landingTime = 0;
+        else if (landing) {
+            this.landingClip = 'land';
+            this.landingTime = this.landingDuration();
+            this.play('land');
+            // The stock clip begins in mid-air. Physical contact enters its
+            // authored contact/recovery section, never its airborne descent.
+            this.actions.get('land')!.time = CONFIG.animation.landContactTime;
         }
         else this.landingTime = Math.max(0, this.landingTime - dt);
         if (air || mode === 'punch') this.landingTime = 0;
         const clip =
             mode === 'punch'
                 ? 'punch'
+                : mode === 'jump'
+                  ? 'jump'
                 : mode === 'shoot'
                   ? 'shoot'
                   : mode === 'takeoff'
@@ -165,6 +249,11 @@ export class PersonVisual {
                     ? CONFIG.playerRunAnimationRateMax : 1,
             );
         this.blendActions(dt);
+        if (mode === 'jump' && action && jumpElapsed !== undefined) {
+            const flightDuration = 2 * CONFIG.jumpSpeed / CONFIG.gravity;
+            const phase = Math.min(CONFIG.animation.jumpAirEnd, jumpElapsed / flightDuration * CONFIG.animation.jumpAirEnd);
+            action.time = phase - dt; action.paused = false;
+        }
         if (mode === 'slam' && action) {
             const impactTime = action.getClip().duration * CONFIG.slamHitFraction;
             if (action.time + dt >= impactTime) {
@@ -172,6 +261,7 @@ export class PersonVisual {
                 action.paused = true;
             }
         }
+        this.blendPunch(dt, punchRemaining, !air, speed, punchElapsed);
         this.mixer.update(dt);
         const ease = 1 - Math.exp(-dt * 10);
         this.bank = T.MathUtils.lerp(this.bank, air ? bank : 0, ease);
@@ -189,14 +279,15 @@ export class PersonVisual {
                 mesh.applyBoneTransform(vertex,point).applyMatrix4(mesh.matrixWorld);
                 lowest=Math.min(lowest,point.y);
             }
-            // Preserve the stock clip's vertical motion (including airborne run
-            // frames); only prevent soles from going below the support surface.
-            this.model.position.y += Math.max(0,(this.group.position.y+.008-lowest)/this.group.scale.y);
+            const correction = (this.group.position.y + .008 - lowest) / this.group.scale.y;
+            // A completed physical landing plants the authored recovery pose.
+            // Ordinary running keeps its original airborne stride frames.
+            this.model.position.y += this.landingTime > 0 ? correction : Math.max(0, correction);
         }
-        const laser = attacking && mode !== 'punch';
+        const laser = attacking && mode !== 'punch' && punchRemaining <= 0;
         for (let i = 0; i < this.eyes.length; i++) {
             this.eyes[i].visible = laser;
-            this.eyeMaterials[i].emissiveIntensity = laser ? 14 : 0;
+            this.eyeMaterials[i].emissiveIntensity = laser ? CONFIG.presentation.laserEyeEmission : 0;
         }
         this.previousMode = mode;
     }

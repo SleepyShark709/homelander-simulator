@@ -60,6 +60,8 @@ describe('native character asset integrity', () => {
 
     });
     it('preserves native clips and packages only the verified tool output for the two approved runs', () => {
+        const jump = characters[0].json.animations.find((clip: {name:string}) => clip.name === 'jump');
+        expect(jump.extras).toMatchObject({sourceClip:'Jump_2',bundle:'addon',retargeted:false});
         expect(createHash('sha256').update(sources.addon.bytes).digest('hex')).toBe('a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95');
         for (const character of characters) for (const clip of character.json.animations) {
             const source = sources[clip.extras.bundle as keyof typeof sources];

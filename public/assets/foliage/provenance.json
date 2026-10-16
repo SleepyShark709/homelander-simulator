@@ -1,0 +1,14 @@
+{
+  "file": "foliage/broadleaf-branch-v1.png",
+  "date": "2026-10-15",
+  "provider": "OpenAI built-in image_gen",
+  "purpose": "Foliage alpha cards on existing 3D trees",
+  "kind": "AI-generated project asset",
+  "transparent": true,
+  "actualSize": [
+    1254,
+    1254
+  ],
+  "sha256": "7e945f6bc4ad1b5fd76e492bd4703de11d1848ba77f5fce2a0f83ed94643c12a",
+  "prompt": "Use case: photorealistic-natural. Asset type: an actual game-ready foliage alpha-card texture for the existing contemporary daylight 3D city. Generate one square 1024x1024 image of a single natural leafy branch with roughly 18 to 26 individual broad, fresh green leaves and fine brown twigs, running diagonally from the lower-left toward the upper-right, filling about 85 percent of the square. Individual leaves must have realistic varied silhouettes, fine veins, small edge imperfections, varied angles and subtle green tonal differences. Leaves should be medium green with a few lighter new leaves, not neon, not autumn. Style: photorealistic botanical material capture, sharp leaf edges, neutral diffuse overcast illumination, no baked directional shadow, no harsh specular spots. Fully transparent background with clean genuine alpha between every leaf, no white fringe, no black fringe, no checkerboard pattern. No pot, trunk, roots, ground, environment, text, watermarks, border, or labels. This will be mapped onto many crisscrossed 3D leaf cards around existing modeled tree branches; keep natural sparse gaps so the canopy remains airy rather than a solid green blob."
+}

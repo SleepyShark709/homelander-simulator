@@ -11,9 +11,19 @@ export class StreetProps {
     glass = new T.MeshPhysicalMaterial({color:0x172936, roughness:.14, metalness:.4, clearcoat:1,side:T.DoubleSide});
     paints = [0x354858,0x8b3030,0xc0bdb5,0x242a31,0xa68d3e].map(color =>
         new T.MeshPhysicalMaterial({color,metalness:.5,roughness:.28,clearcoat:1,clearcoatRoughness:.12}));
-    leafMap: T.CanvasTexture;
+    leafMap: T.Texture;
     leaves: T.MeshStandardMaterial;
-    constructor() {
+    bark: T.MeshStandardMaterial;
+    private ownsLeafMap = false;
+    constructor(leafTexture?: T.Texture, barkTextures?: Map<string,T.Texture>) {
+        this.bark = new T.MeshStandardMaterial({ color: 0xddd1bd, roughness: 1,
+            map: barkTextures?.get('bark_brown_02/color'),
+            normalMap: barkTextures?.get('bark_brown_02/normal'),
+            normalScale: new T.Vector2(.65,.65),
+            roughnessMap: barkTextures?.get('bark_brown_02/roughness'),
+            aoMap: barkTextures?.get('bark_brown_02/ao'), aoMapIntensity: .6 });
+        if (leafTexture) this.leafMap = leafTexture;
+        else {
         const canvas=document.createElement('canvas');canvas.width=canvas.height=128;
         const c=canvas.getContext('2d')!;
         c.strokeStyle='#6b7347';c.lineWidth=2;
@@ -27,6 +37,8 @@ export class StreetProps {
             }
         }
         this.leafMap=new T.CanvasTexture(canvas);this.leafMap.colorSpace=T.SRGBColorSpace;
+        this.ownsLeafMap = true;
+        }
         this.leaves=new T.MeshStandardMaterial({map:this.leafMap,alphaTest:.4,side:T.DoubleSide,roughness:.85});
     }
     private batch(parts: Map<T.Material,T.BufferGeometry[]>, material:T.Material, geo:T.BufferGeometry) {
@@ -83,12 +95,17 @@ export class StreetProps {
     tree(seed:number) {
         let state=seed+547;const rand=()=>{state=(state*1664525+1013904223)>>>0;return state/4294967296;};
         const parts=new Map<T.Material,T.BufferGeometry[]>();
-        this.batch(parts,this.wood,new T.CylinderGeometry(.12,.27,3.6,12).translate(0,1.8,0));
+        const trunk = new T.CylinderGeometry(.12,.27,3.6,12);
+        const uv = trunk.attributes.uv;
+        for (let i = 0; i < uv.count; i++) uv.setY(i,uv.getY(i)*3.6);
+        this.batch(parts,this.bark,trunk.translate(0,1.8,0));
         for(let i=0;i<9;i++) {
             const angle=i*Math.PI*2/9,a=new T.Vector3(0,2.1+i*.13,0),b=new T.Vector3(Math.cos(angle)*1.4,3.8+rand(),Math.sin(angle)*1.4);
             const branch=new T.CylinderGeometry(.025,.09,a.distanceTo(b),8);
+            const branchUv = branch.attributes.uv;
+            for (let j = 0; j < branchUv.count; j++) branchUv.setY(j,branchUv.getY(j)*a.distanceTo(b));
             branch.applyQuaternion(new T.Quaternion().setFromUnitVectors(new T.Vector3(0,1,0),b.clone().sub(a).normalize()));
-            branch.translate(...a.clone().add(b).multiplyScalar(.5).toArray() as [number,number,number]);this.batch(parts,this.wood,branch);
+            branch.translate(...a.clone().add(b).multiplyScalar(.5).toArray() as [number,number,number]);this.batch(parts,this.bark,branch);
         }
         const group=this.finish(parts),foliage=new T.InstancedMesh(new T.PlaneGeometry(1.05,1.05),this.leaves,260);
         const dummy=new T.Object3D();
@@ -96,7 +113,7 @@ export class StreetProps {
             const angle=rand()*Math.PI*2,vertical=rand()*2-1,r=Math.pow(rand(),.33)*2.35;
             dummy.position.set(Math.cos(angle)*r*Math.sqrt(1-vertical*vertical),4.3+vertical*r*.73,Math.sin(angle)*r*Math.sqrt(1-vertical*vertical));
             dummy.rotation.set(rand()*Math.PI,rand()*Math.PI*2,rand()*Math.PI);dummy.scale.setScalar(.65+rand()*.65);dummy.updateMatrix();foliage.setMatrixAt(i,dummy.matrix);
-            foliage.setColorAt(i,new T.Color().setHSL(.22+rand()*.035,.25+rand()*.2,.6+rand()*.25));
+            foliage.setColorAt(i,new T.Color(.86+rand()*.12,.88+rand()*.1,.80+rand()*.15));
         }
         foliage.castShadow=foliage.receiveShadow=true;group.add(foliage);return group;
     }
@@ -153,7 +170,7 @@ export class StreetProps {
         return this.finish(parts);
     }
     dispose() {
-        [this.metal,this.wood,this.stone,this.rubber,this.chrome,this.glass,this.leaves,...this.paints].forEach(m=>m.dispose());
-        this.leafMap.dispose();
+        [this.metal,this.wood,this.bark,this.stone,this.rubber,this.chrome,this.glass,this.leaves,...this.paints].forEach(m=>m.dispose());
+        if (this.ownsLeafMap) this.leafMap.dispose();
     }
 }

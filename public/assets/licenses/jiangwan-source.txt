@@ -1,0 +1,17 @@
+Jiangwan environment and vehicles — 2026-10-17
+
+district.glb: original environment modeled in Blender for this project by Codex.
+The supplied Jiangwan reference image guided composition and subject matter;
+the reference image is not used as a game texture. No GTA assets were used.
+Wall tile and weathering images are generated locally by build-jiangwan.py.
+Chinese sign lettering is converted to geometry from macOS STHeiti Medium;
+the font file itself is not redistributed.
+
+bus.glb, scooter.glb, sedan.glb: supplied by the user as Tripo-generated FBX
+files, with express permission in this chat to use them in this project.
+Original inputs and SHA-256 are recorded in jiangwan/build.json.
+They are not represented as CC0 or as Kenney assets. No broader redistribution
+license was provided. Preserve this source notice when sharing the project.
+
+Editable Blender sources and the original inputs are in .asset-source/jiangwan/.
+Rebuild with Blender 5.2.2 LTS using scripts/build-jiangwan.py.

@@ -1,0 +1,78 @@
+Mixamo 动作清单（10 份）
+下载日期：2026-10-17（Asia/Shanghai）
+参考角色：X Bot；FBX Binary；带蒙皮；30 FPS；关键帧缩减 none。
+文件名已包含中文用途和英文原名。
+
+01. 待机／垂手激光姿态 — 9.933 秒
+文件：01_待机_Breathing_Idle.fbx
+Mixamo 名称：Breathing Idle
+具体描述：Breathing Idle
+原始页面：https://www.mixamo.com/#/?page=1&query=breathing&type=Motion%2CMotionPack
+动作参数：{"Body Type": 0, "Sway": 100, "Breathing": 100}
+
+02. 普通跑 — 0.700 秒
+文件：02_普通跑_Running_With_Intention.fbx
+Mixamo 名称：Running
+具体描述：Running With Intention
+原始页面：https://www.mixamo.com/#/?page=1&query=running&type=Motion%2CMotionPack
+原地版本：In Place 已开启
+
+03. 快速跑 — 0.533 秒
+文件：03_快速跑_Sprint.fbx
+Mixamo 名称：Sprint
+具体描述：Standard Sprint
+原始页面：https://www.mixamo.com/#/?page=1&query=fast%20run&type=Motion%2CMotionPack
+原地版本：In Place 已开启
+
+04. 前飞 — 3.167 秒
+文件：04_飞行_Flying.fbx
+Mixamo 名称：Flying
+具体描述：Flying Idle
+原始页面：https://www.mixamo.com/#/?page=1&query=flying&type=Motion%2CMotionPack
+原地版本：In Place 已开启
+动作参数：{"Awareness": 100, "Legs": 0, "Arms": 0}
+
+05. 随手攻击／右勾拳 — 1.100 秒
+文件：05_随手攻击_Right_Hook.fbx
+Mixamo 名称：Right Hook
+具体描述：Right Hook Punch From Idle
+原始页面：https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack
+
+06. 重击／上勾拳 — 1.333 秒
+文件：06_重击_Uppercut.fbx
+Mixamo 名称：Uppercut
+具体描述：Standing Left Uppercut Punch
+原始页面：https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack
+
+07. 四连拳 — 2.200 秒
+文件：07_四连拳_Punch_Combo.fbx
+Mixamo 名称：Punch Combo
+具体描述：Four Punch Combo
+原始页面：https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack
+
+08. 直拳接肘击 — 3.267 秒
+文件：08_直拳接肘击_Jab_To_Elbow_Punch.fbx
+Mixamo 名称：Jab To Elbow Punch
+具体描述：Jab To Elbow Combo
+原始页面：https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack
+动作参数：{"Style": 0, "Target Height": 50}
+
+09. 激光姿态／单手叉腰 — 静态姿势
+文件：09_激光姿态_单手叉腰_Male_Standing_Pose.fbx
+Mixamo 名称：Male Standing Pose
+具体描述：Left Hand On Hip
+原始页面：https://www.mixamo.com/#/?page=1&query=male%20standing%20pose&type=Motion%2CMotionPack
+
+10. 激光姿态／双手背后 — 静态姿势
+文件：10_激光姿态_双手背后_Male_Standing_Pose.fbx
+Mixamo 名称：Male Standing Pose
+具体描述：Arms Behind Back
+原始页面：https://www.mixamo.com/#/?page=1&query=male%20standing%20pose&type=Motion%2CMotionPack
+
+补充说明：
+自然垂手激光姿态复用 01 待机，无需重复下载。
+当前游戏按 F 后的悬停动作继续保留，不在本批替换范围。
+09 叉腰和 10 背手为两份不同静态姿势，不是悬停循环。
+每份有效动画片段名为 mixamo.com；Take 001 是空动画栈。
+完整来源、许可链接、参数、SHA-256 和校验结果见 manifest.json。
+仅完成下载与数据校验，尚未接入游戏。

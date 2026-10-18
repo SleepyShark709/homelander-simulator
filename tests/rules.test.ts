@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { Health, Wanted, limitAxis } from '../src/rules';
+import { Health, Wanted } from '../src/gameplay/rules';
+import { limitAxis } from '../src/core/math';
 
 describe('damage accounting', () => {
     it('deduplicates both eye rays and never pays twice for a death', () => {

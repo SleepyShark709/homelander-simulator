@@ -1,0 +1,26 @@
+{
+  "tool": "Auto-Rig Pro 3.78.32 Remap + Universal GLTF",
+  "blender": "5.2.2 LTS",
+  "inputs": {
+    ".asset-source/homelander/rig.blend": "27cafcc12de8d2c0cc085e968356807c77a1e5e5a4778ba54b99c8fb8fef29aa",
+    "actions/manifest.json": "4741bcdb96cde1ac8c09cd17c48346a2ca7ea3aa816fa6f73bc49a73792093ab",
+    "actions/01_待机_Breathing_Idle.fbx": "e02c543bcde6ec06bbeb41fc6dc00360241ed9b1377c38ac187da9f57206ddbf",
+    "actions/02_普通跑_Running_With_Intention.fbx": "3770118e2b25b980b825c6e9ecf9f7a3dcdb519e8125170c2c1f342406dfdc7c",
+    "actions/03_快速跑_Sprint.fbx": "1d57dfb841b8d5757d5de885f92030cafcbd34bfef87462b6284578955f75827",
+    "actions/04_飞行_Flying.fbx": "2f74129277a56d740329f7ccb75818014e6c67ed5f5d67e21ff5eb826e53b385",
+    "actions/05_随手攻击_Right_Hook.fbx": "a049a1e970241407ae8d1f9e4cdfb376f37a761bfd933dec5c01966c771f8205",
+    "actions/06_重击_Uppercut.fbx": "860f0c9c50c3a5212361c31a7c160e8df31304a5498134cb4f8c4490532026a9",
+    "actions/07_四连拳_Punch_Combo.fbx": "8232946082aa71c92dcdb5b5862e514643cfcdc205d5e20071d364682076c8c3",
+    "actions/08_直拳接肘击_Jab_To_Elbow_Punch.fbx": "bb58c444cf65466654f7c27e198e6f6a68319f27fc89dbca69fe9fa6e1b367c7",
+    "actions/09_激光姿态_单手叉腰_Male_Standing_Pose.fbx": "c4028e9f8a82e924edb7bcb3f847f2602c5a35107bbead360ad530e76514b51b",
+    "actions/10_激光姿态_双手背后_Male_Standing_Pose.fbx": "1d848e35fd68239fc08b25b616735213aeecc3e11f1b93b4ba7c4ea35eb0d82e",
+    ".asset-source/mesh2motion/human-addon-animations.glb": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95",
+    ".asset-source/mesh2motion/human-base-animations.glb": "406eb0a8dc4ab366e623b79b6e3005a4951392e1bda78ae39c1099d31147733c"
+  },
+  "adapterSha256": "871d4e474dc3e6a58cd9cda3098964f022a8b112a17a79ee8b9ce4905007f02f",
+  "rawExportSha256": "edb27ba4d8a1103c41c3e1174235c87b28214e78acc2d9ede0e5ce290ef4197a",
+  "referenceSha256": "f2ed05d46ca322cad3444a321f7d99ab84b6fe94b3efcc14c4ee48376189c048",
+  "runtimeSha256": "5696284d3e8276af7a8b213492ef5ddba38ede4df5f33945154764367ed4129b",
+  "rawBinSha256": "98074ae057f5dd6c0403913eb2c095cd114e82d8f9c41da6cfb697aaa98148fd",
+  "keyframesAuthoredHere": false
+}

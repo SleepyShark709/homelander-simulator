@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "download_date": "2026-10-17",
+  "timezone": "Asia/Shanghai",
+  "author": "Adobe / Mixamo",
+  "provider": "https://www.mixamo.com/",
+  "source_version": "Mixamo 页面未公开素材版本号；以下载日期、导出参数及文件 SHA-256 固定此批次。",
+  "license": {
+    "name": "Adobe Mixamo terms (royalty-free use; not CC0)",
+    "faq": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+    "terms": "https://www.adobe.com/legal/terms.html"
+  },
+  "character": "X Bot",
+  "export_settings": {
+    "format": "FBX Binary(.fbx)",
+    "skin": "With Skin",
+    "fps": 30,
+    "keyframe_reduction": "none"
+  },
+  "common_animation_parameters": {
+    "Overdrive": 50,
+    "Character Arm-Space": 50,
+    "Mirror": false
+  },
+  "scope_notes": [
+    "仅下载原始素材，尚未接入游戏。",
+    "保留当前游戏按 F 后的空中静止动作，不下载替换悬停。",
+    "Jogging、Male Weighted Run、Floating 不在本批次内。",
+    "叉腰与背手是静态姿势素材。"
+  ],
+  "assets": [
+    {
+      "id": "idle",
+      "label": "待机／垂手激光姿态",
+      "filename": "01_待机_Breathing_Idle.fbx",
+      "name": "Breathing Idle",
+      "description": "Breathing Idle",
+      "query": "breathing",
+      "parameters": {
+        "Body Type": 0,
+        "Sway": 100,
+        "Breathing": 100
+      },
+      "source_url": "https://www.mixamo.com/#/?page=1&query=breathing&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Breathing Idle.fbx",
+      "size_bytes": 2580816,
+      "sha256": "e02c543bcde6ec06bbeb41fc6dc00360241ed9b1377c38ac187da9f57206ddbf",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 9.933333,
+        "track_count": 53,
+        "track_key_count": 15847,
+        "maximum_sample_count": 299,
+        "animation_sha256": "3bfefc51b59fac04d8ac20554c5d7a0fb05407f3d2e4b87a9753a7e71d81dc81"
+      }
+    },
+    {
+      "id": "run",
+      "label": "普通跑",
+      "filename": "02_普通跑_Running_With_Intention.fbx",
+      "name": "Running",
+      "description": "Running With Intention",
+      "query": "running",
+      "in_place": true,
+      "source_url": "https://www.mixamo.com/#/?page=1&query=running&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Running.fbx",
+      "size_bytes": 1806096,
+      "sha256": "3770118e2b25b980b825c6e9ecf9f7a3dcdb519e8125170c2c1f342406dfdc7c",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 0.7,
+        "track_count": 53,
+        "track_key_count": 914,
+        "maximum_sample_count": 22,
+        "animation_sha256": "dbdd306d67d3684d83d879e4a4a6a6c65e4d5ad77a4012fbb89da47560188bfa"
+      }
+    },
+    {
+      "id": "sprint",
+      "label": "快速跑",
+      "filename": "03_快速跑_Sprint.fbx",
+      "name": "Sprint",
+      "description": "Standard Sprint",
+      "query": "fast run",
+      "in_place": true,
+      "source_url": "https://www.mixamo.com/#/?page=1&query=fast%20run&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Sprint.fbx",
+      "size_bytes": 1789920,
+      "sha256": "1d57dfb841b8d5757d5de885f92030cafcbd34bfef87462b6284578955f75827",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 0.533333,
+        "track_count": 53,
+        "track_key_count": 725,
+        "maximum_sample_count": 17,
+        "animation_sha256": "09b16eb84a35adfb43e9bf6fe932ad903079bf3ed3d3f6bdf96cadbfc8e31fe1"
+      }
+    },
+    {
+      "id": "fly",
+      "label": "前飞",
+      "filename": "04_飞行_Flying.fbx",
+      "name": "Flying",
+      "description": "Flying Idle",
+      "query": "flying",
+      "in_place": true,
+      "parameters": {
+        "Awareness": 100,
+        "Legs": 0,
+        "Arms": 0
+      },
+      "source_url": "https://www.mixamo.com/#/?page=1&query=flying&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Flying.fbx",
+      "size_bytes": 1992288,
+      "sha256": "2f74129277a56d740329f7ccb75818014e6c67ed5f5d67e21ff5eb826e53b385",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 3.166667,
+        "track_count": 53,
+        "track_key_count": 2238,
+        "maximum_sample_count": 96,
+        "animation_sha256": "425f4d8329fc85f6ce4b1ad4a2e0a367eb3081f9db8202e881c797f26198ea18"
+      }
+    },
+    {
+      "id": "casual_attack",
+      "label": "随手攻击／右勾拳",
+      "filename": "05_随手攻击_Right_Hook.fbx",
+      "name": "Right Hook",
+      "description": "Right Hook Punch From Idle",
+      "query": "punch",
+      "source_url": "https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Right Hook.fbx",
+      "size_bytes": 1848640,
+      "sha256": "a049a1e970241407ae8d1f9e4cdfb376f37a761bfd933dec5c01966c771f8205",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 1.1,
+        "track_count": 53,
+        "track_key_count": 1472,
+        "maximum_sample_count": 34,
+        "animation_sha256": "93b182405bc14710500cb976a5423656d67c0c0e79232c52c9cc621d488096b3"
+      }
+    },
+    {
+      "id": "heavy_attack",
+      "label": "重击／上勾拳",
+      "filename": "06_重击_Uppercut.fbx",
+      "name": "Uppercut",
+      "description": "Standing Left Uppercut Punch",
+      "query": "punch",
+      "source_url": "https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Uppercut.fbx",
+      "size_bytes": 1871136,
+      "sha256": "860f0c9c50c3a5212361c31a7c160e8df31304a5498134cb4f8c4490532026a9",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 1.333333,
+        "track_count": 53,
+        "track_key_count": 1733,
+        "maximum_sample_count": 41,
+        "animation_sha256": "f2637c9a873ce67ac3b6163587b19ab3c3bc8f7a20044ea7fa05952fd500ac23"
+      }
+    },
+    {
+      "id": "combo_a",
+      "label": "四连拳",
+      "filename": "07_四连拳_Punch_Combo.fbx",
+      "name": "Punch Combo",
+      "description": "Four Punch Combo",
+      "query": "punch",
+      "source_url": "https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Punch Combo.fbx",
+      "size_bytes": 1916352,
+      "sha256": "8232946082aa71c92dcdb5b5862e514643cfcdc205d5e20071d364682076c8c3",
+      "fbx_version": 7700,
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 2.2,
+        "track_count": 53,
+        "track_key_count": 1637,
+        "maximum_sample_count": 67,
+        "animation_sha256": "108717e6d10d4519848b5fac450141a9a790d33ae62a17d6fb96db234de211c3"
+      }
+    },
+    {
+      "id": "combo_b",
+      "label": "直拳接肘击",
+      "filename": "08_直拳接肘击_Jab_To_Elbow_Punch.fbx",
+      "name": "Jab To Elbow Punch",
+      "description": "Jab To Elbow Combo",
+      "query": "punch",
+      "source_url": "https://www.mixamo.com/#/?page=1&query=punch&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Jab To Elbow Punch.fbx",
+      "size_bytes": 2106224,
+      "sha256": "bb58c444cf65466654f7c27e198e6f6a68319f27fc89dbca69fe9fa6e1b367c7",
+      "fbx_version": 7700,
+      "parameters": {
+        "Style": 0,
+        "Target Height": 50
+      },
+      "trim_percent": [
+        0,
+        100
+      ],
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 3.266667,
+        "track_count": 53,
+        "track_key_count": 5247,
+        "maximum_sample_count": 99,
+        "animation_sha256": "a5f8340ad4a42a9ebf87ed6f011956a29da6aa8091d500814cc32630b334e59e"
+      }
+    },
+    {
+      "id": "laser_hip",
+      "label": "激光姿态／单手叉腰",
+      "filename": "09_激光姿态_单手叉腰_Male_Standing_Pose.fbx",
+      "name": "Male Standing Pose",
+      "description": "Left Hand On Hip",
+      "query": "male standing pose",
+      "static_pose": true,
+      "source_url": "https://www.mixamo.com/#/?page=1&query=male%20standing%20pose&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Male Standing Pose.fbx",
+      "size_bytes": 1741504,
+      "sha256": "c4028e9f8a82e924edb7bcb3f847f2602c5a35107bbead360ad530e76514b51b",
+      "fbx_version": 7700,
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 0.033333,
+        "track_count": 53,
+        "track_key_count": 54,
+        "maximum_sample_count": 2,
+        "animation_sha256": "27cdee2e8a44c8dfbe6aa37bcca78cd601a4ee6967431a58e597b0795f83507b"
+      }
+    },
+    {
+      "id": "laser_back",
+      "label": "激光姿态／双手背后",
+      "filename": "10_激光姿态_双手背后_Male_Standing_Pose.fbx",
+      "name": "Male Standing Pose",
+      "description": "Arms Behind Back",
+      "query": "male standing pose",
+      "static_pose": true,
+      "source_url": "https://www.mixamo.com/#/?page=1&query=male%20standing%20pose&type=Motion%2CMotionPack",
+      "status": "downloaded",
+      "original_download_name": "Male Standing Pose.fbx",
+      "size_bytes": 1741504,
+      "sha256": "1d848e35fd68239fc08b25b616735213aeecc3e11f1b93b4ba7c4ea35eb0d82e",
+      "fbx_version": 7700,
+      "validation": {
+        "status": "passed",
+        "clip_name": "mixamo.com",
+        "duration_seconds": 0.033333,
+        "track_count": 53,
+        "track_key_count": 54,
+        "maximum_sample_count": 2,
+        "animation_sha256": "72497046af597f8f2188b1b7c69ad3975e62c647afdd589a3824249e5b899cbc"
+      }
+    }
+  ],
+  "validation": {
+    "status": "passed",
+    "date": "2026-10-17",
+    "file_count": 10,
+    "total_size_bytes": 19394480,
+    "method": "Complete FBX binary structure parsing and Three.js FBXLoader",
+    "source_limb_nodes": 65,
+    "mesh_count": 2,
+    "skeleton_sha256": "6b5da2b4c59b39b327e501f6bfed13b8ad2e7dd8f2c851722cf4b549a4f381c4",
+    "bind_sha256": "78c2135b893c6a688c55543f5f396b477359b9ff97514c0c1ffcbe8aaab46950",
+    "notes": [
+      "10 份文件及动画数据均不重复；参考骨架、绑定和几何一致。",
+      "有效动画片段名为 mixamo.com；另含 Take 001 空动画栈，后续导入应选取有效片段。",
+      "加载验证跳过纹理图像解码；未做游戏接入验收。"
+    ]
+  }
+}

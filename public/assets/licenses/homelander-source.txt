@@ -1,0 +1,17 @@
+Homelander model: user supplied Tripo FBX, bound with the user's Auto-Rig Pro
+3.78.32 installation in Blender 5.2.2. This asset is not declared CC0.
+The source rig and provenance are in .asset-source/homelander/.
+
+Ten motion files: user supplied Adobe Mixamo XBot animations.
+Original names, download settings, source URLs and SHA-256:
+actions/manifest.json. These motions are not declared CC0.
+https://www.mixamo.com/
+
+Additional Walk_Female, Levitate Entrance, Levitate Idle, Land_Three_Point,
+Attack_Ground_Pound, Jump_air, Jump_Start and Jump_Land: Mesh2Motion
+contributors, CC0-1.0.
+See licenses/mesh2motion-cc0.txt and .asset-source/mesh2motion/provenance.json.
+
+All motions were retargeted offline using Auto-Rig Pro Remap and its Universal
+glTF exporter. The plugin is an installed development tool and is not bundled
+with the game. No body animation keyframes were authored in this project.

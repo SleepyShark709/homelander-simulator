@@ -1,6 +1,6 @@
-import './style.css';
-import { Game } from './Game';
-import { characterPreview } from './CharacterPreview';
+import './app/style.css';
+import { Game } from './app/Game';
+import { characterPreview } from './app/CharacterPreview';
 try {
     if (new URLSearchParams(location.search).get('preview') === 'character') {
         characterPreview().catch((error) => {

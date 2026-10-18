@@ -9,6 +9,7 @@ sources = {
     'characters': {'author': 'Kenney', 'url': 'https://kenney.nl/assets/blocky-characters', 'license': 'CC0-1.0', 'licenseFile': 'licenses/kenney-characters.txt'},
     'city': {'author': 'Kenney', 'url': 'https://kenney.nl/assets/city-kit-commercial', 'license': 'CC0-1.0', 'licenseFile': 'licenses/kenney-city.txt'},
     'cars': {'author': 'Kenney', 'url': 'https://kenney.nl/assets/car-kit', 'license': 'CC0-1.0', 'licenseFile': 'licenses/kenney-cars.txt'},
+    'jiangwan': {'author': 'Project original environment / user supplied Tripo vehicles', 'license': 'Project original / user supplied; no third-party redistribution license asserted', 'licenseFile': 'licenses/jiangwan-source.txt', 'pipeline': ['scripts/build-jiangwan.py']},
     'human': {'author': 'Mesh2Motion / contributors', 'url': 'https://github.com/Mesh2Motion/mesh2motion-app', 'license': 'CC0-1.0', 'licenseFile': 'licenses/mesh2motion-cc0.txt', 'motionLicenseFile': 'licenses/mesh2motion-cc0.txt', 'pipeline': ['scripts/pack-native-character.mjs'], 'sourceRepository': 'https://github.com/Mesh2Motion/mesh2motion-app', 'motionRepository': 'https://github.com/Mesh2Motion/mesh2motion-app'},
 }
 polyhaven = {
@@ -52,6 +53,13 @@ for p in sorted(assets.rglob('*')):
     entry = {'path': str(rel), 'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data), 'retainedReference': rel.parts[0] in ('characters', 'city', 'cars')}
     if rel.parts[0] in sources:
         entry.update(sources[rel.parts[0]])
+        if str(rel) == 'human/homelander.glb':
+            entry.update(author='User supplied Tripo model; Adobe Mixamo and Mesh2Motion motions',
+                url='https://www.tripo3d.ai/', license='User supplied model / mixed motion licenses',
+                licenseFile='licenses/homelander-source.txt', motionLicenseFile='licenses/homelander-source.txt',
+                pipeline=['scripts/adapt-homelander.py', 'scripts/pack-homelander.mjs'])
+            entry.pop('sourceRepository')
+            entry.pop('motionRepository')
         if rel.parts[0] == 'human' and p.suffix != '.glb':
             entry['license'] = 'CC0-1.0'
             entry.pop('motionLicenseFile')

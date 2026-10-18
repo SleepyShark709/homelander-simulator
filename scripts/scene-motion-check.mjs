@@ -12,7 +12,7 @@ await page.goto('http://127.0.0.1:5173/');
 await page.waitForFunction(()=>window.game?.player,{timeout:45000});
 const report = await page.evaluate(async()=>{
     const T=await import('/node_modules/.vite/deps/three.js');
-    const {PersonVisual}=await import('/src/PersonVisual.ts');
+    const {PersonVisual}=await import('/src/characters/PersonVisual.ts');
     const g=window.game;g.renderer.setAnimationLoop(null);
     const checks=[], transitions=[];
     for(const profile of [60,120,144,'uneven']) for(const [mode,speed] of [['ground',0],['ground',6],['ground',24],['fly',0],['fly',40]]) {
@@ -23,7 +23,7 @@ const report = await page.evaluate(async()=>{
         const joints=[];p.visual.model.traverse(o=>{if(o.isBone)joints.push(o);});
         const reference=new PersonVisual(g.assets,'hero');
         let previous,maxStep=0,worst,spuriousLand=0,groundLift=0,bindingError=0,legError=0,time=0,frame=0;
-        const lower=new Set(['root','pelvis']);for(const side of ['l','r'])p.visual.model.getObjectByName(`thigh_${side}`).traverse(o=>lower.add(o.name));
+        const lower=new Set(['rootx']);for(const side of ['l','r'])p.visual.model.getObjectByName(`thigh_stretch${side}`).traverse(o=>lower.add(o.name));
         const duration=p.visual.actionDuration('punch');
         while(time<4) {
             const dt=profile==='uneven'?[1/144,1/120,1/75,1/90,1/60][frame%5]:1/profile;
@@ -59,7 +59,7 @@ const report = await page.evaluate(async()=>{
     g.camera.camera.position.set(25,8,45);g.camera.camera.lookAt(-20,5,-20);
     g.presentation.render(0);
     const a=g.world.art;
-    checks.push({name:'ground and facades have color, normal and roughness textures',pass:[a.asphalt,a.paving,...[...a.facades.values()].map(f=>f.concrete)].every(m=>m.map&&m.normalMap&&m.roughnessMap)});
+    checks.push({name:'ground and facades have color, normal and roughness textures',pass:[a.asphalt,a.paving,a.surfaces.concrete,a.surfaces.cladding].every(m=>m.map&&m.normalMap&&m.roughnessMap)});
     const target=g.presentation.ao.normalRenderTarget;
     const readNormals=()=>{const data=new Uint16Array(target.width*target.height*4);g.renderer.readRenderTargetPixels(target,0,0,target.width,target.height,data);return data;};
     const beforeSmoke=readNormals(),startEffects=g.effects.list.length;
@@ -82,7 +82,7 @@ await page.evaluate(()=>{const g=window.game;g.effects.hideBeams();g.camera.came
 await page.screenshot({path:`.artifacts/facade-${label}.png`});
 await page.evaluate(async()=>{
     const T=await import('/node_modules/.vite/deps/three.js');
-    const {PersonVisual}=await import('/src/PersonVisual.ts');
+    const {PersonVisual}=await import('/src/characters/PersonVisual.ts');
     const g=window.game;
     g.effects.hideBeams();g.world.group.visible=false;g.scene.children.filter(o=>o.type==='Sky'||o.material?.type==='ShaderMaterial').forEach(o=>o.visible=false);g.scene.background=new T.Color(0x303b46);
     const group=new T.Group();g.scene.add(group);

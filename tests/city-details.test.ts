@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 import { Box3, BoxGeometry, Group, Mesh, MeshStandardMaterial, Vector3 } from 'three';
-import { Assets } from '../src/Assets';
+import { Assets } from '../src/core/Assets';
 
 it('scanned props retain proportions and shared geometry while damage materials stay independent', () => {
     const assets = new Assets();

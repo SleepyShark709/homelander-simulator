@@ -1,6 +1,6 @@
 import { expect, it, vi } from 'vitest';
 import { Vector3 } from 'three';
-import { Game } from '../src/Game';
+import { Game } from '../src/app/Game';
 
 it('a queued RAF older than resume does not reverse animation blending or simulation time', () => {
     const animate = vi.fn();

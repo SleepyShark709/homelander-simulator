@@ -2,6 +2,14 @@ node_modules/
 dist/
 # Keep only the pinned inputs required for tests and the current asset pipeline.
 .asset-source/*
+!.asset-source/jiangwan/
+.asset-source/jiangwan/*.blend1
+!.asset-source/homelander/
+.asset-source/homelander/*
+!.asset-source/homelander/rig.blend
+!.asset-source/homelander/blender-reference.json.gz
+!.asset-source/homelander/adaptation.json
+!.asset-source/homelander/provenance.json
 !.asset-source/mesh2motion/
 .asset-source/mesh2motion/*
 !.asset-source/mesh2motion/human-base-animations.glb

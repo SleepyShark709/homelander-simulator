@@ -68,7 +68,8 @@ const report=await page.evaluate(()=>{
  }
  check('hover acceleration turns and uneven render times keep camera motion continuous',jitter.every(j=>j.maxNormalizedPixelJump<.75),jitter);
  setup();g.input.pressed.add('KeyF');const launch=[];for(let i=0;i<Math.ceil((g.player.visual.actionDuration('takeoff')+.8)*60);i++){frame();launch.push({mode:g.player.mode,clip:g.player.visual.current,y:g.player.position.y});}
- check('takeoff includes planted anticipation before an uninterrupted rise',launch.filter(p=>p.mode==='takeoff').length>=10&&launch.some(p=>p.clip==='takeoff')&&launch.at(-1).mode==='fly'&&launch.at(-1).y>1.6,{first:launch.slice(0,18),end:launch.at(-1)});
+ const hoverAt=launch.findIndex(p=>p.mode==='fly')/60;
+ check('takeoff anticipates then reaches hover within 0.75 seconds',launch.filter(p=>p.mode==='takeoff').length>=10&&launch.some(p=>p.clip==='takeoff')&&hoverAt>0&&hoverAt<=.75&&launch.at(-1).mode==='fly'&&launch.at(-1).y>1.6,{hoverAt,first:launch.slice(0,18),end:launch.at(-1)});
  setup(0,65,30,'fly');g.input.keys.add('KeyW');g.input.keys.add('ShiftLeft');g.input.laser=true;let beamError=0,visibleBeamSamples=0;
  for(let i=0;i<100;i++){frame(1/144);g.player.visual.group.updateMatrixWorld(true);for(let eye=0;eye<2;eye++){
   const beam=g.effects.beams[eye];if(!beam.visible)continue;visibleBeamSamples++;const axis=vector().set(0,1,0).applyQuaternion(beam.quaternion);

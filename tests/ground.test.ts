@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
 import { Mesh, MeshBasicMaterial, Raycaster, Vector3 } from 'three';
-import { streetGround, type GroundRect } from '../src/CitySurfaces';
+import { streetGround, type GroundRect } from '../src/world/CitySurfaces';
 
 it('crossing roads and surrounding paving each expose exactly one upward-facing surface', () => {
     const roads: GroundRect[] = [

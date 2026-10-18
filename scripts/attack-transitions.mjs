@@ -52,7 +52,7 @@ const report=await page.evaluate(()=>{
     for(let i=0;i<160;i++){clock+=1000/120;g.frame(clock);}
     checks.push({name:'pausing an airborne attack freezes both layers and preserves one pending hit',pass:before.remaining===after.remaining&&before.phase===after.phase&&hits===1,before,after,hits});
     // A real descent to the street during the punch must still play landing recovery.
-    const landing=setup(true);landing.position.y=2.3;landing.previous.copy(landing.position);landing.body.setTranslation(landing.position,true);
+    const landing=setup(true);landing.position.y=9.3;landing.previous.copy(landing.position);landing.body.setTranslation(landing.position,true);
     g.input.punch=true;g.input.pressed.add('KeyF');let sawLand=false;
     for(let i=0;i<250;i++){clock+=1000/120;g.frame(clock);if(landing.visual.baseCurrent==='land')sawLand=true;}
     checks.push({name:'an airborne punch can fall, land and return to standing',pass:sawLand&&landing.mode==='ground'&&landing.visual.current==='idle',sawLand,mode:landing.mode,clip:landing.visual.current});

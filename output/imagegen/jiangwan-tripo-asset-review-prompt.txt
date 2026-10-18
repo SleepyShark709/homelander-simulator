@@ -1,0 +1,20 @@
+Use case: compositing
+Asset type: annotated asset-production review board for a Tripo + Blender + Three.js game art workflow.
+Input images: Image 1 is the EXACT EDIT TARGET, the existing 1536 x 1024 Chinese city environment reference board “江湾城”. Preserve this existing board as the background image.
+Primary request: Annotate ONLY the THREE visible vehicle asset types proposed for Tripo generation. This is a technical markup task, not a new city illustration. Keep the entire original city board composition, photographic views, title, colors, buildings, streets, text, map and details unchanged. Add small precise rectangles, leader lines and numbered labels identifying existing objects. Do not add, remove or redraw vehicles or scenery. Preserve ALL original image edges and all ten scene panels.
+
+Add a clean ivory legend STRIP BELOW the original board by extending the canvas downward, so labels do not cover original caption strips. Retain the source board's 3:2 dimensions within the upper section, original board occupies approximately 86% of final image height, with bottom legend approximately 14%. Produce as high resolution as possible to keep the source readable.
+
+Color system: vivid orange #EA580C = priority first prototype; warm amber #D5A000 = conditional prototype/optional. Thin crisp 2-3px rectangular outlines with transparent interiors, round numbered tags, short thin leader lines. No translucent colored fill obscuring any object.
+
+PRECISE TARGET LOCATIONS in the original 1536x1024 source coordinate system (before adding the bottom legend):
+T01 = small white SEDAN in the STREET-LEVEL JUNCTION panel in the second row, just left of the green bus. Target center approximately x272,y655; tight rectangle x251,y639 to x294,y672. Color ORANGE. Place the “T01” orange badge just above and left of this rectangle, around x237,y611, with a short leader to the actual car. Do not point to the road or a pedestrian.
+T02 = parked TWO-WHEEL ELECTRIC SCOOTER in the very first bottom detail panel “临街商铺”, near the lower-left shop entrance. Target center approximately x48,y932; tight rectangle x23,y914 to x82,y949. Color AMBER. Place “T02” in an unobtrusive small amber badge around x80,y893 with a thin leader to the scooter. Do not enclose the entire shop, the sign or the rider. Identify it as a two-wheel e-bike, not a delivery vehicle; no delivery box is clearly visible.
+T03 = long GREEN CITY BUS in the LARGE MAIN AERIAL OVERVIEW at upper-right near the central junction, with the passenger side visible. Target center x906,y390; tight rectangle x869,y369 to x943,y409. Color AMBER. Place “T03” near x977,y350 with a short leader into the bus. Mark only this one vehicle, not the block or the road.
+
+Legend added BELOW the board, in three evenly spaced columns, with clean highly legible Chinese typography and matching small tags:
+Column 1, orange: “T01 轿车” then “优先试做 · Tripo 初模 → Blender 整理”
+Column 2, amber: “T02 两轮电动车” then “条件试做 · 检查细车架、轮组与孔隙”
+Column 3, amber: “T03 公交车” then “可选生成 · 长车身和窗格也适合 Blender”
+Add a small restrained footer line under these three columns: “建筑、道路、桥梁、门窗、标识与规则街具：优先 Blender 模块化制作”
+Exactly THREE unique numbered markers, T01,T02,T03, each appearing once on the original image plus once in the legend. Do not invent any additional numbered assets, callouts, extra vehicles or inset images. Annotation should be useful to a human choosing what to generate, clear at full size, precise and restrained. The orange and amber selection priority must be obvious. Existing source rendering remains visually dominant.

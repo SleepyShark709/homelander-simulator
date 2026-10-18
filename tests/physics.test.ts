@@ -1,5 +1,5 @@
 import { beforeAll, it, expect } from 'vitest';
-import { Physics, R } from '../src/Physics';
+import { Physics, R } from '../src/core/Physics';
 import { Vector3 } from 'three';
 beforeAll(async () => {
     await R.init();

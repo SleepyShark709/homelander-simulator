@@ -40,7 +40,8 @@ const result = await page.evaluate(() => {
         const p = setup(profile.npc, [0, 1.04, profile.shift ? 45 : 25]);
         g.input.keys.add('KeyW');
         if (profile.shift) g.input.keys.add('ShiftLeft');
-        const samples = [], joints = ['head', 'hand_l', 'hand_r', 'foot_l', 'foot_r'].map(name => p.visual.model.getObjectByName(name));
+        const samples = [], joints = [];
+        p.visual.model.traverse(object => { if (object.isBone) joints.push(object); });
         let previousPosition = p.visual.group.position.clone(), previousY = p.position.y, previousPose, maxPoseStepAt120Hz = 0, t = 0;
         while (t < profile.seconds) {
             const dt = profile.uneven ? [1 / 144, 1 / 120, 1 / 75, 1 / 90, 1 / 60][samples.length % 5] : 1 / profile.hz;
@@ -85,8 +86,8 @@ const result = await page.evaluate(() => {
         traces.push({ profile, samples });
     }
     // Grounded gravity suppression must still release support at a real ledge.
-    const p = setup(false, [0, 5.54, 22]);
-    g.physics.staticBox(p.position.clone().set(0, 4, 20), p.position.clone().set(8, 1, 10));
+    const p = setup(false, [0, 9.54, 22]);
+    g.physics.staticBox(p.position.clone().set(0, 8, 20), p.position.clone().set(8, 1, 10));
     g.physics.world.step(); g.input.keys.add('KeyW');
     const samples = [];
     for (let i = 0; i < 360; i++) {

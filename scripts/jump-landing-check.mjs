@@ -25,10 +25,10 @@ const report=await page.evaluate(()=>{
 
 
  const momentum=setup();g.input.keys.add('KeyW');for(let i=0;i<90;i++){clock+=1000/120;g.frame(clock);}g.input.pressed.add('Space');
- for(let i=0;i<8;i++){clock+=1000/120;g.frame(clock);}const launchSpeed=Math.hypot(momentum.velocity.x,momentum.velocity.z),launchZ=momentum.position.z;g.input.keys.delete('KeyW');
+ for(let i=0;i<40;i++){clock+=1000/120;g.frame(clock);}const launchSpeed=Math.hypot(momentum.velocity.x,momentum.velocity.z),launchZ=momentum.position.z;g.input.keys.delete('KeyW');
  for(let i=0;i<45;i++){clock+=1000/120;g.frame(clock);}const coastingSpeed=Math.hypot(momentum.velocity.x,momentum.velocity.z);
  checks.push({name:'releasing movement after takeoff preserves horizontal momentum',pass:momentum.mode==='jump'&&coastingSpeed>launchSpeed*.99&&launchZ-momentum.position.z>2,launchSpeed,coastingSpeed,distance:launchZ-momentum.position.z});
- const transition=setup();for(let i=0;i<10;i++){clock+=1000/120;g.frame(clock);}g.input.pressed.add('Space');for(let i=0;i<20;i++){clock+=1000/120;g.frame(clock);}g.input.pressed.add('KeyF');
+ const transition=setup();for(let i=0;i<10;i++){clock+=1000/120;g.frame(clock);}g.input.pressed.add('Space');for(let i=0;i<50;i++){clock+=1000/120;g.frame(clock);}g.input.pressed.add('KeyF');
  for(let i=0;i<30;i++){clock+=1000/120;g.frame(clock);}const fly=transition.mode==='fly';g.input.pressed.add('KeyQ');let slamHits=0;transition.onSlam=()=>slamHits++;
  for(let i=0;i<300;i++){clock+=1000/120;g.frame(clock);}
  checks.push({name:'jump can enter flight and then Q lands with one impact',pass:fly&&slamHits===1&&transition.mode==='ground',fly,slamHits});
@@ -41,8 +41,8 @@ const report=await page.evaluate(()=>{
  for(let i=0;i<240;i++){clock+=1000/120;g.frame(clock);}
  checks.push({name:'a running jump is blocked by a solid wall',pass:wall.position.z>22.1&&wall.mode==='ground',position:wall.position.toArray()});
  const paused=setup();for(let i=0;i<10;i++){clock+=1000/120;g.frame(clock);}g.input.pressed.add('Space');for(let i=0;i<30;i++){clock+=1000/120;g.frame(clock);}
- const before=[paused.position.y,paused.visual.actions.get('jump').time];g.running=false;
- for(let i=0;i<120;i++){clock+=1000/120;g.frame(clock);}const after=[paused.position.y,paused.visual.actions.get('jump').time];
+ const before=[paused.position.y,paused.visual.actions.get(paused.visual.current).time];g.running=false;
+ for(let i=0;i<120;i++){clock+=1000/120;g.frame(clock);}const after=[paused.position.y,paused.visual.actions.get(paused.visual.current).time];
  g.running=true;g.previous=clock;for(let i=0;i<300;i++){clock+=1000/120;g.frame(clock);}
  checks.push({name:'pause freezes jump physics and animation, then resumes into one landing',pass:before.every((v,i)=>v===after[i])&&paused.mode==='ground',before,after});
  g.running=false;g.presentation.render=render;return {checks};

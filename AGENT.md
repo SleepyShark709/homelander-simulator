@@ -1,6 +1,6 @@
 # 项目协作与执行规则
 
-更新时间：2026-10-15。仓库：`git@github.com:SleepyShark709/homelander-simulator.git`。
+更新时间：2026-10-18。仓库：`git@github.com:SleepyShark709/homelander-simulator.git`。
 
 ## 阅读入口与项目目标
 
@@ -10,46 +10,46 @@
 
 实现第三人称 Web 街区沙盒：自由飞行、镭射、重拳、砸地、超级速度、无敌、三级追捕、车辆物理、局部破坏和少量血液。用户确认后续通过 Web 打开，不做桌面 PC 游戏。当前保持 TypeScript、Vite、Three.js、Rapier；场景使用真实 3D 模型，DOM 只负责界面。
 
-用户已放弃祖国人外观。当前采用中性 mannequin，服装附件、金发和披风已移除，能力和玩法保留。不得静默删减已确认范围，也不擅自增加账号、付费服务、声音、引擎迁移或线上部署。
+不得静默删减已确认范围，也不擅自增加账号、付费服务、声音、引擎迁移或线上部署。
 
 ## 当前角色基线
 
-- 主角保留 Mesh2Motion addon 原配网格、66 骨骼、蒙皮、绑定矩阵和材质；NPC 保留 base 原配模型/骨架/动作，运行材质增加本地衣裤、布料和制服/迷彩纹理。
-- 主角普通跑为 base `Jog`，快跑为 base `Sprint`；用户已认可并授权适配。仅这两段通过未修改的 Mesh2Motion MIT Human Retargeter 离线适配到 addon，其他原配主角动作与 NPC 原配动画保持不变；新增跳跃为同 addon 包的 Jump_2。
+- 主角采用用户 Tripo / Auto-Rig Pro 模型：`human/homelander.glb`，68 个导出骨骼、双手五指、18 段现成动作。NPC 保持 base 原配的 66 骨骼组合。
+- 十份用户 Mixamo 动作与八份现成步行、起飞、悬停、落地、砸地、下落、起跳及跳跃落地动作均通过 Auto-Rig Pro Remap / Universal GLTF 离线适配。导出启用 `arp_ge_reset_transforms`，防止未键控胸椎受上个动作污染；走跑使用官方 In Place。源披风仍单骨绑定，浏览器以 `CapePhysics` 的 231 节点 XPBD 模拟重力、惯性、风阻和身体/场景碰撞；仅修改私有几何的披风部分，未做布料自碰撞。
 - 两包绑定矩阵不同，骨名相同不代表兼容。禁止原样跨包复制轨道、手写骨骼角度公式、手工人体关键帧或关节修姿态补丁；新动作应来自许可明确的现成资源及成熟适配工具。
 - 浏览器直接播放生成的 GLB，无运行时重定向。完整骨架、肩膀、手指、脚趾和实际蒙皮都必须检查，不能以单一手腕角度宣称人体正常。
+- 下落改用 base `Jump_air` 经 ARP 正式适配；禁止恢复举臂 `Glide`。自然落差达到 6 米才执行落地收势，Q 共用 `land`；从原片段 0.45 秒接触点播放，不能在接地后重播其空中下降。起飞约 0.65 秒进入悬停。参数均在 `core/config.ts`。
+- 地面空格按下触发一次跳跃，使用经 ARP 适配的 base `Jump_Start` / `Jump_Land`，空中复用 `Jump_air`。长按不连跳、空中不二段跳；飞行时空格仍上升。普通跳跃落地用 `jump_land`，大落差仍用 `land`。
 - 不恢复 MakeHuman、`Run_Stealth` 或旧自制动作。历史导入脚本仅保留记录，不作为当前重建入口。
-- 主角跑步播放倍率上限为 1.35，集中在 `CONFIG.playerRunAnimationRateMax`。循环与过渡检查保持 0.12 米/120 Hz 的连续性要求；姿态应对照当前认可的原片段。
+- 主角跑步播放倍率上限为 1.35，集中在 `src/core/config.ts` 的 `CONFIG.playerRunAnimationRateMax`。循环与过渡检查保持 0.12 米/120 Hz 的连续性要求；姿态应对照当前认可的原片段。
 
-当前实现与证据见 [JOG_SPRINT_ADAPTATION.md](docs/JOG_SPRINT_ADAPTATION.md)。2026-10-15 增加原动作轨道分层、连续背景步态/飞行、同插值时钟采样及末段输入缓存；光照/材质与攻击专项证据见 [SCENE_MOTION_UPGRADE.md](docs/SCENE_MOTION_UPGRADE.md)。旧 MakeHuman 的质量结论已撤回，见 [CHARACTER_RETARGET_HISTORY.md](docs/CHARACTER_RETARGET_HISTORY.md)；不要沿用其通过记录。
+NPC 运行材质保留本地织物、衣裤与制服/迷彩纹理。
 
-新增地面与行进跳跃、F/Q 统一接地和真实扫描 PBR 的当前证据见 [JUMP_LANDING_PBR.md](docs/JUMP_LANDING_PBR.md)。`land` 原片段前段在空中，游戏接地从 `CONFIG.animation.landContactTime` 进入；不得恢复从零开始导致的二次升空。
-
-2026-10-16 近景三维陈设、GPT 透明树叶、扫描树皮、可破坏店面与实际键鼠验收见 [DIRECTOR_OPTIMIZATION.md](docs/DIRECTOR_OPTIMIZATION.md)。用户当前优先关注素材、还原度与游戏质量，未要求追加性能测试。
+当前实现与证据见 [HOMELANDER_INTEGRATION.md](docs/HOMELANDER_INTEGRATION.md)。Jog/Sprint 的 mannequin 适配记录为历史基线。旧 MakeHuman 的质量结论已撤回，见 [CHARACTER_RETARGET_HISTORY.md](docs/CHARACTER_RETARGET_HISTORY.md)；不要沿用其通过记录。
 
 ## 代码与资源入口
 
 | 模块 | 责任 |
 |---|---|
-| `src/Game.ts`、`Input.ts`、`UI.ts` | 生命周期、固定步/渲染、输入、开始/暂停/重置 |
-| `src/Player.ts`、`Camera.ts`、`Physics.ts` | 移动/飞行、角色碰撞、镜头、Rapier |
-| `src/Assets.ts`、`PersonVisual.ts`、`NpcMaterials.ts`、`CharacterPreview.ts` | 资源缓存/克隆、骨骼动画播放与混合、角色展示 |
-| `src/Combat.ts`、`Effects.ts`、`rules.ts` | 攻击、命中、反馈及规则 |
-| `src/World.ts`、`Npcs.ts`、`Ragdoll.ts` | 实体、追捕与 NPC、物理倒地 |
-| `src/Environment.ts`、`CityRenderer.ts`、`CitySurfaces.ts`、`StreetProps.ts` | 城市、材质、道路和陈设 |
-| `src/config.ts` | 集中参数与预算 |
+| `src/main.ts`、`src/app/` | 启动、系统装配、固定步/渲染、暂停/重置与 UI |
+| `src/core/` | 资源缓存/释放、输入、Rapier、配置和数学工具 |
+| `src/characters/` | 玩家控制、角色模型/现成动画、披风布料、物理倒地 |
+| `src/gameplay/` | 能力命中、伤害/热度规则、NPC AI 与补充撤离 |
+| `src/render/` | 镜头、光照/HDR、后处理与特效 |
+| `src/world/` | 实体生命周期、街区搭建、地表与街道陈设 |
 
+完整目录、依赖边界与资源所有权见 [ARCHITECTURE.md](docs/ARCHITECTURE.md)。`core` 不依赖具体玩法或世界；角色运行时只依赖 `core`/同组；类型引用显式标记，禁止增加旧路径转导出层。
 模型、纹理、许可和运行清单在 `public/assets/`。测试和适配所需的固定开发输入按白名单纳入 `.asset-source/`；缓存、历史素材、`node_modules/`、`dist/` 和 `.artifacts/` 不纳入 Git。第三方许可、版权、出处和固定版本记录必须保留。新增素材先检查许可、格式、骨架、尺寸和实际效果，再标记接入。
 
-当前人物重建顺序（先启动 `npm run dev`，需要本机 Chrome）：
+当前主角重建顺序（Blender 5.2.2，已安装 Auto-Rig Pro 3.78.32）：
 
 ```sh
-node scripts/adapt-native-runs.mjs
-node scripts/pack-native-character.mjs
+"/Applications/Blender.app/Contents/MacOS/Blender" --background --python-exit-code 1 --python scripts/adapt-homelander.py
+node scripts/pack-homelander.mjs
 python3 scripts/asset-manifest.py
 ```
 
-适配脚本核对原包、固定 vendor 快照、工具输出和 adapter 摘要；修改输入或适配实现后须重新生成并验证，不能手改缓存冒充工具结果。正常运行与测试无需重新下载或适配素材。
+模型、动作、适配器和 Blender 蒙皮参考的摘要保存在 `.asset-source/homelander/`。修改输入或适配实现后须重新生成并验证，不能手改缓存冒充工具结果。正常运行与测试无需 Blender、插件或联网下载。
 
 ## 资产生产与验证原则
 
@@ -57,7 +57,7 @@ python3 scripts/asset-manifest.py
 
 - **围绕游戏内结果组织流程。** 新增或替换资产按“明确用途与风格 → 获取并核验来源/许可 → 离线加工 → 优化 → 自动检查 → 真实游戏画面验收”执行。模型生成成功、GLB 可加载或预览好看，都不能单独作为接入完成的依据。
 - **先定义资产规范。** 在处理同类资产前明确视觉风格、米制尺寸、坐标朝向、原点、层级和命名；角色另核对骨架、绑定姿态、蒙皮与动作兼容性。装备先统一局部坐标、握持方向和挂点变换，再批量适配；同名骨骼不能作为兼容证明。
-- **将加工沉淀为脚本与配置。** 保留可追溯的原始输入、固定工具版本、处理参数和输出清单，让资产能从保留的输入重新构建。重复出现的处理应纳入构建流程；新增参数放在对应构建配置，运行参数集中在 `src/config.ts`，避免逐个手改产物。
+- **将加工沉淀为脚本与配置。** 保留可追溯的原始输入、固定工具版本、处理参数和输出清单，让资产能从保留的输入重新构建。重复出现的处理应纳入构建流程；新增参数放在对应构建配置，运行参数集中在 `src/core/config.ts`，避免逐个手改产物。
 - **工具按职责接入。** Codex 负责编排；确需生成新模型时再评估 Tripo 等生成工具；Headless Blender 可承担批量网格清理、拆件和挂点处理；需要压缩时再评估 gltfpack/meshopt；最终在 Three.js 中验证。以上是可选方案，不代表已经安装、接入或验证，也不授权新增付费服务。当前人物仍使用上文既有重建入口。
 - **分别衡量下载和运行成本。** 记录文件体积、顶点/三角面、骨骼、纹理尺寸、材质和绘制批次数，并在目标设备检查加载/解码时间、内存与帧时间。压缩后对照几何、材质、蒙皮和动画，避免只为缩小 GLB 损伤画面。预算依据本项目场景与实测制定；文章的 20 MB 预算、23 骨骼和 WebGPU 路线不替代当前基线。
 - **结构检查与画面检查配套。** 自动检查资源完整性、层级、挂点、骨架、蒙皮和动作数据；在实际游戏镜头与操作中检查全身变形、穿模、动作循环/过渡、装备挂载、光照和压缩前后差异。检查项按变更范围选择，原片段或展示页通过后仍需验证游戏内效果。
@@ -110,6 +110,8 @@ npm run preview
 
 角色/移动相关修改按范围执行 `native-character-check.mjs`、`character-motion-check.mjs`、`running-continuity.mjs`、`character-game-check.mjs` 和 `quality-acceptance.mjs`。跳跃/落地修改另执行 `jump-landing-check.mjs`。攻击分层修改另执行 `scene-motion-check.mjs` 和 `attack-transitions.mjs`。物理倒地修改执行 `quality-ragdoll.mjs`；生产启动执行 `final-smoke.mjs`，需要开发与生产预览服务同时运行。脚本位于 `scripts/`，结果输出到 `.artifacts/`；正式结论更新到 `docs/`。
 
-浏览器/GPU 测试与录制顺序执行，性能测试期间关闭其他测试浏览器。原配动作需验证全身变形、循环、状态混合和实际操作画面；攻击需验证一次命中、完整收势和暂停。当前主要验收环境为 macOS Chrome，Safari 和当前版本完整长时间性能仍需单独验证。
+起落/飞行衔接另执行 `flight-transitions.mjs` 与 `tests/player-flight.test.ts`，覆盖高度门槛、屋顶、Q 低高落差/暂停、全骨架和蒙皮连续性。飞行/地面球底统一为角色脚底平面；修改碰撞体的父级偏移后，同时设置绝对位置，让同一步查询使用新位置。
+
+浏览器/GPU 测试与录制顺序执行，性能测试期间关闭其他测试浏览器。原配动作需验证全身变形、循环、状态混合和实际操作画面；攻击需验证一次命中、完整收势和暂停。当前主要验收环境为 macOS Chrome；本次祖国人固定副本已完成 10.5 分钟持续运行与三次重置，Safari 和并行城市的后续改动需另行验收。
 
 提交前检查暂存清单与必要来源文件，保留锁文件和第三方许可；从干净导出验证安装、测试和构建，避免依赖被忽略的本机文件。不要提交凭据、缓存和批量测试输出，不覆盖已有远端历史、不使用强推。推送、部署等对外操作以用户当次授权为准，当前仓库不自动部署。

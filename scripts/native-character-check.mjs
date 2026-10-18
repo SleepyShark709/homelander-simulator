@@ -1,11 +1,14 @@
 import { chromium } from '@playwright/test';
 import fs from 'node:fs';
+// The hero has its own ARP skeleton; validate it against Blender first.
+await import('./homelander-check.mjs');
 fs.mkdirSync('.artifacts/native-character', { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=metal'] });
 const page = await browser.newPage({ viewport: { width: 1000, height: 900 } }), errors = [];
 page.on('pageerror', e => errors.push(e.message));
 await page.goto('http://127.0.0.1:5173/?preview=character');
 await page.waitForFunction(() => window.studio?.person, { timeout: 30000 });
+await page.selectOption('#studio-role','civilian');
 const report = await page.evaluate(async () => {
     const s = window.studio, p = s.person;
     s.renderer.setAnimationLoop(null);
@@ -15,7 +18,7 @@ const report = await page.evaluate(async () => {
     const cache = await (await fetch('/.asset-source/mesh2motion-adapted-runs/player.json')).json();
     const originals = {};
     for (const name of ['base', 'addon']) originals[name] = await new GLTFLoader().loadAsync(`/.asset-source/mesh2motion/human-${name}-animations.glb`);
-    const sourceNames = Object.fromEntries(p.assets.models.get('person').parser.json.animations.map(a => [a.name,a.extras]));
+    const sourceNames = Object.fromEntries(p.assets.models.get('civilian2').parser.json.animations.map(a => [a.name,a.extras]));
     const chains = ['l','r'].flatMap(side => [
         ['clavicle','upperarm'], ['upperarm','lowerarm'], ['lowerarm','hand'], ['hand','middle_01'],
         ['thigh','calf'], ['calf','foot'], ['foot','ball'],
@@ -50,7 +53,7 @@ const report = await page.evaluate(async () => {
             const time = raw.duration * frame / 240;
             p.mixer.setTime(time); reference.setTime(time);
             adaptedMixer?.setTime(time); adaptedScene?.updateMatrixWorld(true);
-            p.model.updateMatrixWorld(true); original.scene.updateMatrixWorld(true);
+            p.group.updateMatrixWorld(true); original.scene.updateMatrixWorld(true);
             const inverse = p.model.matrixWorld.clone().invert();
             const referenceInverse = original.scene.matrixWorld.clone().invert();
             const expectedRoot = adaptedScene ?? original.scene;
@@ -86,8 +89,8 @@ const report = await page.evaluate(async () => {
         reference.stopAllAction(); reference.uncacheRoot(original.scene);
         if (adaptedMixer) {adaptedMixer.stopAllAction();adaptedMixer.uncacheRoot(adaptedScene);}
     }
-    p.mixer.stopAllAction(); p.current = ''; p.previousMode = 'ground'; p.landingTime = 0;
-    for (let i = 0; i < 90; i++) p.update(1/60,i/60,'fly',0);
+    p.mixer.stopAllAction(); p.current = '';
+    for (let i = 0; i < 90; i++) p.update(1/60,i/60,'ground',0);
     s.camera.position.set(2.2,1.5,3.8); s.controls.target.set(0,1.05,0); s.controls.update();
     s.renderer.render(s.scene,s.camera);
     window.nativePose = name => {
@@ -99,11 +102,11 @@ const report = await page.evaluate(async () => {
     return { checks };
 });
 await page.screenshot({ path: '.artifacts/native-character/hover-side.png' });
-for (const pose of ['walk','jog','sprint','punch','fly','land','slam']) {
+for (const pose of ['walk','jog','sprint','punch']) {
     await page.evaluate(pose => window.nativePose(pose), pose);
     await page.screenshot({ path: `.artifacts/native-character/${pose}.png` });
 }
-const result = { ...report, errors, retargetedClips: ['jog','sprint'] };
+const result = { ...report, errors, role:'NPC', retargetedClips: [] };
 fs.writeFileSync('.artifacts/native-character-check.json', JSON.stringify(result,null,2));
 console.log(JSON.stringify(result,null,2));
 await browser.close();

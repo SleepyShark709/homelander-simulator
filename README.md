@@ -110,7 +110,8 @@ python3 scripts/asset-manifest.py
 
 ## 文档与许可
 
-- [北京场景制作 TODO / 换电脑接手入口](TODO.md)：参考图、Tripo 单体输入、Blender 制作顺序、接入与验证清单。
+- [城市场景密度 TODO / 换电脑接手入口](TODO.md)：不限定地域的 D0–D7 阶段、样板验收与现有资产复用；[网上资产候选](docs/SCENE_ASSET_CANDIDATES.md)列出许可、格式与待确认模型。
+- [城市场景启动提示词](docs/SCENE_DENSITY_START_PROMPT.txt)：可直接复制到下一次任务；首批 A01/A04/A05 已确认，从 D0 推进至 D6 样板审看。
 - [协作规则](AGENT.md)：当前约束、模块入口、验证与提交约定。
 - [需求](docs/MVP.md)、[实施计划](docs/IMPLEMENTATION_PLAN.md)、[进度](docs/PROGRESS.md)。
 - [素材与许可](docs/ASSETS.md)、[第三方许可文件](public/assets/licenses/)、[素材清单](public/assets/manifest.json)。

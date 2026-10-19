@@ -2,6 +2,8 @@
 
 日期：2026-10-16。依据为本项目生成的[原场景参考板](../assets/concepts/beijing-xierqi-qinghe-scene-v1.png)。本文件是供用户确认的资产生产建议；尚未生成 Tripo 模型或改建游戏场景。
 
+> 2026-10-19 状态说明：本文保留为旧北京参考图的历史分析，不再作为当前地域或制作顺序约束。用户已取消任何特定城市限定，并确认按 [TODO 的 D0–D7](../TODO.md) 推进；现成开放许可资产优先评估，网上模型先按[新候选清单](SCENE_ASSET_CANDIDATES.md)交用户选择。现有江湾 Blender 环境和用户三类车辆已接入，见 [JIANGWAN_ENVIRONMENT.md](JIANGWAN_ENVIRONMENT.md)，不得把本文当时的“未制作”沿用为当前状态。
+
 ## 1. 建议采用的分工
 
 **Blender 建立空间、结构和模块；Tripo 尝试少量复杂车辆外观基模；Three.js 负责组合、材质表现、实例化和游戏交互。**

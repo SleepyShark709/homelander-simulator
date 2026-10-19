@@ -6,7 +6,9 @@
 
 开始工作先完整阅读本文件、[MVP 需求](docs/MVP.md)、[实施计划](docs/IMPLEMENTATION_PLAN.md) 和 [进度](docs/PROGRESS.md)。整体质量目标见 [QUALITY_UPGRADE.md](docs/QUALITY_UPGRADE.md)，素材来源见 [ASSETS.md](docs/ASSETS.md)。历史完成标记不替代当前需求和当前实测。
 
-北京西二旗—元中心—清河场景的后续制作与换电脑接手见 [TODO.md](TODO.md)，其中索引已保存的场景参考板、Tripo 单体图片、资产分工和阶段任务。新场景尚未完成建模或游戏接入。
+城市密度提升与换电脑接手见 [TODO.md](TODO.md)，按已确认的 D0–D7 阶段推进：全图布局/白模、50–70 米完整街道样板、交互与用户验收、全图推广。2026-10-19 用户取消北京及任何特定城市的地域限制；优先筛选风格统一、许可/格式适用的现成模型，候选先交用户确认。现有江湾环境与用户车辆已接入，作为复用基线；旧北京概念板仅作历史参考，新密度样板尚未实施。候选研究见 [SCENE_ASSET_CANDIDATES.md](docs/SCENE_ASSET_CANDIDATES.md)。
+
+首批 A01（Downtown City MegaKit Standard 免费版）、A04（Exterior Aircon Unit）、A05（Modular Street Seating）已获用户确认用于离线检查与样板试用，无需重复询问采用决定；其他候选保留备选。完整接手清单与可复制提示词在 TODO，独立文本见 [SCENE_DENSITY_START_PROMPT.txt](docs/SCENE_DENSITY_START_PROMPT.txt)。下一次实施从 D0 推进至 D6，用户认可样板后再进入 D7；本次仅整理资料，未下载或接入新资源。
 
 实现第三人称 Web 街区沙盒：自由飞行、镭射、重拳、砸地、超级速度、无敌、三级追捕、车辆物理、局部破坏和少量血液。用户确认后续通过 Web 打开，不做桌面 PC 游戏。当前保持 TypeScript、Vite、Three.js、Rapier；场景使用真实 3D 模型，DOM 只负责界面。
 

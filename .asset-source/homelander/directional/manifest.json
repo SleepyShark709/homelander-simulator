@@ -1,0 +1,97 @@
+{
+  "provider": "Adobe Mixamo",
+  "licenseUrl": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+  "authorization": "User requested fixing laser AD animation direction and natural movement; existing authenticated session",
+  "assets": [
+    {
+      "id": "strafe_l",
+      "name": "Left Strafe",
+      "filename": "strafe-l.fbx",
+      "sha256": "edf5fbec456ce1be1ceb6fed47eb0a911164ba8d2f260e35a6fcc14570a09f4c",
+      "bytes": 1811376,
+      "source": "https://www.mixamo.com/#/?page=1&query=strafe",
+      "character": "X Bot",
+      "export": {
+        "format": "FBX Binary",
+        "skin": "With Skin",
+        "fps": 30,
+        "keyframeReduction": "none",
+        "overdrive": 50,
+        "armSpace": 50,
+        "trim": [
+          0,
+          100
+        ],
+        "mirror": false,
+        "inPlace": false
+      },
+      "inPlaceRetarget": true,
+      "direction": [
+        -1,
+        0
+      ],
+      "retrieved": "2026-10-22",
+      "license": "Adobe Mixamo royalty-free game usage; not CC0"
+    },
+    {
+      "id": "strafe_r",
+      "name": "Right Strafe",
+      "filename": "strafe-r.fbx",
+      "sha256": "59357ba39cb9ded72d0f524ec88331fe2394219570271ce7018e54a4cc2f0c27",
+      "bytes": 1811376,
+      "source": "https://www.mixamo.com/#/?page=1&query=strafe",
+      "character": "X Bot",
+      "export": {
+        "format": "FBX Binary",
+        "skin": "With Skin",
+        "fps": 30,
+        "keyframeReduction": "none",
+        "overdrive": 50,
+        "armSpace": 50,
+        "trim": [
+          0,
+          100
+        ],
+        "mirror": false,
+        "inPlace": false
+      },
+      "inPlaceRetarget": true,
+      "direction": [
+        1,
+        0
+      ],
+      "retrieved": "2026-10-22",
+      "license": "Adobe Mixamo royalty-free game usage; not CC0"
+    },
+    {
+      "id": "backpedal",
+      "name": "Running Backward",
+      "filename": "backpedal.fbx",
+      "sha256": "9ba5a1a974acaaa4c3dc77168097f151d23026d93d1e8f78094dd9fa811c4158",
+      "bytes": 1806224,
+      "source": "https://www.mixamo.com/#/?page=1&query=running+backward",
+      "character": "X Bot",
+      "export": {
+        "format": "FBX Binary",
+        "skin": "With Skin",
+        "fps": 30,
+        "keyframeReduction": "none",
+        "overdrive": 50,
+        "armSpace": 50,
+        "trim": [
+          0,
+          100
+        ],
+        "mirror": false,
+        "inPlace": false
+      },
+      "inPlaceRetarget": true,
+      "direction": [
+        0,
+        -1
+      ],
+      "retrieved": "2026-10-22",
+      "license": "Adobe Mixamo royalty-free game usage; not CC0"
+    }
+  ]
+}

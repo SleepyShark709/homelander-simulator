@@ -1,0 +1,2555 @@
+{
+  "retrieved": "2026-10-21",
+  "assets": [
+    {
+      "id": "A01",
+      "author": "Quaternius",
+      "source": "https://quaternius.itch.io/downtown-city-megakit",
+      "license": "CC0-1.0",
+      "uploadId": 17615373,
+      "uploaded": "2026-05-20",
+      "archive": {
+        "file": ".asset-source/scene-density/quaternius/Downtown City MegaKit[Standard].zip",
+        "source": "https://quaternius.itch.io/downtown-city-megakit",
+        "bytes": 234753092,
+        "sha256": "5b1a945576d54cdbb4ccc9c3d52711e6d530da74c74c586407ecc28b165335da"
+      },
+      "files": [
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_90Angle_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1876,
+          "sha256": "416bc83c75c60cd5d654afa2551d2c21b8c4dda671e749c2a6041367db1f08fd"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_90Angle_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4650,
+          "sha256": "4ed3edb72d5749b564cff8d5c09274cea1e5a528cf1ba7a08e4dab1a43089138"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_90Angle_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1876,
+          "sha256": "84caea809434b67980cd52f0303d38fa6b42222a25e7faf7ad917771483d914e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_90Angle_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4695,
+          "sha256": "e976a9a697ef479f4d9490d93e2747661360013af6c9495fc8e878c7f0fba2cf"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_BottomTrim.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5512,
+          "sha256": "e251a3eb1ae85c757e385acf519f771c48495625855b59d39f5490af6be7c8fa"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_BottomTrim.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6828,
+          "sha256": "82c9a04e6e4f1c43b330cda65633af3908a3bcc2b76a2f560431270cf136d99e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Column_RedBricks.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 32680,
+          "sha256": "e5d1572c38d3110a9963d1cc28674d1566f42eb2f9fe36a97693e37e51dfcba5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Column_RedBricks.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2399,
+          "sha256": "74ae118e8315e58e64b48efdfdea4ef182674d0aa0656d3075cefdb47f2f0c9b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Column_Small.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2752,
+          "sha256": "2564153a3597bde42996da5f5a404603a98889309cc49efe84e604317c123021"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Column_Small.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2333,
+          "sha256": "3a39cc79f8ceae549ae8680fe3927ecde4c592478eb8efe9e302ef903afe8911"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Column_TrimBricks.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 25628,
+          "sha256": "c83c4a12e1a35343fa6a44d1d809c6437cfa60fb91b9d8e9e688117dc9f35b2f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Column_TrimBricks.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4197,
+          "sha256": "450c18482630dbd2590144dc52a605a9c91da8ac2d41370713f97e6145c68904"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Bottom.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6512,
+          "sha256": "65f8e0f75eacdf88bf30977d170ff479742d37795c7a981e229732ae33a1dde9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Bottom.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5016,
+          "sha256": "13c25035d8db9e602a314cb0b8c8dc5c418710bc39950d0b25a0c3a35caca279"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Cap.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8032,
+          "sha256": "2f086fb062029493f71be9f7906f76b465131ae188cb9cb30ab7e296d0f3254c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Cap.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5016,
+          "sha256": "8478fba841e6779eac0f02c8906c0d37071c05a946ecfa4e6dcc996b38d8c15c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_CapShort.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4208,
+          "sha256": "4a301bf5d4a5f8b47eb3b75621b702f5f9ac33324dc188a85254b480b1be2133"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_CapShort.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2781,
+          "sha256": "270fb4bb503ddaec2dc0a35cf6707952fba2634687480d568c17d794cfeaa48f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3520,
+          "sha256": "579da09c2b8ce693c9f2ff95a7ef2abd8194cba74c28eb2ab952304545511f87"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2776,
+          "sha256": "3edb3d11849f91f3928d7b2d47d7cc1c4241c2d39719ec2f6fcb26eecad5cd17"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Center_Half.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3776,
+          "sha256": "65a021d0f069c9d482c12a92f7e174615ecd7bd54a7b2c7c85896404c1071f2f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Center_Half.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2888,
+          "sha256": "1441edef3ce9c9e38e60c03c76de57cb04c31c211f588c65860578236bbe5d78"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Top.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6512,
+          "sha256": "304bcbc390af90a58b8376949c6ddbb71efbf0ee4dd2d7cc2dc26c805b1e2755"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_CornerColumn_Top.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5008,
+          "sha256": "99ab3bb041a54547dae1426797ef060bbcb3441e88c587c4bf845d7365d7edf9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Corner_Plain.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1320,
+          "sha256": "d69862b5da35a3bc3b45aa54e61ff471e46a7b50d9f2805a193d5d6059443cdf"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Corner_Plain.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4623,
+          "sha256": "bef9b255fbd7ceedfa95a264283589ef0a641c08e4a7739c70961051658d44a4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfColumn_Bottom.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6184,
+          "sha256": "c414d1ee2a530750454572cf492cf88d89dde44d6c4baa73ff20ae9b4b9ce540"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfColumn_Bottom.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4181,
+          "sha256": "6bdd130c019345e051d682894a985d0ccb19eecd12661d3ad4622ead064fb104"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfColumn_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2928,
+          "sha256": "a28cdfbf78600105eee0bb1f68db30e50f3e12dfd1db886b008bc9fc4dc916ec"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfColumn_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2387,
+          "sha256": "de90d6f6fee0c57fbbdcc6779d4823786e273d1fe56c04ba6348c69ee9823eaf"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfColumn_Top.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6184,
+          "sha256": "9d3ad49841d73a535615516cdc82d4feb1ec90d225aecb3f13daf663ea5a18e8"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfColumn_Top.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4189,
+          "sha256": "3eaf3bdac7e5078eef0ae6fe20dcaa91cad10e69996f7516eadb8d90a7df630f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfTrim.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2536,
+          "sha256": "8be766fc0e0072649b4dba52acccb91b238b5fd6b1a308a76d58c20564067cb8"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_HalfTrim.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6841,
+          "sha256": "f7e8de0af8c9e1afb4c5cf93e37d860a809f4c1e0f3373f124baa1a15b093328"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6152,
+          "sha256": "472582b2314b0dc9a4ab0aeda4e1cbb5f5185dae6a077ef1fa0b97d70554f6c7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6854,
+          "sha256": "cb25cefaa8c3b2fd6f1f10cb1d528184b1f16fa8d6d56d44e03cb46c6afaa73e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset_Window.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 39936,
+          "sha256": "e795de38c8771076907e01a84863e52823fde5bc7fd0d8e53f1462c0695c94ef"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset_Window.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 9646,
+          "sha256": "af26a4877af7681b504907fcd5920139c2e1baa61f5b5025900459342585bee9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset_Window_Curved.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 48768,
+          "sha256": "d992fe75a6e4038d5bf02fab07de11a0023bb7b6c58a7fc340ce72a4ba4ed3da"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset_Window_Curved.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 9650,
+          "sha256": "3c6c629f7cb342837e192956fea029984a1813c3f2ff4a19d9db08e5ee14e9f9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset_Window_Curved_Small.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 43916,
+          "sha256": "921a9dcff066adddf25ba2336037f1881c71e7542fd9c4e3640cd5425d8539eb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Inset_Window_Curved_Small.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10724,
+          "sha256": "1d65637f8109d26f96204d35750e571c55ff36b434d0d415fdfe57067e479ca9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_InteriorWall_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 220,
+          "sha256": "a6651fb8b9723e1a85a6c55998eeafb713cfbdde699586bf5e4c3b752d5d1fc5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_InteriorWall_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2727,
+          "sha256": "05080b68ad757a7a17ec9150fb4c39e5690c020f5d53e8496e4794db473653a6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_InteriorWall_3.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 440,
+          "sha256": "f6721652f63854841c4ab327957aaeeace18c15e255d55a341399e36ab9adc73"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_InteriorWall_3.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2728,
+          "sha256": "051f9c674d87e1c6776bf4ade73f2a4b6d7c06d3744e83282f82ab382e5eeb77"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_InteriorWall_4.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 440,
+          "sha256": "87caac2246b2096624a550afac051032d7c9b9f9af5f5ab2580208eb519bd754"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_InteriorWall_4.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2728,
+          "sha256": "bae951d058abd6e059cc51d0eaf91bf1ad000eee6da79fcd82ea573bd111291f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Ornament_Horizontal.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 24912,
+          "sha256": "99e9e11c5ed0a778416d22adcec01478d328dd0e6aca54b85737fd29dae3593d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Ornament_Horizontal.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2370,
+          "sha256": "f0c529811ed6d2fc5054e28d9499f0153280df47a223508157af8cddd2cb86c8"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 440,
+          "sha256": "99b927a3175d6a9612803298f61d9e9ce9f463430cad9b0ae1c4af1ee3404729"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4576,
+          "sha256": "e5952b1fe4fce2d26b88e2e5363e8b6942608bc9fd43ec56e61df78f83db34ba"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_3.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 612,
+          "sha256": "7abf0a393a650bae471d2c1df7527dd4448663483cb97312a64e3ae0ec9c4dec"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_3.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4157,
+          "sha256": "bc86dfb9e5bb4d6fa4e7c38fd541a5b82ce8d9eb99557ce6228b480c68552bba"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_3_noWear.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 612,
+          "sha256": "e88f8f4a2a880f2e3d4aa715d7a468d5ceb052aa7d442057dbaea1e458614593"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_3_noWear.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4171,
+          "sha256": "26d761410cce9c648023af2ad819ca0620d7db9b8421df46aa4e6d793bc16b29"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_4.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 880,
+          "sha256": "857fa4e7122af4a143c734322af2e5a01bc068dbba9d4c1887b8c01195dc5f1a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Plain_4.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4599,
+          "sha256": "d35be7cf9f3a27232554c20b318d76afb9f7f8fb281225de3f8b6f4ac1e4c50e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_RedWhite_DoubleWindow.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 78292,
+          "sha256": "3494ee7f685037f1cc6a78e6e7dafecba5b1068ac83ecb3c2556012765f67b58"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_RedWhite_DoubleWindow.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 13012,
+          "sha256": "f4d537874274a1a49b13c5dd9d8409f8441d5a375c77f8fa0a17fb09822117cc"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1448,
+          "sha256": "3cd7e0fa30917047ad257efbf9eb0d975bd52798dc00f8cc8768c4eefd798cea"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6806,
+          "sha256": "52e08108d7018519db4112af7c1c1f8066171bf3c3e07767eee344900b4873ad"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim_90Angle_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3036,
+          "sha256": "8d44b3e94c008900d25598d7b79fcb5c4ba331bd91254a0dbde8dcf60bfe7958"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim_90Angle_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6883,
+          "sha256": "d27b9eeeb5803ae02f59e3be22160ef1a4dca9594d32ef221b04b2fc4915774b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim_90Angle_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3036,
+          "sha256": "53a77238092e251eb053dffa23fbea3f99fafd1f878985d61601195cfeaa32e3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim_90Angle_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6877,
+          "sha256": "aca265db771345220b5c0b0280c9312427bd914db3c175c358e9d338d722f4e2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim_Corner.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2224,
+          "sha256": "c87b4ad7582059f73677a088fb38453bd2dc407b58c913701913676df65b7b3f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_TopTrim_Corner.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6848,
+          "sha256": "55bd90e86e5e38fa9b0392bdf3d2ad50f9645c39bec9fa992c07c01de0091965"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_CurvedDouble.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 84536,
+          "sha256": "ded4f3a0aab515b6ec6b0e779c98db2cc657ba693458dbba8dc62e74cde1b873"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_CurvedDouble.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 9758,
+          "sha256": "9a52e0435a50a18677fdacbbd560f46bd9141d09c04b0b8fd1ea6d7af3217018"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_Square_Single.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 17260,
+          "sha256": "49a6023bb41aa66c9bbd4161fc216c5d903ff3b9f8b5c76e862661176ea85644"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_Square_Single.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10672,
+          "sha256": "64b21d1bbe6a320095c69bd521d2e2c0f7f7586fe86c73765ff89607664625b4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_Trim.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 65232,
+          "sha256": "518f90310c4358621e3898ad58a7ddec6898e7b08281409f46865cfe32a2c257"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_Trim.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 11678,
+          "sha256": "6f9b512a5bef61cadc822876bf95f3a8502b4c5da13f83bcdef6007de838cebe"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_Trim_Single.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 34952,
+          "sha256": "ef540db1d55ace3f0f02d6bc267afb53e7d4215bff9ddf75eb523e0d0872bd32"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Brick_Window_Trim_Single.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10746,
+          "sha256": "cd30951c3d67ba2e811367ed09d0714d4fecc62625ca8fb72642e86355447523"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Building_Large_2.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3345228,
+          "sha256": "e25636464da7b96a346f89314e498099ce33d3b0e9b1f8d9cba3eee94b63fac3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Building_Large_2.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 22880,
+          "sha256": "903209b63ad4e151190dce32ccab47a2c0dc256c09d999835984a0459ef2bd91"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Building_Medium_2_001.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2443288,
+          "sha256": "8a8bd4462ff5f784e0ea7fbe753b009713f4017192c9d82b467f445eae88a35d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Building_Medium_2_001.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 25244,
+          "sha256": "423f4b3e709ef5633eac4a94a8a1ce25750aa42fe34e3b983d7aac39846f9a1c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Building_Small_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1556100,
+          "sha256": "a5fb691fe7ab0d93d5d47eef51af576f2d65bd78103c92c9e714215b26d679a2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Building_Small_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 27435,
+          "sha256": "3c864724fffd016ca440191bca169d6ba486e14617bb3cafa09ddbac7532f3d7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_90Angle_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2932,
+          "sha256": "8c6a6ad8885f3f69faf9951708482531a07f4ec8be91ea4efbc020aa92695906"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_90Angle_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2735,
+          "sha256": "bb0fb55bdcce37496fe021c2cf3c00e29e65910b6950f1e8506e2934ad9205bc"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_90Angle_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2932,
+          "sha256": "bb34ce16d7f208cd5c2116ae6ca2a162504493f5cbbc310aa5df93875b911a76"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_90Angle_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2735,
+          "sha256": "72198c53cc026dc1948ea8f5f5adbb9806d6ac121f3f3ae6e880ba8306674bb2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 660,
+          "sha256": "2759ad2718aa0116d1e6a15d06bd9fafc49141c0252e3072b1de12271fb4fb2e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2719,
+          "sha256": "2ab7e490a616f3e33a871efe47751dba468394187619de80b991967e3d330530"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 660,
+          "sha256": "16ad7ca6369237311d718b5c6354549353398415c7bd9f39b8c17638355a4dea"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2709,
+          "sha256": "5506326089bb483d22e71fea9931d5b6cc85467bd7a148a10215c07115e5db4e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 660,
+          "sha256": "14b0b264ea9ba0e703f4de6a3c7085320dd7138cef888e850751fa901996517e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Brick_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2709,
+          "sha256": "9491e1f973c8a4a795f5ee46dc6cf68bad087a20d4bc14c018c76e8aeab3aefe"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_90Angle_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8412,
+          "sha256": "803e27bbc308e7657faa585584d0c68b707af7d3468776f5fbd127628694cd33"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_90Angle_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2612,
+          "sha256": "631c67fc844ca99bcc02f6c02b7a7bee7146a48ba0b3b4830a8bfd0d25e13e9e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_90Angle_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8412,
+          "sha256": "50f3d951cfdf6cfb53f272a0584a6d5c7c05e719b18ddc13947094617acecbab"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_90Angle_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2612,
+          "sha256": "206d613e51d9593a7e1f07913635851012d43241d644446eec34302d855daaa4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3060,
+          "sha256": "7ef67e718e81968e0ab046a997d5005526d24fc303ae915b9bab841623b3c27b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2595,
+          "sha256": "85b21a653d1dc695cd96b0fe9125c231cc4bed1855343efaeb60c03954d49d7b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6192,
+          "sha256": "8f09eec0dbc98fb3c9431420b5f51b0d0df819ce17f171fe4b9389cfba8e8f42"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2611,
+          "sha256": "81479571b9d20de0af4af6fe53e384687f9abf00d62d3fea83596584b8d8c7cd"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6192,
+          "sha256": "3510d3804bc07f6f39450eba44fcb07eef8c5f0b16850e37cd5776a2e4ffb008"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Metal_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2611,
+          "sha256": "a4b6852bbfa188d826ded39a8d09ae653cb9fba31e02507cbaadf538b1fd6d5d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_90Angle_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 11680,
+          "sha256": "4802ff7c657fdc004bf3c000ad4d2b14227828a67f2e8ea9e07be827cc164457"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_90Angle_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2327,
+          "sha256": "54600e6086bef2b92db8b66a9c74a2be808ba8eeaabef9e647fa1a814506fc2c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_90Angle_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 11680,
+          "sha256": "d2d37e85f2a1ee2cf54176db81fb5f51c7c0bb2f60c762ba032405afa2b8be95"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_90Angle_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2343,
+          "sha256": "a6491c622197586749240c08789623f60fb27553ccb1a757171e28eeb3bd0174"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 7312,
+          "sha256": "ea818dfa37288175f7e2b9dd8431bc2505144b516e7a72d0481865d6ade81aeb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2303,
+          "sha256": "fe4c40e61284b264da4b366ae738d8e573afc2a536658bb4dedf2f1bdcc3d9b7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8616,
+          "sha256": "974d25a3d6f29e7851de17db814ea8bcd09e8e4b6dba15141baa33a04984282e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2310,
+          "sha256": "48db2e34b4b3bf42cb6af7409bd4c3c27691005b3872b7e8fe9fc955d2fb2d4b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8616,
+          "sha256": "384f33f7eee0eb7496d513a1da721de6e755016f541215f0a3ad42a042406459"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Cornice_Trim_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2310,
+          "sha256": "90f98398692ed9c78481540144072da216e5d0d023c77ed9a7f13436f27d3d79"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowForwardLeft.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 444,
+          "sha256": "0bd81b0d0c84068e754c3e967a124e17d0bffd95a0fa958eafae4115d52d9a36"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowForwardLeft.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1881,
+          "sha256": "acbc5abd46bbdbd8ee88db13640a78241a5f95b85a22823175b5cbf3bfbeeae8"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowForwardRight.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 444,
+          "sha256": "b38e18d68168bab1f9b7da76ea1884613ce959aa09ae220d2b23eccdaf570979"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowForwardRight.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1883,
+          "sha256": "bdf612f6c96eedfdcb98edcebe6387938e44d0f608a22d6e97e215917850086a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowStraight.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "b8483b899291629b843e7921f338e64d0610482e4dcbd916d6d14353f99c93e5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowStraight.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1871,
+          "sha256": "6340876dbe0d4573e16de5f569583a9e76a4305dbd40e5bc0a6ae85f4b7ef6d5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowTurnLeft.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 216,
+          "sha256": "ab8c5789e11b582b600f65652c8c66546d1faba18af8f464dbf2f18dc13c0e5d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowTurnLeft.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1872,
+          "sha256": "d5db5faffb29b42ce04b8136e0ab02e4344f8cbe8fe4a9e9a3400ea2fe4b27d4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowTurnRight.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 264,
+          "sha256": "e08839f48d8a52b1d9cb2241d2bb3248b3dd398734ab9e8b29b4fb4245711e67"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_ArrowTurnRight.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2082,
+          "sha256": "707d8dc2a242ef9e1852c72f59fa5b898c0b4fe595c05ff41f2d5c86c69025ea"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Bikelane.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 368,
+          "sha256": "fb7e93f04dc266887bfdcc9d7e74a7b9faa6e1ad8c07c9e3efe9cda2ff79d458"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Bikelane.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1868,
+          "sha256": "7b7ecdc57f806049ff3d4140e7dcf09f5d72ca07d78d9b9da3f2fd8f5ebd584b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_BrokenLine_Straight.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 172,
+          "sha256": "20881f24ce840570fd59189ab873268fb8eb72414ba53a11ac1f4772d94a841f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_BrokenLine_Straight.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2039,
+          "sha256": "270c6af2b8399f31aa4bb7d68f1fd07de517b96810517c648ded5b2ef614d058"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Crosswalk.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "d2830f63d0487f0d67db64ee0b1c94e718bf4bdbb89285d336b3d57ae3e12a1d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Crosswalk.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1863,
+          "sha256": "979b6024af70ca61270ce07c89e0996d2eb2debf1357e7ca10d5fc559d6b2c90"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Crosswalk_Wide.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 280,
+          "sha256": "6318f94da7fb5529f9485b06cd7569fb2615870363fc2ab846634fe9ea37ffeb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Crosswalk_Wide.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1929,
+          "sha256": "cdf51bc6d02c595264af2532e2cd64607c65bf6e302728bb9f2032f63e672c8d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_2Lane_Stripe.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1552,
+          "sha256": "53ac670b3fdeaf6b55e801f9acc3c8e9ca8e24695f2e961ef0c322997acd0b23"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_2Lane_Stripe.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2085,
+          "sha256": "6c2c45957b44930db0b8ce0d99ebab02efd9f5cad700f8d552fce71d9eb72103"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_4LaneShort.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2288,
+          "sha256": "2b7641c7b9a0aa5927e2f5ed9cac9c90ceeb7e27799680965ff3a501a33242f3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_4LaneShort.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2063,
+          "sha256": "056c2f3e9f0c4a47b3755e8daaebfaa7f9914d238b10bd35ef453df5c50f7f2f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_4LaneShort_DoubleYellow.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2288,
+          "sha256": "d6d686673647f6ab827c412d92f1284acb42081b989e0c35e2a32bb1937f604c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_4LaneShort_DoubleYellow.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2094,
+          "sha256": "28a06eaf7f66f94488bc754d99a8a7f74412b9e00ff3dc237e959079d8f09c27"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_4LaneShort_Stripe.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2288,
+          "sha256": "28a1f522866ded3073d89b58f960fde11dcbf1cd8238a16579e9ab320e862fa8"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Curve_4LaneShort_Stripe.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2099,
+          "sha256": "d2695f6238f5c9c43369552df157ace9c222510aa3b9211aa01bf8ece6eb3377"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_DoubleYellow_Straight.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "c9712444e0e0d760680b795265127021ce78480e24c457c6a9c2fc1ab9f6dd5d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_DoubleYellow_Straight.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1856,
+          "sha256": "d63f9bc78522c3ce9524af8784dcaf46038e1d078d9954e51d3f00662a53bcc6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Only.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "192750b4b643de4894f09bc3b74af8a63bdfc06f4a7cdf450485c9edeed7c6e0"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Only.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1852,
+          "sha256": "f0f7fea4fedf844fe4afb4cbf1d01d5c8ccf9290c72be1f5092ea31f3645df88"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Slow.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "8f6cd7be5f64dbbfb59bea9880750f6c4cb728da94278239cc7c2f34be40a4e3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Slow.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1852,
+          "sha256": "2515effd7e8bd9adaa4c13c1943a2c5058314db9db74f8f86f8618ee8f4d4514"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Stop.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "7f7e92ab9e250961c0eb93d65a1ee2dd4c6e260bcf414e73fdab42cf1f59a5cd"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Decal_Stop.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1850,
+          "sha256": "ce4037a07295d723231df5fb39d8c4e97b2bcf41936d040d018c8b3febe0b93a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/DoorFrame_Metal_Single.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 20832,
+          "sha256": "516af4807c1cf2d85559a6c9815e36c30ce49b4b823151cfacfabc85c1f5d79a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/DoorFrame_Metal_Single.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4713,
+          "sha256": "c30cbb493a15191ea6432f246b601d741694015b9e6826ee80759bc66587a39e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/DoorFrame_Trim.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 54600,
+          "sha256": "6226b14e10451f341840e03e890c71074c655a69b73fafcc776c71f4a3d8d6c5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/DoorFrame_Trim.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 7990,
+          "sha256": "79a41d327aa8486b4ca461d3d3fd012f2dd5486ad8493cf823271ea5ace745a9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/DoorFrame_Wooden.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 33748,
+          "sha256": "e6502296fb3e77aa8a0611b4d920cb8128f96676e46f39c7b1b367e280c95084"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/DoorFrame_Wooden.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3810,
+          "sha256": "7fda1b1102b8d7fbdaa0f172f0de32c03740e97c79d3514808ab323da0044f6b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Door_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 43256,
+          "sha256": "c8a8b6fff86908c332600edb91596a3e1135975ef61fb07e861f6be3aff0560a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Door_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2372,
+          "sha256": "f42457e1d39744f1ccfe7e1459052e2acbb74f076baaad9f62059d53b661d3b4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Door_2.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 15260,
+          "sha256": "d9331e9bc042befeb72ad244deddff7ead2de1a164ff801d79763a396c196342"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Door_2.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4722,
+          "sha256": "afd3e0a931cdfffa40d21c3304655f6433314d27aa752d86a0b8c08d68e6ea6a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Door_3.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 22884,
+          "sha256": "037d08964c53a761ea685a490144f44ea424407576e4b5bd9ee3c08634e0e76c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Door_3.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4722,
+          "sha256": "45fa80aa2ea960523cf7ee66765208941949cabff3381516301dd2877e29aba5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Entrance_Concrete_2x1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1032,
+          "sha256": "4cae6cee53e17cd547e52fecbdfb6be69be7fedc8126dc5a15b9ab6c61f95fbb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Entrance_Concrete_2x1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2395,
+          "sha256": "37328e60e3605563ec5b5f02a309829a68ba56c54bbde507c73deaae34d4ee5f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Entrance_Concrete_2x2.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1032,
+          "sha256": "08fd277d0b98f6566c64460c4f7178506a3d2059de0160cdb3c679eb680b7ab1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Entrance_Concrete_2x2.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2391,
+          "sha256": "3bf9d43646ea50c441db43cdc56ebffb407cad15cef123b1f33b9f30ce2b2e4e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Floor_2x2.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 280,
+          "sha256": "45bec7350e6100257d11e52921a92a0df581d31172c5342b20318b559ca31ecb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Floor_2x2.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3641,
+          "sha256": "5aca0bb65884ab575b57821c7ef5a4b6ce69c55ce2610b9fed495b65189b4e42"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Floor_4x4.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1376,
+          "sha256": "89716ad7749ffb93c3d3615cfb1ced474ae27c6df3e844fafb2ebe111fcd2892"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Floor_4x4.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4043,
+          "sha256": "a4a6514e043eee868b48fa592ec50cdeca18008e63ddf961aad95bf4b21032b6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Floor_Inset.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 528,
+          "sha256": "cf4f9462fce98e96ecfda01758304105ad00fb31810a9135012b2d2a436d0ab4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Floor_Inset.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4098,
+          "sha256": "9ae2b6f202c0fd14378be5aa1599de6b9d61e796d64e11330679062e7b71dbc1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/License_Standard.txt",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 847,
+          "sha256": "afac5819301671301c41e90402d26e4ade5e459ad58fdf77f142147410862f1f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Bottom.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8672,
+          "sha256": "e6748124610892b08c0184db2a1d667d96cbb3f9e2adbd357ae67200595da187"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Bottom.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2403,
+          "sha256": "2afa819c9a10b5f488340536833ef25ff610fbc29e18c76fd6052f249de5bbb1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1376,
+          "sha256": "3e0a958b7e527d4304cf14598ef14977528d63963bbf5a68ac46678b73e4fed3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2394,
+          "sha256": "675c58eebda25ffc7b5886a7ba65f82d83825c8de75c2e69edecfbfde10e4b84"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Small_Bottom.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8032,
+          "sha256": "918e7351c076ab021080346ecc1c78482f7f138b84386fc75aaa8eb64ca7845e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Small_Bottom.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2417,
+          "sha256": "6f40c4081233c40ec1c86894769fa40d169a687f5c4aaec0afd22ccdc7861073"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Small_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1376,
+          "sha256": "8d7d18a89100cfe3c6d2ea853f6e10f9fe13b77e99237fd234c4fc1bd4f9fb65"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Small_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2407,
+          "sha256": "6c162dcf27e81b41447077fb390227b50714742ed45aafe4535f7d464fa784fa"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Small_Top.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10040,
+          "sha256": "0743022ed46e581d989dad0dd01eccff3c5151abcefac98650628b211e3dc2ae"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Small_Top.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2412,
+          "sha256": "edd64e0e6f764dcf8b5738d5a26c407a3f760133036000fb80bca6b2dc3505bc"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Top.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10040,
+          "sha256": "6f0d95ad0378cabbc5b61211e19949caa97668b8bef538f54f7b635a23cd0fa2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Column_Top.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2400,
+          "sha256": "523e8f695274db2454a31870cb404ac3b3ed56d8734f47d46abd952242e4abbc"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FirstFloor_Wall.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3192,
+          "sha256": "d48f180d3f7ebe16a13db0f3aa196aed40a8a07c1ec36e9e70f1122314571ae1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FirstFloor_Wall.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6566,
+          "sha256": "0f4d600afb016a4911c611da8ee5b3f4254ead6f131402211f7e3ae79bbbafa6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FirstFloor_Wall_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 816,
+          "sha256": "6dccb78f817f03f921d125848470458050b5da6e0f20b65907bed3a7c543f44f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FirstFloor_Wall_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4482,
+          "sha256": "59d896203eb653a1a5f4c7a6f025e637dd6676627c092230cd3982d34169af6a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FirstFloor_Window.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 12840,
+          "sha256": "9bf54a1a568d6c2f2c6965eda5c1830e7376e84c62aff6a4e0e3df4dc0c6572a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FirstFloor_Window.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 9945,
+          "sha256": "4e9029f004d6e0031222be220b3494241a88e837b40fe3b6bb1d96b1a55f43e7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FullWindow.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 16028,
+          "sha256": "5986f859976c39141d3fc99f4ea0956ec89ce67df2c657e02b12cbc2870055b3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_FullWindow.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6571,
+          "sha256": "0ca31d1e8ddebbfd8910a50ee68608841fa8b59b1f91a41df71ea03e5a1054b0"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Plain_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 660,
+          "sha256": "39fe7fe467d6b17bf6cfe8bc308bf10ae8a64769f7df9690407814a486aab398"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Plain_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4978,
+          "sha256": "ce6eedf8abfa656477ccf16eeb0f45ece50d3f52d9d43916dcce747a80d17e71"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Plain_3.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1876,
+          "sha256": "94a852cc914f7f84a9f1d9d63f1a43294228abe01075233c329143392d7f0425"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Plain_3.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5040,
+          "sha256": "1311b5c4bffda0beefa95d90590f4fbb0c6f07fca1371c1aa6a1b829e5bb7f11"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Window.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 42884,
+          "sha256": "a3214c95ecccbb9604e2eb0ed417148753965c0e4eb4ad1cf93d51326c61158f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Window.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10718,
+          "sha256": "6e8be236918316777d8b3707718138501856715d4edb4b667781380d22514e89"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Window_Half.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 28640,
+          "sha256": "a5ebf4c237e70d845931c4c6ad2cfe1f7b89eedef3364ba5a7ca2184d05db4a1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Metal_Window_Half.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6633,
+          "sha256": "99f7c206eec1cb5e66d46c57936e7574f30390cfb4fd7731a4bdd75e9260bc61"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_ACUnit.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6256,
+          "sha256": "71c8dcc458ec8fa31ca7c3f391b1b95dc17864c6bb5c1addbdde899849c3324a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_ACUnit.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2376,
+          "sha256": "f81fae2b49804312d23cc5c56fdf36f6bec89f342df9d135c1565ed31a7e968d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_Bollard.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10140,
+          "sha256": "53b7227fade437ae5066359170e88fbcb537f9e96773a6c1ad0fb2bcc0f92125"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_Bollard.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2394,
+          "sha256": "4a05291a05873e4043c6354c7cae969c0726fd9b4590625a24ee3bcf940a1c9a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_Drain.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 700,
+          "sha256": "a5ba2a9331e2ac60f1083d05d9707373f49052362509720943d2dd978b0845bb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_Drain.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2149,
+          "sha256": "b81de6bf5cac90f6b62cd739218f4ee0a82cc930226af2060e9616ec7a5ac75f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_ManholeCover.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4548,
+          "sha256": "de8edeb728cac5469eea1e6e3fed6fc0f4afe875d7c416ec14dc03886650daa7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_ManholeCover.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2198,
+          "sha256": "c8519276b3628a217ec7ae0198e598868279046e329f9f6d16b3eec3e0aa2fc9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_Planter_Single.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 9428,
+          "sha256": "9350eb1b2bf17f057c8d57b9a59de8dc0c4c0bf8ec3580bba13fc7d0f9016e91"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Prop_Planter_Single.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4132,
+          "sha256": "5ab51700931236c2de45c9c8c5c1206ff312d56f00cedf134bfa462da4ef4f13"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "286c4a4634d66bb39c7ebd868e8cdcc3d1845a1e92362136e0f4f073f9e3a58f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2096,
+          "sha256": "fb9686ae868cad0a566767f4777c7dfc3ebb7917296eac8528c2d2ebb225159f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2_90Angle_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "a3675ce26420c2aac2a89b877f9b7786cbda9ac8f32a6c0c0b80c5343d088d58"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2_90Angle_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2143,
+          "sha256": "800bb55774d47a1d7895c5b74ca02e946b617ac2edbfb51a8c58a710dd289d66"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2_90Angle_L.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 292,
+          "sha256": "8159865dc12204f5f775fa9eb8a9b9eb5e5d5e4486dc7cdc618f2fd72f93efcb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2_90Angle_L.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2118,
+          "sha256": "01c4b6b36055e08eacf0ae23026b343b06c052afe29ed9d0aa95fdbaeb23a2be"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2_90Angle_R.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 292,
+          "sha256": "29bf995359e52bd6c20fc297f89e033e10ee13a98d7a399e6cad6989b00292e9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_2x2_90Angle_R.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2118,
+          "sha256": "6d8bfb334fab0ae043797824901ce7fe9219217ee74188353c3e3e04ed1a8af6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_4x4.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 560,
+          "sha256": "2ca354edd1a5fb4959f463fcd7fd29778d5807e9970daef0131994b2e84b93d2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_4x4.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2105,
+          "sha256": "2e07d03f08bf1331b5938f0f22e189071bf369caeca0d61131c74b6d3b8d81fd"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2076,
+          "sha256": "4966df93f83778cd8e0d65228fa4bf8dc35cb221b9bace2c7c6bece4ac5036ff"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5827,
+          "sha256": "5666aad879306fd0eeb06f4989d8b368d1b4a0fc8136c3acf83db0a90b164fc5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_Corner.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5456,
+          "sha256": "273de7c2b4e55918c40977ea5adee45d465b8e335972f41ef66b1323e6c05cdb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_Corner.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4132,
+          "sha256": "3ae1548b262fc6e276f81d82c02ff5c5e2d789d0aed9811e1c61e83461704188"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_InnerCorner.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3212,
+          "sha256": "04f88264e2ef943dd1aa35482d6d2bcf45fa6ba713740f9453012b148b679f68"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_InnerCorner.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 5984,
+          "sha256": "e4d3c36450150494e09f417a043ccee95094731d82090f4b55105f0f086e9e56"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_Window_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 25180,
+          "sha256": "41ddd9a5d2836896f58d580ae31743f2714fdafa76ab56a45242c8df9b07fe14"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_SlateCornice_Window_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8826,
+          "sha256": "611c60d835438bc91cd40f3b4617ef28b8fc5775c019ad96e933e476178f6098"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 516,
+          "sha256": "77d8241fa9bf7233a975618f51035cd204dfec7a46352720d59143fa6e08234a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4037,
+          "sha256": "4d85124c5896d1fa35926b5995d73bbdc85ebcea8e385cfa00b3791a933e2312"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_Corner.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3104,
+          "sha256": "8b5f986d0a0af83827a8a84cd9ef189a6d70a20a6256801daecca8ab963f37b5"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_Corner.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2345,
+          "sha256": "eff42380f0f1d9e740929cafe9872f88c363499bfa3c9a8f0745a5fc89ab9fca"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_InnerCorner.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 860,
+          "sha256": "8c863fe4c1cc4b2327f0ccc549380d9a3e9c830eff2e376caf0e3feee7c19d1a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_InnerCorner.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4146,
+          "sha256": "fd7d634c1bad3ac6a9820f2951e8a346c7f291db5ac5c230904fa608ffb0bdf7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_Window_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 23620,
+          "sha256": "68fe7e781e53937eb59fde40c86265c6241514bf02f587a12c8a1cf65fc65f61"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Roof_Slate_Window_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8847,
+          "sha256": "9663df957d76e68a0f2d8636e18d029a78148090ff4cf8bba2b46fff58f3af66"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Flat_3m.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6296,
+          "sha256": "7a35abe9d699556718cd0b49317140231f069ebd893486bcd2f73ba89e9c8ffd"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Flat_3m.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2630,
+          "sha256": "76ae3f0766121a5a77bfbd9cc5cc073818b9ed1cfeff730a56c933d1135e5672"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Flat_3m_Stripe.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 724,
+          "sha256": "ab8916db75268964b5b5bcdf14379eabb2dbee7fed0a9ccb1315b51f5c24954d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Flat_3m_Stripe.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2063,
+          "sha256": "29a343a9c52d995d0326d74668319c2b1a045ba3341f86b8f0fc3e9cc33679cc"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Round_3m.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 8984,
+          "sha256": "dae8b8c25500ff0510a4dbd9623fb9f4be153e076d948c7f57eef998127e3eb7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Round_3m.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2636,
+          "sha256": "099002b275669d77f610cd96c41613b1a3de19d8408df7be7d80827c83356f7f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Round_3m_Stripe.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 976,
+          "sha256": "83806df826ed159d9f627ca58225b4f33e15d1663dacfd46e5d5137ef9f01947"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Corner_Round_3m_Stripe.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1905,
+          "sha256": "0c9335de7ce9d7b4d06728e77a105215bbee64aa94729b9a7e3f73a7df64a112"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_NoCurb_3m.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2572,
+          "sha256": "a9d21b06fbef9f1a588759d5401bc32bc9ffd4e8dcd9fdff34c87a2f87b442a1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_NoCurb_3m.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2356,
+          "sha256": "c32ac81ec8485b1b0b03186ac8e43573266dfcfd8c39dde1b97e8522ef61546b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Planter.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 50708,
+          "sha256": "43679701cfeaf2d06d0be191c296e01421a099194158b448d186b7662e469c26"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Planter.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4215,
+          "sha256": "55bf5b2b916999a08e8f995bdc1c3c51a54dff4b7e1b1d9c3fbe7d5dfc70fbe3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Straight_3m.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4296,
+          "sha256": "b160eeecdefe135d61edd91391bff8c3f60a40499b555d87b2ae4e1008527649"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Straight_3m.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2586,
+          "sha256": "ecfc8c7c7b802afd0a6171409d05abc887162c2030e9d012bc89549f33e76c5f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Straight_3m_Stripe.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "23ecbed604e255d4dc7c6cec293f388b9d25278fa5a912c771a55b235e4df03d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Sidewalk_Straight_3m_Stripe.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1856,
+          "sha256": "4d13226203c1a27408b5a0c895ffba5dadbeedb1f53c844f09edb4e1f1a45d9d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Entrance_Concrete.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 7088,
+          "sha256": "324b94af265d614751154bb21d60cdcf6a32b3f9c0d52690a07b71c352875463"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Entrance_Concrete.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4227,
+          "sha256": "8645a6e3a0cfd3018d0b53655720dbe5a23ecbd24b98037593b5892caf2748aa"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Rails_Metal.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 38904,
+          "sha256": "fb958970f01b27c795e6d9f44398a6b2abcb9b4cc131d9cb4bada6865b398273"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Rails_Metal.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2412,
+          "sha256": "0bc2e54ec9fe67de394653281ccee626f83f9be7c23ab1e498200a86d218e092"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Rails_Metal_Straight_1.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 14448,
+          "sha256": "808dc9e62c4ab249330838f1a9defe5dd64395f9d70eb8ab6f13bbf39674c6a2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Rails_Metal_Straight_1.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2410,
+          "sha256": "59dfd4dd9a6c684436a4dadb75bc64cb07ea33e2c3990d6adceaea01b4880024"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Rails_Metal_Straight_2.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 26880,
+          "sha256": "d51419c4e483b7aa2a35fcf5b9b76635d11f9af60e5bb3b4dcfd97ba7e777023"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Stairs_Rails_Metal_Straight_2.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2412,
+          "sha256": "91062c81770b84f6bced8fc13f58d2d323d7a3c29997869300fdca32cd9dab3c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_2Lane.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 15912,
+          "sha256": "f01d04eeb99a1bc486703e27f8f05e3976a73c08493b828ed9e680e68c6a6b43"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_2Lane.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6364,
+          "sha256": "4bfa763a0a1988276fd5604e8e9e1d401c31cf5438401d42a15cf3a7ec3a60fe"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_2Lane_noSidewalk.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1440,
+          "sha256": "630238dffe8b151f98be6f3a1b7269e2d7ba7e4ecdddfb10e8a81a6aedcf5d65"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_2Lane_noSidewalk.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4301,
+          "sha256": "f69d933bae59e7baad74d5403ced00152c264e0c39293ef0b17e20f36d628d61"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_4Lane.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 18024,
+          "sha256": "f3ef1b10390061bdcc73902e89f41350401945fe32e3a0336bb65f58c889cc3b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_4Lane.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6307,
+          "sha256": "ac7c9b2043a7f9f7c8f0230965db056b8a58d04d568ca329ca0ebd29a46d8f1c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_4Lane_noSidewalk.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1224,
+          "sha256": "f1a09d1804280cd7af279b7449db697b846da91520b6afad0d63284b6cfb68d3"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_4Lane_noSidewalk.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4275,
+          "sha256": "926b21443fc7a7d616cb1bec554d7d83b908edf83741f8899932f7dee8402ad9"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_4WayIntersection.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 54360,
+          "sha256": "b26844243cf82d51f1106308b0bdbcf4c53ac7e1f093c7187e479c690712b193"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_4WayIntersection.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6432,
+          "sha256": "b332bf9afd47ec6ae1c19151f8eafccee3b45037f4dfff2f115001d9d4cac34e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_6x6.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "37cb73c307fa6fa6362851213241b960cf3924b8449791320487092eec3c4d11"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_6x6.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2132,
+          "sha256": "5a6092eeb46cd61a5b9fe6782574e2d90942e1e41408e41a54ba6413974b0a13"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_9x9.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 140,
+          "sha256": "737147fb2cf691dc7847b794d8f53331f7f53892c2252cf2be7892fe4a19ed12"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_9x9.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2136,
+          "sha256": "010f8ad35fec1e365116616c259af9f892c8b1e2a078e2775b2d2447e96a8713"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_Curve_2Lane.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2064,
+          "sha256": "1f77ccbdca57dc5884975dff472df6be6785ef5a34311857258b867209794ab4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_Curve_2Lane.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2570,
+          "sha256": "16aad644c9c453a21aa1757ac27149b33bd2f8d06c43f4cd68d5b30d2b18342e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_Curve_4Lane_Short.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2120,
+          "sha256": "31adb0618b4e1c468651efcab1ec549ccc49101ce821e01828d879901989173d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Asphalt_Curve_4Lane_Short.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2581,
+          "sha256": "a3ea0903bbad3d0922c72107645b5b89d519d0398974428d3d01cab86b912914"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_2Lane.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 26216,
+          "sha256": "29d029524454ddaade769a0b1f000080d38979c60bb4c25cc479093ec12099a6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_2Lane.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6437,
+          "sha256": "761eeb26fec563eacf343a02d74f1a70c2df9f1917f9572d93b2de2bda795ef6"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_2Lane_Curb.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 11952,
+          "sha256": "d563b5cb640a41eb8564742af4b65a7217be263d1a7346d72fa6766daf67667c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_2Lane_Curb.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2654,
+          "sha256": "b5ba48c6ea83bcc6f5e4cb2433556071526be395838b45189cd5745caf5d366d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_4LaneShort.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 39376,
+          "sha256": "23af139eb0734b882c79126694e9e495d92a9354b361ca5b42228cdc9d5f0724"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_4LaneShort.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6433,
+          "sha256": "9b4c0aa7cbc50c5ce6030542aabef351ae4ee3eaba40123d303a362b7a522bec"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_4Lane_Short_Curb.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 17568,
+          "sha256": "8babb9e800f7d97289c1a31e589ac4450a5b03e39f1db17067d38513d8fb890f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_Curve_4Lane_Short_Curb.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2653,
+          "sha256": "db49354fd6878f6d99756cb8ee1ee1b91f75795e9359274221e3bdefdb8b7438"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_TIntersection.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 58668,
+          "sha256": "740c56eeda980f416505bdf4010e9d45ad60e314d803c0b238f30680cc3c5304"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Street_TIntersection.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6406,
+          "sha256": "b8ecb3ec2514027af88d61b93e844ce004d21e759b730b27d73d880d9a270943"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Concrete_Asphalt_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 988093,
+          "sha256": "a37ca932c4287a67d9cf7f78997b5cc4b026ca7319a4c8454132d076307ca5cf"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Concrete_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1341594,
+          "sha256": "697276f680b34d6321e6b06da208a0fc3516db372d4a7de543fc2c33e895f482"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Concrete_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4416770,
+          "sha256": "e4de917d2506bff4b17d44380a136336cf16e5ea828edfdb8981f4f27e30a86a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Concrete_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 896797,
+          "sha256": "be17636c061a7c6c4f4bf23c3887a3f894da0e88394e233926e816c735a49244"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Dirt_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2003269,
+          "sha256": "bcb7b1d7bb9801aae25720f495af76306d11cce7654f52763e3cb6b273845302"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Dirt_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 9650819,
+          "sha256": "88958149742c2ebf8447079edd80ac1133f7b72a5fce0c118206b2f742a350ea"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Dirt_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1373373,
+          "sha256": "a2803d1ce2d6ccfdd0896de05a96e3c6aec898000c5897e1669c000faf2b2060"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_MarbleFloor_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1095714,
+          "sha256": "a01f57e2976d3af21a59f1ae18e12be84d2acae7ba3e93d184d2874224f737c0"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_MarbleFloor_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1382828,
+          "sha256": "52ba88ccfd35f072a51d11c31cdfb6e6ea8cde641ab4521115994d2c3216b451"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_MarbleFloor_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 567860,
+          "sha256": "95008e79cdba191b525afce2a95452fe28934efd5546d35919c24ea6cbcc0c22"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_MetalConcrete_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1488628,
+          "sha256": "adae656323f15cd2c3f1a6453685cb1ca104b700dc114076137cb3a4c253d3d0"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_MetalConcrete_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4815924,
+          "sha256": "93f95a96c32b27820c590301f00f5ba1d23d4054046d92bf6d58adbf23007419"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_MetalConcrete_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1857257,
+          "sha256": "c4d35f684d20c47f199bea2fbe098d60a000fa7d1489df0f00a4c3c1ace4fcb7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Ornaments_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4776648,
+          "sha256": "528cbe672c62384aa3bac703f574b60509bd69b4d492291cb2915022a12a449c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Ornaments_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 7172215,
+          "sha256": "c1aa6b307d47386b63e775ba88d82992dd0aaf34f1e4c2b7824002e3cc0a795a"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Ornaments_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4548795,
+          "sha256": "c65b673f871e6b4b2fa61fd110286a096d05d9a311e71ca71804cea46811885d"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_RedBrick_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1732063,
+          "sha256": "ea85bfc02c4c807265a85f7ab50656f7eaa19f6567301d362d78c1d06da161ab"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_RedBrick_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 7273659,
+          "sha256": "147f14d7f665d2598d0d796bd02a227f6b8b0fbc790c3e0737b1b90128101c93"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_RedBrick_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2346959,
+          "sha256": "dfba8a1da5ca7dcff1b707a051e82717e93013c2ad36c93b7a41b0f331414b70"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_RoofSlate_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1483692,
+          "sha256": "2057fecd5f405c56adfc94df056d3f0bcfe7cd3e444779bcabc85db389761503"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_RoofSlate_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3679324,
+          "sha256": "cd5cb711b2cc4f59a846604309cb0d312596b0e178b3aa2cd56e3a2f84d9471b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_RoofSlate_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 3160276,
+          "sha256": "7e8bafdd2a33af3d5ae9493305b48ed40c6ea8f7354808da6d6e40ec42a1e01b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Street_Decals.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2233893,
+          "sha256": "90eca7571c910f713952d7568674e231fd21bc6f6693de5514a563c19c91148e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Trim_BaseColor.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4421593,
+          "sha256": "c3334902f8315783477eec63e2d462f8cefedf9c55b41ef452d8374b5603f08e"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Trim_Normal.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4104873,
+          "sha256": "95fa43093067956fa6e206408f3e2f2302c18c7453b75a02f6e29fe57e2cd041"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_Trim_ORM.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2538116,
+          "sha256": "52449f201ad3cf606a2eb2972702b10051c369cdc67b6fadd109502b4735d7fb"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_dark_interior.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 325090,
+          "sha256": "59e5c77292953d93c3cd239c2f06d4e80e393761195da66d886d3887ad59f1dc"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_lit_interior_1.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 395226,
+          "sha256": "d20aa9f249a506eb145d76e264e59667cec4bef66c07e4baace6583a28cc3be4"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/T_lit_interior_2.png",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 316427,
+          "sha256": "83c3f1b2ad84b65aab88d5744e6997730a04140e41d230e2cecfe9bfb2ae0559"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_90Angle_TopCover.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 1100,
+          "sha256": "293df0f97faf6f94b572b0e2690bad236ba3b06e364cffef8df9e80131f05609"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_90Angle_TopCover.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4918,
+          "sha256": "e1182fec82b13929557d44b940649e340b8403e6ac01d2fa47bea23736f722fd"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Column_Bottom.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 14456,
+          "sha256": "9256ad009d182531b1b77f6740d57f08b036cceebbed82301f714ca5809d4d11"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Column_Bottom.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2346,
+          "sha256": "f8d4a7f80615df50166a9c8555d9815387cd9d5f15c6eec80efff72592799e50"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Column_Center.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4944,
+          "sha256": "823bb979d1eb78647647b8900204e03acc21d034e0c06eda3e69368170486631"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Column_Center.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2315,
+          "sha256": "1fd155424bf13d98893c72ef0c3ae7466442a0b38dde3e6ccab90a07ee3c805c"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Column_Top.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 14456,
+          "sha256": "bfd203a326d45adf646b4d9b63d47a73afc92175d6bb901b86ea49caae6d5788"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Column_Top.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2354,
+          "sha256": "1829ee5d92645c2a1dd89dfe1401906263be941366942f5f62245c76c64eb230"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Corner.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 6024,
+          "sha256": "70437a6a1dec0b2a277fc08362c1bfb4fdb4de66a304e2ddccebdc7c9b45e58b"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Corner.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4905,
+          "sha256": "5356455e6163971a87d829332eb18a24805d6fb05de4f34a575c59e2dda0e539"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_FirstFloor_Wall.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4356,
+          "sha256": "911ac30b25d7fcdb3990c6db23d932040d53ee390a73c3fe210bf130319adaf1"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_FirstFloor_Wall.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4920,
+          "sha256": "b6dec6c4817e76cce835d714d834aa3f6229d4a2afc8b2c9b1d042110f6524f7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_FirstFloor_Window_001.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 11712,
+          "sha256": "f399e311565967fda33f8dd010831b71fcc5f143a39ef4d9851d5aae40d25649"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_FirstFloor_Window_001.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 7915,
+          "sha256": "d3e80aa99e89533fe2af979a45be9004684926176bbeb79860c45cc574cb9506"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_FirstFloor_Window_Columns.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2496,
+          "sha256": "aa64ea656cd4d885ec1cce0f7229140d2aaeee7929c9ef5fda09369086186368"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_FirstFloor_Window_Columns.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2586,
+          "sha256": "97da02e9f0bbbc9036d282a49f50fca7f4383ba176a31035abe0f22db3f0afe7"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Plain_3.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2908,
+          "sha256": "46a1aa5467decbc6aede1fec8ead0c609ef7cfdc6b929774d319ee88a2f11bc2"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Plain_3.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 4904,
+          "sha256": "193fa82b2a7cdfd98e031f51d21e40a733896b30668ec705f46b128a87a9352f"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Wall_Guard.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2784,
+          "sha256": "1cc722bb3145bfe261b004d63dd9eea8418ecb35fb07fd4f28382052f1fb2458"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Wall_Guard.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 2504,
+          "sha256": "1a8fed582619dfeafc3660d9f28aae193715c4f3800d5593f354c99ee6723019"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Window.bin",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 48372,
+          "sha256": "9bbf05ce0ae134ba9b07da45250a5320b33250160507c3b716058b2bf18c0520"
+        },
+        {
+          "file": ".asset-source/scene-density/quaternius/input/Trim_Window.gltf",
+          "source": "https://quaternius.itch.io/downtown-city-megakit",
+          "bytes": 10727,
+          "sha256": "253942c661a09da5bad08ced802ecabe17624fbe1907a2fac1a84a60bc968aae"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "author": {
+        "Monsta3D": "All"
+      },
+      "source": "https://polyhaven.com/a/exterior_aircon_unit",
+      "license": "CC0-1.0",
+      "licenseSource": "https://polyhaven.com/license",
+      "files": [
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/exterior_aircon_unit_1k.gltf",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 9634,
+          "sha256": "f19d85c76948903047c2846068aeaa376d5e956a410675268cb6cb6aac5d97c2",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/exterior_aircon_unit/exterior_aircon_unit_1k.gltf",
+          "md5": "10beccfb1bf0c973a0729be8970532a9"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_01_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 472088,
+          "sha256": "e5a6f3c135b942d6efe62a24496c575d03f6a4316188efe65079035d7faf1c38",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_01_nor_gl_1k.jpg",
+          "md5": "244025f2008cbdc8c8680f0c962ed26f"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_01_opacity_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 333675,
+          "sha256": "c19feb434c2b01923fbb3e16ace3aa6d9cb16b05c2a5c479ad237759b2d331d6",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_01_opacity_1k.jpg",
+          "md5": "f253dbcb057612371dd1b6d37095c6ba"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_rusted_01_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 673246,
+          "sha256": "51c103926b118bf00b902826001db802b15755c6eefa12b00afa24c60d7b341b",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_arm_1k.jpg",
+          "md5": "f1c2653ac0fb58e8641f9076a2af8a67"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_01_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 651293,
+          "sha256": "14671920f716691dc3b8940432f7aba5c469e3b466441ff8ad500de92d3178fb",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_01_arm_1k.jpg",
+          "md5": "9af3805e7371643962ffe6079d547b00"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_02_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 484026,
+          "sha256": "1cdfa2d1c938c3af61a5f06510b0d94aeddddd4bdc1832008b3826240dd1535d",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_02_arm_1k.jpg",
+          "md5": "98b44ba240f832fe4fa94e90d1887c6a"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_rusted_02_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 605557,
+          "sha256": "6ac4cfca6a8d8bec6ef1ff756652eb1f36b780d1ff7d70d9cb3e0f7fe1faf271",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_arm_1k.jpg",
+          "md5": "6e2bee1569b55a3b01d18799e942a6af"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/exterior_aircon_unit.bin",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 494784,
+          "sha256": "b4b9ad082bdaa8f8b437bc14d9981caeaf318334499d4bf65d616fb2ec0c5ca8",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/exterior_aircon_unit/exterior_aircon_unit.bin",
+          "md5": "971c2cfcbc29256d7872eafe74352279"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_02_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 942230,
+          "sha256": "864c0fb1e55aff910d826a8c1f6a2ad459f7db0124b5846445d466cabf0cadf5",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_02_nor_gl_1k.jpg",
+          "md5": "e00f9c963e9f3dc798d84f7ebcc4185a"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_rusted_01_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 583620,
+          "sha256": "14f105cda9172290be2e8b23b8e895099b65e222619850af3b13105901d922e2",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_nor_gl_1k.jpg",
+          "md5": "5b9df77429c9010ea389aef30fd7d460"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_rusted_01_diff_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 606076,
+          "sha256": "a8771db98ed7f3d46ce48fd70867f58a74a2530666c339f8dcc14f3e5de86d0b",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_diff_1k.jpg",
+          "md5": "7b9fba8819918dc388c49f05b5522575"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_01_diff_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 506664,
+          "sha256": "2ae5005b4836d2c91d1e712d9acf425c7dcc4973b7c0fc6f23da9afaa6381da6",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_01_diff_1k.jpg",
+          "md5": "81003ea4afe59ed4dac090791e41f562"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_rusted_02_opacity_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 357558,
+          "sha256": "a86bcaf9c4858cf250fd67c9a0ee362504454b9972ff6e1ac44e38bac3213421",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_opacity_1k.jpg",
+          "md5": "0540ff18330b76e4e55053d5bd21f59e"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/gltf/textures/exterior_aircon_unit_rusted_02_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 947477,
+          "sha256": "3af4716b42812b742577594c7a0a342accd79925f02037c152b1da1c5831bb78",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_nor_gl_1k.jpg",
+          "md5": "53f4890e3c9b9fb2efcd96f3143f579b"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/exterior_aircon_unit_1k.blend",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 393828,
+          "sha256": "6dde5d61e91d3a1fbc5a8d64dedf02f4cba310be51d7e146171798b9f118559b",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/exterior_aircon_unit/exterior_aircon_unit_1k.blend",
+          "md5": "2cb142e9989e47e147c6649f9ca535b9"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_02_diff_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 1072384,
+          "sha256": "ceee539599741b8b1c3dd869d2ba0932120c1d355e7b9f80fe8902a22fd10042",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_diff_1k.png",
+          "md5": "e8f6cf27bd080acd7ea0db920f96972b"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_02_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 1416907,
+          "sha256": "6c148635706de9e6423fad4d4aba0e97d9ed2edd98c7e6786ff61c0735ffbe0f",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_nor_gl_1k.png",
+          "md5": "462153730354dba2dd2e08fc7951470f"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_01_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 1035066,
+          "sha256": "2ff73036f32120cbe6c3b98b7a7199a2e56ea509392e8b8c47edbb4f52153b7c",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_nor_gl_1k.png",
+          "md5": "85b3c87db7a9cbd666276d4baf294367"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_01_opacity_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 129471,
+          "sha256": "b4130f4ace3627f4c714ac857c18f7df042f109d25fa02b947d66bbbd6f046fc",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_01_opacity_1k.png",
+          "md5": "375b8488fdc5ff903b578f5a2c5567c1"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_01_metal_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 59066,
+          "sha256": "f15696bdde4077a2082cf35700010ade194ed1a5c1c849c34e9b68e2d49178dd",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_metal_1k.png",
+          "md5": "f17d43197074549db195604a32863bba"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_02_metal_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 264311,
+          "sha256": "88adcd2a55d0409b4328361d04cc11c83eabbe5bba5fce663fe51e2d15648bc4",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_02_metal_1k.png",
+          "md5": "fc5b4266ae2744087ed3acbe700eb358"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_01_metal_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 25108,
+          "sha256": "59c72b4ff45b318fe2b08664811fde456fdd014a9befcccb1dbe434dfe5b1332",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_01_metal_1k.png",
+          "md5": "fe73de7a09a75c928d2190ae07c4dbc7"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_01_diff_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 731207,
+          "sha256": "17202f3d87b22d5f801814a216fdbe80ce60232949422eb81a60bbdce010128c",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_01_diff_1k.png",
+          "md5": "b9b10489fc659623efba9cd593cd0daf"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_01_rough_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 481420,
+          "sha256": "1cf429208614f355336b8470cc11cac0525036145012b1d0c03d3be2a3524a6b",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_01_rough_1k.png",
+          "md5": "7caed1b0f4b52fca4a707e969d4c4264"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_02_diff_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 863828,
+          "sha256": "51f55b80da9522ba54a6ec6732008bb18a03cf2e681dc6fc7ab3eb2a575a4076",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_02_diff_1k.png",
+          "md5": "24f79d95c9b1c5b9525edf67de8acc24"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_01_rough_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 486533,
+          "sha256": "e22c802f12ab2461c133b71b35aff1495c8f2297a63c9e8f457fc8d720192fc9",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_rough_1k.png",
+          "md5": "c7cee831352d2bfb73177b05e55df786"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_02_metal_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 264370,
+          "sha256": "efa885e11748095f507211da6127a1f17ef4605144de979315c7993c847ea8d2",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_metal_1k.png",
+          "md5": "502cb07908287440b0bc2b0805969a7a"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_02_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 1355382,
+          "sha256": "6a2731d2bb8576b811af0ba75594bac22e0ab88291cdda795eed00477be215b1",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_02_nor_gl_1k.png",
+          "md5": "26b7c803a9c5e1bc43ed37cb022cbf3d"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_02_opacity_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 147529,
+          "sha256": "208b619b5a687bdef82cb15816e442f82313c397d40d2f69b3f6c44f783bf561",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_opacity_1k.png",
+          "md5": "96eee8c03290db865bc9808d78687f75"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_01_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 836034,
+          "sha256": "f5d019c9b276dc324d90d4a7aa4383214a371f24b45dca5838f2c38d46b897b7",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_01_nor_gl_1k.png",
+          "md5": "4382cd31b9b530b8054a01ffd097ae77"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_02_rough_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 459781,
+          "sha256": "6c265e3a8bf255b80efc13653949f7f9c56a8b9df55d76985b5fffc98ad15350",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_02_rough_1k.png",
+          "md5": "bb53408c0b94e99a7a3635044b52d044"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_02_rough_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 372379,
+          "sha256": "0754a06e61dbf12601edef12fced40a95e3553523f1c9f0ca2d8f4875b9485c6",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_02_rough_1k.png",
+          "md5": "57731ae1111d11dc2746acb7a168c7c5"
+        },
+        {
+          "file": ".asset-source/scene-density/exterior_aircon_unit/blend/textures/exterior_aircon_unit_rusted_01_diff_1k.png",
+          "source": "https://polyhaven.com/a/exterior_aircon_unit",
+          "bytes": 1017246,
+          "sha256": "86e0366386e823b89debfccf02aba3adc654c3ab4e32c451a454e97fd4f0cb37",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/exterior_aircon_unit/exterior_aircon_unit_rusted_01_diff_1k.png",
+          "md5": "1e14411c65ce6486e9809f3de73f55c7"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "author": {
+        "Stuart Attenborrow": "All"
+      },
+      "source": "https://polyhaven.com/a/modular_street_seating",
+      "license": "CC0-1.0",
+      "licenseSource": "https://polyhaven.com/license",
+      "files": [
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/modular_street_seating_1k.gltf",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 29629,
+          "sha256": "ae0c5b89927446dd3c3dc8fc021c5a6042448b785f340affaa132307d8a7b18d",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/modular_street_seating/modular_street_seating_1k.gltf",
+          "md5": "350ccab60ac6ed46009c6bd578cf212f"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_supports_diff_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 721380,
+          "sha256": "3d2dc8a4ac499b540445be6277a1fa7c84fb7cdbf0fbe04d9738d806393393e4",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_supports_diff_1k.jpg",
+          "md5": "f8f3ce0a8510267bb320523b147e8bc5"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_armrests_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 324073,
+          "sha256": "1625c7492bfdc6fb97a49a09e5f958bfc62d46b7fc97bdcda97ba83fc13f18c4",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_armrests_nor_gl_1k.jpg",
+          "md5": "3161b56f328b98f1cc3a3748bdcdd57a"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_timber_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 762344,
+          "sha256": "07b108f3c6ee8afe56c9c23592d48f80344992bd0512080a1cc2bf37e7c7cb84",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_timber_arm_1k.jpg",
+          "md5": "ed6858f805affc2d5387043c7de0b9f3"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_supports_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 477177,
+          "sha256": "5396d42fc24e0bf0e038767dc0548c4562b359930a9f8ade61897d18192ec929",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_supports_nor_gl_1k.jpg",
+          "md5": "eb422efce89e6d40608ce8e9a8c7d42a"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_timber_diff_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 596026,
+          "sha256": "2dce35474445e91743ec1e5a1ffbc405cdd3b7ec94be945d93d684e23e127be3",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_timber_diff_1k.jpg",
+          "md5": "ef96054b965201bcf45a5fe1a137d853"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_connectors_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 398150,
+          "sha256": "1debc33dce0a35acee944281a712b90ce3ba0a1914e0d30201dc45e4639ecd28",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_connectors_nor_gl_1k.jpg",
+          "md5": "4489712b8404eb94a0ef2a8536f8571f"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_armrests_diff_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 612860,
+          "sha256": "1df79fcf237bcca5dcbd6af8e283e775125e723d2782dee3184550564905990f",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_armrests_diff_1k.jpg",
+          "md5": "a1fa7086f8fadb9fc2861962505ee05d"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_supports_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 734095,
+          "sha256": "8dbdaf063699c6d81319a9f0ac2fa5997236981fa703103fdadb008570df8de2",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_supports_arm_1k.jpg",
+          "md5": "2464500fdfcde0319bffc0a8d46647cf"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_connectors_diff_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 212785,
+          "sha256": "0b869d0b8d85d89e79fdb74794a45532b64b32221272c3777089730ca9097003",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_connectors_diff_1k.jpg",
+          "md5": "f6718698d2c27333dd568db4a42798ff"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_armrests_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 622643,
+          "sha256": "0016585de0b1d3accd9b204f912e76e03385901410e02e5c8dd3186333ff882f",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_armrests_arm_1k.jpg",
+          "md5": "df3dbc4ed5ef4fb98970e331a18805b5"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_timber_nor_gl_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 557669,
+          "sha256": "b7d0fff50ca56f12a3ebc3056c0c8104be84efce118a38094608d8e15af27d9a",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_timber_nor_gl_1k.jpg",
+          "md5": "0d0b133fb0a1b66dad5501f2a861e19d"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/textures/modular_street_seating_connectors_arm_1k.jpg",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 591917,
+          "sha256": "30af91ae8f610ce5ffc15289005b1e6eaf7e904048ad7cd129dcd6e68163512c",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/modular_street_seating/modular_street_seating_connectors_arm_1k.jpg",
+          "md5": "0d5bb2990258ddcb5f12e758b242c1da"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/gltf/modular_street_seating.bin",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 977224,
+          "sha256": "968558aa808b6cf74783b375d32a346a4de2ce9c118c0f17fba24c6999f03547",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/modular_street_seating/modular_street_seating.bin",
+          "md5": "5c0426b5068d5d41f0a301035ecac9ab"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/modular_street_seating_1k.blend",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 683620,
+          "sha256": "5ad6987d66cbcf640559f414c3918d3243e6effd52faef8592b5498c6f7e2052",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/blend/1k/modular_street_seating/modular_street_seating_1k.blend",
+          "md5": "c9feabfcb32a8280e855bb03e8fdb869"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_armrests_diff_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 1361783,
+          "sha256": "13aca6afde622385977b4a6fc5badfabdef9fb24c0c69ac39eb2c9b685116581",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_armrests_diff_1k.png",
+          "md5": "0565e8d2eb4ff198d0a880792b0b1624"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_supports_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 1080278,
+          "sha256": "8cb1a18a6be08d988df8f5b8f93a90a53ae52f34056df70895e5b44313404797",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_supports_nor_gl_1k.png",
+          "md5": "74baa2aa1097560c05e04dd99a3a4266"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_supports_rough_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 607341,
+          "sha256": "c5caea0687e69d7266cd59df8cf87c0b773a46787eed82aab129acf284e75fa0",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_supports_rough_1k.png",
+          "md5": "8b25764de291a3e2dc9d2241a749365f"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_armrests_rough_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 536059,
+          "sha256": "00e7ab0d2c87b781b6721a5e1f566d604128443eae2d5508c6777e1adeb7d00b",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_armrests_rough_1k.png",
+          "md5": "0d0a6d9b852dc8770d5cf56b19bf843c"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_connectors_diff_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 458064,
+          "sha256": "02b4f92b3f52093c51c6b03132c53205eab901ea7d9d8e9f2b63fef4432dc2f7",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_connectors_diff_1k.png",
+          "md5": "3501b7e529f66e2e50ee43eb20d80fb7"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_timber_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 1141905,
+          "sha256": "e4eeed0373e759284ff41a3bca1162df81698d4e4531a938804196514775e32a",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_timber_nor_gl_1k.png",
+          "md5": "5c33140f0fcd6255050c0bdaaf5c78c5"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_supports_metal_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 729013,
+          "sha256": "104112981e4b2f6fd5e6ee1b1d329c79f863698071eb7e15147780d2696f775e",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_supports_metal_1k.png",
+          "md5": "d32661aedfa14424e49086d068325520"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_armrests_metal_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 644545,
+          "sha256": "d0b87738db2395cf802cd7dc020da5f7d8edddc13311a7f4991911cd75dd57bd",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_armrests_metal_1k.png",
+          "md5": "0282e7b7d520ec66fbe8292807c3f7c4"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_supports_diff_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 1569214,
+          "sha256": "16275b86529749d73b814bc515405a9602559449d7d08ebb8e88106eb1151943",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_supports_diff_1k.png",
+          "md5": "16c5276289ace6cf1240ed929ac3d68c"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_armrests_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 796874,
+          "sha256": "8460c83099ff499149e788dc1cdcee020771921a480a3a00fca597c1654d8a2b",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_armrests_nor_gl_1k.png",
+          "md5": "d515b96121684937ba26d8fd680fb4a6"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_timber_rough_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 653077,
+          "sha256": "d77f3fcb7431267fead68789bf3941ad6607feffb7be8a0bee1e229adcc48b64",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_timber_rough_1k.png",
+          "md5": "93b406e816b33d1ca567ee58318c9676"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_timber_diff_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 1365124,
+          "sha256": "edd6df2cc7404d80f0072d3c24e3ea8652469e039bb2c66c84a512a0f383d8b1",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_timber_diff_1k.png",
+          "md5": "0705d668a79b5e7b12842d8ff1c3fc75"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_connectors_nor_gl_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 950921,
+          "sha256": "2aaa9ac61563468d141e9d5fad53413bd37c2441b498568a24ad5c6d39cb21e4",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_connectors_nor_gl_1k.png",
+          "md5": "9281994ff23efe5badbc1eefa19b414e"
+        },
+        {
+          "file": ".asset-source/scene-density/modular_street_seating/blend/textures/modular_street_seating_connectors_rough_1k.png",
+          "source": "https://polyhaven.com/a/modular_street_seating",
+          "bytes": 489978,
+          "sha256": "8eba01a701d9dc99cf1d1ecac5590e912c7e526866378d747ca1f9c4f540a099",
+          "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Models/png/1k/modular_street_seating/modular_street_seating_connectors_rough_1k.png",
+          "md5": "8d926ef08bd6f622aa8b3a5a5ac40dbf"
+        }
+      ]
+    }
+  ]
+}

@@ -42,8 +42,8 @@ export class SceneLighting {
         sun.shadow.normalBias = CONFIG.presentation.shadowNormalBias;
         this.scene.add(sun);
     }
-    async loadEnvironment() {
-        const hdr = await new HDRLoader().loadAsync('/assets/pbr/urban_street_03_1k.hdr');
+    async loadEnvironment(graffiti = new URLSearchParams(location.search).get('scene') === 'graffiti') {
+        const hdr = await new HDRLoader().loadAsync(graffiti ? '/assets/graffiti-stairs/environment.hdr' : '/assets/pbr/urban_street_03_1k.hdr');
         const pmrem = new T.PMREMGenerator(this.renderer);
         const environment = pmrem.fromEquirectangular(hdr);
         this.environmentTarget?.dispose();

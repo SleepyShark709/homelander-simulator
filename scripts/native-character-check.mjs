@@ -6,7 +6,7 @@ fs.mkdirSync('.artifacts/native-character', { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=metal'] });
 const page = await browser.newPage({ viewport: { width: 1000, height: 900 } }), errors = [];
 page.on('pageerror', e => errors.push(e.message));
-await page.goto('http://127.0.0.1:5173/?preview=character');
+await page.goto(process.argv[3]??'http://127.0.0.1:5173/?preview=character');
 await page.waitForFunction(() => window.studio?.person, { timeout: 30000 });
 await page.selectOption('#studio-role','civilian');
 const report = await page.evaluate(async () => {

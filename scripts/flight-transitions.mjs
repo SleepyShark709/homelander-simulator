@@ -1,18 +1,20 @@
 import { chromium } from '@playwright/test';
 import fs from 'node:fs';
 
-fs.mkdirSync('.artifacts/flight', { recursive: true });
+const folder = process.argv[3] ?? '.artifacts/flight';
+fs.mkdirSync(folder, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=metal'] });
 const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
 const errors = [];
 page.on('pageerror', error => errors.push(error.message));
 try {
-    await page.goto('http://127.0.0.1:5173/');
+    await page.goto(process.argv[2] ?? 'http://127.0.0.1:5173/');
     await page.waitForFunction(() => window.game?.player);
     await page.waitForLoadState('networkidle');
     const report = await page.evaluate(async () => {
         const T = await import('/node_modules/.vite/deps/three.js');
         const g = window.game, dt = 1 / 120, checks = [], traces = [];
+        const landingClip = name => ['land','style_land_from_back'].includes(name);
         g.renderer.setAnimationLoop(null);
         const render = g.presentation.render.bind(g.presentation);
         g.presentation.render = () => {};
@@ -65,7 +67,7 @@ try {
                     }
                     maxRootRise = Math.max(maxRootRise, p.position.y - oldY);
                 }
-                land ||= p.visual.current === 'land';
+                land ||= landingClip(p.visual.current);
                 frames.push({ t: i * dt, mode: p.mode, clip: p.visual.current, root: p.position.y,
                     model: p.visual.model.position.y, sole: s.sole, recovery: p.recovery });
             }
@@ -115,7 +117,7 @@ try {
             }
             checks.push({ name: `${name}: full skeleton and skin, one launch and landing recovery`,
                 pass: clips.has('jump_start') && clips.has('jump_land') && (ceiling || clips.has('fall')) &&
-                    !clips.has('land') && launches === 1 && p.mode === 'ground' && p.recovery === 0 &&
+                    ![...clips].some(landingClip) && launches === 1 && p.mode === 'ground' && p.recovery === 0 &&
                     peak - surface > (ceiling ? 1.2 : 2.4) && (!ceiling || peak < 1.7) &&
                     maxPoseStep < .12 && maxGroundSole < .12 && minGroundSole > -.035,
                 clips: [...clips], launches, peak, maxPoseStep, maxGroundSole, minGroundSole });
@@ -141,28 +143,29 @@ try {
         }
         for (const height of [.25, 15]) {
             const fixture = setup(height, 0, 'fly'), { p } = fixture;
-            let hits = 0, earlyHit = false, held = false, groundLand = false, oldSlam = false, previous, maxPoseStep = 0;
+            let hits = 0, earlyHit = false, held = false, groundLand = false, oldSlam = false, previous, maxPoseStep = 0, worst;
             p.onSlam = () => { hits++; earlyHit ||= p.mode !== 'slam' || p.feet.y > .12; };
             g.input.pressed.add('KeyQ');
             for (let i = 0; i < 450; i++) {
                 frame(); const s = sample(fixture);
                 if (previous) maxPoseStep = Math.max(maxPoseStep, ...s.pose.map((v, j) => v.distanceTo(previous[j])));
+                if(previous) for(let j=0;j<s.pose.length;j++){const step=s.pose[j].distanceTo(previous[j]);if(step>=maxPoseStep && step>0)worst={frame:i,point:j,clip:p.visual.current,mode:p.mode,modelY:p.visual.model.position.y,weights:[...p.visual.baseWeights]};}
                 previous = s.pose;
-                held ||= p.mode === 'slam' && p.visual.current === 'land' && p.visual.actions.get('land').paused;
-                groundLand ||= p.mode === 'ground' && p.visual.current === 'land';
+                held ||= p.mode === 'slam' && landingClip(p.visual.current) && p.visual.actions.get(p.visual.current).paused;
+                groundLand ||= p.mode === 'ground' && landingClip(p.visual.current);
                 oldSlam ||= p.visual.current === 'slam';
                 if (i === 1) {
-                    const before = { time: g.time, action: p.visual.actions.get('land').time, hits };
+                    const before = { time: g.time, action: p.visual.actions.get(p.visual.current).time, hits };
                     g.running = false; for (let j = 0; j < 120; j++) frame();
                     checks.push({ name: `${height}m Q pauses without advancing clip or damage`,
-                        pass: before.time === g.time && before.action === p.visual.actions.get('land').time && before.hits === hits });
+                        pass: before.time === g.time && before.action === p.visual.actions.get(p.visual.current).time && before.hits === hits });
                     g.running = true; g.previous = clock;
                 }
             }
             checks.push({ name: `${height}m Q shares landing pose with one physical impact`,
                 // A .25m Q reaches the floor in its first 60 Hz physics step.
-                pass: (height === .25 || held) && groundLand && !oldSlam && hits === 1 && !earlyHit && maxPoseStep < .12 && p.visual.current === 'idle',
-                held, groundLand, oldSlam, hits, earlyHit, maxPoseStep });
+                pass: (height === .25 || held) && groundLand && !oldSlam && hits === 1 && !earlyHit && maxPoseStep < .12 && ['idle','style_idle_a','style_idle_b'].includes(p.visual.current),
+                held, groundLand, oldSlam, hits, earlyHit, maxPoseStep, worst });
         }
         const fixture = setup(0, 0, 'ground'), { p } = fixture;
         for (let i = 0; i < 90; i++) frame();
@@ -179,7 +182,7 @@ try {
         g.running = false; g.input.clear(); g.presentation.render = render;
         return { checks, traces };
     });
-    fs.writeFileSync('.artifacts/flight/transitions.json', JSON.stringify({ ...report, errors }, null, 2));
+    fs.writeFileSync(`${folder}/transitions.json`, JSON.stringify({ ...report, errors }, null, 2));
     console.log(JSON.stringify({ checks: report.checks, errors }, null, 2));
     if (errors.length || report.checks.some(check => !check.pass)) process.exitCode = 1;
 } finally { await browser.close(); }

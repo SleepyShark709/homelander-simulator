@@ -11,7 +11,9 @@ const report=await page.evaluate(()=>{
  const setup=(x=0,y=1,z=25,mode='ground')=>{
   g.reset();for(const e of g.world.alive('civilian'))g.world.remove(e);
   g.running=true;g.input.active=true;g.ui.playing(true);g.previous=clock;g.accumulator=0;
-  const p=g.player;p.position.set(x,y,z);p.previous.copy(p.position);p.velocity.set(0,0,0);p.mode=mode;
+  const p=g.player;
+  if(mode==='ground' && y<2){const hit=g.physics.ray(p.position.clone().set(x,y+.5,z),p.position.clone().set(0,-1,0),2,p.collider,c=>!g.world.byCollider.has(c.handle));if(hit)y=y+.5-hit.timeOfImpact+1.03;}
+  p.position.set(x,y,z);p.previous.copy(p.position);p.velocity.set(0,0,0);p.mode=mode;
   p.body.setTranslation(p.position,true);p.body.setNextKinematicTranslation(p.position);g.physics.world.step();p.sync();g.camera.update(2,false);
  };
  const checks=[];
@@ -26,9 +28,9 @@ const report=await page.evaluate(()=>{
   });return points;
  };
  const penetration=(dense=false)=>{
-  const points=samples(dense);let maximum=0,count=0;
-  for(const point of points){const hit=g.physics.world.projectPoint(point,false,undefined,undefined,g.player.collider,undefined,c=>!g.physics.ignored.has(c.handle));if(hit?.isInside){const depth=point.distanceTo(hit.point);maximum=Math.max(maximum,depth);if(depth>.015)count++;}}
-  return {maximum,count,samples:points.length};
+  const points=samples(dense);let maximum=0,count=0,worst;
+  for(const point of points){const hit=g.physics.world.projectPoint(point,false,undefined,undefined,g.player.collider,undefined,c=>!g.physics.ignored.has(c.handle));if(hit?.isInside){const depth=point.distanceTo(hit.point);if(depth>maximum){maximum=depth;worst={point:point.toArray(),surface:hit.point,collider:hit.collider.handle,kind:g.world.byCollider.get(hit.collider.handle)?.kind??'static'};}if(depth>.015)count++;}}
+  return {maximum,count,samples:points.length,worst};
  };
  // Six real street seams, including the shop plinth and wall sliding.
  const routes=[];
@@ -38,9 +40,9 @@ const report=await page.evaluate(()=>{
   routes.push({start:[x,z],end:end.toArray(),forwardDistance:Math.hypot(end.x-x,end.z-z),returnDistance:end.distanceTo(g.player.position)});
  }
  check('road edges, raised storefront and wall allow returning',routes.every(r=>r.returnDistance>2.5)&&routes.slice(0,4).every(r=>r.forwardDistance>8),routes);
- setup(-37,1,-20);g.input.keys.add('KeyW');let wallDepth=0;for(let i=0;i<150;i++){frame();if(i>40&&i%8===0)wallDepth=Math.max(wallDepth,penetration([64,88,120].includes(i)).maximum);}
+ setup(-37,1,-20);g.input.keys.add('KeyW');let wallDepth=0,wallWorst;for(let i=0;i<150;i++){frame();if(i>40&&i%8===0){const result=penetration([64,88,120].includes(i));if(result.maximum>wallDepth){wallDepth=result.maximum;wallWorst=result.worst;}}}
  g.input.keys.clear();for(let i=0;i<30;i++)frame();
- check('animated body stays outside the solid wall while walking into it',wallDepth<.025,{wallDepth,end:g.player.position.toArray()});
+ check('animated body stays outside the solid wall while walking into it',wallDepth<.025,{wallDepth,wallWorst,end:g.player.position.toArray()});
  let punchWallDepth=0;g.input.punch=true;for(let i=0;i<40;i++){frame();if(i%4===0)punchWallDepth=Math.max(punchWallDepth,penetration(true).maximum);}
  check('full native body and hands stay outside the wall during a punch',punchWallDepth<.025,{punchWallDepth});
  setup(-37,12,-12,'fly');g.input.keys.add('KeyW');g.input.keys.add('ShiftLeft');let flightWallDepth=0;for(let i=0;i<120;i++){frame();if(i>15&&i%5===0)flightWallDepth=Math.max(flightWallDepth,penetration().maximum);}

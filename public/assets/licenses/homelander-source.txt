@@ -14,4 +14,29 @@ See licenses/mesh2motion-cc0.txt and .asset-source/mesh2motion/provenance.json.
 
 All motions were retargeted offline using Auto-Rig Pro Remap and its Universal
 glTF exporter. The plugin is an installed development tool and is not bundled
-with the game. No body animation keyframes were authored in this project.
+with the game. The original 18 clips retain their source samples.
+The separate homelander-style.glb includes edited NLA compositions, phase cuts
+and baked ARP head/neck constraints. Edited clips are marked explicitly in
+.asset-source/homelander/style-build.json; they are not claimed as untouched
+source motion or CC0 when incorporating user-supplied Mixamo animation.
+
+The A2 standing turns additionally use Adobe Mixamo Left Turn 90 and Right Turn
+90 on X Bot, downloaded on 2026-10-22 from the user's authenticated session.
+Pinned FBX hashes and export settings are in
+.asset-source/homelander/turns/manifest.json. Adobe's FAQ permits royalty-free
+use in games: https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html
+These inputs and their adapted animation are not CC0. ARP Extract Root Motion
+separates the global turn trajectory; the original body performance is retained.
+
+The relaxed A idle additionally uses Adobe Mixamo "Idle" (Standing Idle, 251
+frames) on X Bot, downloaded on 2026-10-22 from the same authenticated session.
+Its pinned FBX, hash and settings are in .asset-source/homelander/idle/manifest.json.
+It is formally remapped as a full-body source; B and the jog start/stop edits
+reuse this adapted performance. This motion is not CC0.
+
+The laser directional locomotion additionally uses Adobe Mixamo Left Strafe,
+Right Strafe and Running Backward on X Bot, downloaded on 2026-10-22.
+Pinned inputs and export settings: .asset-source/homelander/directional/manifest.json.
+The directional lower body is composed with the existing Mixamo Standing Idle
+arm controls through Blender NLA and ARP Bake, including authored IK/FK custom
+properties. These inputs and edited outputs are not CC0.

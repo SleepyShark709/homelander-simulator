@@ -1,0 +1,39 @@
+{
+  "retrieved": "2026-10-21",
+  "assets": [
+    {
+      "id": "A01",
+      "author": "Quaternius",
+      "source": "https://quaternius.itch.io/downtown-city-megakit",
+      "license": "CC0-1.0",
+      "uploadId": 17615373,
+      "uploaded": "2026-05-20",
+      "archive": {
+        "source": "https://quaternius.itch.io/downtown-city-megakit",
+        "bytes": 234753092,
+        "sha256": "5b1a945576d54cdbb4ccc9c3d52711e6d530da74c74c586407ecc28b165335da"
+      },
+      "sourceFiles": 336
+    },
+    {
+      "id": "A04",
+      "author": {
+        "Monsta3D": "All"
+      },
+      "source": "https://polyhaven.com/a/exterior_aircon_unit",
+      "license": "CC0-1.0",
+      "licenseSource": "https://polyhaven.com/license",
+      "sourceFiles": 33
+    },
+    {
+      "id": "A05",
+      "author": {
+        "Stuart Attenborrow": "All"
+      },
+      "source": "https://polyhaven.com/a/modular_street_seating",
+      "license": "CC0-1.0",
+      "licenseSource": "https://polyhaven.com/license",
+      "sourceFiles": 29
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+Scene density sample — retrieved 2026-10-21
+
+A01 Downtown City MegaKit [Standard], Quaternius
+https://quaternius.com/packs/downtowncitymegakit.html
+https://quaternius.itch.io/downtown-city-megakit
+Itch upload 17615373, uploaded 2026-05-20. Only the free Standard package.
+CC0 1.0 Universal. The original package license is retained verbatim at
+licenses/quaternius-downtown-cc0.txt and .asset-source/scene-density/quaternius/input/License_Standard.txt.
+
+A04 Exterior Aircon Unit, Monsta3D
+https://polyhaven.com/a/exterior_aircon_unit
+A05 Modular Street Seating, Stuart Attenborrow
+https://polyhaven.com/a/modular_street_seating
+CC0 1.0 Universal: https://polyhaven.com/license
+Poly Haven's original licensing statement is retained at licenses/polyhaven.txt.
+1K model downloads and all dependencies are verified against official API MD5,
+then pinned by SHA-256 in .asset-source/scene-density/provenance.json.
+
+Layout, assembly, collision metadata and project-created solids are original
+project work. No Pro/Source package, proprietary engine shader, or paid asset
+was used. Original glTF and editable Blend inputs, scripts and layout parameters
+are retained under .asset-source/scene-density/. Runtime files are offline GLBs.
+The original archive is a regenerable local cache, not a required Git input.

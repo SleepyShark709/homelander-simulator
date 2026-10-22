@@ -1,0 +1,538 @@
+{
+  "version": 1,
+  "units": "metres",
+  "axes": "Y-up, street sample along +X",
+  "core": [
+    -100,
+    100,
+    -100,
+    100
+  ],
+  "sample": [
+    -86,
+    -20,
+    -38,
+    48
+  ],
+  "sampleLength": 66,
+  "floorHeight": 3,
+  "groundFloorHeight": 4,
+  "frontSetback": 18,
+  "roads": [
+    [
+      -300,
+      300,
+      -10,
+      10
+    ],
+    [
+      -10,
+      10,
+      -300,
+      300
+    ],
+    [
+      -100,
+      100,
+      -62,
+      -54
+    ],
+    [
+      -100,
+      100,
+      54,
+      62
+    ],
+    [
+      -62,
+      -54,
+      -100,
+      100
+    ],
+    [
+      54,
+      62,
+      -100,
+      100
+    ]
+  ],
+  "plots": [
+    {
+      "id": "N1",
+      "x": -85,
+      "z": -27,
+      "width": 12,
+      "depth": 18,
+      "floors": 4,
+      "style": "small",
+      "sample": true
+    },
+    {
+      "id": "N2",
+      "x": -70,
+      "z": -25,
+      "width": 14,
+      "depth": 14,
+      "floors": 6,
+      "style": "medium",
+      "sample": true
+    },
+    {
+      "id": "N3-shop",
+      "x": -43,
+      "z": -26,
+      "width": 20,
+      "depth": 16,
+      "floors": 6,
+      "style": "brick",
+      "sample": true,
+      "shop": true
+    },
+    {
+      "id": "N4",
+      "x": -22,
+      "z": -24,
+      "width": 12,
+      "depth": 12,
+      "floors": 4,
+      "style": "small",
+      "sample": true
+    },
+    {
+      "id": "S1",
+      "x": -84,
+      "z": 26,
+      "width": 20,
+      "depth": 16,
+      "floors": 7,
+      "style": "large",
+      "sample": true
+    },
+    {
+      "id": "S2",
+      "x": -68,
+      "z": 24,
+      "width": 12,
+      "depth": 12,
+      "floors": 4,
+      "style": "small",
+      "sample": true
+    },
+    {
+      "id": "S3-shop",
+      "x": -45,
+      "z": 26,
+      "width": 14,
+      "depth": 16,
+      "floors": 5,
+      "style": "brick",
+      "sample": true,
+      "shop": true
+    },
+    {
+      "id": "S4",
+      "x": -22,
+      "z": 25,
+      "width": 12,
+      "depth": 14,
+      "floors": 5,
+      "style": "medium",
+      "sample": true
+    },
+    {
+      "id": "E-30--78",
+      "x": 30,
+      "z": -78,
+      "width": 24,
+      "depth": 24,
+      "floors": 7,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-46--78",
+      "x": 46,
+      "z": -78,
+      "width": 8,
+      "depth": 24,
+      "floors": 4,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-76--28",
+      "x": 76,
+      "z": -28,
+      "width": 24,
+      "depth": 20,
+      "floors": 8,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-76--78",
+      "x": 76,
+      "z": -78,
+      "width": 24,
+      "depth": 24,
+      "floors": 8,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-94--28",
+      "x": 94,
+      "z": -28,
+      "width": 8,
+      "depth": 20,
+      "floors": 5,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-94--78",
+      "x": 94,
+      "z": -78,
+      "width": 8,
+      "depth": 24,
+      "floors": 5,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-30-28",
+      "x": 30,
+      "z": 28,
+      "width": 24,
+      "depth": 20,
+      "floors": 7,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-30-78",
+      "x": 30,
+      "z": 78,
+      "width": 24,
+      "depth": 24,
+      "floors": 7,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-46-28",
+      "x": 46,
+      "z": 28,
+      "width": 8,
+      "depth": 20,
+      "floors": 4,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-46-78",
+      "x": 46,
+      "z": 78,
+      "width": 8,
+      "depth": 24,
+      "floors": 4,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-76-28",
+      "x": 76,
+      "z": 28,
+      "width": 24,
+      "depth": 20,
+      "floors": 8,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-76-78",
+      "x": 76,
+      "z": 78,
+      "width": 24,
+      "depth": 24,
+      "floors": 8,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-94-28",
+      "x": 94,
+      "z": 28,
+      "width": 8,
+      "depth": 20,
+      "floors": 5,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "E-94-78",
+      "x": 94,
+      "z": 78,
+      "width": 8,
+      "depth": 24,
+      "floors": 5,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "W--82--80",
+      "x": -82,
+      "z": -80,
+      "width": 28,
+      "depth": 24,
+      "floors": 5,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "W--82-80",
+      "x": -82,
+      "z": 80,
+      "width": 28,
+      "depth": 24,
+      "floors": 5,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "W--37--80",
+      "x": -37,
+      "z": -80,
+      "width": 30,
+      "depth": 24,
+      "floors": 8,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "W--37-80",
+      "x": -37,
+      "z": 80,
+      "width": 30,
+      "depth": 24,
+      "floors": 8,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "W-back--82--45",
+      "x": -82,
+      "z": -45,
+      "width": 28,
+      "depth": 10,
+      "floors": 3,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "W-back--82-45",
+      "x": -82,
+      "z": 45,
+      "width": 28,
+      "depth": 10,
+      "floors": 3,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "rear--47--45",
+      "x": -47,
+      "z": -45,
+      "width": 10,
+      "depth": 10,
+      "floors": 3,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "rear--20--45",
+      "x": -20,
+      "z": -45,
+      "width": 8,
+      "depth": 10,
+      "floors": 3,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "rear--47-45",
+      "x": -47,
+      "z": 45,
+      "width": 10,
+      "depth": 10,
+      "floors": 3,
+      "style": "massing",
+      "sample": false
+    },
+    {
+      "id": "rear--20-45",
+      "x": -20,
+      "z": 45,
+      "width": 8,
+      "depth": 10,
+      "floors": 3,
+      "style": "massing",
+      "sample": false
+    }
+  ],
+  "nodes": [
+    {
+      "id": "service-alley",
+      "bounds": [
+        -33,
+        -28,
+        -54,
+        -18
+      ],
+      "use": "5 m north service alley; connects secondary street"
+    },
+    {
+      "id": "campus-entry",
+      "bounds": [
+        -38,
+        -28,
+        18,
+        52
+      ],
+      "use": "10 m campus entry with courtyard and rear pedestrian connection"
+    },
+    {
+      "id": "river-overlook",
+      "bounds": [
+        -10,
+        10,
+        -98,
+        -84
+      ],
+      "use": "reachable northern overlook toward distant river and bridge"
+    },
+    {
+      "id": "plaza",
+      "bounds": [
+        16,
+        50,
+        -50,
+        -16
+      ],
+      "use": "eastern neighborhood plaza"
+    }
+  ],
+  "routes": {
+    "walk": [
+      [
+        -86,
+        12
+      ],
+      [
+        -65,
+        12
+      ],
+      [
+        -50,
+        12
+      ],
+      [
+        -26,
+        12
+      ],
+      [
+        -26,
+        0
+      ],
+      [
+        -30.5,
+        0
+      ],
+      [
+        -30.5,
+        -24
+      ],
+      [
+        -30.5,
+        -50
+      ]
+    ],
+    "campus": [
+      [
+        -26,
+        0
+      ],
+      [
+        -26,
+        12
+      ],
+      [
+        -31,
+        12
+      ],
+      [
+        -31,
+        30
+      ],
+      [
+        -31,
+        48
+      ]
+    ],
+    "flight": [
+      [
+        -30.5,
+        12,
+        -26
+      ],
+      [
+        -30.5,
+        12,
+        -54
+      ],
+      [
+        -58,
+        12,
+        -54
+      ],
+      [
+        -58,
+        29,
+        -54
+      ],
+      [
+        -70,
+        29,
+        -25
+      ],
+      [
+        -58,
+        32,
+        0
+      ]
+    ],
+    "roofLandings": [
+      [
+        -43,
+        22,
+        -26
+      ],
+      [
+        -45,
+        19,
+        26
+      ],
+      [
+        -70,
+        22,
+        -25
+      ]
+    ]
+  },
+  "budget": {
+    "sampleBuildings": 8,
+    "untexturedMassing": 24,
+    "maxRuntimeTriangles": 650000,
+    "textureMax": 2048
+  }
+}

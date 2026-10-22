@@ -2,6 +2,8 @@ import * as T from 'three';
 import { type Physics, R } from '../core/Physics';
 import { v, vec } from '../core/math';
 import { CONFIG } from '../core/config';
+import { BloodImpact } from './BloodImpact';
+import { ImpactRemnant } from './ImpactRemnant';
 interface Effect {
     mesh: T.Mesh | T.Sprite;
     life: number;
@@ -22,10 +24,14 @@ export class Effects {
     laserLights: T.PointLight[] = [];
     smoke: T.CanvasTexture;
     wind: T.LineSegments;
+    blood: BloodImpact;
+    impactRemnant: ImpactRemnant;
     constructor(
         public group: T.Group,
         public physics: Physics,
     ) {
+        this.blood=new BloodImpact(group,physics);
+        this.impactRemnant=new ImpactRemnant(group);
         const canvas=document.createElement('canvas');canvas.width=canvas.height=128;
         const context=canvas.getContext('2d')!;
         for(let i=0;i<9;i++) {
@@ -103,9 +109,10 @@ export class Effects {
         for (const b of [...this.beams, ...this.halos]) b.visible = false;
         this.laserLights.forEach(l=>l.intensity=0);
     }
-    speedTrails(position: T.Vector3, velocity: T.Vector3, time: number) {
+    speedTrails(position: T.Vector3, velocity: T.Vector3, time: number, groundBoost = false) {
         const speed = velocity.length();
-        this.wind.visible = speed > 18;
+        const strength = groundBoost ? T.MathUtils.smoothstep(speed, CONFIG.walk, CONFIG.sprint) : 0;
+        this.wind.visible = speed > 18 || strength > .01;
         if (!this.wind.visible) return;
         this.wind.position.copy(position);
         this.wind.quaternion.setFromUnitVectors(
@@ -125,12 +132,15 @@ export class Effects {
         pos.needsUpdate = true;
         (this.wind.material as T.LineBasicMaterial).opacity = Math.min(
             0.28,
-            (speed - 18) / 90,
+            Math.max((speed - 18) / 90, strength * .18),
         );
     }
     add(e: Effect) {
         this.group.add(e.mesh);
         this.list.push(e);
+    }
+    bloodImpact(point:T.Vector3,direction:T.Vector3,exclude:R.Collider,filter?:(c:R.Collider)=>boolean) {
+        this.blood.spawn(point,direction,exclude,filter ?? (c=>!this.physics.ignored.has(c.handle)));
     }
     particles(p: T.Vector3, color: number, count = 6, blood = false) {
         for (let i = 0; i < count; i++) {
@@ -244,6 +254,8 @@ export class Effects {
         this.add({ mesh: m, life: 0.08, duration: 0.08 });
     }
     update(dt: number) {
+        this.blood.update(dt);
+        this.impactRemnant.update(dt);
         for (const e of [...this.list]) {
             e.life -= dt;
             if (e.life <= 0) {
@@ -279,6 +291,8 @@ export class Effects {
         this.list.splice(this.list.indexOf(e), 1);
     }
     dispose() {
+        this.blood.dispose();
+        this.impactRemnant.dispose();
         for (const e of [...this.list]) this.remove(e);
         this.wind.geometry.dispose();
         (this.wind.material as T.Material).dispose();

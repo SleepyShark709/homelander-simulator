@@ -1,0 +1,57 @@
+{
+  "provider": "Adobe Mixamo",
+  "licenseUrl": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+  "authorization": "User logged in and explicitly requested downloading/adapting left and right turn clips on 2026-10-22",
+  "assets": [
+    {
+      "id": "turn_l",
+      "name": "Left Turn 90",
+      "filename": "turn-l-90.fbx",
+      "sha256": "4a4d1779377e3f03af75c99fd3eb8d53936d68d30fc644528682fbb4d89b9fe9",
+      "bytes": 1839600,
+      "description": "Standing Left Turn",
+      "source": "https://www.mixamo.com/#/?page=1&query=turn",
+      "character": "X Bot",
+      "export": {
+        "format": "FBX Binary",
+        "skin": "With Skin",
+        "fps": 30,
+        "keyframeReduction": "none",
+        "overdrive": 50,
+        "armSpace": 50,
+        "trim": [
+          0,
+          100
+        ],
+        "mirror": false
+      },
+      "retrieved": "2026-10-22",
+      "license": "Adobe Mixamo royalty-free game usage; not CC0"
+    },
+    {
+      "id": "turn_r",
+      "name": "Right Turn 90",
+      "filename": "turn-r-90.fbx",
+      "sha256": "d785705dd71cd43f1a6593d9213e0c04adee4ddeee6893476f2ff28ec5ba5068",
+      "bytes": 1839600,
+      "description": "Standing Right Turn",
+      "source": "https://www.mixamo.com/#/?page=1&query=turn",
+      "character": "X Bot",
+      "export": {
+        "format": "FBX Binary",
+        "skin": "With Skin",
+        "fps": 30,
+        "keyframeReduction": "none",
+        "overdrive": 50,
+        "armSpace": 50,
+        "trim": [
+          0,
+          100
+        ],
+        "mirror": false
+      },
+      "retrieved": "2026-10-22",
+      "license": "Adobe Mixamo royalty-free game usage; not CC0"
+    }
+  ]
+}

@@ -1,0 +1,638 @@
+{
+  "layout": {
+    "version": 1,
+    "units": "metres",
+    "axes": "Y-up, street sample along +X",
+    "core": [
+      -100,
+      100,
+      -100,
+      100
+    ],
+    "sample": [
+      -86,
+      -20,
+      -38,
+      48
+    ],
+    "sampleLength": 66,
+    "floorHeight": 3,
+    "groundFloorHeight": 4,
+    "frontSetback": 18,
+    "roads": [
+      [
+        -300,
+        300,
+        -10,
+        10
+      ],
+      [
+        -10,
+        10,
+        -300,
+        300
+      ],
+      [
+        -100,
+        100,
+        -62,
+        -54
+      ],
+      [
+        -100,
+        100,
+        54,
+        62
+      ],
+      [
+        -62,
+        -54,
+        -100,
+        100
+      ],
+      [
+        54,
+        62,
+        -100,
+        100
+      ]
+    ],
+    "plots": [
+      {
+        "id": "N1",
+        "x": -85,
+        "z": -27,
+        "width": 12,
+        "depth": 18,
+        "floors": 4,
+        "style": "small",
+        "sample": true
+      },
+      {
+        "id": "N2",
+        "x": -70,
+        "z": -25,
+        "width": 14,
+        "depth": 14,
+        "floors": 6,
+        "style": "medium",
+        "sample": true
+      },
+      {
+        "id": "N3-shop",
+        "x": -43,
+        "z": -26,
+        "width": 20,
+        "depth": 16,
+        "floors": 6,
+        "style": "brick",
+        "sample": true,
+        "shop": true
+      },
+      {
+        "id": "N4",
+        "x": -22,
+        "z": -24,
+        "width": 12,
+        "depth": 12,
+        "floors": 4,
+        "style": "small",
+        "sample": true
+      },
+      {
+        "id": "S1",
+        "x": -84,
+        "z": 26,
+        "width": 20,
+        "depth": 16,
+        "floors": 7,
+        "style": "large",
+        "sample": true
+      },
+      {
+        "id": "S2",
+        "x": -68,
+        "z": 24,
+        "width": 12,
+        "depth": 12,
+        "floors": 4,
+        "style": "small",
+        "sample": true
+      },
+      {
+        "id": "S3-shop",
+        "x": -45,
+        "z": 26,
+        "width": 14,
+        "depth": 16,
+        "floors": 5,
+        "style": "brick",
+        "sample": true,
+        "shop": true
+      },
+      {
+        "id": "S4",
+        "x": -22,
+        "z": 25,
+        "width": 12,
+        "depth": 14,
+        "floors": 5,
+        "style": "medium",
+        "sample": true
+      },
+      {
+        "id": "E-30--78",
+        "x": 30,
+        "z": -78,
+        "width": 24,
+        "depth": 24,
+        "floors": 7,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-46--78",
+        "x": 46,
+        "z": -78,
+        "width": 8,
+        "depth": 24,
+        "floors": 4,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-76--28",
+        "x": 76,
+        "z": -28,
+        "width": 24,
+        "depth": 20,
+        "floors": 8,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-76--78",
+        "x": 76,
+        "z": -78,
+        "width": 24,
+        "depth": 24,
+        "floors": 8,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-94--28",
+        "x": 94,
+        "z": -28,
+        "width": 8,
+        "depth": 20,
+        "floors": 5,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-94--78",
+        "x": 94,
+        "z": -78,
+        "width": 8,
+        "depth": 24,
+        "floors": 5,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-30-28",
+        "x": 30,
+        "z": 28,
+        "width": 24,
+        "depth": 20,
+        "floors": 7,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-30-78",
+        "x": 30,
+        "z": 78,
+        "width": 24,
+        "depth": 24,
+        "floors": 7,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-46-28",
+        "x": 46,
+        "z": 28,
+        "width": 8,
+        "depth": 20,
+        "floors": 4,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-46-78",
+        "x": 46,
+        "z": 78,
+        "width": 8,
+        "depth": 24,
+        "floors": 4,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-76-28",
+        "x": 76,
+        "z": 28,
+        "width": 24,
+        "depth": 20,
+        "floors": 8,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-76-78",
+        "x": 76,
+        "z": 78,
+        "width": 24,
+        "depth": 24,
+        "floors": 8,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-94-28",
+        "x": 94,
+        "z": 28,
+        "width": 8,
+        "depth": 20,
+        "floors": 5,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "E-94-78",
+        "x": 94,
+        "z": 78,
+        "width": 8,
+        "depth": 24,
+        "floors": 5,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "W--82--80",
+        "x": -82,
+        "z": -80,
+        "width": 28,
+        "depth": 24,
+        "floors": 5,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "W--82-80",
+        "x": -82,
+        "z": 80,
+        "width": 28,
+        "depth": 24,
+        "floors": 5,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "W--37--80",
+        "x": -37,
+        "z": -80,
+        "width": 30,
+        "depth": 24,
+        "floors": 8,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "W--37-80",
+        "x": -37,
+        "z": 80,
+        "width": 30,
+        "depth": 24,
+        "floors": 8,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "W-back--82--45",
+        "x": -82,
+        "z": -45,
+        "width": 28,
+        "depth": 10,
+        "floors": 3,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "W-back--82-45",
+        "x": -82,
+        "z": 45,
+        "width": 28,
+        "depth": 10,
+        "floors": 3,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "rear--47--45",
+        "x": -47,
+        "z": -45,
+        "width": 10,
+        "depth": 10,
+        "floors": 3,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "rear--20--45",
+        "x": -20,
+        "z": -45,
+        "width": 8,
+        "depth": 10,
+        "floors": 3,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "rear--47-45",
+        "x": -47,
+        "z": 45,
+        "width": 10,
+        "depth": 10,
+        "floors": 3,
+        "style": "massing",
+        "sample": false
+      },
+      {
+        "id": "rear--20-45",
+        "x": -20,
+        "z": 45,
+        "width": 8,
+        "depth": 10,
+        "floors": 3,
+        "style": "massing",
+        "sample": false
+      }
+    ],
+    "nodes": [
+      {
+        "id": "service-alley",
+        "bounds": [
+          -33,
+          -28,
+          -54,
+          -18
+        ],
+        "use": "5 m north service alley; connects secondary street"
+      },
+      {
+        "id": "campus-entry",
+        "bounds": [
+          -38,
+          -28,
+          18,
+          52
+        ],
+        "use": "10 m campus entry with courtyard and rear pedestrian connection"
+      },
+      {
+        "id": "river-overlook",
+        "bounds": [
+          -10,
+          10,
+          -98,
+          -84
+        ],
+        "use": "reachable northern overlook toward distant river and bridge"
+      },
+      {
+        "id": "plaza",
+        "bounds": [
+          16,
+          50,
+          -50,
+          -16
+        ],
+        "use": "eastern neighborhood plaza"
+      }
+    ],
+    "routes": {
+      "walk": [
+        [
+          -86,
+          12
+        ],
+        [
+          -65,
+          12
+        ],
+        [
+          -50,
+          12
+        ],
+        [
+          -26,
+          12
+        ],
+        [
+          -26,
+          0
+        ],
+        [
+          -30.5,
+          0
+        ],
+        [
+          -30.5,
+          -24
+        ],
+        [
+          -30.5,
+          -50
+        ]
+      ],
+      "campus": [
+        [
+          -26,
+          0
+        ],
+        [
+          -26,
+          12
+        ],
+        [
+          -31,
+          12
+        ],
+        [
+          -31,
+          30
+        ],
+        [
+          -31,
+          48
+        ]
+      ],
+      "flight": [
+        [
+          -30.5,
+          12,
+          -26
+        ],
+        [
+          -30.5,
+          12,
+          -54
+        ],
+        [
+          -58,
+          12,
+          -54
+        ],
+        [
+          -58,
+          29,
+          -54
+        ],
+        [
+          -70,
+          29,
+          -25
+        ],
+        [
+          -58,
+          32,
+          0
+        ]
+      ],
+      "roofLandings": [
+        [
+          -43,
+          22,
+          -26
+        ],
+        [
+          -45,
+          19,
+          26
+        ],
+        [
+          -70,
+          22,
+          -25
+        ]
+      ]
+    },
+    "budget": {
+      "sampleBuildings": 8,
+      "untexturedMassing": 24,
+      "maxRuntimeTriangles": 650000,
+      "textureMax": 2048
+    }
+  },
+  "roofLandings": [
+    {
+      "id": "N1",
+      "point": [
+        -85,
+        16.26,
+        -27
+      ]
+    },
+    {
+      "id": "N2",
+      "point": [
+        -70,
+        22.26,
+        -25
+      ]
+    },
+    {
+      "id": "N3-shop",
+      "point": [
+        -43,
+        22.26,
+        -26
+      ]
+    },
+    {
+      "id": "N4",
+      "point": [
+        -22,
+        16.26,
+        -24
+      ]
+    },
+    {
+      "id": "S1",
+      "point": [
+        -84,
+        25.26,
+        26
+      ]
+    },
+    {
+      "id": "S2",
+      "point": [
+        -68,
+        16.26,
+        24
+      ]
+    },
+    {
+      "id": "S3-shop",
+      "point": [
+        -45,
+        19.26,
+        26
+      ]
+    },
+    {
+      "id": "S4",
+      "point": [
+        -22,
+        19.26,
+        25
+      ]
+    }
+  ],
+  "blender": "5.2.2 LTS",
+  "pipeline": "scripts/build-scene-density.py",
+  "builderSha256": "4cc5e0280471ddbf40fe8777915cd91119f1e100c5c9cc8d46fcb50062d620e1",
+  "layoutSha256": "47fcc39a79d7aaf4122dfd3fa0c652130aa6c2688d0f2983b3a6a71cc17d504a",
+  "inputsSha256": "e41450c1d8d6a2d93d9f00f8c513263bdfbf250e664f66768f4ee3ce94f94e1c",
+  "whitebox": {
+    "bytes": 56508,
+    "sha256": "06770cd4bdf1a7fbf1c3f04aeb2e100d62bddaca0d02ea7fee1e1a1f411803f5"
+  },
+  "street-sample": {
+    "bytes": 31404848,
+    "sha256": "5bc166f663d5245d2d93521455d3ceb23a811241fa8ae5b59e2d9d4eb2b2e231"
+  },
+  "seating": {
+    "bytes": 5753556,
+    "sha256": "ab8b5282a8f4cd27cbce3cd3caeb42694a9946439d08604cca15d375c84f435d"
+  },
+  "aircon": {
+    "bytes": 3509404,
+    "sha256": "911b924443ed387996ea1cb628733cff164e9c8d83daa41524a4fadfc0398cbe"
+  },
+  "quantization": {
+    "tool": "@gltf-transform/cli@4.5.1",
+    "positionBits": 16,
+    "normalBits": 16,
+    "texcoordBits": 16,
+    "colorBits": 8,
+    "source": {
+      "bytes": 41185288,
+      "sha256": "19e40782f02ac46b93ddb8f7e8b2fdf46ffc6b2af219517d6f8f6755aa9f8e65"
+    }
+  }
+}

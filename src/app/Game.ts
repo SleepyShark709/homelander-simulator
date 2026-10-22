@@ -35,6 +35,9 @@ export class Game {
     combat!: Combat;
     wanted = new Wanted();
     time = 0;
+    worldTime = 0;
+    worldScale = 1;
+    superSpeedActive = false;
     accumulator = 0;
     previous = 0;
     running = false;
@@ -69,6 +72,8 @@ export class Game {
             this.ui.playing(false, this.started);
         };
         this.input.onResume = () => {
+            this.worldScale = 1;
+            this.superSpeedActive = false;
             this.running = true;
             this.started = true;
             this.previous = performance.now();
@@ -110,10 +115,10 @@ export class Game {
     async init() {
         this.ui.progress('初始化物理引擎', 5);
         await R.init();
-        await this.assets.load((name, pct) => this.ui.progress(name, pct));
+        await this.assets.load((name, pct) => this.ui.progress(name, pct), this.renderer);
         prewarmRagdolls(this.assets.models.get('civilian2')!.scene);
         this.ui.progress('准备城市反射与光照', 94);
-        await this.lighting.loadEnvironment();
+        await this.lighting.loadEnvironment(this.assets.graffitiTrial || this.assets.graffitiCity);
         this.reset();
         this.resize();
         this.ui.ready();
@@ -126,6 +131,9 @@ export class Game {
         this.input.clear();
         this.generation++;
         this.time = 0;
+        this.worldTime = 0;
+        this.worldScale = 1;
+        this.superSpeedActive = false;
         this.accumulator = 0;
         this.wanted.reset();
         if (this.world) {
@@ -190,16 +198,25 @@ export class Game {
     step() {
         const dt = CONFIG.step;
         this.time += dt;
+        this.superSpeedActive = this.player.superSpeedRequested;
+        const target = this.superSpeedActive ? CONFIG.superSpeed.worldScale : 1;
+        const ramp = dt * (1 - CONFIG.superSpeed.worldScale) /
+            (this.superSpeedActive ? CONFIG.superSpeed.enterTime : CONFIG.superSpeed.exitTime);
+        this.worldScale += T.MathUtils.clamp(target - this.worldScale, -ramp, ramp);
+        const worldDt = dt * this.worldScale;
+        this.worldTime += worldDt;
+        this.physics.world.timestep = worldDt;
         this.combat.time = this.time;
+        this.combat.worldTime = this.worldTime;
         this.player.step(dt);
-        this.npcs.update(dt, this.time);
+        this.npcs.update(worldDt, this.worldTime);
         this.physics.world.step();
         this.world.sync();
         this.player.sync();
         this.camera.update(dt, false);
         this.combat.update(dt, this.time);
-        this.effects.update(dt);
-        this.wanted.update(dt);
+        this.effects.update(worldDt);
+        this.wanted.update(worldDt);
     }
     frame(now: number) {
         if (this.inspectionFrozen) {
@@ -233,12 +250,14 @@ export class Game {
                 this.player.visual.group.position.clone().add(v(0,1,0)),
                 this.player.renderVelocity,
                 renderTime,
+                this.player.mode === 'ground' && this.superSpeedActive,
             );
         } else {
             this.player.sync();
             this.effects.wind.visible = false;
             this.camera.update(elapsed, true);
         }
+        this.world.updateScenery?.(this.camera.camera);
         const updateEnd = performance.now();
         this.presentation!.render(elapsed);
         if (this.running) {
@@ -264,7 +283,7 @@ export class Game {
                   ? '接近飞行高度上限'
                   : '';
         const modes = {
-            ground: '地面',
+            ground: this.superSpeedActive ? '超级速度 · 慢动作' : '地面',
             jump: '跳跃',
             takeoff: '蓄力起飞',
             fly: p.velocity.length() > 18 ? '加速飞行' : '空中悬停',
@@ -316,6 +335,9 @@ export class Game {
     snapshot() {
         return {
             time: this.time,
+            worldTime: this.worldTime,
+            worldScale: this.worldScale,
+            superSpeed: this.superSpeedActive,
             generation: this.generation,
             running: this.running,
             position: this.player.position.toArray(),

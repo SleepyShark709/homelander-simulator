@@ -1,0 +1,211 @@
+{
+  "source": "public/assets/human/homelander.glb",
+  "sha256": "5696284d3e8276af7a8b213492ef5ddba38ede4df5f33945154764367ed4129b",
+  "samples": {
+    "l": {
+      "heel": [
+        42747,
+        42755,
+        42756,
+        42757,
+        42784,
+        42785
+      ],
+      "toe": [
+        25830,
+        25677,
+        25678,
+        25679,
+        25829,
+        25665
+      ]
+    },
+    "r": {
+      "heel": [
+        17939,
+        17940,
+        18008,
+        18009,
+        18012,
+        18013
+      ],
+      "toe": [
+        100,
+        226,
+        227,
+        99,
+        68,
+        69
+      ]
+    }
+  },
+  "method": "fixed skin vertex clusters; near-lowest height and backward material-point motion; candidate windows pending visual calibration",
+  "visualCalibration": "pending current side-view verification",
+  "clips": {
+    "walk": {
+      "baseSpeed": 1.05,
+      "leftContact": 0.6666666666666666,
+      "rightContact": 0,
+      "supportCandidates": {
+        "l": {
+          "heel": {
+            "windows": [
+              [
+                0,
+                0.03333333333333333
+              ],
+              [
+                0.8916666666666667,
+                1.3
+              ]
+            ],
+            "naturalSpeed": 0.963341997303621
+          },
+          "toe": {
+            "windows": [
+              [
+                0,
+                0.15
+              ],
+              [
+                1.2083333333333333,
+                1.3
+              ]
+            ],
+            "naturalSpeed": 0.669940626022205
+          }
+        },
+        "r": {
+          "heel": {
+            "windows": [
+              [
+                0,
+                0.6166666666666667
+              ]
+            ],
+            "naturalSpeed": 1.1506286697405155
+          },
+          "toe": {
+            "windows": [
+              [
+                0.6083333333333333,
+                0.7666666666666667
+              ]
+            ],
+            "naturalSpeed": 0.5390721613016174
+          }
+        }
+      }
+    },
+    "jog": {
+      "baseSpeed": 4.98,
+      "leftContact": 0.23333333333333334,
+      "rightContact": 0.6,
+      "supportCandidates": {
+        "l": {
+          "heel": {
+            "windows": [
+              [
+                0.24166666666666667,
+                0.26666666666666666
+              ],
+              [
+                0.275,
+                0.38333333333333336
+              ]
+            ],
+            "naturalSpeed": 4.872887604724424
+          },
+          "toe": {
+            "windows": [
+              [
+                0.3416666666666667,
+                0.43333333333333335
+              ]
+            ],
+            "naturalSpeed": 5.202163154434195
+          }
+        },
+        "r": {
+          "heel": {
+            "windows": [
+              [
+                0,
+                0.025
+              ],
+              [
+                0.5833333333333334,
+                0.699999988079071
+              ]
+            ],
+            "naturalSpeed": 4.816275041775396
+          },
+          "toe": {
+            "windows": [
+              [
+                0,
+                0.075
+              ],
+              [
+                0.675,
+                0.699999988079071
+              ]
+            ],
+            "naturalSpeed": 5.475273969409432
+          }
+        }
+      }
+    },
+    "sprint": {
+      "baseSpeed": 6.2,
+      "leftContact": 0.13333333333333333,
+      "rightContact": 0.43333333333333335,
+      "supportCandidates": {
+        "l": {
+          "heel": {
+            "windows": [
+              [
+                0.15833333333333333,
+                0.26666666666666666
+              ]
+            ],
+            "naturalSpeed": 6.288455685355562
+          },
+          "toe": {
+            "windows": [
+              [
+                0.225,
+                0.30833333333333335
+              ]
+            ],
+            "naturalSpeed": 6.637516573606687
+          }
+        },
+        "r": {
+          "heel": {
+            "windows": [
+              [
+                0.43333333333333335,
+                0.5333333611488342
+              ]
+            ],
+            "naturalSpeed": 5.949194209240652
+          },
+          "toe": {
+            "windows": [
+              [
+                0,
+                0.058333333333333334
+              ],
+              [
+                0.5083333333333333,
+                0.5333333611488342
+              ]
+            ],
+            "naturalSpeed": 6.116331765747088
+          }
+        }
+      }
+    }
+  }
+}

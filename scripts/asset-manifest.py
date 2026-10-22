@@ -10,6 +10,7 @@ sources = {
     'city': {'author': 'Kenney', 'url': 'https://kenney.nl/assets/city-kit-commercial', 'license': 'CC0-1.0', 'licenseFile': 'licenses/kenney-city.txt'},
     'cars': {'author': 'Kenney', 'url': 'https://kenney.nl/assets/car-kit', 'license': 'CC0-1.0', 'licenseFile': 'licenses/kenney-cars.txt'},
     'jiangwan': {'author': 'Project original environment / user supplied Tripo vehicles', 'license': 'Project original / user supplied; no third-party redistribution license asserted', 'licenseFile': 'licenses/jiangwan-source.txt', 'pipeline': ['scripts/build-jiangwan.py']},
+    'scene-density': {'author': 'Project layout / Quaternius / Monsta3D / Stuart Attenborrow', 'license': 'Project original layout; CC0-1.0 asset components', 'licenseFile': 'licenses/scene-density.txt', 'pipeline': ['scripts/fetch-scene-density.py', 'scripts/build-scene-density.py', 'scripts/pack-scene-density.py'], 'sourceRecord': 'scene-density/sources.json'},
     'human': {'author': 'Mesh2Motion / contributors', 'url': 'https://github.com/Mesh2Motion/mesh2motion-app', 'license': 'CC0-1.0', 'licenseFile': 'licenses/mesh2motion-cc0.txt', 'motionLicenseFile': 'licenses/mesh2motion-cc0.txt', 'pipeline': ['scripts/pack-native-character.mjs'], 'sourceRepository': 'https://github.com/Mesh2Motion/mesh2motion-app', 'motionRepository': 'https://github.com/Mesh2Motion/mesh2motion-app'},
 }
 polyhaven = {
@@ -49,15 +50,21 @@ for p in sorted(assets.rglob('*')):
     if p.suffix.lower() not in ('.glb', '.gltf', '.bin', '.png', '.jpg', '.hdr'):
         continue
     rel = p.relative_to(assets)
+    # The approved local Graffiti Stairs trial has a separate private inventory.
+    # It is not a shipped/redistributable project asset.
+    if rel.parts[0] in ('graffiti-stairs', 'graffiti-city'):
+        continue
     data = p.read_bytes()
     entry = {'path': str(rel), 'sha256': hashlib.sha256(data).hexdigest(), 'bytes': len(data), 'retainedReference': rel.parts[0] in ('characters', 'city', 'cars')}
     if rel.parts[0] in sources:
         entry.update(sources[rel.parts[0]])
-        if str(rel) == 'human/homelander.glb':
+        if str(rel) in ('human/homelander.glb', 'human/homelander-style.glb'):
             entry.update(author='User supplied Tripo model; Adobe Mixamo and Mesh2Motion motions',
                 url='https://www.tripo3d.ai/', license='User supplied model / mixed motion licenses',
                 licenseFile='licenses/homelander-source.txt', motionLicenseFile='licenses/homelander-source.txt',
-                pipeline=['scripts/adapt-homelander.py', 'scripts/pack-homelander.mjs'])
+                pipeline=['scripts/adapt-homelander.py', 'scripts/pack-homelander.mjs'] +
+                    (['scripts/build-homelander-style.py', 'scripts/pack-homelander-style.mjs']
+                     if str(rel) == 'human/homelander-style.glb' else []))
             entry.pop('sourceRepository')
             entry.pop('motionRepository')
         if rel.parts[0] == 'human' and p.suffix != '.glb':

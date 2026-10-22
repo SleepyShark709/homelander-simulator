@@ -1,6 +1,6 @@
 # 素材与模型账本
 
-核验日期：2026-10-18。用户最新提供 Tripo 祖国人和十份 Mixamo 动作并授权接入。当前主角为 `human/homelander.glb`，NPC 继续使用 Mesh2Motion base。当前证据与重建见 [祖国人接入](./HOMELANDER_INTEGRATION.md)。
+核验日期：2026-10-22（人物修正版；场景证据按对应章节）。用户最新提供 Tripo 祖国人和十份 Mixamo 动作并授权接入。当前默认主角为 `human/homelander-style.glb`，原 `human/homelander.glb` 保留基线，NPC 继续使用 Mesh2Motion base。当前证据与重建见 [祖国人接入](./HOMELANDER_INTEGRATION.md)。
 
 ## 当前主角
 
@@ -16,7 +16,39 @@
 
 运行 GLB 使用四权重线性蒙皮；Blender 参考按同一表示生成。原披风仍为上背单骨绑定，打包只新增披风连通分量的 JSON 元数据，BIN 内的网格、权重、动作和纹理不变。浏览器克隆几何后用 231 节点 XPBD 驱动披风，不改源缓存或身体顶点，不做布料自碰撞。来源、适配器、原始动作和参考数据的校验值位于 `.asset-source/homelander/provenance.json`，其中 `rawBinSha256` 固定原始 BIN。普通运行与测试不依赖 Blender 或 Downloads 目录。
 
-## 当前环境与车辆（2026-10-17）
+## 2026-10-22 默认自然动作包
+
+`human/homelander-style.glb` 当前为 33,238,136 字节、68 骨骼、42 片段；SHA-256 `34eff29071cd579a0b0a5972fae29256de268fa4ffc6cc0fda50a23b547b90fa`。原 18 段、网格/蒙皮/绑定/PBR/纹理通过打包器逐字节保留。新增 24 段中，2 段为未编辑的正式适配源，22 段通过 NLA、相位裁切、约束、全角色转向轨迹分离和 Bake 编辑生成。用户 Mixamo 与含该来源的编辑动作均不标为 CC0。
+
+用户最新手部反馈后，A 待机替换为 Mixamo `Idle`（Standing Idle，251 帧），B 和四段起停复用此源。新 FBX/来源在 `.asset-source/homelander/idle/`，左右转身在 `turns/`，许可保留 Adobe Mixamo 游戏使用范围。新自然度仍待审看。
+
+增加平视且放松肩臂的 A 贴身飞行、直立自然下落、A/B 飞行衔接、四段左右起停、两段 Mixamo 转身，以及接触点裁切/释放背手的落地片段。可编辑工程、逐帧全身参考、`style-build.json` 和 `locomotion-contract.json` 均作为固定源保留；输入摘要包含原 adapter、构建脚本、接触合同、左右转身和新站立待机的固定 FBX/来源清单。当前默认 `natural`，旧 A/B 与 `baseline` 查询保留。正式 IK 腿部对照未改善全部足部而被放弃，未将 IK 试验片段接入运行包。
+
+本轮补齐 Mixamo Left Strafe / Right Strafe / Running Backward，固定来源在 `.asset-source/homelander/directional/`。方向下肢叠加现成 Standing Idle 上肢，经 NLA/ARP 烘焙并保留 IK/FK 自定义切换属性；没有手写人体姿态。验证、实机录像与完整足部验收边界见 [动作审查](HOMELANDER_ANIMATION_REVIEW.md)。下节为历史 A1 数据。
+
+## 2026-10-21 主角 A1 动作样板（历史）
+
+`human/homelander-style.glb` 为独立审看资源，31,035,496 字节、68 骨骼、26 段动作。默认游戏仍使用原 `homelander.glb`；仅 `heroStyle=restrained` / `commanding` 加载样板。原网格、权重、绑定、三张纹理、PBR 配置与关联及原 18 段动作采样逐字节保留，未重新绑骨或替换主角外形。
+
+新增两段来自固定 CC0 addon 的 `Idle_Subtle` 与 `Flying Forward Super`，通过原 ARP Remap/Universal 正式适配；另六段使用既有待机/悬停/飞行与用户 Mixamo 背手姿势的控制通道，通过 Blender NLA 组合、Bake Action 和 ARP 求解导出。后六段明确 `keyframesAuthoredHere:true`，混合许可仍保留用户资产限制，未标作 CC0；没有逐骨骼写角度或运行时姿态补丁。
+
+可编辑 NLA 工程、逐片段来源/编辑记录与摘要、新 Blender 蒙皮参考分别为 `.asset-source/homelander/style-editable.blend`、`style-build.json`、`style-reference.json.gz`；构建入口 `scripts/build-homelander-style.py` / `pack-homelander-style.mjs`。前置中间工程由原 `adapt-homelander.py` 从固定输入重建，校验输入后才使用。Blender MCP 2.2.2 和 ARP 均为本机开发工具，不进入游戏或仓库分发。验证与当前审美差距见 [动作审查](HOMELANDER_ANIMATION_REVIEW.md)。
+
+## 2026-10-22 Graffiti 全城派生资源
+
+用户已认可 Graffiti Stairs 本机质感并授权接入原地图、全城扩建及 Blender MCP 修改。默认约 200×200 米核心为 65 栋写实建筑，外围 336 栋同套 L2 远景，保留原楼梯街角；六类原型复用 510 张现有 KTX2/PBR，不按实例复制纹理。新增闭合入口、一处首层窗转换、庭院、两处可破门商铺与现有车辆交互。源工程、脚本/哈希、实际验证与未测边界见[全城记录](GRAFFITI_CITY_INTEGRATION.md)。两个 Graffiti 资源目录均仅本机私有，不标 CC0、不进公开 manifest；本轮无新增购买或部署。以下 66 米样板段为历史。
+
+## 2026-10-21 场景密度样板
+
+已获取并核对用户批准的 A01 Standard、A04、A05，全部 CC0；原始 glTF/Blend、包内许可、官方 API、逐文件 MD5/SHA-256 和米制布局保留在 `.asset-source/scene-density/`。A01 实际免费包为 153 个 glTF，未采用 Pro/Source。作者分别为 Quaternius、Monsta3D、Stuart Attenborrow；许可和固定下载记录见 `public/assets/licenses/scene-density.txt`、`scene-density/sources.json`。
+
+使用 Blender MCP / Blender 5.2.2 组装 66 米双侧街道：八栋砖楼、两处独立玻璃商铺、服务巷、园区入口、四面立面与屋顶。样板直接视线的背景使用简化砖面/窗口过渡，其他区域仍为 D2 白模；D7 未获用户认可。江湾远景/河桥和三类用户车辆复用，原 district 输入与车辆文件保持原样。
+
+`scene-density/street-sample.glb` 为 31,404,848 字节；A04 单台外机与 A05 组合座椅分别导出 `aircon.glb` / `seating.glb`，均为独立可破坏实体。原始纹理保持 1K，PNG 不再压损；glTF Transform 4.5.1 对网格量化，最终逐点比较 624,553 顶点，最大位置差约 2.40 毫米，9 张纹理字节与碰撞/交互元数据一致。工程为 `street-sample.blend`，构建入口为 `fetch-scene-density.py` → `build-scene-density.py`（Blender MCP）→ `pack-scene-density.py` → `asset-manifest.py`。
+
+采集、失败与验收记录见 [场景密度样板](SCENE_DENSITY_REVIEW.md)。资源统计与离线检查不替代实际通行、破坏、暂停/重置及用户画面审看。
+
+## 江湾环境与车辆复用基线（2026-10-17）
 
 环境改为本项目在 Blender 5.2.2 中制作的江湾城，参考用户图片的中国滨江街景，并采用简化 GTA 风格。八栋主体、屋顶细节、树木、公交站、高架、江岸及桥梁导出为 `jiangwan/district.glb`，源工程为 `.asset-source/jiangwan/jiangwan.blend`。原始参考图不作为运行纹理，未使用 GTA 原版资源。
 
@@ -93,3 +125,11 @@ python3 scripts/asset-manifest.py
 Kenney [Blocky Characters](https://kenney.nl/assets/blocky-characters)、[City Kit](https://kenney.nl/assets/city-kit-commercial)、[Car Kit](https://kenney.nl/assets/car-kit) 作为早期参考保留，均 CC0，清单标记 `retainedReference`，许可在 `licenses/kenney-*.txt`。当前 NPC 使用 Mesh2Motion，主角来源见上文。
 
 NPC 是作者提供的简化 mannequin。未使用 UNDEFEATED 的模型、动画或其他美术素材。
+
+## Graffiti Stairs 免费写实本机试用（2026-10-22）
+
+用户已认可 Bala 展示并授权试用；2K FBX 总价 US$0，已领取并离线转换为 Three.js glTF/KTX2，入口为 `?scene=graffiti`。采用完整小场景，约 28 × 52 米；保留源尺寸的 PBR、真实建筑比例、楼梯/栏杆与售货亭。来源、包哈希、加工与实机边界见 [试用记录](GRAFFITI_STAIRS_TRIAL.md)。
+
+原输入在 `.asset-source/graffiti-stairs/`，本机运行文件在 `public/assets/graffiti-stairs/`；两者均忽略，不列入公开 `assets/manifest.json`，另有本机 `build.json`。源场景为作者 Royalty Free，不是 CC0；保留原 README、Poly Haven 信用与 Basis 转码器说明。未确认公开模型/Web 分发许可，不作线上交付或部署。默认入口从干净源码启动不依赖这份私有包。
+
+目前仅试用新环境，原主角、NPC 与车辆来源保持原状；新墙体/玻璃尚未拆出可破坏实体，窄梯步行适配未通过。不能据此关闭 D6 或推广 D7。

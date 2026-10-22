@@ -6,18 +6,20 @@ fs.mkdirSync('.artifacts',{recursive:true});
 const browser=await chromium.launch({channel:'chrome',headless:true,args:['--use-angle=metal']});
 const page=await browser.newPage({viewport:{width:1200,height:900}}),errors=[];
 page.on('pageerror',e=>errors.push(e.message));
-await page.goto('http://127.0.0.1:5173/?preview=character');
+await page.goto(process.argv[3]??'http://127.0.0.1:5173/?preview=character');
 await page.waitForFunction(()=>window.studio?.person,{timeout:45000});
 const report=await page.evaluate(async()=>{
     const T=await import('/node_modules/.vite/deps/three.js');
+    const {CONFIG}=await import('/src/core/config.ts');
     const s=window.studio,p=s.person;s.renderer.setAnimationLoop(null);
     // This checks source cycles; cape dynamics have a separate physical regression.
     if(p.cape){p.cape.enabled=false;p.cape.reset();}
     const bones=[];let mesh;p.model.traverse(o=>{if(o.isBone)bones.push(o);if(o.isSkinnedMesh)mesh=o;});
     const checks=[];
-    for(const name of ['idle','walk','jog','sprint','hover','fly','laser_hip','laser_back']){
+    for(const name of ['idle','walk','jog','sprint','hover','fly','laser_hip','laser_back','strafe_l','strafe_r','backpedal',...[...p.actions.keys()].filter(name=>name.startsWith('style_') && name!=='style_land_from_back')].filter(name=>p.actions.has(name))){
         p.mixer.stopAllAction();p.current='';p.play(name);
-        const action=p.actions.get(name),rate=['jog','sprint'].includes(name)?1.35:1;
+        const action=p.actions.get(name),rate=['strafe_l','strafe_r','backpedal'].includes(name)?CONFIG.playerAimAnimationRateMax:
+            ['jog','sprint'].includes(name)?CONFIG.playerRunAnimationRateMax:1;
         action.setEffectiveTimeScale(rate).setLoop(T.LoopRepeat,Infinity);
         p.model.position.set(0,0,0);p.model.rotation.set(0,0,0);
         let previous,maxJointStep=0,maxSkinStep=0,previousSkin,finite=true;

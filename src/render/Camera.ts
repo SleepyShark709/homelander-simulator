@@ -2,6 +2,7 @@ import * as T from 'three';
 import type { Player } from '../characters/Player';
 import { type Physics, R } from '../core/Physics';
 import { v } from '../core/math';
+import { CONFIG } from '../core/config';
 export class FollowCamera {
     camera = new T.PerspectiveCamera(62, innerWidth / innerHeight, 0.1, 600);
     constructor(
@@ -24,6 +25,8 @@ export class FollowCamera {
             this.camera.lookAt(p.position.clone().add(v(-2.5, 0.3, 0)));
             return;
         }
+        const groundBoost = p.mode === 'ground' && p.superSpeedRequested
+            ? T.MathUtils.smoothstep(speed, CONFIG.walk, CONFIG.sprint) : 0;
         const dir = p.direction(),
             right = v(-dir.z, 0, dir.x).normalize();
         const desired = dir
@@ -31,7 +34,8 @@ export class FollowCamera {
             .multiplyScalar(
                 -(
                     5.2 +
-                    T.MathUtils.smoothstep(speed, 12, 40) * 2.0
+                    T.MathUtils.smoothstep(speed, 12, 40) * 2.0 +
+                    groundBoost * CONFIG.superSpeed.groundCameraDistance
                 ),
             )
             .addScaledVector(right, 0.85)
@@ -68,7 +72,7 @@ export class FollowCamera {
             this.camera.rotateZ(p.visual.model.rotation.z * 0.22);
         if (interpolated) this.camera.fov = T.MathUtils.lerp(
             this.camera.fov,
-            speed > 18 ? 72 : 62,
+            speed > 18 ? 72 : T.MathUtils.lerp(62, CONFIG.superSpeed.groundFov, groundBoost),
             1 - Math.exp(-dt * 4),
         );
         this.camera.updateProjectionMatrix();

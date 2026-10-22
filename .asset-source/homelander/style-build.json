@@ -1,0 +1,1175 @@
+{
+  "tool": "Auto-Rig Pro 3.78.32 Remap + Universal GLTF",
+  "blender": "5.2.2 LTS",
+  "inputs": {
+    ".asset-source/homelander/rig.blend": "27cafcc12de8d2c0cc085e968356807c77a1e5e5a4778ba54b99c8fb8fef29aa",
+    "actions/manifest.json": "4741bcdb96cde1ac8c09cd17c48346a2ca7ea3aa816fa6f73bc49a73792093ab",
+    "actions/01_待机_Breathing_Idle.fbx": "e02c543bcde6ec06bbeb41fc6dc00360241ed9b1377c38ac187da9f57206ddbf",
+    "actions/02_普通跑_Running_With_Intention.fbx": "3770118e2b25b980b825c6e9ecf9f7a3dcdb519e8125170c2c1f342406dfdc7c",
+    "actions/03_快速跑_Sprint.fbx": "1d57dfb841b8d5757d5de885f92030cafcbd34bfef87462b6284578955f75827",
+    "actions/04_飞行_Flying.fbx": "2f74129277a56d740329f7ccb75818014e6c67ed5f5d67e21ff5eb826e53b385",
+    "actions/05_随手攻击_Right_Hook.fbx": "a049a1e970241407ae8d1f9e4cdfb376f37a761bfd933dec5c01966c771f8205",
+    "actions/06_重击_Uppercut.fbx": "860f0c9c50c3a5212361c31a7c160e8df31304a5498134cb4f8c4490532026a9",
+    "actions/07_四连拳_Punch_Combo.fbx": "8232946082aa71c92dcdb5b5862e514643cfcdc205d5e20071d364682076c8c3",
+    "actions/08_直拳接肘击_Jab_To_Elbow_Punch.fbx": "bb58c444cf65466654f7c27e198e6f6a68319f27fc89dbca69fe9fa6e1b367c7",
+    "actions/09_激光姿态_单手叉腰_Male_Standing_Pose.fbx": "c4028e9f8a82e924edb7bcb3f847f2602c5a35107bbead360ad530e76514b51b",
+    "actions/10_激光姿态_双手背后_Male_Standing_Pose.fbx": "1d848e35fd68239fc08b25b616735213aeecc3e11f1b93b4ba7c4ea35eb0d82e",
+    ".asset-source/mesh2motion/human-addon-animations.glb": "a0d64d555e0d492026b72d58bf8e16c5e86779295f9093e376dcc001915c2c95",
+    ".asset-source/mesh2motion/human-base-animations.glb": "406eb0a8dc4ab366e623b79b6e3005a4951392e1bda78ae39c1099d31147733c",
+    "scripts/adapt-homelander.py": "871d4e474dc3e6a58cd9cda3098964f022a8b112a17a79ee8b9ce4905007f02f",
+    "scripts/build-homelander-style.py": "e8ef1c1481abd1edb437d90d36f9d1a18f304dfb456b1ba24c41283990e5fead",
+    ".asset-source/homelander/locomotion-contract.json": "d5a77117b7925ad77965692348817c65b11a831310c979c12c0774fb4018252b",
+    ".asset-source/homelander/turns/manifest.json": "bea00295ecd1ed5f13f3b3d444668aa42d7e61598219360119f37160fa24d707",
+    ".asset-source/homelander/turns/turn-l-90.fbx": "4a4d1779377e3f03af75c99fd3eb8d53936d68d30fc644528682fbb4d89b9fe9",
+    ".asset-source/homelander/turns/turn-r-90.fbx": "d785705dd71cd43f1a6593d9213e0c04adee4ddeee6893476f2ff28ec5ba5068",
+    ".asset-source/homelander/idle/manifest.json": "3f43684f22a3b908c36196b62781c852445c906ba2994869211b2087685ad2ce",
+    ".asset-source/homelander/idle/standing-idle.fbx": "ca49a8343ab87536413ee708f95df2b939776034eb9c2ad411c7bde88e8c0c88",
+    ".asset-source/homelander/directional/manifest.json": "2ab706d1e2cc677905435dfc72e226ef651c1f2de7efb7ccc128e5b107fd55ed",
+    ".asset-source/homelander/directional/strafe-l.fbx": "edf5fbec456ce1be1ceb6fed47eb0a911164ba8d2f260e35a6fcc14570a09f4c",
+    ".asset-source/homelander/directional/strafe-r.fbx": "59357ba39cb9ded72d0f524ec88331fe2394219570271ce7018e54a4cc2f0c27",
+    ".asset-source/homelander/directional/backpedal.fbx": "9ba5a1a974acaaa4c3dc77168097f151d23026d93d1e8f78094dd9fa811c4158"
+  },
+  "validatedIntermediateSha256": "02578dda814a63b5614cad796f0a51d157fb4c96bdd3cf9e5e742fb071980e17",
+  "profiles": {
+    "restrained": {
+      "idle": "style_idle_a",
+      "hover": "hover",
+      "fly": "fly",
+      "hover_to_fly": "hover_to_fly_restrained",
+      "fly_to_hover": "fly_to_hover_restrained"
+    },
+    "commanding": {
+      "idle": "style_idle_b",
+      "hover": "style_hover_b",
+      "fly": "style_fly_b",
+      "hover_to_fly": "hover_to_fly_commanding",
+      "fly_to_hover": "fly_to_hover_commanding"
+    },
+    "natural": {
+      "idle": [
+        "style_idle_a",
+        "style_idle_b"
+      ],
+      "hover": [
+        "hover",
+        "style_hover_b"
+      ],
+      "fly": "style_fly_relaxed",
+      "fall": "style_fall_controlled",
+      "hover_to_fly": {
+        "hover": "hover_to_fly_natural_a",
+        "style_hover_b": "hover_to_fly_natural_b"
+      },
+      "fly_to_hover": {
+        "hover": "fly_to_hover_natural_a",
+        "style_hover_b": "fly_to_hover_natural_b"
+      }
+    }
+  },
+  "transitionEnds": {
+    "hover_to_fly_restrained": {
+      "clip": "fly",
+      "time": 0.6
+    },
+    "fly_to_hover_restrained": {
+      "clip": "hover",
+      "time": 0.6
+    },
+    "hover_to_fly_commanding": {
+      "clip": "style_fly_b",
+      "time": 0.6
+    },
+    "fly_to_hover_commanding": {
+      "clip": "style_hover_b",
+      "time": 0.6
+    },
+    "hover_to_fly_natural_a": {
+      "clip": "style_fly_relaxed",
+      "time": 0.8
+    },
+    "fly_to_hover_natural_a": {
+      "clip": "hover",
+      "time": 0.8
+    },
+    "hover_to_fly_natural_b": {
+      "clip": "style_fly_relaxed",
+      "time": 0.8
+    },
+    "fly_to_hover_natural_b": {
+      "clip": "style_hover_b",
+      "time": 0.8
+    },
+    "jog_start_l": {
+      "clip": "jog",
+      "time": 0.6333333333333333
+    },
+    "jog_stop_l": {
+      "clip": "style_idle_a",
+      "time": 0.4
+    },
+    "jog_start_r": {
+      "clip": "jog",
+      "time": 0.30000000000000004
+    },
+    "jog_stop_r": {
+      "clip": "style_idle_a",
+      "time": 0.4
+    }
+  },
+  "defaultProfile": "natural",
+  "locomotionContract": {
+    "source": "public/assets/human/homelander.glb",
+    "sha256": "5696284d3e8276af7a8b213492ef5ddba38ede4df5f33945154764367ed4129b",
+    "samples": {
+      "l": {
+        "heel": [
+          42747,
+          42755,
+          42756,
+          42757,
+          42784,
+          42785
+        ],
+        "toe": [
+          25830,
+          25677,
+          25678,
+          25679,
+          25829,
+          25665
+        ]
+      },
+      "r": {
+        "heel": [
+          17939,
+          17940,
+          18008,
+          18009,
+          18012,
+          18013
+        ],
+        "toe": [
+          100,
+          226,
+          227,
+          99,
+          68,
+          69
+        ]
+      }
+    },
+    "method": "fixed skin vertex clusters; near-lowest height and backward material-point motion; candidate windows pending visual calibration",
+    "visualCalibration": "pending current side-view verification",
+    "clips": {
+      "walk": {
+        "baseSpeed": 1.05,
+        "leftContact": 0.6666666666666666,
+        "rightContact": 0,
+        "supportCandidates": {
+          "l": {
+            "heel": {
+              "windows": [
+                [
+                  0,
+                  0.03333333333333333
+                ],
+                [
+                  0.8916666666666667,
+                  1.3
+                ]
+              ],
+              "naturalSpeed": 0.963341997303621
+            },
+            "toe": {
+              "windows": [
+                [
+                  0,
+                  0.15
+                ],
+                [
+                  1.2083333333333333,
+                  1.3
+                ]
+              ],
+              "naturalSpeed": 0.669940626022205
+            }
+          },
+          "r": {
+            "heel": {
+              "windows": [
+                [
+                  0,
+                  0.6166666666666667
+                ]
+              ],
+              "naturalSpeed": 1.1506286697405155
+            },
+            "toe": {
+              "windows": [
+                [
+                  0.6083333333333333,
+                  0.7666666666666667
+                ]
+              ],
+              "naturalSpeed": 0.5390721613016174
+            }
+          }
+        }
+      },
+      "jog": {
+        "baseSpeed": 4.98,
+        "leftContact": 0.23333333333333334,
+        "rightContact": 0.6,
+        "supportCandidates": {
+          "l": {
+            "heel": {
+              "windows": [
+                [
+                  0.24166666666666667,
+                  0.26666666666666666
+                ],
+                [
+                  0.275,
+                  0.38333333333333336
+                ]
+              ],
+              "naturalSpeed": 4.872887604724424
+            },
+            "toe": {
+              "windows": [
+                [
+                  0.3416666666666667,
+                  0.43333333333333335
+                ]
+              ],
+              "naturalSpeed": 5.202163154434195
+            }
+          },
+          "r": {
+            "heel": {
+              "windows": [
+                [
+                  0,
+                  0.025
+                ],
+                [
+                  0.5833333333333334,
+                  0.699999988079071
+                ]
+              ],
+              "naturalSpeed": 4.816275041775396
+            },
+            "toe": {
+              "windows": [
+                [
+                  0,
+                  0.075
+                ],
+                [
+                  0.675,
+                  0.699999988079071
+                ]
+              ],
+              "naturalSpeed": 5.475273969409432
+            }
+          }
+        }
+      },
+      "sprint": {
+        "baseSpeed": 6.2,
+        "leftContact": 0.13333333333333333,
+        "rightContact": 0.43333333333333335,
+        "supportCandidates": {
+          "l": {
+            "heel": {
+              "windows": [
+                [
+                  0.15833333333333333,
+                  0.26666666666666666
+                ]
+              ],
+              "naturalSpeed": 6.288455685355562
+            },
+            "toe": {
+              "windows": [
+                [
+                  0.225,
+                  0.30833333333333335
+                ]
+              ],
+              "naturalSpeed": 6.637516573606687
+            }
+          },
+          "r": {
+            "heel": {
+              "windows": [
+                [
+                  0.43333333333333335,
+                  0.5333333611488342
+                ]
+              ],
+              "naturalSpeed": 5.949194209240652
+            },
+            "toe": {
+              "windows": [
+                [
+                  0,
+                  0.058333333333333334
+                ],
+                [
+                  0.5083333333333333,
+                  0.5333333611488342
+                ]
+              ],
+              "naturalSpeed": 6.116331765747088
+            }
+          }
+        }
+      },
+      "strafe_l": {
+        "baseSpeed": 3.5640374422073364,
+        "leftContact": 0.26666666666666666,
+        "rightContact": 0.6,
+        "direction": [
+          0.999997,
+          -0.002411
+        ],
+        "sourceRootSpeed": 3.5640374422073364,
+        "calibration": "Original normalized FBX root displacement, or median planted-ankle velocity for already-in-place source; low-ankle touchdown candidates, full sole acceptance remains separate"
+      },
+      "strafe_r": {
+        "baseSpeed": 3.5640370845794678,
+        "leftContact": 0.26666666666666666,
+        "rightContact": 0.6,
+        "direction": [
+          -0.999991,
+          0.004154
+        ],
+        "sourceRootSpeed": 3.5640370845794678,
+        "calibration": "Original normalized FBX root displacement, or median planted-ankle velocity for already-in-place source; low-ankle touchdown candidates, full sole acceptance remains separate"
+      },
+      "backpedal": {
+        "baseSpeed": 3.1233593664671266,
+        "leftContact": 0.26666666666666666,
+        "rightContact": 0.5666666666666667,
+        "direction": [
+          0.007705,
+          -0.99997
+        ],
+        "sourceRootSpeed": 3.1233593664671266,
+        "calibration": "Original normalized FBX root displacement, or median planted-ankle velocity for already-in-place source; low-ankle touchdown candidates, full sole acceptance remains separate"
+      }
+    }
+  },
+  "clips": [
+    {
+      "name": "style_fly_b",
+      "source": ".asset-source/mesh2motion/human-addon-animations.glb",
+      "sourceClip": "Flying Forward Super",
+      "frames": [
+        1,
+        15
+      ],
+      "keyframesAuthoredHere": false,
+      "license": "CC0-1.0"
+    },
+    {
+      "name": "turn_l",
+      "source": ".asset-source/homelander/turns/turn-l-90.fbx",
+      "sourceClip": "Left Turn 90",
+      "frames": [
+        1,
+        29
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "rootMotion": {
+        "samples": [
+          [
+            0,
+            0
+          ],
+          [
+            0.03333333333333333,
+            0.06438551843166351
+          ],
+          [
+            0.06666666666666667,
+            0.1324942670762539
+          ],
+          [
+            0.1,
+            0.20012396574020386
+          ],
+          [
+            0.13333333333333333,
+            0.26189690828323364
+          ],
+          [
+            0.16666666666666666,
+            0.3163042664527893
+          ],
+          [
+            0.2,
+            0.36322592198848724
+          ],
+          [
+            0.23333333333333334,
+            0.4054620712995529
+          ],
+          [
+            0.26666666666666666,
+            0.4485410302877426
+          ],
+          [
+            0.3,
+            0.493035152554512
+          ],
+          [
+            0.3333333333333333,
+            0.5339801758527756
+          ],
+          [
+            0.36666666666666664,
+            0.5687922388315201
+          ],
+          [
+            0.4,
+            0.6010736674070358
+          ],
+          [
+            0.43333333333333335,
+            0.6377442330121994
+          ],
+          [
+            0.4666666666666667,
+            0.6827806681394577
+          ],
+          [
+            0.5,
+            0.7379190176725388
+          ],
+          [
+            0.5333333333333333,
+            0.8055271357297897
+          ],
+          [
+            0.5666666666666667,
+            0.8807031959295273
+          ],
+          [
+            0.6,
+            0.9574051946401596
+          ],
+          [
+            0.6333333333333333,
+            1.0387844294309616
+          ],
+          [
+            0.6666666666666666,
+            1.1283947080373764
+          ],
+          [
+            0.7,
+            1.2517040818929672
+          ],
+          [
+            0.7333333333333333,
+            1.3471668809652328
+          ],
+          [
+            0.7666666666666667,
+            1.418654903769493
+          ],
+          [
+            0.8,
+            1.4772733300924301
+          ],
+          [
+            0.8333333333333334,
+            1.5240181535482407
+          ],
+          [
+            0.8666666666666667,
+            1.5563295930624008
+          ],
+          [
+            0.9,
+            1.565461978316307
+          ],
+          [
+            0.9333333333333333,
+            1.5707980245351791
+          ]
+        ],
+        "angle": 1.5707980245351791,
+        "pivot": [
+          0,
+          0,
+          0
+        ]
+      },
+      "editing": {
+        "workflow": "ARP Extract Root Motion; separate global trajectory yaw from body animation",
+        "forwardAxis": "Z",
+        "tracks": [],
+        "deformBones": 68,
+        "maxSkinError": 7.312204925051509e-7,
+        "maxBoneError": 4.308471767545033e-7
+      }
+    },
+    {
+      "name": "turn_r",
+      "source": ".asset-source/homelander/turns/turn-r-90.fbx",
+      "sourceClip": "Right Turn 90",
+      "frames": [
+        1,
+        29
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "rootMotion": {
+        "samples": [
+          [
+            0,
+            0
+          ],
+          [
+            0.03333333333333333,
+            -0.03887994587421417
+          ],
+          [
+            0.06666666666666667,
+            -0.0755888819694519
+          ],
+          [
+            0.1,
+            -0.11111771245487034
+          ],
+          [
+            0.13333333333333333,
+            -0.14641565456986427
+          ],
+          [
+            0.16666666666666666,
+            -0.18263043463230133
+          ],
+          [
+            0.2,
+            -0.2208157479763031
+          ],
+          [
+            0.23333333333333334,
+            -0.2620289996266365
+          ],
+          [
+            0.26666666666666666,
+            -0.30732961744070053
+          ],
+          [
+            0.3,
+            -0.35770248621702194
+          ],
+          [
+            0.3333333333333333,
+            -0.42139316350221634
+          ],
+          [
+            0.36666666666666664,
+            -0.4842183366417885
+          ],
+          [
+            0.4,
+            -0.5416359677910805
+          ],
+          [
+            0.43333333333333335,
+            -0.6085151210427284
+          ],
+          [
+            0.4666666666666667,
+            -0.6919707134366035
+          ],
+          [
+            0.5,
+            -0.793990321457386
+          ],
+          [
+            0.5333333333333333,
+            -0.9190622046589851
+          ],
+          [
+            0.5666666666666667,
+            -1.0583801344037056
+          ],
+          [
+            0.6,
+            -1.1995914056897163
+          ],
+          [
+            0.6333333333333333,
+            -1.3212233856320381
+          ],
+          [
+            0.6666666666666666,
+            -1.399869330227375
+          ],
+          [
+            0.7,
+            -1.4614471271634102
+          ],
+          [
+            0.7333333333333333,
+            -1.5162190273404121
+          ],
+          [
+            0.7666666666666667,
+            -1.5657637193799019
+          ],
+          [
+            0.8,
+            -1.6116960123181343
+          ],
+          [
+            0.8333333333333334,
+            -1.6556173637509346
+          ],
+          [
+            0.8666666666666667,
+            -1.7034034803509712
+          ],
+          [
+            0.9,
+            -1.7619518116116524
+          ],
+          [
+            0.9333333333333333,
+            -1.7914270237088203
+          ]
+        ],
+        "angle": -1.7914270237088203,
+        "pivot": [
+          0,
+          0,
+          0
+        ]
+      },
+      "editing": {
+        "workflow": "ARP Extract Root Motion; separate global trajectory yaw from body animation",
+        "forwardAxis": "Z",
+        "tracks": [],
+        "deformBones": 68,
+        "maxSkinError": 6.058380410151518e-7,
+        "maxBoneError": 3.9220513702495966e-7
+      }
+    },
+    {
+      "name": "style_idle_a",
+      "source": ".asset-source/homelander/idle/standing-idle.fbx",
+      "sourceClip": "Idle",
+      "frames": [
+        1,
+        251
+      ],
+      "keyframesAuthoredHere": false,
+      "license": "Adobe Mixamo royalty-free game usage"
+    },
+    {
+      "name": "style_idle_b",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_idle_a",
+        "STYLE_SOURCE_back_arms"
+      ],
+      "frames": [
+        1,
+        251
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 0.85,
+        "transition": false,
+        "tracks": [
+          "style_idle_b/base",
+          "style_idle_b/overlay"
+        ]
+      }
+    },
+    {
+      "name": "style_hover_b",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "hover",
+        "STYLE_SOURCE_back_arms"
+      ],
+      "frames": [
+        1,
+        60
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 0.85,
+        "transition": false,
+        "tracks": [
+          "style_hover_b/base",
+          "style_hover_b/overlay"
+        ]
+      }
+    },
+    {
+      "name": "hover_to_fly_restrained",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "hover",
+        "fly"
+      ],
+      "frames": [
+        1,
+        19
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "hover_to_fly_restrained/base",
+          "hover_to_fly_restrained/overlay"
+        ]
+      }
+    },
+    {
+      "name": "fly_to_hover_restrained",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "fly",
+        "hover"
+      ],
+      "frames": [
+        1,
+        19
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "fly_to_hover_restrained/base",
+          "fly_to_hover_restrained/overlay"
+        ]
+      }
+    },
+    {
+      "name": "hover_to_fly_commanding",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_hover_b",
+        "style_fly_b"
+      ],
+      "frames": [
+        1,
+        19
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "hover_to_fly_commanding/base",
+          "hover_to_fly_commanding/overlay"
+        ]
+      }
+    },
+    {
+      "name": "fly_to_hover_commanding",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_fly_b",
+        "style_hover_b"
+      ],
+      "frames": [
+        1,
+        19
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "fly_to_hover_commanding/base",
+          "fly_to_hover_commanding/overlay"
+        ]
+      }
+    },
+    {
+      "name": "style_fly_relaxed",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": "STYLE_fly_relaxed_source",
+      "frames": [
+        1,
+        96
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "NLA source composition + ARP controller world-space Copy Rotation + visual Bake Action",
+        "reference": "existing idle head/neck motion sampled to helper targets with a closed seam; no manually entered joint angles",
+        "targets": [
+          "STYLE_GAZE_c_neck.x",
+          "STYLE_GAZE_c_head.x"
+        ],
+        "constraints": [
+          "style_fly_relaxed/neutral-gaze",
+          "style_fly_relaxed/neutral-gaze"
+        ],
+        "tracks": [
+          "STYLE_fly_relaxed_source/base",
+          "STYLE_fly_relaxed_source/overlay"
+        ]
+      }
+    },
+    {
+      "name": "style_fall_controlled",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": "hover",
+      "frames": [
+        1,
+        60
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "NLA source composition + ARP controller world-space Copy Rotation + visual Bake Action",
+        "reference": "existing idle head/neck motion sampled to helper targets with a closed seam; no manually entered joint angles",
+        "targets": [
+          "STYLE_GAZE_c_neck.x",
+          "STYLE_GAZE_c_head.x"
+        ],
+        "constraints": [
+          "style_fall_controlled/neutral-gaze",
+          "style_fall_controlled/neutral-gaze"
+        ],
+        "tracks": []
+      }
+    },
+    {
+      "name": "strafe_l",
+      "source": ".asset-source/homelander/directional/strafe-l.fbx",
+      "sourceClip": "Left Strafe",
+      "frames": [
+        1,
+        21
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "NLA source composition + ARP controller world-space Copy Rotation + visual Bake Action",
+        "reference": "existing idle head/neck motion sampled to helper targets with a closed seam; no manually entered joint angles",
+        "targets": [
+          "STYLE_GAZE_c_neck.x",
+          "STYLE_GAZE_c_head.x"
+        ],
+        "constraints": [
+          "strafe_l/neutral-gaze",
+          "strafe_l/neutral-gaze"
+        ],
+        "tracks": [
+          "STYLE_AIM_strafe_l/base",
+          "STYLE_AIM_strafe_l/overlay"
+        ],
+        "armSource": "Mixamo Standing Idle; NLA REPLACE of existing shoulder/arm/hand/finger control channels, original rate cropped to directional cycle",
+        "customProperties": "Blender Bake Action PROPS preserves authored ARP IK/FK controller switches"
+      }
+    },
+    {
+      "name": "strafe_r",
+      "source": ".asset-source/homelander/directional/strafe-r.fbx",
+      "sourceClip": "Right Strafe",
+      "frames": [
+        1,
+        21
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "NLA source composition + ARP controller world-space Copy Rotation + visual Bake Action",
+        "reference": "existing idle head/neck motion sampled to helper targets with a closed seam; no manually entered joint angles",
+        "targets": [
+          "STYLE_GAZE_c_neck.x",
+          "STYLE_GAZE_c_head.x"
+        ],
+        "constraints": [
+          "strafe_r/neutral-gaze",
+          "strafe_r/neutral-gaze"
+        ],
+        "tracks": [
+          "STYLE_AIM_strafe_r/base",
+          "STYLE_AIM_strafe_r/overlay"
+        ],
+        "armSource": "Mixamo Standing Idle; NLA REPLACE of existing shoulder/arm/hand/finger control channels, original rate cropped to directional cycle",
+        "customProperties": "Blender Bake Action PROPS preserves authored ARP IK/FK controller switches"
+      }
+    },
+    {
+      "name": "backpedal",
+      "source": ".asset-source/homelander/directional/backpedal.fbx",
+      "sourceClip": "Running Backward",
+      "frames": [
+        1,
+        20
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "NLA source composition + ARP controller world-space Copy Rotation + visual Bake Action",
+        "reference": "existing idle head/neck motion sampled to helper targets with a closed seam; no manually entered joint angles",
+        "targets": [
+          "STYLE_GAZE_c_neck.x",
+          "STYLE_GAZE_c_head.x"
+        ],
+        "constraints": [
+          "backpedal/neutral-gaze",
+          "backpedal/neutral-gaze"
+        ],
+        "tracks": [
+          "STYLE_AIM_backpedal/base",
+          "STYLE_AIM_backpedal/overlay"
+        ],
+        "armSource": "Mixamo Standing Idle; NLA REPLACE of existing shoulder/arm/hand/finger control channels, original rate cropped to directional cycle",
+        "customProperties": "Blender Bake Action PROPS preserves authored ARP IK/FK controller switches"
+      }
+    },
+    {
+      "name": "hover_to_fly_natural_a",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "hover",
+        "style_fly_relaxed"
+      ],
+      "frames": [
+        1,
+        25
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "hover_to_fly_natural_a/base",
+          "hover_to_fly_natural_a/overlay"
+        ]
+      }
+    },
+    {
+      "name": "fly_to_hover_natural_a",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_fly_relaxed",
+        "hover"
+      ],
+      "frames": [
+        1,
+        25
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "fly_to_hover_natural_a/base",
+          "fly_to_hover_natural_a/overlay"
+        ]
+      }
+    },
+    {
+      "name": "hover_to_fly_natural_b",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_hover_b",
+        "style_fly_relaxed"
+      ],
+      "frames": [
+        1,
+        25
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "hover_to_fly_natural_b/base",
+          "hover_to_fly_natural_b/overlay"
+        ]
+      }
+    },
+    {
+      "name": "fly_to_hover_natural_b",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_fly_relaxed",
+        "style_hover_b"
+      ],
+      "frames": [
+        1,
+        25
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "fly_to_hover_natural_b/base",
+          "fly_to_hover_natural_b/overlay"
+        ]
+      }
+    },
+    {
+      "name": "style_land_from_back",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "land",
+        "STYLE_SOURCE_back_arms"
+      ],
+      "frames": [
+        1,
+        27
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Mixed: user supplied Mixamo; Mesh2Motion CC0",
+      "editing": {
+        "workflow": "NLA contact-cropped landing + behind-back arm release + Bake Action",
+        "sourceContactTime": 0.45,
+        "armReleaseSeconds": 0.3333333333333333,
+        "tracks": [
+          "style_land_from_back/contact",
+          "style_land_from_back/back-release"
+        ]
+      }
+    },
+    {
+      "name": "jog_start_l",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_idle_a",
+        "STYLE_SOURCE_jog_phase_l"
+      ],
+      "frames": [
+        1,
+        13
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "jog_start_l/base",
+          "jog_start_l/overlay"
+        ],
+        "supportFoot": "l",
+        "sourceContactTime": 0.23333333333333334
+      }
+    },
+    {
+      "name": "jog_stop_l",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "STYLE_SOURCE_jog_phase_l",
+        "style_idle_a"
+      ],
+      "frames": [
+        1,
+        13
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "jog_stop_l/base",
+          "jog_stop_l/overlay"
+        ],
+        "supportFoot": "l",
+        "sourceContactTime": 0.23333333333333334
+      }
+    },
+    {
+      "name": "jog_start_r",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "style_idle_a",
+        "STYLE_SOURCE_jog_phase_r"
+      ],
+      "frames": [
+        1,
+        13
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "jog_start_r/base",
+          "jog_start_r/overlay"
+        ],
+        "supportFoot": "r",
+        "sourceContactTime": 0.6
+      }
+    },
+    {
+      "name": "jog_stop_r",
+      "source": "Existing formally adapted ARP Actions",
+      "sourceClip": [
+        "STYLE_SOURCE_jog_phase_r",
+        "style_idle_a"
+      ],
+      "frames": [
+        1,
+        13
+      ],
+      "keyframesAuthoredHere": true,
+      "license": "Adobe Mixamo royalty-free game usage",
+      "editing": {
+        "workflow": "Blender NLA control-channel composition + Bake Action",
+        "influence": 1,
+        "transition": true,
+        "tracks": [
+          "jog_stop_r/base",
+          "jog_stop_r/overlay"
+        ],
+        "supportFoot": "r",
+        "sourceContactTime": 0.6
+      }
+    }
+  ],
+  "rawSha256": "aec397ae94f0200c7bbe4e4e3265edd6090da06ff5533ed2bbf50614b26d9bb9",
+  "referenceSha256": "553b0589b6a115cdb28209d987687dda47a45f3ca91df3e65917a68c87986436",
+  "baselineRuntimeSha256": "5696284d3e8276af7a8b213492ef5ddba38ede4df5f33945154764367ed4129b",
+  "runtimeSha256": "34eff29071cd579a0b0a5972fae29256de268fa4ffc6cc0fda50a23b547b90fa",
+  "editableSha256": "2d681e8e866b39f55ec436edb6008adfb875b02fdc671f956157f0d997df7c08",
+  "preservation": "Original mesh, weights, bind matrices, textures and all 18 animation samples are byte-identical"
+}

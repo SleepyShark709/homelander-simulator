@@ -1,8 +1,10 @@
 import { chromium } from '@playwright/test';
 import fs from 'node:fs';
+import path from 'node:path';
 
 // Uses browser input events; scene setup and animation stepping remain in the game.
-const folder = '.artifacts/homelander/video';
+const output = process.argv[3] ?? '.artifacts/homelander';
+const folder = path.join(output, 'video');
 const url = new URL('/', process.argv[2] ?? 'http://127.0.0.1:5173').href;
 fs.mkdirSync(folder, { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=metal'] });
@@ -13,21 +15,27 @@ try {
     await page.goto(`${url}?preview=character`);
     await page.waitForLoadState('networkidle');
     await page.waitForFunction(() => window.studio?.person);
-    console.log('recording 18 preview actions');
+    console.log('recording 18 preview controls, three views / repetitions each');
     for (const pose of ['ground','walk','jog','sprint','jump_start','jump_land','takeoff','fly','boost','fall','land','punch','casual_attack','combo_a','combo_b','laser_hip','laser_back','slam']) {
-        await page.evaluate(pose => {
-            const s = window.studio;
-            s.camera.position.set(['walk','jog','sprint','boost','fall'].includes(pose) ? 3.6 : 1.6, 1.65, 3.5);
-            s.controls.target.set(0, 1.02, 0); s.controls.update();
-        }, pose);
-        await page.locator(`[data-pose="${pose}"]`).click();
-        await page.waitForTimeout(100);
-        const clip = await page.evaluate(() => { const p = window.studio.person; return { name: p.current, duration: p.actionDuration(p.current) }; });
-        preview.push({ pose, ...clip });
-        const duration = Math.max(2, Math.min(clip.duration + .3, 4));
-        await page.waitForTimeout(duration * 450);
-        await page.screenshot({ path: `${folder}/preview-${pose}.png` });
-        await page.waitForTimeout(duration * 550);
+        for (const [view, position] of [['front',[0,1.65,4.8]], ['side',[4.8,1.65,0]], ['back',[0,1.65,-4.8]]]) {
+            await page.evaluate(position => {
+                const s = window.studio;
+                s.camera.position.fromArray(position);
+                s.controls.target.set(0, 1.02, 0); s.controls.update();
+            }, position);
+            await page.locator(`[data-pose="${pose}"]`).click();
+            await page.waitForTimeout(100);
+            const clip = await page.evaluate(() => {
+                const p = window.studio.person, action = p.actions.get(p.current);
+                return { name: p.current, duration: p.actionDuration(p.current), rate: action.getEffectiveTimeScale() };
+            });
+            preview.push({ pose, view, ...clip });
+            // Keep complete long idle cycles; one-frame poses are held for inspection.
+            const duration = Math.max(2, clip.duration / clip.rate + .3);
+            await page.waitForTimeout(duration * 450);
+            await page.screenshot({ path: `${folder}/preview-${pose}-${view}.png` });
+            await page.waitForTimeout(duration * 550);
+        }
     }
     await page.goto(url);
     await page.waitForLoadState('networkidle');
@@ -88,11 +96,11 @@ try {
     const expected = ['jog','sprint','jump_start','jump_land','casual_attack','combo_a','combo_b','punch','idle','laser_hip','laser_back','takeoff','hover','fly','fall','land'];
     const checks = expected.map(clip => ({ clip, pass: trace.some(s => s.clip === clip) }));
     checks.push({ name: 'pause and resume', pass: trace.some(s => !s.running) && trace.at(-1).running });
-    checks.push({ name: 'all 18 preview controls respond', pass: preview.length === 18 && preview.some(s => s.name === 'jump_start') && preview.some(s => s.name === 'jump_land') });
-    fs.writeFileSync('.artifacts/homelander/recording.json', JSON.stringify({ method: 'actual Playwright keyboard/mouse events, default city and NPCs; preview is separate from actual gameplay', preview, stages, checks, errors, trace }, null, 2));
+    checks.push({ name: '18 preview controls in three views', pass: preview.length === 54 && preview.some(s => s.name === 'jump_start') && preview.some(s => s.name === 'jump_land') });
+    fs.writeFileSync(path.join(output, 'recording.json'), JSON.stringify({ method: 'actual Playwright keyboard/mouse events, default city and NPCs; three-view preview is separate from actual gameplay and uses current runtime playback rates', preview, stages, checks, errors, trace }, null, 2));
     console.log(JSON.stringify({ checks, errors }));
     if (errors.length || checks.some(c => !c.pass)) process.exitCode = 1;
 } finally {
     const video = page.video(); await context.close();
-    await video.saveAs('.artifacts/homelander/gameplay.webm'); await browser.close();
+    await video.saveAs(path.join(output, 'gameplay.webm')); await browser.close();
 }

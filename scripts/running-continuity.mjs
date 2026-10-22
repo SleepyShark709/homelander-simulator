@@ -8,10 +8,11 @@ fs.mkdirSync('.artifacts', { recursive: true });
 const browser = await chromium.launch({ channel: 'chrome', headless: true, args: ['--use-angle=metal'] });
 const page = await browser.newPage({ viewport: { width: 1200, height: 900 } }), errors = [];
 page.on('pageerror', e => errors.push(e.message));
-await page.goto('http://127.0.0.1:5173/');
+await page.goto(process.argv[3]??'http://127.0.0.1:5173/');
 await page.waitForFunction(() => window.game?.player, { timeout: 30000 });
-const result = await page.evaluate(() => {
+const result = await page.evaluate(async () => {
     const g = window.game;
+    const {CONFIG}=await import('/src/core/config.ts');
     g.renderer.setAnimationLoop(null);
     g.presentation.render = () => {};
     const profiles = [
@@ -73,9 +74,9 @@ const result = await page.evaluate(() => {
         }
         const steady = samples.filter(s => s.t >= 1 && (!profile.resume || s.t < 4 || s.t >= 6) && (!profile.toggle || (s.t % 1.5 > .5 && s.t % 1.5 < 1.49)));
         const sprintAt = s => profile.shift || (profile.toggle && Math.floor(s.t/1.5)%2 === 0);
-        const stops = steady.filter(s => s.horizontalSpeed < 1), badClips = steady.filter(s => s.clip !== (sprintAt(s) ? 'sprint' : 'jog'));
-        const minTargetRatio = Math.min(...steady.map(s => s.horizontalSpeed/((sprintAt(s)?24:6)*3.6)));
-        const minDisplacementRatio = Math.min(...steady.map(s => s.displacementSpeed/((sprintAt(s)?24:6)*3.6)));
+        const stops = steady.filter(s => s.horizontalSpeed < 1), badClips = steady.filter(s => s.clip !== (s.horizontalSpeed/3.6 > CONFIG.animation.sprintEnterSpeed ? 'sprint' : 'jog'));
+        const minTargetRatio = Math.min(...steady.map(s => s.horizontalSpeed/((sprintAt(s)?CONFIG.sprint:CONFIG.walk)*3.6)));
+        const minDisplacementRatio = Math.min(...steady.map(s => s.displacementSpeed/((sprintAt(s)?CONFIG.sprint:CONFIG.walk)*3.6)));
         const minSpeed = Math.min(...steady.map(s => s.horizontalSpeed)), minDisplacementSpeed = Math.min(...steady.map(s => s.displacementSpeed));
         const maxGroundYStep = Math.max(...steady.map(s => s.groundYStep));
         checks.push({ name: profile.name, pass: steady.length > 0 && stops.length === 0 && minTargetRatio > .99 && minDisplacementRatio > .97 && badClips.length === 0 && maxPoseStepAt120Hz < .12 && maxGroundYStep < .001,

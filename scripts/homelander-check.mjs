@@ -2,14 +2,16 @@ import fs from 'node:fs';
 import { gunzipSync } from 'node:zlib';
 import { chromium } from '@playwright/test';
 
-fs.mkdirSync('.artifacts/homelander',{recursive:true});
-const reference = JSON.parse(gunzipSync(fs.readFileSync('.asset-source/homelander/blender-reference.json.gz')));
+const folder = process.argv[2] ?? '.artifacts/homelander';
+fs.mkdirSync(folder,{recursive:true});
+const reference = JSON.parse(gunzipSync(fs.readFileSync(process.argv[4] ?? '.asset-source/homelander/blender-reference.json.gz')));
 const browser = await chromium.launch({channel:'chrome',headless:true,args:['--use-angle=metal']});
 const height = Math.ceil(reference.clips.length / 4) * 400;
 const page = await browser.newPage({viewport:{width:1440,height}}), errors=[];
 page.on('pageerror',e=>errors.push(e.message));
-await page.goto('http://127.0.0.1:5173/?preview=character');
+await page.goto(process.argv[3] ?? 'http://127.0.0.1:5173/?preview=character');
 await page.waitForFunction(()=>window.studio?.person,{timeout:45000});
+await page.setViewportSize({width:1440,height:Math.ceil(await page.evaluate(()=>window.studio.person.actions.size)/4)*400});
 const report = await page.evaluate(async reference=>{
     const T=await import('/node_modules/.vite/deps/three.js');
     const s=window.studio,p=s.person;
@@ -47,6 +49,22 @@ const report = await page.evaluate(async reference=>{
         }
         checks.push({name,pass:finite&&maxVertexError<.015,frames:clip.samples.length,vertices:indices.length,maxVertexError,worst});
     }
+    for(const clip of reference.turnProofs??[]) {
+        p.mixer.stopAllAction();p.current='';p.play(clip.name);
+        const action=p.actions.get(clip.name);action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;
+        p.model.position.set(0,0,0);p.model.rotation.set(0,0,0);
+        let maxVertexError=0;
+        for(const sample of clip.samples) {
+            p.group.rotation.y=sample.yaw;p.mixer.setTime(sample.time);p.group.updateMatrixWorld(true);
+            for(let j=0;j<indices.length;j++) {
+                const i=indices[j],point=new T.Vector3().fromBufferAttribute(positions,i);
+                mesh.applyBoneTransform(i,point).applyMatrix4(mesh.matrixWorld);
+                maxVertexError=Math.max(maxVertexError,point.distanceTo(new T.Vector3().fromArray(sample.vertices[j])));
+            }
+        }
+        checks.push({name:clip.name+': separated yaw reconstructs source skin',pass:maxVertexError<.0001,maxVertexError});
+    }
+    p.group.rotation.y=0;
     const joints=mesh.skeleton.bones;
     p.mixer.stopAllAction();p.current='';
     let previous,maxPoseStep=0,maxWeightError=0,worstStep;
@@ -79,8 +97,8 @@ const report = await page.evaluate(async reference=>{
     }
     return {checks,bones:joints.length,clips:names};
 },reference);
-await page.screenshot({path:'.artifacts/homelander/all-actions.png'});
-fs.writeFileSync('.artifacts/homelander/check.json',JSON.stringify({...report,errors},null,2));
+await page.screenshot({path:`${folder}/all-actions.png`});
+fs.writeFileSync(`${folder}/check.json`,JSON.stringify({...report,errors},null,2));
 console.log(JSON.stringify({...report,errors},null,2));
 await browser.close();
 if(errors.length||report.checks.some(c=>!c.pass))process.exitCode=1;

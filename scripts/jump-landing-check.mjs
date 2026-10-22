@@ -11,11 +11,11 @@ const report=await page.evaluate(()=>{
  for(const hz of [60,120,144])for(const key of ['KeyF','KeyQ'])for(const roof of [false,true]){
   const p=setup(roof?15:12,roof);g.input.pressed.add(key);let contact=false,maxLift=0,maxPhysicalRise=0,contactY=0,sawLand=false,hits=0,contactFrame=0,maxSupportGap=0;const hit=p.onSlam;p.onSlam=q=>{hits++;hit(q);};
   for(let i=0;i<hz*4;i++){clock+=1000/hz;g.frame(clock);if(p.mode==='ground'&&!contact){contact=true;contactY=p.position.y;contactFrame=i;}
-   if(contact){const lift=feet(p)-(p.visual.group.position.y+.008);if(lift>maxLift){maxLift=lift;g.camera.update(0,false,true);render(0);}maxPhysicalRise=Math.max(maxPhysicalRise,p.position.y-contactY);if(i>contactFrame+hz*.06)maxSupportGap=Math.max(maxSupportGap,feet(p)-(roof?6:0));if(p.visual.current==='land')sawLand=true;}}
+   if(contact){const lift=feet(p)-(p.visual.group.position.y+.008);if(lift>maxLift){maxLift=lift;g.camera.update(0,false,true);render(0);}maxPhysicalRise=Math.max(maxPhysicalRise,p.position.y-contactY);if(i>contactFrame+hz*.06)maxSupportGap=Math.max(maxSupportGap,feet(p)-(roof?6:0));if(['land','style_land_from_back'].includes(p.visual.current))sawLand=true;}}
   landings.push({hz,key,roof,contact,maxLift,maxPhysicalRise,maxSupportGap,sawLand,hits,final:p.visual.current});
  }
  checks.push({name:'F and Q ground/roof landings stay planted instead of replaying an airborne descent',pass:landings.every(s=>s.contact&&s.maxLift<.12&&s.maxPhysicalRise<.04&&s.maxSupportGap<.09&&s.sawLand),landings});
- checks.push({name:'Q preserves one physical impact and uses the same land clip as F',pass:landings.every(s=>s.hits===(s.key==='KeyQ'?1:0)&&s.sawLand)});
+ checks.push({name:'Q preserves one physical impact and uses the landing recovery as F',pass:landings.every(s=>s.hits===(s.key==='KeyQ'?1:0)&&s.sawLand)});
  for(const hz of [60,120,144])for(const moving of ['idle','run','sprint']){
   const p=setup();for(let i=0;i<10;i++){clock+=1000/hz;g.frame(clock);}if(moving!=='idle')g.input.keys.add('KeyW');if(moving==='sprint')g.input.keys.add('ShiftLeft');for(let i=0;i<hz*.5;i++){clock+=1000/hz;g.frame(clock);}const start=p.position.y;g.input.pressed.add('Space');g.input.keys.add('Space');let apex=start,sawJump=false,contacts=0,wasAir=false,airStart,airEnd,landingSpeed=Infinity;
   for(let i=0;i<hz*3;i++){clock+=1000/hz;g.frame(clock);apex=Math.max(apex,p.position.y);if(p.mode==='jump'){sawJump=true;if(!airStart)airStart=p.position.clone();airEnd=p.position.clone();}if(p.mode!=='ground')wasAir=true;if(wasAir&&p.mode==='ground'){contacts++;wasAir=false;landingSpeed=Math.hypot(p.velocity.x,p.velocity.z);}}

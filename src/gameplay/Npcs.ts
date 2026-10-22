@@ -253,7 +253,7 @@ export class Npcs {
                 if (horizontalLength > speed * dt)
                     step.multiplyScalar((speed * dt) / horizontalLength);
             }
-            step.y = -0.25;
+            step.y = -15 * dt;
             this.controller.computeColliderMovement(
                 e.collider,
                 step,

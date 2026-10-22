@@ -4,7 +4,7 @@ const browser = await chromium.launch({ channel: 'chrome', headless: true, args:
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } }), errors = [];
 page.on('pageerror', e => errors.push(e.message));
 page.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
-await page.goto('http://127.0.0.1:5173/');
+await page.goto(process.argv[2]??'http://127.0.0.1:5173/');
 await page.waitForFunction(() => window.game?.player, { timeout: 45000 });
 const report = await page.evaluate(() => {
   const g = window.game; g.renderer.setAnimationLoop(null); g.reset(); g.ui.playing(true);
@@ -55,7 +55,7 @@ const report = await page.evaluate(() => {
         for (const { bone, length } of bind) { const change = Math.abs(bone.getWorldPosition(vector()).distanceTo(bone.parent.getWorldPosition(vector())) - length); if (change > maximumJointStretch) { maximumJointStretch = change; stretchedBone = bone.name; } }
       }
     }
-    fixtures.push({ kind, constructionMs, parts: e.ragdoll.parts.size, transitionJump, pauseResumeJump, floorDepth, maximumJointStretch, stretchedBone, deepest, groundSamples, position: e.mesh.position.toArray() });
+    fixtures.push({ kind, scale:e.person.model.scale.y, constructionMs, parts: e.ragdoll.parts.size, transitionJump, pauseResumeJump, floorDepth, maximumJointStretch, stretchedBone, deepest, groundSamples, position: e.mesh.position.toArray() });
     if (kind === 'soldier') { window.probedCorpse = e; continue; }
     g.world.remove(e);
   }

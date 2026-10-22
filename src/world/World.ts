@@ -19,6 +19,7 @@ export class StreetWorld {
     nextId = 1;
     nav: T.Vector3[] = [];
     spawnPoints: T.Vector3[] = [];
+    updateScenery?: (camera: T.Camera) => void;
     private staticMaterials = new Map<number,T.MeshStandardMaterial>();
     constructor(
         public physics: Physics,
@@ -107,7 +108,11 @@ export class StreetWorld {
         return this.nav.filter(
             (n) =>
                 n.distanceToSquared(p) > 0.01 &&
-                n.distanceToSquared(p) < 16 * 16,
+                n.distanceToSquared(p) < 16 * 16 &&
+                this.physics.clearLine(p.clone().add(v(0,1,0)), n.clone().add(v(0,1,0)), undefined, c => {
+                    const entity = this.byCollider.get(c.handle);
+                    return !this.physics.ignored.has(c.handle) && !(entity && (isPerson(entity.kind) || entity.kind === 'car'));
+                }),
         );
     }
     sync() {
@@ -165,6 +170,7 @@ export class StreetWorld {
             const geometry = new Set<T.BufferGeometry>();
             const material = new Set<T.Material>();
             e.mesh.traverse(o => {
+                if (o instanceof T.InstancedMesh) o.dispose();
                 if (!(o instanceof T.Mesh)) return;
                 if (!retainedGeometry.has(o.geometry)) geometry.add(o.geometry);
                 for (const m of Array.isArray(o.material) ? o.material : [o.material])

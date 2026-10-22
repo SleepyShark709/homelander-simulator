@@ -1,0 +1,32 @@
+{
+  "provider": "Adobe Mixamo",
+  "licenseUrl": "https://helpx.adobe.com/creative-cloud/faq/mixamo-faq.html",
+  "authorization": "Existing user request to improve natural hero animations and use logged-in Mixamo sources; downloaded for the reported rigid arms/wrists/fingers on 2026-10-22",
+  "assets": [
+    {
+      "id": "style_idle_a",
+      "name": "Idle",
+      "description": "Standing Idle, first exact Idle result for query idle, 251 frames",
+      "filename": "standing-idle.fbx",
+      "sha256": "ca49a8343ab87536413ee708f95df2b939776034eb9c2ad411c7bde88e8c0c88",
+      "bytes": 2261824,
+      "source": "https://www.mixamo.com/#/?page=1&query=idle",
+      "character": "X Bot",
+      "export": {
+        "format": "FBX Binary",
+        "skin": "With Skin",
+        "fps": 30,
+        "keyframeReduction": "none",
+        "overdrive": 50,
+        "armSpace": 50,
+        "trim": [
+          0,
+          100
+        ],
+        "mirror": false
+      },
+      "retrieved": "2026-10-22",
+      "license": "Adobe Mixamo royalty-free game usage; not CC0"
+    }
+  ]
+}

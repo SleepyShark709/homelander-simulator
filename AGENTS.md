@@ -1,28 +1,31 @@
 # 项目协作与执行规则
 
-更新时间：2026-10-19。仓库：`git@github.com:SleepyShark709/homelander-simulator.git`。
+更新时间：2026-10-22。仓库：`git@github.com:SleepyShark709/homelander-simulator.git`。
 
 ## 阅读入口与项目目标
 
 开始工作先完整阅读本文件、[MVP 需求](docs/MVP.md)、[实施计划](docs/IMPLEMENTATION_PLAN.md) 和 [进度](docs/PROGRESS.md)。整体质量目标见 [QUALITY_UPGRADE.md](docs/QUALITY_UPGRADE.md)，素材来源见 [ASSETS.md](docs/ASSETS.md)。历史完成标记不替代当前需求和当前实测。
 
-城市密度提升与换电脑接手见 [TODO.md](TODO.md)，按已确认的 D0–D7 阶段推进：全图布局/白模、50–70 米完整街道样板、交互与用户验收、全图推广。2026-10-19 用户取消北京及任何特定城市的地域限制；优先筛选风格统一、许可/格式适用的现成模型，候选先交用户确认。现有江湾环境与用户车辆已接入，作为复用基线；旧北京概念板仅作历史参考，新密度样板尚未实施。候选研究见 [SCENE_ASSET_CANDIDATES.md](docs/SCENE_ASSET_CANDIDATES.md)。
+城市密度提升与换电脑接手见 [TODO.md](TODO.md)，按已确认的 D0–D7 阶段推进：全图布局/白模、50–70 米完整街道样板、交互与用户验收、全图推广。2026-10-19 用户取消北京及任何特定城市的地域限制；优先筛选风格统一、许可/格式适用的现成模型，候选先交用户确认。现有江湾环境与用户车辆已接入，作为复用基线；旧北京概念板仅作历史参考。2026-10-21 已完成全图白模与 66 米双侧街道样板，D6 功能检查/录像已完成，但用户随后否决建模简陋与缺少真实感，视觉验收未通过；目标明确为 GTA 式写实比例、材质和街道细节。候选研究见 [SCENE_ASSET_CANDIDATES.md](docs/SCENE_ASSET_CANDIDATES.md)。
 
-首批 A01（Downtown City MegaKit Standard 免费版）、A04（Exterior Aircon Unit）、A05（Modular Street Seating）已获用户确认用于离线检查与样板试用，无需重复询问采用决定；其他候选保留备选。完整接手清单与可复制提示词在 TODO，独立文本见 [SCENE_DENSITY_START_PROMPT.txt](docs/SCENE_DENSITY_START_PROMPT.txt)。下一次实施从 D0 推进至 D6，用户认可样板后再进入 D7；本次仅整理资料，未下载或接入新资源。
+首批 A01（Downtown City MegaKit Standard 免费版）、A04（Exterior Aircon Unit）、A05（Modular Street Seating）已获用户确认用于离线检查与样板试用，无需重复询问采用决定；其他候选保留备选。完整接手清单与可复制提示词在 TODO，独立文本见 [SCENE_DENSITY_START_PROMPT.txt](docs/SCENE_DENSITY_START_PROMPT.txt)。首批已下载、归档许可/哈希，经 Blender MCP 加工并接入；此前停在 D6 写实返工，用户进一步否决 A02/A03 的 demo 感，要求 GTA 成品游戏式真实感。2026-10-22 用户允许评估付费素材，要求采购前展示具体效果与价格、确认可接入现 Web，购买前再明确确认；用户已认可免费 Graffiti Stairs 并授权本机试用，现已 US$0 领取 2K FBX 并完成 Three.js/KTX2 本机试用（7 项接入检查通过，窄梯步行未过）；原始与派生资源仅留忽略路径，尚不视作公开再分发许可确认。`?scene=graffiti` 为本机试用入口，实际证据见 [写实试用](docs/GRAFFITI_STAIRS_TRIAL.md)。付费 PropHaus City Streets 仍未采用或购买；该阶段推进状态已由下文全城授权更新。实现、冻结副本验证与未测边界见 [SCENE_DENSITY_REVIEW.md](docs/SCENE_DENSITY_REVIEW.md)。
+
+2026-10-22 最新：用户已认可免费 Graffiti Stairs 的本机材质质感，并明确要求接入原地图、扩展全城，授权用 Blender MCP 修改现有素材。默认约 200×200 米核心现以同套六类建筑扩成 65 栋，外围 336 栋仅作远景，保留原楼梯街角、车辆和现有玩法；完整记录见 [全城记录](docs/GRAFFITI_CITY_INTEGRATION.md)。原 5194 小场景和旧样板留作历史，不能作为新版入口。新城整体画面仍交用户审看，不能延用旧“D7 不推进”的状态。私有素材未进公开 manifest，不代表公开再分发许可已确认。
 
 实现第三人称 Web 街区沙盒：自由飞行、镭射、重拳、砸地、超级速度、无敌、三级追捕、车辆物理、局部破坏和少量血液。用户确认后续通过 Web 打开，不做桌面 PC 游戏。当前保持 TypeScript、Vite、Three.js、Rapier；场景使用真实 3D 模型，DOM 只负责界面。
 
-2026-10-19 用户追加超级速度：玩家保持正常响应，周围动态世界（包括 NPC 移动和物体坠落）进入慢动作，身后有类似动态模糊的连续运动拖影（软边拉伸痕迹，不生成离散人形）；高速撞行人当步转换为血溅及血泥/血泊，玩家速度和应走位移不因该接触减少，死亡/计分一次。完整墙车仍阻挡且遮挡后方目标。此增量覆盖旧“慢动作不做”和该情形下“少量血液/完整倒地”的限制，不扩展为通用肢解系统。当前仅更新需求与计划，尚未实现；时间域、共享物理验证、效果预算和验收见 [动作与超级速度计划](docs/HOMELANDER_ANIMATION_PLAN.md)。
+2026-10-19 用户追加超级速度：玩家保持正常响应，周围动态世界（包括 NPC 移动和物体坠落）进入慢动作，高速撞行人当步转换为血溅及血泥/血泊，玩家速度和应走位移不因该接触减少，死亡/计分一次。完整墙车仍阻挡且遮挡后方目标。此增量覆盖旧“慢动作不做”和该情形下“少量血液/完整倒地”的限制，不扩展为通用肢解系统。2026-10-21 已接入双时间域及高速人形注销/血溅残留；当时接入的连续软边路径拖尾已于 2026-10-22 按用户要求移除，不再作为当前需求或验收项。现有风线、视野变化、实际加速与慢世界保留，当前技术和实机验证见 [动作审查](docs/HOMELANDER_ANIMATION_REVIEW.md)。用户继续优先自然动作，但已否决几乎无提速的6.5版本；当前普通前进6、Shift前进8.2米/秒并使用Sprint，世界0.05倍、人形高速门槛6.8，普通墙车门槛仍18。镭射按实际相对方向使用正式适配侧跑/后退，方向动画上限1.25，限速后仍保留同等Shift提速。撞人保留当步结算，另加短视觉消散与喷液/血泊扩散。专用左右转身已接入，完整足底与自然度验收未完成，A2 未关闭；时间域、共享物理验证、效果预算和验收见 [动作与超级速度计划](docs/HOMELANDER_ANIMATION_PLAN.md)。
 
 不得静默删减已确认范围，也不擅自增加账号、付费服务、声音、引擎迁移或线上部署。
 
 ## 当前角色基线
 
-- 主角采用用户 Tripo / Auto-Rig Pro 模型：`human/homelander.glb`，68 个导出骨骼、双手五指、18 段现成动作。NPC 保持 base 原配的 66 骨骼组合。
+- 主角沿用用户 Tripo / Auto-Rig Pro 模型与 68 骨骼、双手五指。`human/homelander.glb` 的原 18 段作为未改基线保留；当前默认加载 `human/homelander-style.glb`（42 段），待机/悬停按完整循环随机 A/B，飞行采用放松肩臂、平视的 A 贴身版。`?heroStyle=baseline` 可回看原基线，原 A/B 查询入口保留。NPC 保持 base 原配的 66 骨骼组合。
+- 2026-10-22 用户否决停止收势的僵硬肩臂、手腕和五指。新 A 使用 Mixamo `Idle`（Standing Idle，251 帧）完整正式适配，B 与四段起停复用此源；不得恢复被否决的 canonical idle 作为起停终点。左右 `turn_l/r` 使用新 Mixamo 转身源与 ARP 全角色轨迹分离，完成朝向保留，移动/攻击立即响应。固定输入在 `.asset-source/homelander/idle/`、`turns/`；自然度仍须用户审看。
 - 十份用户 Mixamo 动作与八份现成步行、起飞、悬停、落地、砸地、下落、起跳及跳跃落地动作均通过 Auto-Rig Pro Remap / Universal GLTF 离线适配。导出启用 `arp_ge_reset_transforms`，防止未键控胸椎受上个动作污染；走跑使用官方 In Place。源披风仍单骨绑定，浏览器以 `CapePhysics` 的 231 节点 XPBD 模拟重力、惯性、风阻和身体/场景碰撞；仅修改私有几何的披风部分，未做布料自碰撞。
 - 两包绑定矩阵不同，骨名相同不代表兼容。禁止原样跨包复制轨道、手写骨骼角度公式、手工人体关键帧或关节修姿态补丁；新动作应来自许可明确的现成资源及成熟适配工具。
 - 浏览器直接播放生成的 GLB，无运行时重定向。完整骨架、肩膀、手指、脚趾和实际蒙皮都必须检查，不能以单一手腕角度宣称人体正常。
-- 下落改用 base `Jump_air` 经 ARP 正式适配；禁止恢复举臂 `Glide`。自然落差达到 6 米才执行落地收势，Q 共用 `land`；从原片段 0.45 秒接触点播放，不能在接地后重播其空中下降。起飞约 0.65 秒进入悬停。参数均在 `core/config.ts`。
+- 自然下落当前改用原 `Levitate Idle` 派生的直立 `style_fall_controlled`，通过 ARP 控制器约束继承原待机的头颈活动；普通跳跃空中仍使用 base `Jump_air`。禁止恢复举臂 `Glide`。自然落差达到 6 米才执行落地收势，Q 共用落地收势；背手姿态使用接触点裁切并释放上肢的 `style_land_from_back`，其他姿态用 `land` 从原片段 0.45 秒接触点播放，不能在接地后重播其空中下降。起飞约 0.65 秒进入悬停。参数均在 `core/config.ts`。
 - 地面空格按下触发一次跳跃，使用经 ARP 适配的 base `Jump_Start` / `Jump_Land`，空中复用 `Jump_air`。长按不连跳、空中不二段跳；飞行时空格仍上升。普通跳跃落地用 `jump_land`，大落差仍用 `land`。
 - 不恢复 MakeHuman、`Run_Stealth` 或旧自制动作。历史导入脚本仅保留记录，不作为当前重建入口。
 - 主角跑步播放倍率上限为 1.35，集中在 `src/core/config.ts` 的 `CONFIG.playerRunAnimationRateMax`。循环与过渡检查保持 0.12 米/120 Hz 的连续性要求；姿态应对照当前认可的原片段。
@@ -50,8 +53,12 @@ NPC 运行材质保留本地织物、衣裤与制服/迷彩纹理。
 ```sh
 "/Applications/Blender.app/Contents/MacOS/Blender" --background --python-exit-code 1 --python scripts/adapt-homelander.py
 node scripts/pack-homelander.mjs
+"/Applications/Blender.app/Contents/MacOS/Blender" --background --python-exit-code 1 --python scripts/build-homelander-style.py
+node scripts/pack-homelander-style.mjs
 python3 scripts/asset-manifest.py
 ```
+
+默认风格包另在 Blender/MCP 中执行 `scripts/build-homelander-style.py`，然后运行 `node scripts/pack-homelander-style.mjs` 与素材清单脚本；原管线提供已验证中间工程。可编辑 NLA/约束、接触测量合同和全身求值参考位于 `.asset-source/homelander/`；不手填人体关节角度。
 
 模型、动作、适配器和 Blender 蒙皮参考的摘要保存在 `.asset-source/homelander/`。修改输入或适配实现后须重新生成并验证，不能手改缓存冒充工具结果。正常运行与测试无需 Blender、插件或联网下载。
 
@@ -97,7 +104,7 @@ Rapier 0.20 的查询过滤回调只比较碰撞句柄与 JS 元数据，不调�
 
 基础地面使用向上法线固定的 HalfSpace，避免大 cuboid 的倾斜接触法线与平地抬升。Rapier 对 HalfSpace 近零位移查询会返回半个球半径的异常向上位移；静止时使用非零支撑探测更新 grounded，同时保持请求的静止位置。已落地帧不重复施加向下重力，失去支撑后恢复重力。探测参数在 `CONFIG.playerSupportProbe`。
 
-地面动画采用插值后的水平速度和方向，与画面位置同步；垂直重力不参与地面走跑选择。修改这条路径必须逐帧检查持续跑步、不同刷新率、转向、停止再起跑、高台坠落/落地，以及悬停、砸地、墙边和倒地回归，不能只验证总路程。证据见 [RUNNING_VALIDATION.md](docs/RUNNING_VALIDATION.md)。NPC 和实体碰撞会阻挡运动，应从实际碰撞记录区分场景阻挡与平地反复归零。
+地面动画采用插值后的水平速度和方向，与画面位置同步；垂直重力不参与地面走跑选择。修改这条路径必须逐帧检查持续跑步、不同刷新率、转向、停止再起跑、高台坠落/落地，以及悬停、砸地、墙边和倒地回归，不能只验证总路程。证据见 [RUNNING_VALIDATION.md](docs/RUNNING_VALIDATION.md)。一般 NPC 和实体碰撞仍会阻挡运动；超速激活并达到实际速度门槛时，人形按连续扫掠顺序注销并重算本步完整位移，墙车继续阻挡。应从实际碰撞记录区分场景阻挡与平地反复归零。
 
 ## 验证与交付
 

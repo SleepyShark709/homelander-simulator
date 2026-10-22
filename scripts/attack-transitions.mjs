@@ -54,8 +54,8 @@ const report=await page.evaluate(()=>{
     // A real descent to the street during the punch must still play landing recovery.
     const landing=setup(true);landing.position.y=9.3;landing.previous.copy(landing.position);landing.body.setTranslation(landing.position,true);
     g.input.punch=true;g.input.pressed.add('KeyF');let sawLand=false;
-    for(let i=0;i<250;i++){clock+=1000/120;g.frame(clock);if(landing.visual.baseCurrent==='land')sawLand=true;}
-    checks.push({name:'an airborne punch can fall, land and return to standing',pass:sawLand&&landing.mode==='ground'&&landing.visual.current==='idle',sawLand,mode:landing.mode,clip:landing.visual.current});
+    for(let i=0;i<250;i++){clock+=1000/120;g.frame(clock);if(['land','style_land_from_back'].includes(landing.visual.baseCurrent))sawLand=true;}
+    checks.push({name:'an airborne punch can fall, land and return to standing',pass:sawLand&&landing.mode==='ground'&&['idle','style_idle_a','style_idle_b'].includes(landing.visual.current),sawLand,mode:landing.mode,clip:landing.visual.current});
     return {checks};
 });
 fs.writeFileSync('.artifacts/attack-transitions.json',JSON.stringify({...report,errors},null,2));

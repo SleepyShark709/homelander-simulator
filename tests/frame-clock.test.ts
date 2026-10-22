@@ -8,7 +8,7 @@ it('a queued RAF older than resume does not reverse animation blending or simula
         previous: 1010, running: true, inspectionFrozen: false, accumulator: 0, time: 1,
         frameTimes: [] as number[], updateTimes: [], submissionTimes: [],
         player: { sync() {}, animate, visual: { group: { position: new Vector3() } }, renderVelocity: new Vector3() },
-        world: { interpolate() {} }, camera: { update() {} },
+        world: { interpolate() {} }, camera: { update() {}, camera:{position:new Vector3()} },
         combat: { renderBeams() {} }, effects: { speedTrails() {} },
         presentation: { render() {} }, updateUI() {}, step: vi.fn(),
     };

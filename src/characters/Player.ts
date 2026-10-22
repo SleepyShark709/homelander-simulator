@@ -33,7 +33,7 @@ export class Player {
     private recoveryClip = 'land';
     private punchHits: number[] = [];
     private airbornePeak = this.position.y;
-    onContact = (c: R.Collider, speed: number, direction: T.Vector3) => false;
+    onContact = (c: R.Collider, speed: number, direction: T.Vector3, vertical = false) => false;
     onSlam = (p: T.Vector3) => {};
     onPunch = () => {};
     constructor(
@@ -76,6 +76,14 @@ export class Player {
         return this.position.clone().add(v(0, -1.0, 0));
     }
     clearBufferedAttack() { this.punchQueuedTime = 0; }
+    get superSpeedRequested() {
+        const keys = this.input.keys;
+        const horizontal = Number(keys.has('KeyW')) - Number(keys.has('KeyS')) ||
+            Number(keys.has('KeyD')) - Number(keys.has('KeyA'));
+        const vertical = this.mode === 'fly' && (Number(keys.has('Space')) -
+            Number(keys.has('ControlLeft') || keys.has('ControlRight')));
+        return this.input.shift && !this.recovery && (this.mode === 'ground' || this.mode === 'fly') && !!(horizontal || vertical);
+    }
     step(dt: number) {
         this.simulationTime += dt;
         this.previous.copy(this.position);
@@ -162,14 +170,18 @@ export class Player {
         if (this.input.keys.has('KeyD')) wish.add(right);
         if (this.input.keys.has('KeyA')) wish.sub(right);
         if (wish.lengthSq() > 0) wish.normalize();
-        const flying = this.mode === 'fly',
-            speed = flying
+        const flying = this.mode === 'fly';
+        let speed:number = flying
                 ? this.input.shift
                     ? CONFIG.boost
                     : CONFIG.fly
                 : this.input.shift
                   ? CONFIG.sprint
                   : CONFIG.walk;
+        if(this.mode==='ground' && this.input.laser && !this.punchTime && wish.lengthSq()>0) {
+            const yaw=this.input.yaw+Math.PI,c=Math.cos(yaw),s=Math.sin(yaw);
+            speed=this.visual.aimSpeedLimit(c*wish.x-s*wish.z,s*wish.x+c*wish.z,this.input.shift);
+        }
         const wantFlightHull=flying || this.mode === 'fall';
         if (wantFlightHull !== this.flightHull) {
             let blocked=false;
@@ -258,36 +270,49 @@ export class Player {
         const queryMovement = stationary ? v(0, -CONFIG.playerSupportProbe, 0) : desired;
         const predicate = (c: R.Collider) =>
             !this.physics.ignored.has(c.handle);
-        this.controller.computeColliderMovement(
-            this.collider,
-            queryMovement,
-            undefined,
-            undefined,
-            predicate,
-        );
-        let retry = false;
-        if (actualSpeed >= CONFIG.contactSpeed) {
+        // Restart the complete sweep after each removed obstacle. Consuming the
+        // old collision list would retain a blocked displacement or hit behind it.
+        const contacted = new Set<number>();
+        const maxSweeps = this.physics.world.colliders.len() + 1;
+        const contactSpeed=this.superSpeedRequested ? Math.min(CONFIG.contactSpeed,CONFIG.superSpeed.impactSpeed) : CONFIG.contactSpeed;
+        if(this.superSpeedRequested && actualSpeed>=CONFIG.superSpeed.impactSpeed) {
+            // KCC ground prediction can match a nearby moving body's velocity
+            // before reporting its contact. Sweep the actual shape first so a
+            // consumed person cannot shorten this step. Tangent support is skipped.
+            const origin=this.collider.translation(), rotation=this.collider.rotation(), shape=this.collider.shape;
+            for(let sweep=0;sweep<maxSweeps;sweep++) {
+                const hit=this.physics.world.castShape(origin,rotation,queryMovement,shape,0,1,false,
+                    undefined,undefined,this.collider,undefined,predicate);
+                if(!hit)break;
+                contacted.add(hit.collider.handle);
+                const vertical=Math.abs(hit.normal1.y)>0.7;
+                if(!this.onContact(hit.collider,actualSpeed,this.velocity.clone().normalize(),vertical)) {
+                    if(!vertical)this.shake=.13;
+                    break;
+                }
+            }
+        }
+        for (let sweep = 0; sweep < maxSweeps; sweep++) {
+            this.controller.computeColliderMovement(this.collider, queryMovement, undefined, undefined, predicate);
+            let retry = false;
+            if (actualSpeed < contactSpeed) break;
             for (let i = 0; i < this.controller.numComputedCollisions(); i++) {
                 const collision = this.controller.computedCollision(i);
                 if (!collision?.collider) continue;
-                if (Math.abs(collision.normal1.y) > 0.7) continue;
-                retry =
-                    this.onContact(
+                const handle = collision.collider.handle;
+                if (contacted.has(handle)) continue;
+                contacted.add(handle);
+                retry = this.onContact(
                         collision.collider,
                         actualSpeed,
                         this.velocity.clone().normalize(),
-                    ) || retry;
-                this.shake = 0.13;
+                        Math.abs(collision.normal1.y) > 0.7,
+                    );
+                if (!retry && Math.abs(collision.normal1.y) <= 0.7) this.shake = 0.13;
+                if (retry) break;
             }
+            if (!retry) break;
         }
-        if (retry)
-            this.controller.computeColliderMovement(
-                this.collider,
-                queryMovement,
-                undefined,
-                undefined,
-                predicate,
-            );
         const movement = stationary ? v() : vec(this.controller.computedMovement());
         const grounded = this.controller.computedGrounded();
         this.position.add(movement);
@@ -302,8 +327,8 @@ export class Player {
                 const slam = this.mode === 'slam';
                 if (slam || (this.mode !== 'ground' && this.airbornePeak - this.position.y >= CONFIG.playerHardLandingHeight)) {
                     this.recoveryClip = 'land';
-                    this.visual.play('land', true);
-                    this.recovery = this.visual.actionDuration('land') - CONFIG.playerLandingContactTime;
+                    this.visual.playLanding();
+                    this.recovery = this.visual.landingRecoveryDuration;
                 } else if (this.mode === 'jump') {
                     this.recoveryClip = 'jump_land';
                     this.visual.play('jump_land', true);
@@ -343,17 +368,24 @@ export class Player {
     }
     animate(dt: number, time: number) {
         const horizontalSpeed = Math.hypot(this.renderVelocity.x, this.renderVelocity.z);
+        if(dt>0 && this.mode==='ground' && horizontalSpeed<CONFIG.animation.idleTurnSpeed &&
+            !this.input.laser && !this.punchTime && !this.recovery &&
+            !['KeyW','KeyS','KeyA','KeyD'].some(key=>this.input.keys.has(key))) {
+            const delta=T.MathUtils.euclideanModulo(this.input.yaw+Math.PI-this.movementYaw+Math.PI,Math.PI*2)-Math.PI;
+            if(Math.abs(delta)>CONFIG.animation.idleTurnAngle)this.visual.startTurn(delta>0);
+        }
         const moving = (this.mode === 'ground' || this.mode === 'takeoff' || this.mode === 'jump') && horizontalSpeed > Math.sqrt(0.5) && !this.input.laser && !this.punchTime;
-        const desiredYaw = moving ? Math.atan2(this.renderVelocity.x,this.renderVelocity.z) : this.input.yaw+Math.PI;
+        const desiredYaw = moving ? Math.atan2(this.renderVelocity.x,this.renderVelocity.z)
+            : this.mode==='ground' && !this.input.laser && !this.punchTime ? this.movementYaw : this.input.yaw+Math.PI;
         const headingDelta=T.MathUtils.euclideanModulo(desiredYaw-this.movementYaw+Math.PI,Math.PI*2)-Math.PI;
         const turn = headingDelta*(1-Math.exp(-dt*16));
         this.movementYaw += this.punchTime || this.input.laser
             ? T.MathUtils.clamp(turn, -CONFIG.animation.attackTurnSpeed * dt, CONFIG.animation.attackTurnSpeed * dt) : turn;
         this.visual.group.rotation.y=this.movementYaw;
-        const mode = this.mode === 'jump' ? this.jumpTime < CONFIG.playerJumpStartDuration ? 'jump_start' : 'fall'
+        const mode = this.mode === 'jump' ? this.jumpTime < CONFIG.playerJumpStartDuration ? 'jump_start' : 'jump_air'
             : this.mode === 'takeoff' ? 'takeoff'
             : this.mode === 'fly'
-              ? this.velocity.length() > 18
+              ? this.input.shift && this.renderVelocity.dot(this.horizontal()) > 18
                   && this.flightHull ? 'boost'
                   : 'fly'
               : this.mode === 'slam'
@@ -392,6 +424,10 @@ export class Player {
             this.punchTime,
             this.punchTime > 0 ? Math.max(0, this.visual.actionDuration(this.attackClip) - this.punchTime
                 - Math.max(0, this.simulationTime - time)) : undefined,
+            !!(Number(this.input.keys.has('KeyW'))-Number(this.input.keys.has('KeyS')) ||
+                Number(this.input.keys.has('KeyD'))-Number(this.input.keys.has('KeyA'))),
+            this.input.shift,
         );
+        this.movementYaw+=this.visual.turnYawDelta;
     }
 }

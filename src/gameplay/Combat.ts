@@ -11,6 +11,7 @@ import { CONFIG } from '../core/config';
 import { Ragdoll } from '../characters/Ragdoll';
 export class Combat {
     time = 0;
+    worldTime = 0;
     serial = 0;
     laserAccumulator = 0;
     contacts = new Map<number, number>();
@@ -28,7 +29,7 @@ export class Combat {
     ) {
         player.onPunch = () => this.punch();
         player.onSlam = (p) => this.slam(p);
-        player.onContact = (c, s, d) => this.contact(c, s, d);
+        player.onContact = (c, s, d, vertical) => this.contact(c, s, d, vertical);
     }
     blocking(c: R.Collider) {
         return (
@@ -47,7 +48,7 @@ export class Combat {
         const result = e.health.hit(damage, token, this.time);
         if (!result.applied) return false;
         this.wanted.hit(e.id, this.time);
-        this.npcs.scare(point, this.time);
+        this.npcs.scare(point, this.worldTime);
         this.effects.particles(
             point,
             isPerson(e.kind) ? 0x962e32 : 0xffc490,
@@ -58,7 +59,7 @@ export class Combat {
             this.wanted.destroyed(e.kind);
             if (isPerson(e.kind)) {
                 this.kills++;
-                e.deathTime = this.time;
+                e.deathTime = this.worldTime;
                 this.world.byCollider.delete(e.collider.handle);
                 this.physics.world.removeRigidBody(e.body!);
                 e.ragdoll = new Ragdoll(
@@ -108,7 +109,7 @@ export class Combat {
             });
         }
         if (e.kind === 'car' && e.body) {
-            e.carOwnedUntil = this.time + 5;
+            e.carOwnedUntil = this.worldTime + 5;
             e.collisionHits.clear();
             e.body.applyImpulse(
                 dir
@@ -150,11 +151,11 @@ export class Combat {
             this.hit(e, CONFIG.punchDamage, token, target, dir, 12);
             this.player.shake = 0.13;
         }
-        this.npcs.scare(origin, this.time);
+        this.npcs.scare(origin, this.worldTime);
     }
     slam(point: T.Vector3) {
         this.wanted.action();
-        this.npcs.scare(point, this.time);
+        this.npcs.scare(point, this.worldTime);
         this.effects.ring(point);
         this.effects.fragments(point, 0xa1a598, 1);
         const origin = point.clone().add(v(0, 0.25, 0)),
@@ -170,9 +171,25 @@ export class Combat {
             this.hit(e, CONFIG.slamDamage, token, target, dir.normalize(), 17);
         }
     }
-    contact(c: R.Collider, _speed: number, dir: T.Vector3) {
+    contact(c: R.Collider, speed: number, dir: T.Vector3, vertical = false) {
         const e = this.world.byCollider.get(c.handle);
         if (!e || e.health.dead) return false;
+        if (isPerson(e.kind) && this.player.superSpeedRequested && speed >= CONFIG.superSpeed.impactSpeed) {
+            const point = vec(c.translation());
+            const result = e.health.hit(e.health.hp, `speed:${++this.serial}`, this.time);
+            if (!result.killed) return false;
+            this.wanted.hit(e.id, this.time);
+            this.wanted.destroyed(e.kind);
+            this.npcs.scare(point, this.worldTime);
+            this.kills++;
+            this.effects.impactRemnant.spawn(e.mesh,dir);
+            this.world.remove(e);
+            this.effects.bloodImpact(point, dir, this.player.collider,
+                c => this.blocking(c) && !isPerson(this.world.byCollider.get(c.handle)?.kind ?? 'prop'));
+            this.wanted.forget(e.id);
+            return true;
+        }
+        if (vertical || speed<CONFIG.contactSpeed) return false;
         if (this.time - (this.contacts.get(e.id) ?? -Infinity) < 0.5)
             return false;
         this.contacts.set(e.id, this.time);
@@ -249,7 +266,7 @@ export class Combat {
                         dir,
                         1,
                     );
-                this.npcs.scare(final, this.time);
+                this.npcs.scare(final, this.worldTime);
             }
         }
     }
@@ -264,14 +281,14 @@ export class Combat {
         for (const [id, t] of this.contacts)
             if (time - t > 3) this.contacts.delete(id);
         for (const e of [...this.world.entities.values()]) {
-            if (e.deathTime !== undefined && time - e.deathTime > 12) {
+            if (e.deathTime !== undefined && this.worldTime - e.deathTime > 12) {
                 this.world.remove(e);
                 this.wanted.forget(e.id);
             }
             if (
                 e.kind === 'car' &&
                 e.body &&
-                time < e.carOwnedUntil &&
+                this.worldTime < e.carOwnedUntil &&
                 vec(e.body.linvel()).length() > 3
             ) {
                 for (const person of this.world

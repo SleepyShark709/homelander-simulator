@@ -8,7 +8,7 @@ const page = await browser.newPage({viewport:{width:1280,height:800}});
 const errors=[];
 page.on('pageerror',e=>errors.push(e.message));
 page.on('console',m=>{if(m.type()==='error'&&/THREE|WebGL|shader/i.test(m.text()))errors.push(m.text());});
-await page.goto('http://127.0.0.1:5173/');
+await page.goto(process.argv[3]??'http://127.0.0.1:5173/');
 await page.waitForFunction(()=>window.game?.player,{timeout:45000});
 const report = await page.evaluate(async()=>{
     const T=await import('/node_modules/.vite/deps/three.js');
@@ -44,7 +44,7 @@ const report = await page.evaluate(async()=>{
                 const delta=pose[j].distanceTo(previous[j])/dt/120;
                 if(delta>maxStep){maxStep=delta;worst={frame,bone:joints[j].name,clip:p.visual.current};}
             }
-            if(mode==='fly'&&p.visual.current==='land')spuriousLand++;
+            if(mode==='fly'&&['land','style_land_from_back'].includes(p.visual.current))spuriousLand++;
             if(mode==='fly')groundLift=Math.max(groundLift,p.visual.model.position.y);
             previous=pose;frame++;
         }

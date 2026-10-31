@@ -69,19 +69,25 @@ with sync_playwright() as pw:
         prepare(roof['x'],roof['y']+7,roof['z'],mode='fly');page.keyboard.down('ControlLeft')
         page.wait_for_function("window.game.player.mode==='ground'",timeout=10000);page.keyboard.up('ControlLeft');page.wait_for_timeout(600)
         check('actual descending flight lands on an expanded roof',abs(state()['position'][1]-roof['y']-1.1)<.15,state())
+        page.wait_for_function('window.game.player.recovery<=0',timeout=10000)
         page.screenshot(path=str(out/'roof-landing.png'))
         target=page.evaluate('''()=>{const g=window.game,e=g.world.alive('panel').find(e=>e.mesh.name==='city-courtyard-gate');
           const n=g.player.position.clone().set(0,0,1).applyQuaternion(e.mesh.quaternion);return {id:e.id,p:e.mesh.position.toArray(),n:n.toArray()}}''')
-        p,n=target['p'],target['n'];prepare(p[0]+n[0]*2.3,1.1,p[2]+n[2]*2.3,math.atan2(n[0],n[2]))
+        # Approach from the street into the courtyard. Exiting an outer gate
+        # immediately enters the game's existing twenty-metre boundary slowdown.
+        p,n=target['p'],target['n'];prepare(p[0]-n[0]*2.3,1.1,p[2]-n[2]*2.3,math.atan2(-n[0],-n[2]))
         page.keyboard.down('KeyW');page.wait_for_timeout(600);page.keyboard.up('KeyW');page.wait_for_timeout(250)
         blocked=state()['position'];signed=(blocked[0]-p[0])*n[0]+(blocked[2]-p[2])*n[2]
-        check('intact courtyard gate blocks actual walking',signed>.9,{'signedDistance':signed,'position':blocked})
+        check('intact courtyard gate blocks actual walking',signed<-.9,{'signedDistance':signed,'position':blocked})
         aim(p);page.mouse.down();page.wait_for_timeout(900);page.mouse.up()
         check('actual laser removes the gate collider',page.evaluate('id=>{const g=window.game,e=g.world.entities.get(id);return e.health.dead&&!e.mesh.visible&&!g.world.byCollider.has(e.collider.handle)}',target['id']))
-        page.evaluate('(yaw)=>{window.game.input.yaw=yaw;window.game.input.pitch=-.08}',math.atan2(n[0],n[2]))
+        page.evaluate('(yaw)=>{window.game.input.yaw=yaw;window.game.input.pitch=-.08}',math.atan2(-n[0],-n[2]))
         page.keyboard.down('KeyW');page.wait_for_timeout(650);page.keyboard.up('KeyW');page.wait_for_timeout(250)
         crossed=state()['position'];signed=(crossed[0]-p[0])*n[0]+(crossed[2]-p[2])*n[2]
-        check('actual walking crosses the destroyed gate opening',signed<-.9,{'signedDistance':signed,'position':crossed})
+        detail=page.evaluate('''()=>{const g=window.game,h=g.player,collisions=[];for(let i=0;i<h.controller.numComputedCollisions();i++){
+          const c=h.controller.computedCollision(i);if(c?.collider)collisions.push({handle:c.collider.handle,p:c.collider.translation(),name:g.world.byCollider.get(c.collider.handle)?.mesh.name});}
+          return {recovery:h.recovery,state:g.snapshot(),collisions}}''') if signed<=.9 else None
+        check('actual walking crosses the destroyed gate opening',signed>.9,{'signedDistance':signed,'position':crossed,'diagnostic':detail})
         page.screenshot(path=str(out/'broken-gate.png'))
         target=page.evaluate('''()=>{const g=window.game,e=g.world.alive('panel').find(e=>e.mesh.name==='city-shop-glass');
           const n=g.player.position.clone().set(0,0,1).applyQuaternion(e.mesh.quaternion);return {id:e.id,p:e.mesh.position.toArray(),n:n.toArray()}}''')

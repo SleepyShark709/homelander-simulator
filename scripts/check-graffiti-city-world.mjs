@@ -71,6 +71,23 @@ try {
     check('twenty initial civilians have distinct safe positions',new Set(people.map(p=>p.toArray().join(','))).size===20,people.map(p=>p.toArray()));
     check('original eight vehicle bodies remain',world.alive('car').length===8);
     check('at least eight independent destructible zones remain',world.alive('panel').length>=8,world.alive('panel').length);
+    const gateRoutes=world.alive('panel').filter(e=>e.mesh.name==='city-courtyard-gate').map(gate=>{
+        const normal=new T.Vector3(0,0,1).applyQuaternion(gate.mesh.quaternion);
+        const origin=gate.mesh.position.clone().setY(1.3).addScaledVector(normal,2.3);
+        const hit=physics.world.castShape(origin,{x:0,y:0,z:0,w:1},normal.clone().multiplyScalar(-5),new R.Ball(1.1),0,1,false,
+            undefined,undefined,undefined,undefined,c=>c.handle!==gate.collider.handle);
+        return {position:gate.mesh.position.toArray(),blocked:Boolean(hit),obstacle:hit&&{
+            handle:hit.collider.handle,position:hit.collider.translation(),name:world.byCollider.get(hit.collider.handle)?.mesh.name}};
+    });
+    check('destroyed courtyard gates leave a full player-width passage',gateRoutes.every(g=>!g.blocked),gateRoutes);
+    const pavementRoutes=[];
+    for(const side of [-11.5,11.5])for(const t of [-90,-72,-48,-30,18,36,66,78])for(const horizontal of [false,true]) {
+        const origin=horizontal?new T.Vector3(t,1.3,side):new T.Vector3(side,1.3,t);
+        const movement=horizontal?new T.Vector3(12,0,0):new T.Vector3(0,0,12);
+        const hit=physics.world.castShape(origin,{x:0,y:0,z:0,w:1},movement,new R.Ball(1.1),0,1,false);
+        pavementRoutes.push({origin:origin.toArray(),blocked:Boolean(hit)});
+    }
+    check('three-metre main pavements retain full player-hull clearance',pavementRoutes.every(p=>!p.blocked),pavementRoutes);
     const city=assets.models.get('graffitiCity'),layout=city.parser.json.extras.graffitiCity,roofs=[];
     for(const p of layout.buildings) {
         const source=city.scene.getObjectByName(p.prototype+'_L0');city.scene.updateMatrixWorld(true);

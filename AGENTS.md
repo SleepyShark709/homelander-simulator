@@ -10,7 +10,7 @@
 
 首批 A01（Downtown City MegaKit Standard 免费版）、A04（Exterior Aircon Unit）、A05（Modular Street Seating）已获用户确认用于离线检查与样板试用，无需重复询问采用决定；其他候选保留备选。完整接手清单与可复制提示词在 TODO，独立文本见 [SCENE_DENSITY_START_PROMPT.txt](docs/SCENE_DENSITY_START_PROMPT.txt)。首批已下载、归档许可/哈希，经 Blender MCP 加工并接入；此前停在 D6 写实返工，用户进一步否决 A02/A03 的 demo 感，要求 GTA 成品游戏式真实感。2026-10-22 用户允许评估付费素材，要求采购前展示具体效果与价格、确认可接入现 Web，购买前再明确确认；用户已认可免费 Graffiti Stairs 并授权本机试用，现已 US$0 领取 2K FBX 并完成 Three.js/KTX2 本机试用（7 项接入检查通过，窄梯步行未过）；原始与派生资源仅留忽略路径，尚不视作公开再分发许可确认。`?scene=graffiti` 为本机试用入口，实际证据见 [写实试用](docs/GRAFFITI_STAIRS_TRIAL.md)。付费 PropHaus City Streets 仍未采用或购买；该阶段推进状态已由下文全城授权更新。实现、冻结副本验证与未测边界见 [SCENE_DENSITY_REVIEW.md](docs/SCENE_DENSITY_REVIEW.md)。
 
-2026-10-22 最新：用户已认可免费 Graffiti Stairs 的本机材质质感，并明确要求接入原地图、扩展全城，授权用 Blender MCP 修改现有素材。默认约 200×200 米核心现以同套六类建筑扩成 65 栋，外围 336 栋仅作远景，保留原楼梯街角、车辆和现有玩法；完整记录见 [全城记录](docs/GRAFFITI_CITY_INTEGRATION.md)。原 5194 小场景和旧样板留作历史，不能作为新版入口。新城整体画面仍交用户审看，不能延用旧“D7 不推进”的状态。私有素材未进公开 manifest，不代表公开再分发许可已确认。
+2026-10-22 最新：用户已认可免费 Graffiti Stairs 的本机材质质感，并明确要求接入原地图、扩展全城，授权用 Blender MCP 修改现有素材。默认约 200×200 米核心已按用户空旷反馈收紧为 171 栋（主路人行道 3 米、净地块占地约 78%），外围 336 栋仅作远景，保留原楼梯街角、车辆和现有玩法；完整记录见 [全城记录](docs/GRAFFITI_CITY_INTEGRATION.md)。原 5194 小场景和旧样板留作历史，不能作为新版入口。新城整体画面仍交用户审看，不能延用旧“D7 不推进”的状态。私有素材未进公开 manifest，不代表公开再分发许可已确认。
 
 实现第三人称 Web 街区沙盒：自由飞行、镭射、重拳、砸地、超级速度、无敌、三级追捕、车辆物理、局部破坏和少量血液。用户确认后续通过 Web 打开，不做桌面 PC 游戏。当前保持 TypeScript、Vite、Three.js、Rapier；场景使用真实 3D 模型，DOM 只负责界面。
 

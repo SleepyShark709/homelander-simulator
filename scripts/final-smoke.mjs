@@ -20,7 +20,8 @@ try{
  const crossing=await page.evaluate(()=>{
   const g=window.game;g.reset();const p=g.player;
   if(g.assets.graffitiCity){
-   const panel=g.world.alive('panel').find(e=>e.mesh.name==='city-courtyard-gate');
+   const panel=g.world.alive('panel').filter(e=>e.mesh.name==='city-courtyard-gate')
+    .sort((a,b)=>a.mesh.position.lengthSq()-b.mesh.position.lengthSq())[0];
    const n=p.position.clone().set(0,0,1).applyQuaternion(panel.mesh.quaternion);
    const origin=panel.mesh.position.clone().setY(2.4).addScaledVector(n,.3);
    const wall=g.physics.ray(origin,n,40),wallDistance=wall&&wall.timeOfImpact+.3;
